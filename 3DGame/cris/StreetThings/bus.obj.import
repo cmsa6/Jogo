@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bus.obj-0332034c07b1494a2b211f453147b1f7.mesh"
+
+[deps]
+
+files=[ "res://.import/bus.obj-0332034c07b1494a2b211f453147b1f7.mesh" ]
+
+source_file="res://cris/StreetThings/bus.obj"
+dest_files=[ "res://.import/bus.obj-0332034c07b1494a2b211f453147b1f7.mesh", "res://.import/bus.obj-0332034c07b1494a2b211f453147b1f7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

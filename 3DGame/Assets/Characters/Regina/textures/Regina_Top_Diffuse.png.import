@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Regina_Top_Diffuse.png-3ce36d231307849ce071e3c1cb2303e9.s3tc.stex"
+path.etc="res://.import/Regina_Top_Diffuse.png-3ce36d231307849ce071e3c1cb2303e9.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Assets/Characters/Regina/textures/Regina_Top_Diffuse.png"
+dest_files=[ "res://.import/Regina_Top_Diffuse.png-3ce36d231307849ce071e3c1cb2303e9.s3tc.stex", "res://.import/Regina_Top_Diffuse.png-3ce36d231307849ce071e3c1cb2303e9.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

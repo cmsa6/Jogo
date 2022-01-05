@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/street4.obj-ae2a1b67134b8c5784ddc7b2800d4e40.mesh"
+
+[deps]
+
+files=[ "res://.import/street4.obj-ae2a1b67134b8c5784ddc7b2800d4e40.mesh" ]
+
+source_file="res://cris/StreetThings/street4.obj"
+dest_files=[ "res://.import/street4.obj-ae2a1b67134b8c5784ddc7b2800d4e40.mesh", "res://.import/street4.obj-ae2a1b67134b8c5784ddc7b2800d4e40.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

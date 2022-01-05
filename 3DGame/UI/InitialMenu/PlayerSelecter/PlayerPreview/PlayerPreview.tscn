@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/PlayerPreview/PlayerPreview.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Text.tres" type="DynamicFont" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[node name="PlayerPreview" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+player_placeholder = NodePath("ViewportContainer/Viewport/Spatial/PlayerPlaceHolder")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 50.0
+color = Color( 0.815686, 0.882353, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
+text = "Player X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1024, 547 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="ViewportContainer/Viewport"]
+
+[node name="PlayerPlaceHolder" type="Spatial" parent="ViewportContainer/Viewport/Spatial"]
+
+[node name="Background" type="MeshInstance" parent="ViewportContainer/Viewport/Spatial"]
+transform = Transform( -3, -4.52987e-07, 1.98007e-14, 0, -1.31134e-07, -3, 4.52987e-07, -3, 1.31134e-07, 0, 3, 1 )
+extra_cull_margin = 16384.0
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="ViewportContainer/Viewport/Spatial"]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3.5, -4 )
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 3.5, -2 )
+current = true

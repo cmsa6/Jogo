@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/button3.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/Title2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fotos/ID-Gaming-Logo-Final_branco.png" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 504.715, 512.0 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0470588, 0.341176, 0.678431, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 2.47485
+margin_top = 54.447
+margin_right = 2.47485
+margin_bottom = 207.447
+rect_scale = Vector2( 0.999152, 0.996567 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quality of Life 
+Game"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 78.3182, 521.376 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -144.0
+margin_top = -325.258
+margin_right = 156.0
+margin_bottom = -175.258
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+margin_right = 300.0
+margin_bottom = 73.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer2"]
+margin_top = 77.0
+margin_right = 300.0
+margin_bottom = 150.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Learn More"

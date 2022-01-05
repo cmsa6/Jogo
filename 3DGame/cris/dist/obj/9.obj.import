@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/9.obj-ce545a4b73163eaecf5677609eb78271.mesh"
+
+[deps]
+
+files=[ "res://.import/9.obj-ce545a4b73163eaecf5677609eb78271.mesh" ]
+
+source_file="res://cris/dist/obj/9.obj"
+dest_files=[ "res://.import/9.obj-ce545a4b73163eaecf5677609eb78271.mesh", "res://.import/9.obj-ce545a4b73163eaecf5677609eb78271.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Manhole.obj-66bb4b77f3c6b8f8900e1be70814eb68.mesh"
+
+[deps]
+
+files=[ "res://.import/Manhole.obj-66bb4b77f3c6b8f8900e1be70814eb68.mesh" ]
+
+source_file="res://cris/StreetThings/Manhole.obj"
+dest_files=[ "res://.import/Manhole.obj-66bb4b77f3c6b8f8900e1be70814eb68.mesh", "res://.import/Manhole.obj-66bb4b77f3c6b8f8900e1be70814eb68.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
