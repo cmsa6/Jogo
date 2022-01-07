@@ -1,0 +1,34 @@
+extends ColorRect
+
+export(NodePath) var player_placeholder
+export(int) var player_num
+
+const PLAYER_TEXT = "Player "
+
+onready var player_color = $ColorRect
+onready var player_label = $Label
+
+func init():
+	#player_placeholder = get_node(player_placeholder)
+	
+	if(player_num <= SettingsManager.num_of_players):
+		player_color.color = SettingsManager.players[player_num - 1].color
+		player_label.text = PLAYER_TEXT + str(player_num)
+
+func _on_ConfirmButton_pressed():
+	init()
+
+func _on_new_character_selected(character):
+	var instance
+	
+	if(player_num == 1):
+		for i in range(0, get_node(player_placeholder).get_child_count()):
+			get_node(player_placeholder).get_child(i).visible = false
+			get_node(player_placeholder).get_child(i).free()
+			
+		instance = CharactersManager.get_character_scene(character).instance()
+		instance.name = "Body"
+		get_node(player_placeholder).add_child(instance)
+		var anim = instance.get_node("AnimationPlayer")
+		anim.play("Idle")
+

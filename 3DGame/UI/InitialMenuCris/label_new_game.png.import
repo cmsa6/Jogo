@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ID-Gaming-Logo-Final_branco.png-c1916bcce8e22f85ab480fe2c6b7b2ca.stex"
+path="res://.import/label_new_game.png-b26264fa216f9d2f988f230e4049a67e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fotos/ID-Gaming-Logo-Final_branco.png"
-dest_files=[ "res://.import/ID-Gaming-Logo-Final_branco.png-c1916bcce8e22f85ab480fe2c6b7b2ca.stex" ]
+source_file="res://InitialMenu/label_new_game.png"
+dest_files=[ "res://.import/label_new_game.png-b26264fa216f9d2f988f230e4049a67e.stex" ]
 
 [params]
 

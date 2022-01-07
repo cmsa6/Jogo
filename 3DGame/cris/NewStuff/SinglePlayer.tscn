@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fotos/people (3).png" type="Texture" id=2]
+
+[node name="SinglePlayer" type="Control"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 222.738, 183.141 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 35.0
+margin_top = 324.208
+margin_right = 401.0
+margin_bottom = 397.208
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "SINGLE PLAYER"
+__meta__ = {
+"_edit_use_anchors_": false
+}

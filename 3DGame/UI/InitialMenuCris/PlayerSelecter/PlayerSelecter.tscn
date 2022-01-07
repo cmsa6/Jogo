@@ -1,0 +1,183 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/CharacerIconPreview/CharacterIconPreview.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/PlayerSelecter.gd" type="Script" id=4]
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/PlayerPreview/PlayerPreview.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/ConfirmButton.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="PlayerSelecterContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+player_preview_1 = NodePath("VBoxContainer/PlayersViewContainer/PlayerPreview1")
+player_preview_2 = NodePath("VBoxContainer/PlayersViewContainer/PlayerPreview2")
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.301961, 0.207843, 0.027451, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayersViewContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 260.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="PlayerPreview1" parent="VBoxContainer/PlayersViewContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 260.0
+
+[node name="Viewport" parent="VBoxContainer/PlayersViewContainer/PlayerPreview1/ViewportContainer" index="0"]
+size = Vector2( 1024, 207 )
+
+[node name="PlayerPreview2" parent="VBoxContainer/PlayersViewContainer" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 524.0
+
+[node name="Viewport" parent="VBoxContainer/PlayersViewContainer/PlayerPreview2/ViewportContainer" index="0"]
+size = Vector2( 512, 471 )
+render_target_update_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_top = 294.0
+margin_right = 1016.0
+margin_bottom = 494.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
+columns = 5
+
+[node name="CharacterIconPreview" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="CharacterIconPreview2" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 204.0
+margin_top = 0.0
+margin_right = 404.0
+margin_bottom = 200.0
+rect_scale = Vector2( 1, 1 )
+character = 1
+
+[node name="CharacterIconPreview3" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 408.0
+margin_top = 0.0
+margin_right = 608.0
+margin_bottom = 200.0
+rect_scale = Vector2( 1, 1 )
+character = 2
+
+[node name="CharacterIconPreview4" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 612.0
+margin_top = 0.0
+margin_right = 812.0
+margin_bottom = 200.0
+rect_scale = Vector2( 1, 1 )
+character = 3
+
+[node name="CharacterIconPreview5" parent="VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 816.0
+margin_top = 0.0
+margin_right = 1016.0
+margin_bottom = 200.0
+rect_scale = Vector2( 1, 1 )
+character = 4
+
+[node name="ConfirmButton" type="Button" parent="VBoxContainer"]
+margin_top = 528.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+disabled = true
+shortcut_in_tooltip = false
+action_mode = 0
+text = "Select"
+flat = true
+script = ExtResource( 6 )
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview/TextureRect2/CenterContainer/Button" to="VBoxContainer/ConfirmButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="VBoxContainer/ConfirmButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="VBoxContainer/ConfirmButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="VBoxContainer/ConfirmButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="VBoxContainer/ConfirmButton" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="VBoxContainer/GridContainer/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="VBoxContainer/GridContainer/CharacterIconPreview3" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="VBoxContainer/GridContainer/CharacterIconPreview4" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="VBoxContainer/GridContainer/CharacterIconPreview5" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="VBoxContainer/GridContainer/CharacterIconPreview" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="VBoxContainer/GridContainer/CharacterIconPreview2" method="_on_ConfirmButton_pressed"]
+
+[editable path="VBoxContainer/PlayersViewContainer/PlayerPreview1"]
+[editable path="VBoxContainer/PlayersViewContainer/PlayerPreview2"]
+[editable path="VBoxContainer/GridContainer/CharacterIconPreview"]
+[editable path="VBoxContainer/GridContainer/CharacterIconPreview2"]
+[editable path="VBoxContainer/GridContainer/CharacterIconPreview3"]
+[editable path="VBoxContainer/GridContainer/CharacterIconPreview4"]
+[editable path="VBoxContainer/GridContainer/CharacterIconPreview5"]
