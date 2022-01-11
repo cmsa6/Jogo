@@ -2,7 +2,8 @@ extends CenterContainer
 
 
 
-export(CharactersManager.CHARACTERS) var character
+#export(CharactersManager.CHARACTERS) var character
+export var character = 0
 
 signal new_character_selected(new_character)
 
@@ -21,11 +22,13 @@ func _on_Button_pressed():
 	if selected == false:
 		selected = true
 		overlay.visible = true
+		print(players_turn)
 		if players_turn == 1:
-			overlay.texture = load("res://Assets/Sprites/Red-circunference-200x200.png")
+			print("overlay time")
+			overlay.texture = load("res://Assets/Sprites/characterSelected.png")
 			selected_by_player = 1
 		elif players_turn == 2:
-			overlay.texture = load("res://Assets/Sprites/Blue-circunference-200x200.png")
+			overlay.texture = load("res://Assets/Sprites/characterSelected.png")
 			selected_by_player = 2
 			
 		emit_signal("new_character_selected", character)
@@ -42,4 +45,5 @@ func _on_ConfirmButton_pressed():
 	locked =  true
 	if selected == true && locked == true:
 		button.disabled = true
+
 		SettingsManager.players[selected_by_player - 1].character = character

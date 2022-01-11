@@ -10,3 +10,5 @@ func _process(_delta):
 func _on_ConfirmButton_pressed():
 	get_node(gameTypeSelecterContainer).visible = false
 	get_node(playerSelecterContainer).visible = true
+	
+	

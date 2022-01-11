@@ -8,7 +8,7 @@ export(NodePath) var player_preview_2
 
 var player_turn = 1
 
-onready var confirm_button = $VBoxContainer/ConfirmButton
+onready var confirm_button = $HBoxContainer/AvatarBody/ConfirmAvatar
 
 func _ready():
 	confirm_button.visible = true
@@ -17,6 +17,7 @@ func _ready():
 	set_player_selecter()
 	
 func set_player_selecter():
+	print("hello from the other side")
 	if player_turn == 1:
 		get_node(player_preview_1).visible = true
 		get_node(player_preview_2).visible = false
@@ -35,3 +36,4 @@ func _on_ConfirmButton_pressed():
 		set_player_selecter()
 		
 	confirm_button.disabled = true
+

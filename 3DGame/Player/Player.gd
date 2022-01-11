@@ -34,6 +34,7 @@ func _ready():
 	#Spwon character
 	var instance
 	if(player_num <= SettingsManager.num_of_players):
+		print(SettingsManager.players[player_num-1])
 		instance = CharactersManager.get_character_scene(
 			SettingsManager.players[player_num - 1].character).instance()
 		instance.name = "Body"

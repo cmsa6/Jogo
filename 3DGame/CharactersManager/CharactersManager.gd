@@ -6,11 +6,11 @@ const MEGAN_SCENE = preload("res://Assets/Characters/Megan/Megan.tscn")
 const REGINA_SCENE = preload("res://Assets/Characters/Regina/Regina.tscn")
 const REMY_SCENE = preload("res://Assets/Characters/Remy/Remy.tscn")
 
-const CHAD_ICON = preload("res://Assets/Characters/Chad/chad-icon-165x165.png")
-const DOUGLAS_ICON = preload("res://Assets/Characters/Douglas/douglas-icon-165x165.png")
-const MEGAN_ICON = preload("res://Assets/Characters/Megan/megan-icon-165x165.png")
-const REGINA_ICON = preload("res://Assets/Characters/Regina/regina-icon-165x165.png")
-const REMY_ICON = preload("res://Assets/Characters/Remy/remy-icon-165x165.png")
+const CHAD_ICON = preload("res://Assets/Characters/Chad/chad_highRes.png")
+const DOUGLAS_ICON = preload("res://Assets/Characters/Douglas/douglas_round.png")
+const MEGAN_ICON = preload("res://Assets/Characters/Megan/megan_round.png")
+const REGINA_ICON = preload("res://Assets/Characters/Regina/regina_round.png")
+const REMY_ICON = preload("res://Assets/Characters/Remy/remy_round.png")
 
 # Animations
 const IDLE_ANIM = "Idle"

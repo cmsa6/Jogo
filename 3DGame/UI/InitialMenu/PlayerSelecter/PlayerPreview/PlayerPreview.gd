@@ -3,7 +3,7 @@ extends ColorRect
 export(NodePath) var player_placeholder
 export(int) var player_num
 
-const PLAYER_TEXT = "Player "
+const PLAYER_TEXT = "PLAYER "
 
 var player_turn
 
@@ -12,7 +12,7 @@ onready var player_label = $Label
 
 func init():
 	if(player_num <= SettingsManager.num_of_players):
-		player_color.color = SettingsManager.players[player_num - 1].color
+		#player_color.color = SettingsManager.players[player_num - 1].color
 		player_label.text = PLAYER_TEXT + str(player_num)
 
 func _on_ConfirmButton_pressed():
@@ -21,7 +21,9 @@ func _on_ConfirmButton_pressed():
 
 func _on_new_character_selected(character):
 	var instance
-	
+	print("im here3")
+	print(player_num)
+	print(player_turn)
 	if(player_num == player_turn):
 		delete_characters()
 			
@@ -36,6 +38,7 @@ func _on_new_character_selected(character):
 
 func _on_PlayerSelecterContainer_player_turn_changed(new_player_turn):
 	delete_characters()
+	print("dei update do player_turn")
 	player_turn = new_player_turn
 
 
@@ -45,3 +48,6 @@ func delete_characters():
 		for i in range(0, get_node(player_placeholder).get_child_count()):
 			get_node(player_placeholder).get_child(i).visible = false
 			get_node(player_placeholder).get_child(i).free()
+
+
+

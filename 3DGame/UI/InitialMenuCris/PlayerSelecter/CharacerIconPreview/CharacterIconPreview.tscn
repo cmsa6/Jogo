@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/InitialMenu/PlayerSelecter/CharacerIconPreview/CharacterIconPreview.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/head-100x100.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Black-circunference-200x200.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/charactersOverlay.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -28,7 +29,7 @@ margin_right = 200.0
 margin_bottom = 200.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="TextureRect2"]
