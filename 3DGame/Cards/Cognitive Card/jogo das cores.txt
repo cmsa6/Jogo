@@ -1,0 +1,5 @@
+jogo das cores
+facam corresponder as cores aos bonecos
+image.url
+40
+thinking

@@ -1,0 +1,5 @@
+TITULO| smite
+INSTRUCTIONS| moba
+IMAGE| image
+SCORE| 100
+SKILLS| nada

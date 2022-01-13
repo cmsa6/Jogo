@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/card_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/button2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/ChallengeCard/CardInfo.gd" type="Script" id=3]
+
+[node name="ColorRect" type="ColorRect"]
+margin_right = 400.0
+margin_bottom = 588.0
+rect_min_size = Vector2( 400, 500 )
+size_flags_horizontal = 3
+color = Color( 0.894118, 0.388235, 0.054902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardInfo" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 20.0
+rect_scale = Vector2( 0.96, 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="CardInfo"]
+margin_left = 372.0
+margin_right = 420.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 30, 40 )
+size_flags_horizontal = 10
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+text = "XXX"
+valign = 1
+
+[node name="Title" type="Label" parent="CardInfo"]
+margin_top = 54.0
+margin_right = 420.0
+margin_bottom = 87.0
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "CARD TITLE PLACEHOLDER"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="Label" parent="CardInfo"]
+margin_top = 108.0
+margin_right = 420.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 420, 200 )
+size_flags_horizontal = 6
+size_flags_vertical = 2
+size_flags_stretch_ratio = 8.44
+custom_fonts/font = ExtResource( 2 )
+text = "placeholder"
+valign = 1
+autowrap = true
+
+[node name="Skills" type="Label" parent="CardInfo"]
+margin_top = 537.0
+margin_right = 420.0
+margin_bottom = 559.0
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+text = "placeholder"
+
+[node name="Image" type="Sprite" parent="CardInfo"]

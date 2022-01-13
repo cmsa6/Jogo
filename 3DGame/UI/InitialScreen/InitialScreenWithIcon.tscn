@@ -1,32 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://UI/InitialScreen/StartButton.gd" type="Script" id=5]
+[ext_resource path="res://Fotos/settings.png" type="Texture" id=5]
 [ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=6]
-[ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fotos/playButton (6).png" type="Texture" id=8]
 [ext_resource path="res://Fotos/PlayButtonSelected (1).png" type="Texture" id=9]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 100, 100 )
-
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 100, 100 )
-
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 100, 100 )
-
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 100, 100 )
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
+[ext_resource path="res://UI/InitialScreen/SettingsButton.gd" type="Script" id=10]
+[ext_resource path="res://UI/AdminArea/BackToSceneButton.gd" type="Script" id=11]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -44,26 +26,6 @@ anchor_bottom = 1.0
 margin_top = 1.02008
 margin_bottom = 1.02008
 color = Color( 0.964706, 0.921569, 0.862745, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="."]
-margin_left = 464.775
-margin_top = 258.999
-margin_right = 564.775
-margin_bottom = 358.999
-size_flags_vertical = 3
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.500928, 0.270467, 0.118613, 1 )
-custom_colors/font_color_hover = Color( 0.945098, 0.631373, 0.427451, 1 )
-custom_colors/font_color_pressed = Color( 0.945098, 0.631373, 0.427451, 1 )
-align = 2
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,7 +62,37 @@ position = Vector2( 901.556, 559.213 )
 scale = Vector2( 0.364762, 0.366212 )
 texture = ExtResource( 6 )
 
-[node name="SceneLoader" parent="." instance=ExtResource( 7 )]
-next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
+[node name="SettingsButton" type="TextureButton" parent="."]
+anchor_bottom = 5.08626e-08
+margin_left = -7.09221
+margin_top = -5.67377
+margin_right = 92.9078
+margin_bottom = 94.3262
+rect_scale = Vector2( 0.75, 0.75 )
+texture_normal = ExtResource( 5 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="pressed" from="Button" to="SceneLoader" method="load_scene"]
+[node name="PlayButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+previousScene = "res://UI/InitialMenuCris/InitialMenu.tscn"
+
+[connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_BackToSceneButton_pressed"]

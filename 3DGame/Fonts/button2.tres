@@ -3,5 +3,6 @@
 [ext_resource path="res://GameFonts/Kanit/Kanit-Thin.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 40
+size = 26
+extra_spacing_top = -18
 font_data = ExtResource( 1 )
