@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=1]
 [ext_resource path="res://Fotos/CognitiveFunction.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/AdminArea/TypeCardSelecter.gd" type="Script" id=7]
 [ext_resource path="res://UI/AdminArea/CardDetails.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/AdminArea/BackButton.gd" type="Script" id=9]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=10]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -35,9 +36,9 @@ next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
 
 [node name="BackButton" type="TextureButton" parent="."]
 margin_left = -7.09221
-margin_top = -5.67377
+margin_top = -4.83612
 margin_right = 92.9078
-margin_bottom = 94.3262
+margin_bottom = 95.1639
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 1 )
 script = ExtResource( 9 )
@@ -136,9 +137,15 @@ cardTypeSelecter = NodePath("../../TypeCardSelecter")
 [node name="CardTitle" parent="QualityCardDetails" index="2"]
 text = "Quality of Life Card"
 
+[node name="UISoundManager" parent="." instance=ExtResource( 10 )]
+
+[connection signal="button_down" from="BackButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
+[connection signal="button_down" from="TypeCardSelecter/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
 [connection signal="pressed" from="TypeCardSelecter/VBoxContainer/TextureButton" to="TypeCardSelecter" method="select_card_type" binds= [ "cognitive" ]]
+[connection signal="button_down" from="TypeCardSelecter/VBoxContainer2/TextureButton2" to="UISoundManager" method="select"]
 [connection signal="pressed" from="TypeCardSelecter/VBoxContainer2/TextureButton2" to="TypeCardSelecter" method="select_card_type" binds= [ "quality" ]]
+[connection signal="button_down" from="CognitiveCardDetails/TextureButton2" to="UISoundManager" method="confirm"]
 
 [editable path="CognitiveCardDetails"]
 [editable path="QualityCardDetails"]

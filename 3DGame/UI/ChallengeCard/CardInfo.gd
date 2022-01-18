@@ -5,8 +5,10 @@ onready var instructions = $Instructions
 onready var image = $Image
 onready var score = $Score
 onready var skills = $Skills
+onready var audio = $MinigameSound
 
 func _ready():
+	audio.play()
 	var file = File.new()
 	file.open("res://Cards/Cognitive Card/jogo do lenco.txt", File.READ)
 	var content = file.get_as_text()

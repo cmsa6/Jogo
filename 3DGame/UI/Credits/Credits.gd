@@ -5,6 +5,8 @@ export(float) var time_between_sections = 1.0
 export(float) var line_time = 0.3
 export(int) var speed = 100
 
+export(String, FILE) var mapUsed
+
 var scroll_speed = speed
 
 var started = false
@@ -76,6 +78,14 @@ var credits = [
 
 onready var line = $CreditsContainer/LineTemplate
 onready var creditsContainer = $CreditsContainer
+
+
+func _ready():
+	var map_node = get_node("/root/Map1")
+	map_node.queue_free()
+	#var root_node = get_node("/root")
+	#root_node.get_children()[3].queue_free()
+	#print(root_node.get_children()[3].get_children()) 
 
 func _process(delta):
 	var scroll_speed = speed * delta

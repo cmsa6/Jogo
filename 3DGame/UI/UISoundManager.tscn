@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sounds/kenney_interfacesounds/Audio/select_008.ogg" type="AudioStream" id=1]
+[ext_resource path="res://UI/UISoundManager.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/kenney_interfacesounds/Audio/confirmation_002.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/kenney_interfacesounds/Audio/question_002.ogg" type="AudioStream" id=4]
+
+[node name="UISoundManager" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ConfirmButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="PlayButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+
+[node name="SelectButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0

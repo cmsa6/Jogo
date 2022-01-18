@@ -12,3 +12,4 @@ func load_scene():
 		push_error("Scene path invalid. Scene path used: " + next_scene_path)
 
 
+

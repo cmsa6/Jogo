@@ -6,10 +6,11 @@ var rng = RandomNumberGenerator.new()
 var canLaunchDice = true
 
 onready var diceText = $Label
-onready var button = $Button
+onready var button = $DiceButton
 
 func _ready():
-	diceText.text = "Dice = X"
+	diceText.text = ""
+
 
 func _on_Button_pressed():
 	if canLaunchDice:
@@ -25,10 +26,12 @@ func update_dice_value():
 	dice_value = 2
 	
 	
-	diceText.text = "Dice = " + str(dice_value)
+	#diceText.text = "Dice = " + str(dice_value)
+	diceText.text = str(dice_value)
 	emit_signal("dice_used", dice_value)
 
 func SetCanLaunchDice(b):
 	canLaunchDice = b
 	if canLaunchDice:
 		button.disabled = false
+

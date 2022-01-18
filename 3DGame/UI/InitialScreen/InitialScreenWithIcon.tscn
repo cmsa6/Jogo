@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
@@ -65,9 +66,9 @@ texture = ExtResource( 6 )
 [node name="SettingsButton" type="TextureButton" parent="."]
 anchor_bottom = 5.08626e-08
 margin_left = -7.09221
-margin_top = -5.67377
+margin_top = -6.56278
 margin_right = 92.9078
-margin_bottom = 94.3262
+margin_bottom = 93.4372
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 5 )
 script = ExtResource( 10 )
@@ -94,5 +95,9 @@ __meta__ = {
 }
 previousScene = "res://UI/InitialMenuCris/InitialMenu.tscn"
 
+[node name="UISoundManager" parent="." instance=ExtResource( 1 )]
+
+[connection signal="button_down" from="SettingsButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
+[connection signal="button_down" from="PlayButton" to="UISoundManager" method="play"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_BackToSceneButton_pressed"]

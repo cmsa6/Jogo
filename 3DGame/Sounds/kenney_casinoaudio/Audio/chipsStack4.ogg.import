@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/chipsStack4.ogg-c31f798fba85e34900b3833620635903.oggstr"
+
+[deps]
+
+source_file="res://Sounds/kenney_casinoaudio/Audio/chipsStack4.ogg"
+dest_files=[ "res://.import/chipsStack4.ogg-c31f798fba85e34900b3833620635903.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

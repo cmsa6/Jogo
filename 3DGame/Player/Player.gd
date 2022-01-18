@@ -5,6 +5,7 @@ signal player_turn_ended
 signal game_finished
 signal player_points_updated(points)
 signal load_minigame
+signal walkingSound
 
 export (int) var player_num
 export (int) var speed = 5
@@ -24,11 +25,15 @@ var cells_to_walk = 0
 var points = 0 setget incr_points
 
 
+
 # Info from gameManager
 var gameManager
 var cells_size = 0
 
+
+
 onready var cam = $Camera
+
  
 func _ready():
 	#Spwon character
@@ -71,6 +76,7 @@ func player_reached_target(_body):
 		target_count += 1
 		cells_to_walk -= 1
 		if target_count >= cells_size || target.type == target.TYPE.END:
+			print("game ended")
 			#game finished
 			canMove = false
 			play_animation(CharactersManager.IDLE_ANIM)
@@ -82,6 +88,7 @@ func player_reached_target(_body):
 			# Player reached destiniation cell
 			if target.type == target.TYPE.GAME:
 				emit_signal("load_minigame")
+				
 			canMove = false
 			is_my_turn = false
 			play_animation(CharactersManager.IDLE_ANIM)
@@ -95,10 +102,11 @@ func _physics_process(_delta):
 	if canMove:
 		RotatePlayerToNextTarget()
 		velocity = -transform.basis.z * speed
-		print(target_pos)
 		if transform.origin.distance_to(target_pos) > 0.2:
 			velocity = move_and_slide(velocity)
 		play_animation(CharactersManager.WALK_ANIM)
+		emit_signal("walkingSound")
+		
 
 # Animation controller
 func play_animation(anim_name):
@@ -109,5 +117,7 @@ func play_animation(anim_name):
 func incr_points(point_to_add):
 	points += point_to_add
 	emit_signal("player_points_updated", points)
+	
 
+	
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rollover5.ogg-ceda9a5d5aee9903e5025bb6fd9bb58f.oggstr"
+
+[deps]
+
+source_file="res://Sounds/kenney_uiaudio/Audio/rollover5.ogg"
+dest_files=[ "res://.import/rollover5.ogg-ceda9a5d5aee9903e5025bb6fd9bb58f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

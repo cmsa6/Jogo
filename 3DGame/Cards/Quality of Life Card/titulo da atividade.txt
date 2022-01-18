@@ -1,0 +1,5 @@
+TITULO| titulo da atividade|
+INSTRUCTIONS| explicacao da atividade|
+IMAGE| imagem|
+SCORE| 50|
+SKILLS| alguma skill|

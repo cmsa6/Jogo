@@ -6,7 +6,7 @@ onready var password = $LoginData/password
 
 func check_login():
 	if user.text == "admin" and password.text == "admin":
-		get_tree().change_scene("res://UI/AdminArea/CreateCard.tscn")
+		get_tree().change_scene("res://UI/AdminArea/CardManager.tscn")
 	else:
 		return false 
 

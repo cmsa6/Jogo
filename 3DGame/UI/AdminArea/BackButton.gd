@@ -10,5 +10,5 @@ func _on_BackButton_pressed():
 		get_node(cardTypeSelecter).visible = true
 		get_parent().visible = false
 	else:
-		get_tree().change_scene("res://UI/InitialScreen/InitialScreenWithIcon.tscn")
+		get_tree().change_scene("res://UI/AdminArea/CardManager.tscn")
 	

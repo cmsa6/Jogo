@@ -1,5 +1,5 @@
-jogo das cadeiras
-dispoem cadeiras na forma de um circulo e metem musica a tocar. Alguem fica responsavel por parar a musica. Os restantes andam a volta das cadeiras ate a musica parar. Quem nao se conseguir sentar perde
-algo
-60
-motor
+TITULO| jogo das cadeiras|
+INSTRUCTIONS| sentam se num circulo todos a olhar para a frente. ha uma crianca que segura um lenco enquanto corre a volta do circulo. QQuando quiser deixar cair atras de uma crianca e esta tem de o apanhar	|
+IMAGE| image|
+SCORE| 30|
+SKILLS| motor|

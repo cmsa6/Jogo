@@ -1,0 +1,5 @@
+TITULO| jogo da apanhada|
+INSTRUCTIONS| sentam se num circulo todos a olhar para a frente. ha uma crianca que segura um lenco enquanto corre a volta do circulo. QQuando quiser deixar cair atras de uma crianca e esta tem de o apanhar	|
+IMAGE| image|
+SCORE| 30|
+SKILLS| motor|
