@@ -10,7 +10,7 @@ onready var audio = $MinigameSound
 func _ready():
 	audio.play()
 	var file = File.new()
-	file.open("res://Cards/Cognitive Card/jogo do lenco.txt", File.READ)
+	file.open("res://Cards/Cognitive Card/Jogo da Memoria.txt", File.READ)
 	var content = file.get_as_text()
 	file.close()
 	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/InitialMenu/PlayerSelecter/PlayerPreview/PlayerPreview.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Fotos/ConfirmButton.png" type="Texture" id=3]
 [ext_resource path="res://Fotos/ConfirmButtonDisabled.png" type="Texture" id=4]
 [ext_resource path="res://Fotos/ConfirmButtonSelected (1).png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/Chad2/bigChandler.gltf" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -43,26 +44,29 @@ __meta__ = {
 }
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
-anchor_top = -0.00206248
+anchor_top = -0.000112305
 anchor_right = 1.0
-anchor_bottom = 0.997938
-margin_top = 53.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-stretch = true
+margin_top = 53.483
+margin_bottom = 600.416
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 1024, 547 )
+size = Vector2( 2048, 1200 )
 transparent_bg = true
 handle_input_locally = false
+msaa = 1
 render_target_update_mode = 3
 
 [node name="Spatial" type="Spatial" parent="ViewportContainer/Viewport"]
 
 [node name="PlayerPlaceHolder" type="Spatial" parent="ViewportContainer/Viewport/Spatial"]
+
+[node name="bigChandler" parent="ViewportContainer/Viewport/Spatial/PlayerPlaceHolder" instance=ExtResource( 6 )]
 
 [node name="Background" type="MeshInstance" parent="ViewportContainer/Viewport/Spatial"]
 transform = Transform( -8, -1.20797e-06, 5.28019e-14, 0, -3.49691e-07, -8, 1.20797e-06, -8, 3.49691e-07, 0.335067, 1.7, 0.995653 )
@@ -72,15 +76,34 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3.5, -4 )
+transform = Transform( 1, 0, 0, 0, -0.999929, -0.0119556, 0, 0.0119556, -0.999929, 0, 2, -5.48741 )
+light_energy = 0.25
+light_indirect_energy = 0.5
 
-[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
-transform = Transform( -1, 1.77636e-15, 8.74228e-08, 2.54198e-08, 0.956793, 0.290769, -8.36455e-08, 0.290769, -0.956793, 0.276503, 2.97694, -3.353 )
-visible = false
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/Spatial"]
+transform = Transform( -0.999836, 0.000769266, -0.0180807, -0.000649545, 0.996927, 0.0783344, 0.0180854, 0.0783333, -0.996763, -0.104, 2.85, -14.185 )
+projection = 1
 current = true
+size = 4.0
+near = 10.0
+far = 80.0
+
+[node name="SpotLight" type="SpotLight" parent="ViewportContainer/Viewport/Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0162094, 2.01735, -1.59879 )
+visible = false
+light_energy = 0.7
+light_indirect_energy = 9.0
+light_specular = 0.86
+light_bake_mode = 2
+spot_range = 5.33308
+spot_angle = 80.8
 
 [node name="ClippedCamera" type="ClippedCamera" parent="ViewportContainer/Viewport"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0113025, 1.73601, -2.81962 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13066, 3.09501, 9.06557 )
+visible = false
+projection = 1
+size = 2.53632
+clip_to_bodies = false
 
 [node name="ConfirmAvatar" type="TextureButton" parent="."]
 visible = false

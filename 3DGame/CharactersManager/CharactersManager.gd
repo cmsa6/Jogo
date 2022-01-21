@@ -1,16 +1,19 @@
 extends Node
 
-const CHAD_SCENE = preload("res://Assets/Characters/Chad/Chad.tscn")
-const DOUGLAS_SCENE = preload("res://Assets/Characters/Douglas/Douglas.tscn")
-const MEGAN_SCENE = preload("res://Assets/Characters/Megan/Megan.tscn")
-const REGINA_SCENE = preload("res://Assets/Characters/Regina/Regina.tscn")
-const REMY_SCENE = preload("res://Assets/Characters/Remy/Remy.tscn")
+const BRYCE_SCENE = preload("res://Assets/Cris_characters/Bryce/bryce.tscn")
+const LIAM_SCENE = preload("res://Assets/Cris_characters/Liam/Liam.tscn")
+const MALCOM_SCENE = preload("res://Assets/Cris_characters/Malcom/Malcom.tscn")
+#const REGINA_SCENE = preload("res://Assets/Characters/Regina/Regina.tscn")
+const REGINA_SCENE = preload("res://Assets/Cris_characters/Regina/Regina.tscn")
+const SHAE_SCENE = preload("res://Assets/Cris_characters/Shae/Shae.tscn")
+const SOPHIE_SCENE = preload("res://Assets/Cris_characters/Sophie/Sophie.tscn")
 
-const CHAD_ICON = preload("res://Assets/Characters/Chad/chad_highRes.png")
-const DOUGLAS_ICON = preload("res://Assets/Characters/Douglas/douglas_round.png")
-const MEGAN_ICON = preload("res://Assets/Characters/Megan/megan_round.png")
+const BRYCE_ICON = preload("res://Assets/Characters/Chad/chad_highRes.png")
+const LIAM_ICON = preload("res://Assets/Characters/Douglas/douglas_round.png")
+const MALCOM_ICON = preload("res://Assets/Characters/Megan/megan_round.png")
 const REGINA_ICON = preload("res://Assets/Characters/Regina/regina_round.png")
-const REMY_ICON = preload("res://Assets/Characters/Remy/remy_round.png")
+const SHAE_ICON = preload("res://Assets/Characters/Remy/remy_round.png")
+const SOPHIE_ICON = preload("res://Assets/Characters/Remy/remy_round.png")
 
 # Animations
 const IDLE_ANIM = "Idle"
@@ -20,35 +23,40 @@ const LOSE_ANIM = "Defeat"
 const SELECTED_ANIM = "OnPlayerSelected"
 
 enum CHARACTERS {
-	CHAD = 0,
-	DOUGLAS,
-	MEGAN,
+	BRYCE = 0,
+	LIAM,
+	MALCOM,
 	REGINA
-	REMY,
+	SHAE,
+	SOPHIE,
 }
 
 func get_character_scene(character):
 	match character:
-		CHARACTERS.CHAD:
-			return CHAD_SCENE
-		CHARACTERS.DOUGLAS:
-			return DOUGLAS_SCENE
-		CHARACTERS.MEGAN:
-			return MEGAN_SCENE
+		CHARACTERS.BRYCE:
+			return BRYCE_SCENE
+		CHARACTERS.LIAM:
+			return LIAM_SCENE
+		CHARACTERS.MALCOM:
+			return MALCOM_SCENE
 		CHARACTERS.REGINA:
 			return REGINA_SCENE
-		CHARACTERS.REMY:
-			return REMY_SCENE
+		CHARACTERS.SHAE:
+			return SHAE_SCENE
+		CHARACTERS.SOPHIE:
+			return SOPHIE_SCENE
 
 func get_character_icon(character):
 	match character:
-		CHARACTERS.CHAD:
-			return CHAD_ICON
-		CHARACTERS.DOUGLAS:
-			return DOUGLAS_ICON
-		CHARACTERS.MEGAN:
-			return MEGAN_ICON
+		CHARACTERS.BRYCE:
+			return BRYCE_ICON
+		CHARACTERS.LIAM:
+			return LIAM_ICON
+		CHARACTERS.MALCOM:
+			return MALCOM_ICON
 		CHARACTERS.REGINA:
 			return REGINA_ICON
-		CHARACTERS.REMY:
-			return REMY_ICON
+		CHARACTERS.SHAE:
+			return SHAE_ICON
+		CHARACTERS.SOPHIE:
+			return SOPHIE_ICON

@@ -1,0 +1,5 @@
+TITULO| Jogo da Memoria|
+INSTRUCTIONS| Devem olhar para a figura da carta ....|
+IMAGE| |
+SCORE| 30|
+SKILLS| Memoria|
