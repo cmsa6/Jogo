@@ -80,9 +80,9 @@ onready var line = $CreditsContainer/LineTemplate
 onready var creditsContainer = $CreditsContainer
 
 
-func _ready():
-	var map_node = get_node("/root/Map1")
-	map_node.queue_free()
+#func _ready():
+	#var map_node = get_node("/root/Map1")
+	#map_node.queue_free()
 	#var root_node = get_node("/root")
 	#root_node.get_children()[3].queue_free()
 	#print(root_node.get_children()[3].get_children()) 

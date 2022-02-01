@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tableplatesoup01.obj-63dd7a21d0db42fc1024c5831c4fb857.mesh"
+
+[deps]
+
+files=[ "res://.import/tableplatesoup01.obj-63dd7a21d0db42fc1024c5831c4fb857.mesh" ]
+
+source_file="res://cris/squareishdesignassets/obj/tableplatesoup01.obj"
+dest_files=[ "res://.import/tableplatesoup01.obj-63dd7a21d0db42fc1024c5831c4fb857.mesh", "res://.import/tableplatesoup01.obj-63dd7a21d0db42fc1024c5831c4fb857.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

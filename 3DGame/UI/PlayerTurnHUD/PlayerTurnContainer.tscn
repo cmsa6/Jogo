@@ -12,9 +12,10 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -512.0
 margin_top = -300.0
-margin_right = -12.0
-margin_bottom = 209.0
-size_flags_horizontal = 0
+margin_right = 86.0
+margin_bottom = 216.0
+rect_scale = Vector2( 0.996413, 1.16 )
+size_flags_horizontal = 6
 size_flags_vertical = 0
 custom_constants/separation = -39
 alignment = 1
@@ -23,21 +24,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="."]
+margin_left = 164.0
+margin_right = 434.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 270, 76 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 2 )
+text = "X/10 OBJECTS"
+align = 1
+autowrap = true
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 500.0
-margin_bottom = 400.0
+margin_left = 149.0
+margin_top = 116.0
+margin_right = 449.0
+margin_bottom = 516.0
 rect_min_size = Vector2( 0, 400 )
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 size_flags_stretch_ratio = 2.55
 
 [node name="TextureRect2" type="TextureRect" parent="CenterContainer"]
-margin_left = 100.0
 margin_top = 50.0
-margin_right = 400.0
+margin_right = 300.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+expand = true
 stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/TextureRect2"]
@@ -45,38 +61,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = -300.0
+margin_top = -251.035
+margin_right = 300.0
+margin_bottom = 248.965
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 300, 300 )
-size_flags_horizontal = 0
+size_flags_horizontal = 6
 size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Icon" type="TextureRect" parent="CenterContainer/TextureRect2/CenterContainer"]
-margin_right = 300.0
-margin_bottom = 300.0
+margin_left = 150.0
+margin_top = 100.0
+margin_right = 450.0
+margin_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 6
 texture = ExtResource( 3 )
 stretch_mode = 6
-
-[node name="Label" type="Label" parent="."]
-margin_top = 361.0
-margin_right = 500.0
-margin_bottom = 509.0
-rect_min_size = Vector2( 500, 40 )
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 2 )
-text = "Points x"
-align = 1
-autowrap = true
 
 [node name="Arrow" type="TextureRect" parent="."]
 visible = false

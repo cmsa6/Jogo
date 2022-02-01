@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/banjo01.obj-88079711eec324171d8ab0d68c4367b4.mesh"
+
+[deps]
+
+files=[ "res://.import/banjo01.obj-88079711eec324171d8ab0d68c4367b4.mesh" ]
+
+source_file="res://cris/squareishdesignassets/obj/banjo01.obj"
+dest_files=[ "res://.import/banjo01.obj-88079711eec324171d8ab0d68c4367b4.mesh", "res://.import/banjo01.obj-88079711eec324171d8ab0d68c4367b4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

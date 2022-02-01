@@ -1,7 +1,7 @@
 extends Node
 
-const BRYCE_SCENE = preload("res://Assets/Cris_characters/Bryce/bryce.tscn")
-const LIAM_SCENE = preload("res://Assets/Cris_characters/Liam/Liam.tscn")
+const BRYCE_SCENE = preload("res://Assets/Cris_characters/Liam/liam.tscn")
+const LIAM_SCENE = preload("res://Assets/Cris_characters/Liam2/john.tscn")
 const MALCOM_SCENE = preload("res://Assets/Cris_characters/Malcom/Malcom.tscn")
 #const REGINA_SCENE = preload("res://Assets/Characters/Regina/Regina.tscn")
 const REGINA_SCENE = preload("res://Assets/Cris_characters/Regina/Regina.tscn")

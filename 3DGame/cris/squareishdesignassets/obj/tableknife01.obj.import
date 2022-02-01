@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tableknife01.obj-62a8b94a568c35236bc1d5836e07221a.mesh"
+
+[deps]
+
+files=[ "res://.import/tableknife01.obj-62a8b94a568c35236bc1d5836e07221a.mesh" ]
+
+source_file="res://cris/squareishdesignassets/obj/tableknife01.obj"
+dest_files=[ "res://.import/tableknife01.obj-62a8b94a568c35236bc1d5836e07221a.mesh", "res://.import/tableknife01.obj-62a8b94a568c35236bc1d5836e07221a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

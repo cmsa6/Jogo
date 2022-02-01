@@ -5,7 +5,7 @@
 [ext_resource path="res://Fotos/ConfirmButton.png" type="Texture" id=3]
 [ext_resource path="res://Fotos/ConfirmButtonDisabled.png" type="Texture" id=4]
 [ext_resource path="res://Fotos/ConfirmButtonSelected (1).png" type="Texture" id=5]
-[ext_resource path="res://Assets/Characters/Chad2/bigChandler.gltf" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Cris_characters/Liam2/john.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -66,7 +66,7 @@ render_target_update_mode = 3
 
 [node name="PlayerPlaceHolder" type="Spatial" parent="ViewportContainer/Viewport/Spatial"]
 
-[node name="bigChandler" parent="ViewportContainer/Viewport/Spatial/PlayerPlaceHolder" instance=ExtResource( 6 )]
+[node name="john" parent="ViewportContainer/Viewport/Spatial/PlayerPlaceHolder" instance=ExtResource( 6 )]
 
 [node name="Background" type="MeshInstance" parent="ViewportContainer/Viewport/Spatial"]
 transform = Transform( -8, -1.20797e-06, 5.28019e-14, 0, -3.49691e-07, -8, 1.20797e-06, -8, 3.49691e-07, 0.335067, 1.7, 0.995653 )

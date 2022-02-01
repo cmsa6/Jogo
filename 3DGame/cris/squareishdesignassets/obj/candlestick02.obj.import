@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/candlestick02.obj-86971e8ee43fd45fc8d0115c9f3548db.mesh"
+
+[deps]
+
+files=[ "res://.import/candlestick02.obj-86971e8ee43fd45fc8d0115c9f3548db.mesh" ]
+
+source_file="res://cris/squareishdesignassets/obj/candlestick02.obj"
+dest_files=[ "res://.import/candlestick02.obj-86971e8ee43fd45fc8d0115c9f3548db.mesh", "res://.import/candlestick02.obj-86971e8ee43fd45fc8d0115c9f3548db.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

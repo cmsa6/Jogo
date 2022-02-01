@@ -22,6 +22,7 @@ func _on_ConfirmButton_pressed():
 func _on_new_character_selected(character):
 	var instance
 	print("im here3")
+	print(character)
 	print(player_num)
 	print(player_turn)
 	if(player_num == player_turn):

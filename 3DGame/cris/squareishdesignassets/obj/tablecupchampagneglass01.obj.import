@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tablecupchampagneglass01.obj-e88be07e29dae3b3e6ac66c09dea7266.mesh"
+
+[deps]
+
+files=[ "res://.import/tablecupchampagneglass01.obj-e88be07e29dae3b3e6ac66c09dea7266.mesh" ]
+
+source_file="res://cris/squareishdesignassets/obj/tablecupchampagneglass01.obj"
+dest_files=[ "res://.import/tablecupchampagneglass01.obj-e88be07e29dae3b3e6ac66c09dea7266.mesh", "res://.import/tablecupchampagneglass01.obj-e88be07e29dae3b3e6ac66c09dea7266.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

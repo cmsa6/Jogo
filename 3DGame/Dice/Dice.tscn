@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Dice/Dice.gd" type="Script" id=1]
+[ext_resource path="res://UI/Dice/Dice.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/DiceButton.png" type="Texture" id=2]
 [ext_resource path="res://Fotos/DiceButtonSelected.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/diceFont.tres" type="DynamicFont" id=4]

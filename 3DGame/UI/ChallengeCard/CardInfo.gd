@@ -10,16 +10,18 @@ onready var audio = $MinigameSound
 func _ready():
 	audio.play()
 	var file = File.new()
-	file.open("res://Cards/Cognitive Card/Jogo da Memoria.txt", File.READ)
+	file.open("res://Cards/Cognitive Card/Jogo da Memoria.tres", File.READ)
 	var content = file.get_as_text()
 	file.close()
 	
 	var newcontent = content.split("|")
 	
 
+	
 	title.text = newcontent[1]
 	instructions.text = newcontent[3]
-	score.text = newcontent[7]
-	skills.text = "Skills: " + newcontent[9]	
+	skills.text = "Skills: " + newcontent[9]
+	
+	var reward = newcontent[10]	
 
 		
