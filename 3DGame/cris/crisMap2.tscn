@@ -35,10 +35,10 @@ script = ExtResource( 15 )
 position = Vector2( 30, 30 )
 
 [node name="PlayerTurnHUD" parent="CanvasLayer" instance=ExtResource( 19 )]
-margin_left = -124.0
-margin_top = 0.938
-margin_right = -29.0
-margin_bottom = 575.938
+margin_left = -127.253
+margin_top = 19.4315
+margin_right = -32.2526
+margin_bottom = 442.431
 rect_scale = Vector2( 0.2, 0.2 )
 size_flags_vertical = 5
 script = ExtResource( 9 )

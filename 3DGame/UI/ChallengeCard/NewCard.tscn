@@ -133,6 +133,6 @@ nextCard = "res://UI/ChallengeCard/EvaluateCard.tscn"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
-[connection signal="reward_changed" from="." to="Control/NextButton" method="save_reward"]
+[connection signal="data_saved" from="." to="Control/NextButton" method="save_data"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 [connection signal="pressed" from="Control/NextButton" to="Control/NextButton" method="showNextCard"]

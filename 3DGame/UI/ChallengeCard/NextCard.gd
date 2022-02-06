@@ -3,7 +3,7 @@ extends TextureButton
 export(String, FILE) var nextCard
 
 
-var reward="" setget save_reward, get_reward
+var data=[] setget save_data, get_data
 
 func showNextCard():
 	var root_node = get_node("/root")
@@ -13,19 +13,19 @@ func showNextCard():
 	
 	var cardScene = load(nextCard)
 	var cardInstance = cardScene.instance()
-	var r = get_reward()
-	cardInstance.set_reward(r)
+	var card_data = get_data()
+	cardInstance.set_card_data(card_data)
 	#cardInstance.teste()
 	root_node.add_child(cardInstance)
 	root_node.move_child(cardInstance,0)
 	
 	
-func save_reward(rewardReceived):
-	print("set reward to ", rewardReceived)
-	reward = rewardReceived
-	print(reward)
+func save_data(dataReceived):
+	print("set data to ", dataReceived)
+	data = dataReceived
+	print(data)
 	
-func get_reward():
-	return reward
+func get_data():
+	return data
 	
 

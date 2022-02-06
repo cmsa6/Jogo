@@ -226,6 +226,6 @@ __meta__ = {
 
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
-[connection signal="save_reward" from="Control/Card/RewardingManager" to="Control/Card/RewardingManager/PlayButton" method="save_reward"]
+[connection signal="save_card_data" from="Control/Card/RewardingManager" to="Control/Card/RewardingManager/PlayButton" method="save_data"]
 [connection signal="pressed" from="Control/Card/RewardingManager/PlayButton" to="Control/Card/RewardingManager/PlayButton" method="showNextCard"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]

@@ -15,7 +15,7 @@ onready var rewardDisapproved = $Disapproved/ColorRect2/HBoxContainer/VBoxContai
 
 
 var iconScene = preload("res://UI/ChallengeCard/PlayerPlaceHolder.tscn")
-var reward = "" setget set_reward, get_reward
+var reward = "" setget set_card_data, get_reward
 
 func _ready():
 	var currentPlayer = SavingManager.current_player
@@ -70,27 +70,12 @@ func approve(bol):
 				break
 
 	
-func set_reward(rewardReceived):
-	reward = rewardReceived
+func set_card_data(dataReceived):
+	print("dentro do evaluate card recevi a card data ",dataReceived)
+	reward = dataReceived[11]
+	reward = reward.replace(" ", "")
+	print("e dei set da reward como ", reward)
 	
 func get_reward():
 	return reward
 	
-func checkReward():
-	reward = get_reward()
-	print("dentor do checkreward: ", reward)
-	if reward == "Bed":
-		return 0
-	elif reward == "Chair":
-		return 1
-	elif reward == "Cabinet":
-		return 2
-	elif reward == "Bookcase":
-		return 3
-	elif reward == "Couch":
-		return 4
-	elif reward == "Table":
-		return 5
-
-	
-
