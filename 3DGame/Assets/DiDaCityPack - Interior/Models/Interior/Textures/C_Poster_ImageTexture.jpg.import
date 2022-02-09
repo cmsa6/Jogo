@@ -2,15 +2,17 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/C_Poster_ImageTexture.jpg-7a7896b9dd9a2746a23122f499f15a9a.stex"
+path.s3tc="res://.import/C_Poster_ImageTexture.jpg-7a7896b9dd9a2746a23122f499f15a9a.s3tc.stex"
+path.etc="res://.import/C_Poster_ImageTexture.jpg-7a7896b9dd9a2746a23122f499f15a9a.etc.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/DiDaCityPack - Interior/Models/Interior/Textures/C_Poster_ImageTexture.jpg"
-dest_files=[ "res://.import/C_Poster_ImageTexture.jpg-7a7896b9dd9a2746a23122f499f15a9a.stex" ]
+dest_files=[ "res://.import/C_Poster_ImageTexture.jpg-7a7896b9dd9a2746a23122f499f15a9a.s3tc.stex", "res://.import/C_Poster_ImageTexture.jpg-7a7896b9dd9a2746a23122f499f15a9a.etc.stex" ]
 
 [params]
 

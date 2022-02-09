@@ -7,7 +7,8 @@ signal disable_buttons
 
 
 
-func _on_load_minigame():
+func _on_load_minigame(type):
+	print(type)
 	
 
 	var root_node = get_node("/root") 

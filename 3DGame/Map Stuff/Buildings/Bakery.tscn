@@ -38,7 +38,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0
 [node name="RootNode" type="Spatial" parent="."]
 
 [node name="Bakery" type="MeshInstance" parent="RootNode"]
-transform = Transform( 158.768, -24.6916, -4.80762e-06, 24.6916, 158.768, 3.09133e-05, 3.41061e-13, -3.12849e-05, 160.677, -1.23672, 2.06348, 7.80426 )
+transform = Transform( 160.677, 0, 0, 0, 160.677, 0, 0, 0, 160.677, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null

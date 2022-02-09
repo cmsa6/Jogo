@@ -1,0 +1,357 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Map Stuff/Grass003_1K_Color.png" type="Texture" id=1]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Playground/Swing.fbx" type="PackedScene" id=2]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Playground/Springer Green.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Playground/Springer Blue.fbx" type="PackedScene" id=4]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Playground/Slide.fbx" type="PackedScene" id=5]
+[ext_resource path="res://Map Stuff/playgroundPavement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Playground/Seesaw.fbx" type="PackedScene" id=7]
+[ext_resource path="res://Map Stuff/Playground Fencing.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Playground/Playground Entrance.fbx" type="PackedScene" id=9]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Props 2/Coffee Outside Table.fbx" type="PackedScene" id=10]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Props 2/Chair 1.fbx" type="PackedScene" id=11]
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Props 2/Candy Stand.fbx" type="PackedScene" id=12]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 60, 0.5, 130 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0862745, 0.458824, 0.0352941, 1 )
+albedo_texture = ExtResource( 1 )
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = ExtResource( 1 )
+uv1_scale = Vector3( 2, 2, 2 )
+uv1_offset = Vector3( 5, 5, 5 )
+uv1_triplanar = true
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Swing" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.58065, -1.22537, -5.35627e-08, 0, -8.74228e-08, 2, -1.22537, -1.58065, -6.90925e-08, 9.81685, 4.95927, -6.67035 )
+
+[node name="Swing" parent="Swing/RootNode" index="0"]
+transform = Transform( 118.371, -2.28882e-05, -6.82121e-13, -3.43323e-05, 118.371, -2.27374e-13, 2.27374e-13, 1.36424e-12, 118.371, -23.412, -13.8956, 1.66893e-06 )
+
+[node name="Springer Green" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.8196, 2.87807, -0.211993, -0.751241, -1.26956e-07, 2.90442, 2.78638, 0.846572, 0.72071, 5.75804, 2.35911, 50.8878 )
+
+[node name="Springer Green" parent="Springer Green/RootNode" index="0"]
+transform = Transform( 118.371, 0, 0, 0, 118.371, 0, 0, 0, 118.371, 0, 0, 0 )
+
+[node name="Springer Blue" parent="." instance=ExtResource( 4 )]
+transform = Transform( 2.21392, 1.70238, 1.09564, -1.06012, -0.408328, 2.77658, 1.72473, -2.43622, 0.300238, 10.9906, 2.01192, 49.4661 )
+
+[node name="Springer Blue" parent="Springer Blue/RootNode" index="0"]
+transform = Transform( 118.371, 0, 0, 0, 118.371, 0, 0, 0, 118.371, 0, 0, 0 )
+
+[node name="Slide" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.87094, -0.706819, -3.0896e-08, 0, -8.74228e-08, 2, -0.706819, 1.87094, 8.17813e-08, -11.0343, 5.91126, 16.7175 )
+
+[node name="Slide" parent="Slide/RootNode" index="0"]
+transform = Transform( 118.371, 0, 1.13687e-13, 0, 118.371, 1.36424e-12, 4.54747e-13, 4.54747e-13, 118.371, 2.12386, 0.802372, 4.76837e-07 )
+
+[node name="Seesaw" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1.7843, 2.4117, 1.05419e-07, 0, -1.31134e-07, 3, 2.4117, -1.7843, -7.79942e-08, 16.4001, 6.41042, 27.5287 )
+
+[node name="Seesaw" parent="Seesaw/RootNode" index="0"]
+transform = Transform( 112.573, 36.5903, 1.59941e-06, -36.5903, 112.573, -2.53407e-07, -1.59941e-06, -2.53408e-07, 118.371, -0.371124, -2.45303, -1.90735e-06 )
+
+[node name="playgroundFloor" type="Spatial" parent="."]
+
+[node name="1line" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, -19.6694, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 9.13849, 1.07288e-06 )
+
+[node name="1line2" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, -12.7105, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line2" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685115, 9.13849, 7.7486e-07 )
+
+[node name="1line3" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, -5.8455, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line3" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 9.13687, 1.07288e-06 )
+
+[node name="1line4" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, 0.967525, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line4" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 9.11751, 1.13249e-06 )
+
+[node name="1line5" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, 7.86051, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line5" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 9.11751, 1.07288e-06 )
+
+[node name="1line6" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, 14.7227, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line6" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 9.11751, 1.13249e-06 )
+
+[node name="1line7" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, 21.6813, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line7" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685115, 9.13848, 1.01328e-06 )
+
+[node name="1line8" type="Spatial" parent="playgroundFloor"]
+transform = Transform( 2.5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37114e-08, 25.241, 0.505262, 53.4728 )
+
+[node name="Red Rubber Pavement" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, -0.578879, -5.96046e-07 )
+
+[node name="Red Rubber Pavement2" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 0.781153, -4.17233e-07 )
+
+[node name="Red Rubber Pavement3" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 2.15999, -1.19209e-07 )
+
+[node name="Red Rubber Pavement4" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 3.56178, -5.96046e-08 )
+
+[node name="Red Rubber Pavement5" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 4.95838, 4.76837e-07 )
+
+[node name="Red Rubber Pavement6" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 6.35288, 7.7486e-07 )
+
+[node name="Red Rubber Pavement7" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.70974e-13, 0, 1.7053e-13, 0.6, -0.685116, 7.75542, 9.53674e-07 )
+
+[node name="Red Rubber Pavement8" parent="playgroundFloor/1line8" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, -1.71863e-13, 0, 1.7053e-13, 0.6, -0.685116, 9.16107, 1.07288e-06 )
+
+[node name="Candy Stand" parent="." instance=ExtResource( 12 )]
+transform = Transform( -2.18557e-07, -4, -1.74846e-07, 0, -1.74846e-07, 4, -5, 1.74846e-07, 7.64274e-15, -14.8779, 11.4973, -46.2165 )
+
+[node name="Candy Stand" parent="Candy Stand/RootNode" index="0"]
+transform = Transform( 112.569, 0, 1.35525e-20, 0, 112.569, 4.54747e-13, 0, 9.40158e-21, 112.569, -4.74788, 2.38419e-07, 0 )
+
+[node name="Chair 1" parent="." instance=ExtResource( 11 )]
+transform = Transform( -5.05359, -4.84368, -2.11724e-07, 0, -3.0598e-07, 7, -4.84368, 5.05359, 2.20899e-07, 7.2001, 0, -34.9502 )
+
+[node name="Chair 2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 4.90549, 4.99361, 2.18278e-07, 0, -3.0598e-07, 7, 4.99361, -4.90549, -2.14426e-07, 0.49449, 0, -44.4517 )
+
+[node name="Coffee Outside Table" parent="." instance=ExtResource( 10 )]
+transform = Transform( -3.07514, -5.15204, -2.25203e-07, 0, -2.62268e-07, 6, -5.15204, 3.07514, 1.34418e-07, 3.63033, 0, -39.471 )
+
+[node name="Fencing" type="Spatial" parent="."]
+
+[node name="Playground Fencing" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -5, 4.37114e-07, 1.91069e-14, 0, -2.18557e-07, 5, 4.37114e-07, 5, 2.18557e-07, 18.2536, 5.72293, 59.2468 )
+
+[node name="Playground Fencing13" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, 5, 2.18557e-07, 0, -2.18557e-07, 5, 5, 2.18557e-07, 9.55343e-15, 25.1696, 5.72293, 52.6053 )
+
+[node name="Playground Fencing14" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, 5, 2.18557e-07, 0, -2.18557e-07, 5, 5, 2.18557e-07, 9.55343e-15, 25.1696, 5.72293, 39.0212 )
+
+[node name="Playground Fencing15" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, 5, 2.18557e-07, 0, -2.18557e-07, 5, 5, 2.18557e-07, 9.55343e-15, 25.1696, 5.72293, 25.2742 )
+
+[node name="Playground Fencing16" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, 5, 2.18557e-07, 0, -2.18557e-07, 5, 5, 2.18557e-07, 9.55343e-15, 25.1696, 5.72293, 11.434 )
+
+[node name="Playground Fencing2" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -5, 4.37114e-07, 1.91069e-14, 0, -2.18557e-07, 5, 4.37114e-07, 5, 2.18557e-07, 4.66086, 5.72293, 59.2468 )
+
+[node name="Playground Fencing3" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -5, 4.37114e-07, 1.91069e-14, 0, -2.18557e-07, 5, 4.37114e-07, 5, 2.18557e-07, -9.24913, 5.72293, 59.2468 )
+
+[node name="Playground Fencing4" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, -5, -2.18557e-07, 0, -2.18557e-07, 5, -5, 2.18557e-07, 9.55343e-15, -27.224, 5.72293, 52.1259 )
+
+[node name="Playground Fencing6" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, -5, -2.18557e-07, 0, -2.18557e-07, 5, -5, 2.18557e-07, 9.55343e-15, -27.224, 5.72293, 38.4081 )
+
+[node name="Playground Fencing7" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, -5, -2.18557e-07, 0, -2.18557e-07, 5, -5, 2.18557e-07, 9.55343e-15, -27.224, 5.72293, 24.8764 )
+
+[node name="Playground Fencing8" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -2.18557e-07, -5, -2.18557e-07, 0, -2.18557e-07, 5, -5, 2.18557e-07, 9.55343e-15, -27.224, 5.72293, 11.2849 )
+
+[node name="Playground Fencing9" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, -20.0814, 5.72293, 4.67004 )
+
+[node name="Playground Fencing11" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 6.63906, 5.72293, 4.67004 )
+
+[node name="Playground Fencing12" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 20.1703, 5.72293, 4.67004 )
+
+[node name="Playground Fencing5" parent="Fencing" instance=ExtResource( 8 )]
+transform = Transform( -5, 4.37114e-07, 1.91069e-14, 0, -2.18557e-07, 5, 4.37114e-07, 5, 2.18557e-07, -20.8203, 5.72293, 59.2468 )
+
+[node name="Playground Entrance" parent="." instance=ExtResource( 9 )]
+transform = Transform( 5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, -6.24338, 5.53256, 2.12485 )
+
+[node name="Playground Entrance" parent="Playground Entrance/RootNode" index="0"]
+transform = Transform( 118.371, 0, 0, 0, 118.371, 0, 0, 0, 118.371, 0, 0, 0 )
+
+[editable path="Swing"]
+[editable path="Springer Green"]
+[editable path="Springer Blue"]
+[editable path="Slide"]
+[editable path="Seesaw"]
+[editable path="Candy Stand"]
+[editable path="Playground Entrance"]

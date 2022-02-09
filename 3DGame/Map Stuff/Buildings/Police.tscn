@@ -24,6 +24,6 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0
 [node name="RootNode" type="Spatial" parent="."]
 
 [node name="Police Station" type="MeshInstance" parent="RootNode"]
-transform = Transform( 154.464, 44.2472, 0, -44.2472, 154.464, 0, 0, 0, 160.677, 0.0349274, 2.06055, 8.47711 )
+transform = Transform( 160.677, 0, 0, 0, 160.677, 0, 0, 0, 160.677, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null

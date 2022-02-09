@@ -2,15 +2,17 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ma_Cookies_2-4_ImageTexture.png-49cf9aa6828ce3341c695004ea27ae6e.stex"
+path.s3tc="res://.import/Ma_Cookies_2-4_ImageTexture.png-49cf9aa6828ce3341c695004ea27ae6e.s3tc.stex"
+path.etc="res://.import/Ma_Cookies_2-4_ImageTexture.png-49cf9aa6828ce3341c695004ea27ae6e.etc.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/DiDaCityPack - Interior/Models/Interior/Textures/Ma_Cookies_2-4_ImageTexture.png"
-dest_files=[ "res://.import/Ma_Cookies_2-4_ImageTexture.png-49cf9aa6828ce3341c695004ea27ae6e.stex" ]
+dest_files=[ "res://.import/Ma_Cookies_2-4_ImageTexture.png-49cf9aa6828ce3341c695004ea27ae6e.s3tc.stex", "res://.import/Ma_Cookies_2-4_ImageTexture.png-49cf9aa6828ce3341c695004ea27ae6e.etc.stex" ]
 
 [params]
 

@@ -26,7 +26,7 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			children[i].get_node("CenterContainer/TextureRect2").texture = null
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1,1))
 		else:
-			children[i].get_node("CenterContainer/TextureRect2").texture = load("res://Assets/Sprites/test.png")
+			children[i].get_node("CenterContainer/TextureRect2").texture = load("res://Assets/Sprites/characterSelected.png")
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1.3,1.3))
 			#children[i].get_node("Arrow").modulate = VISIBLE
 

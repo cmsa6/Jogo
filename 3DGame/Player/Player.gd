@@ -4,12 +4,14 @@ signal play_aguen
 signal player_turn_ended
 signal game_finished
 signal player_points_updated(points)
-signal load_minigame
+signal load_minigame(type)
 signal walkingSound
+
 
 export (int) var player_num
 export (int) var speed = 5
 export(NodePath) var GameManager
+export(NodePath) var timer_node
 export (Array, String) var availableFurniture = []
 
 var animPlayer
@@ -70,8 +72,10 @@ func Move(dice_value):
 	
 func UpdateTarget():
 	target_pos = get_target_position()
+	print("posicao do target: ", target_pos)
 
 func get_target_position():
+	print("trying to solve problem, target: ", target_count)
 	target = gameManager.get_node_cell_by_index(target_count)
 	return target.transform.origin
 
@@ -93,11 +97,14 @@ func player_reached_target(_body):
 			#incr_points(1)
 		else:
 			# Player reached destiniation cell
-			if target.type == target.TYPE.GAME:
+			if target.type == target.TYPE.GAME_COMMERCIAL || target.type == target.TYPE.GAME_LEISURE || target.type == target.TYPE.GAME_HELP || target.type == target.TYPE.GAME_SERVICES:
 				#SavingManager.current_player = player_num - 1
 				#play_animation(CharactersManager.IDLE_ANIM)
-				emit_signal("load_minigame")
-				
+				emit_signal("load_minigame", target.type)
+			
+			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES:
+				get_node(timer_node).start(3.5)
+				finished_game()
 			canMove = false
 			#is_my_turn = false
 			#play_animation(CharactersManager.IDLE_ANIM)

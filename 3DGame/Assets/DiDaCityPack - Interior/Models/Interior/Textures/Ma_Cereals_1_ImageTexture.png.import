@@ -2,15 +2,17 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ma_Cereals_1_ImageTexture.png-a6635e4ab1a0ac4b4488b9c3122df608.stex"
+path.s3tc="res://.import/Ma_Cereals_1_ImageTexture.png-a6635e4ab1a0ac4b4488b9c3122df608.s3tc.stex"
+path.etc="res://.import/Ma_Cereals_1_ImageTexture.png-a6635e4ab1a0ac4b4488b9c3122df608.etc.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/DiDaCityPack - Interior/Models/Interior/Textures/Ma_Cereals_1_ImageTexture.png"
-dest_files=[ "res://.import/Ma_Cereals_1_ImageTexture.png-a6635e4ab1a0ac4b4488b9c3122df608.stex" ]
+dest_files=[ "res://.import/Ma_Cereals_1_ImageTexture.png-a6635e4ab1a0ac4b4488b9c3122df608.s3tc.stex", "res://.import/Ma_Cereals_1_ImageTexture.png-a6635e4ab1a0ac4b4488b9c3122df608.etc.stex" ]
 
 [params]
 
