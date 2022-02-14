@@ -3,6 +3,8 @@ extends HBoxContainer
 onready var player = $CardInfo/AvatarIcon
 onready var rewardPlaceHolder = $CardInfo/RewardPlaceholder
 
+export (Array, String) var availableFurniture = []
+
 signal save_card_data(data)
 
 var reward = "" setget set_reward, get_reward
@@ -24,14 +26,18 @@ func _ready():
 	
 	var newcontent = content.split("|")
 	
-	var reward = newcontent[11]
-	reward = reward.replace(" ", "")
+#	var reward = newcontent[11]
+#	reward = reward.replace(" ", "")
+	reward = check_player_rewards()
+	
+	newcontent.append("REWARD")
+	#reward = " " + reward
+	newcontent.append(reward) 
+	
 	var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
 	var rewardPhoto = load(rewardPath)
 
-	#var rewardScene = load(rewardPath)
-	#var rewardInstance = rewardPlaceHolder
-	#rewardPlaceHolder.add_child(rewardInstance)
+	print(newcontent)
 	rewardPlaceHolder.texture = rewardPhoto
 	emit_signal("save_card_data", newcontent)
 	
@@ -62,3 +68,14 @@ func select_random_file():
 	rng.randomize()
 	var fileSelected = rng.randi_range(0, files.size() - 1)
 	return files[fileSelected]
+	
+func check_player_rewards():
+	var currentPlayer = SavingManager.current_player
+	var mapNode =  get_node("/root/Map1")
+	var mapChildren = mapNode.get_children()
+	
+	for child in mapChildren:
+		if child.get_name() == "Spawners":
+			for player in child.get_children():
+				if currentPlayer == (player.get_player_num() - 1):
+					return player.get_random_reward()

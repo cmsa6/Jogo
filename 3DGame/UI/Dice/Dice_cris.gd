@@ -19,10 +19,10 @@ func _on_Button_pressed():
 func update_dice_value():
 	print("helluy")
 	rng.randomize()
-	var dice_value = rng.randi_range(1, 6)
+	var dice_value = rng.randi_range(2, 6)
 	
 	
-	dice_value = 3
+	dice_value = 2
 	
 	
 	#diceText.text = "Dice = " + str(dice_value)

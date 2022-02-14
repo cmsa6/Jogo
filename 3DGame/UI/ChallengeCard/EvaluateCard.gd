@@ -73,7 +73,7 @@ func approve(bol):
 func set_card_data(dataReceived):
 	print("dentro do evaluate card recevi a card data ",dataReceived)
 	reward = dataReceived[11]
-	reward = reward.replace(" ", "")
+	#reward = reward.replace(" ", "")
 	print("e dei set da reward como ", reward)
 	
 func get_reward():

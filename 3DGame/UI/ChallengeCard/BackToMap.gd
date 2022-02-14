@@ -29,8 +29,11 @@ func discardCurrentCard(eval):
 			print("im finishing the game on evaluateCard")
 			child.finished_game()
 			if eval == "Approved":
-				child.play_animation(CharactersManager.WIN_ANIM)
-				timer_node.start(3.5)
+				if not child.check_win():
+					child.play_animation(CharactersManager.WIN_ANIM)
+					timer_node.start(3.5)
+				else:
+					child.won_game()
 			elif eval == "Disapproved":
 				child.play_animation(CharactersManager.LOSE_ANIM)
 				timer_node.start(3.5)

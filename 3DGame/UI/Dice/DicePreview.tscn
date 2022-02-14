@@ -465,8 +465,8 @@ __meta__ = {
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
 [connection signal="pressed" from="Control/DiceManager/DiceContainer/HBoxContainer/RollTheDice" to="." method="show_animation"]
-[connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceResumo/MapButton" method="discard_dice_info"]
+[connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/DiceValue/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice"]

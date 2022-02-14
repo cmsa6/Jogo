@@ -28,6 +28,7 @@ var cells_to_walk = 0
 var points = 0 setget incr_points
 
 var furnitureGained = {}
+var rng = RandomNumberGenerator.new()
 
 
 
@@ -75,6 +76,8 @@ func UpdateTarget():
 	print("posicao do target: ", target_pos)
 
 func get_target_position():
+	if target_count == 25:
+		target_count = 0 
 	print("trying to solve problem, target: ", target_count)
 	target = gameManager.get_node_cell_by_index(target_count)
 	return target.transform.origin
@@ -170,3 +173,31 @@ func gained_furniture(furnitureId):
 	
 func get_gained_furniture():
 	return furnitureGained
+	
+func check_win():
+	var maxFurniture = availableFurniture.size()
+	for i in range(0, maxFurniture):
+		print(furnitureGained[availableFurniture[i]])
+		if furnitureGained[availableFurniture[i]] == 0:
+			return false
+		
+	return true
+
+func won_game():
+	emit_signal("game_finished")
+	
+func get_random_reward():
+	var maxFurniture = availableFurniture.size()
+	var missingRewards = []
+	for i in range(0, maxFurniture):
+		if  furnitureGained[availableFurniture[i]] == 0:
+			missingRewards.append(availableFurniture[i])
+	
+		
+	print(availableFurniture)
+	print("faltam me as rewards ", missingRewards)
+	rng.randomize()
+	var maxMissingRewards = missingRewards.size()
+	return missingRewards[rng.randi_range(0, maxMissingRewards-1)]
+	
+	 

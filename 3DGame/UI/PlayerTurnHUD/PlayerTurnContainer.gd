@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 #const POINTS_LABEL = "Points: "
-const POINTS_LABEL = " /10 OBJECTS"
+const POINTS_LABEL = " /10 OBJETOS"
 
 onready var icon = $CenterContainer/TextureRect2/CenterContainer/Icon
 onready var button = $CenterContainer/TextureRect2/CenterContainer/TextureButton

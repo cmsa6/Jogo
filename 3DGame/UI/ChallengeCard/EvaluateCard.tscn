@@ -137,7 +137,7 @@ margin_top = 12.3681
 margin_bottom = 63.3681
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "Evaluate the challenge "
+text = "Avaliação do desafio"
 align = 1
 valign = 1
 uppercase = true
@@ -504,6 +504,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 15 )
+script = ExtResource( 24 )
 
 [node name="MapButton" type="TextureButton" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2"]
 margin_left = 600.0
@@ -524,4 +525,5 @@ script = ExtResource( 22 )
 [connection signal="pressed" from="Evaluation/PlayButton" to="Evaluation/PlayButton" method="_on_BackToSceneButton_pressed"]
 [connection signal="pressed" from="Approved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" to="Approved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" method="show_house"]
 [connection signal="pressed" from="Approved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" to="Approved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" method="discardCurrentCard" binds= [ "Approved" ]]
+[connection signal="pressed" from="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" to="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" method="show_house"]
 [connection signal="pressed" from="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" to="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" method="discardCurrentCard" binds= [ "Disapproved" ]]
