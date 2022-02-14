@@ -1,19 +1,18 @@
 extends Node
 
-const BRYCE_SCENE = preload("res://Assets/Cris_characters/Liam/liam.tscn")
-const LIAM_SCENE = preload("res://Assets/Cris_characters/Liam2/john.tscn")
+const BRYCE_SCENE = preload("res://Assets/Cris_characters/Bryce/Bryce.tscn")
+const LIAM_SCENE = preload("res://Assets/Cris_characters/Liam/Liam.tscn")
 const MALCOM_SCENE = preload("res://Assets/Cris_characters/Malcom/Malcom.tscn")
-#const REGINA_SCENE = preload("res://Assets/Characters/Regina/Regina.tscn")
 const REGINA_SCENE = preload("res://Assets/Cris_characters/Regina/Regina.tscn")
 const SHAE_SCENE = preload("res://Assets/Cris_characters/Shae/Shae.tscn")
 const SOPHIE_SCENE = preload("res://Assets/Cris_characters/Sophie/Sophie.tscn")
 
-const BRYCE_ICON = preload("res://Assets/Characters/Chad/chad_highRes.png")
-const LIAM_ICON = preload("res://Assets/Characters/Douglas/douglas_round.png")
-const MALCOM_ICON = preload("res://Assets/Characters/Megan/megan_round.png")
-const REGINA_ICON = preload("res://Assets/Characters/Regina/regina_round.png")
-const SHAE_ICON = preload("res://Assets/Characters/Remy/remy_round.png")
-const SOPHIE_ICON = preload("res://Assets/Characters/Remy/remy_round.png")
+const BRYCE_ICON = preload("res://Assets/Cris_characters/Bryce/Bryce.png")
+const LIAM_ICON = preload("res://Assets/Cris_characters/Liam/Liam.png")
+const MALCOM_ICON = preload("res://Assets/Cris_characters/Malcom/Malcom.png")
+const REGINA_ICON = preload("res://Assets/Cris_characters/Regina/Regina.png")
+const SHAE_ICON = preload("res://Assets/Cris_characters/Shae/Shae.png")
+const SOPHIE_ICON = preload("res://Assets/Cris_characters/Sophie/Sophie.png")
 
 # Animations
 const IDLE_ANIM = "Idle"
@@ -26,7 +25,7 @@ enum CHARACTERS {
 	BRYCE = 0,
 	LIAM,
 	MALCOM,
-	REGINA
+	REGINA,
 	SHAE,
 	SOPHIE,
 }

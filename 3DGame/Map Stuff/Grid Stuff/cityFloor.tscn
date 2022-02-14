@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Map Stuff/Grass003_1K_Color.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.129412, 0.235294, 0.117647, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 30, 0.5, 30 )
+
+[node name="cityFloor" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null

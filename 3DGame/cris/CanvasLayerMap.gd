@@ -5,7 +5,7 @@ onready var infoPlayers = $PlayerTurnHUD
 
 
 func disable_canvas():
-	infoDice.visible = false
+	#infoDice.visible = false
 	infoPlayers.visible = false
 
 func enable_canvas():

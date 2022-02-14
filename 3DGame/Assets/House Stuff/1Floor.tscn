@@ -29,13 +29,7 @@ transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -8.93392, 0.642451, -19.7866 )
 
 [node name="C_Wall_Medium3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.304, 0.642, -10 )
-
-[node name="C_Wall_Medium4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.02, 0.642, -10 )
-
-[node name="C_Wall_Medium5" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 39.684, 0.642, -10 )
+transform = Transform( 2.9, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.086, 0.642, -10 )
 
 [node name="C_Wall_Medium6" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 48.924, 0.642451, -20.1526 )

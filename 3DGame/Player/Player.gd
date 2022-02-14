@@ -9,7 +9,7 @@ signal walkingSound
 
 
 export (int) var player_num
-export (int) var speed = 5
+export (int) var speed = 16
 export(NodePath) var GameManager
 export(NodePath) var timer_node
 export (Array, String) var availableFurniture = []
@@ -86,13 +86,13 @@ func player_reached_target(_body):
 	if is_my_turn:
 		target_count += 1
 		cells_to_walk -= 1
-		if target_count >= cells_size || target.type == target.TYPE.END:
-			print("game ended")
-			#game finished
-			canMove = false
-			play_animation(CharactersManager.IDLE_ANIM)
-			emit_signal("game_finished")
-		elif cells_to_walk > 0:
+#		if target_count >= cells_size || target.type == target.TYPE.END:
+#			print("game ended")
+#			#game finished
+#			canMove = false
+#			play_animation(CharactersManager.IDLE_ANIM)
+#			emit_signal("game_finished")
+		if cells_to_walk > 0:
 			UpdateTarget()
 			#incr_points(1)
 		else:

@@ -5,10 +5,10 @@ export (Array, String) var availableFurniture = []
 
 func _ready():
 	var currentPlayer = SavingManager.current_player
-	
+
 	var mapNode =  get_node("/root/Map1")
 	var mapChildren = mapNode.get_children()
-	
+
 	for child in mapChildren:
 		if child.get_name() == "Spawners":
 			for player in child.get_children():
@@ -25,6 +25,7 @@ func checkActives(playerFurniture):
 	var pathFurniture
 	for i in range(0,size):
 		furniture = availableFurniture[i]
+		print("furniture gained: ", furniture)
 		pathFurniture = "/root/FurnishedHouse/" + availableFurniture[i]
 		
 		if playerFurniture[furniture] == 1:

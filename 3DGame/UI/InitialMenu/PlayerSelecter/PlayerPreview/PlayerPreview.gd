@@ -44,11 +44,18 @@ func _on_PlayerSelecterContainer_player_turn_changed(new_player_turn):
 
 
 func delete_characters():
-	if(get_node(player_placeholder) != null && get_node(player_placeholder).get_child_count() != 0):
-		# Delete other characters
-		for i in range(0, get_node(player_placeholder).get_child_count()):
-			get_node(player_placeholder).get_child(i).visible = false
-			get_node(player_placeholder).get_child(i).free()
+	print("hello whats happening")
+	var placeholder_node = get_node(player_placeholder)
+	if( placeholder_node != null && placeholder_node.get_child_count() != 0):
+#		# Delete other characters
+		var numChildren = placeholder_node.get_child_count()
+		for i in range(0, numChildren):
+			var child = placeholder_node.get_child(i)
+			if child.name == "Body":
+				child.visible = false
+				child.free()
 
-
+#func _process(delta):
+#	var texture = $Viewport.get_texture()
+#	$Sprite.texture = texture
 

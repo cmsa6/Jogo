@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=1]
 resource_name = "Atlas"
 albedo_color = Color( 0.227451, 0.164706, 0.0431373, 1 )
 metallic = 1.0
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=2]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( -0.0120252, -0.000581859, -0.0101984, 0.0233624, 0.000892111, 0.0160133 ),
@@ -14,18 +14,18 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 480,
-"material": SubResource( 2 ),
+"material": SubResource( 1 ),
 "name": "Atlas",
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 342
 }
 
-[node name="Playground Fencing" type="Spatial"]
+[node name="GardenFencing" type="Spatial"]
 
 [node name="RootNode" type="Spatial" parent="."]
 
 [node name="Playground Fencing" type="MeshInstance" parent="RootNode"]
 transform = Transform( 118.371, 0, 0, 0, 118.371, 0, 0, 0, 118.371, 0, 0, 0 )
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null

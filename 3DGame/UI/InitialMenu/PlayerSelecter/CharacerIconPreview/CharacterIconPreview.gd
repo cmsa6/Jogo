@@ -16,9 +16,12 @@ var selected = false
 var locked = false
 
 func _ready():
+	print(character)
 	button.icon = CharactersManager.get_character_icon(character)
 
 func _on_Button_pressed():
+	print("hello?")
+	print(character)
 	if selected == false:
 		selected = true
 		overlay.visible = true

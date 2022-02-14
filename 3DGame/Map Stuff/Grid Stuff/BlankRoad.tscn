@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Pavements/Atlas.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.0210709, -0.0337893, 0, 0.0421518, 0.0675887, 1e-05 ),
+"array_data": PoolByteArray( 235, 156, 172, 60, 175, 102, 10, 61, 0, 0, 0, 0, 0, 0, 127, 0, 126, 0, 0, 127, 150, 58, 181, 52, 235, 156, 172, 188, 175, 102, 10, 189, 0, 0, 0, 0, 0, 0, 127, 0, 126, 0, 0, 127, 89, 58, 134, 53, 235, 156, 172, 188, 175, 102, 10, 61, 0, 0, 0, 0, 0, 0, 127, 0, 127, 0, 0, 127, 89, 58, 181, 52, 235, 156, 172, 60, 175, 102, 10, 189, 0, 0, 0, 0, 0, 0, 127, 0, 127, 0, 0, 127, 150, 58, 134, 53 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "Atlas",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[node name="Road 3" type="Spatial"]
+
+[node name="RootNode" type="Spatial" parent="."]
+
+[node name="Road 3001" type="MeshInstance" parent="RootNode"]
+transform = Transform( -116.817, 7.33416e-05, -4.77955e-11, 1.72808e-07, 0.275322, 116.817, 7.33414e-05, 116.817, -0.275322, 0, 0, 2.57231e-06 )
+mesh = SubResource( 1 )
+material/0 = null

@@ -22,7 +22,7 @@ func update_dice_value():
 	var dice_value = rng.randi_range(1, 6)
 	
 	
-	dice_value = 2
+	dice_value = 3
 	
 	
 	#diceText.text = "Dice = " + str(dice_value)

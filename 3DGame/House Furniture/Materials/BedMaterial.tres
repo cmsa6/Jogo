@@ -4,5 +4,4 @@
 
 [resource]
 resource_name = "Atlas_2"
-flags_unshaded = true
 albedo_texture = ExtResource( 1 )
