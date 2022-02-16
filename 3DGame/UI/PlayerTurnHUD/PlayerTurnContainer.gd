@@ -35,15 +35,21 @@ func get_player():
 	return player 
 	
 func hide_turn():
+	print("hide text")
 	turnText.modulate = HIDDEN
 	arrow.modulate = HIDDEN
 
 
 func hide_agency():
 	#diceButton.disappear()
-	diceButton.visible = false
+	diceButton.stop()
+	#diceButton.visible = false
+	diceButton.modulate = HIDDEN
+	diceButton.disabled = true
 	hide_turn()
 	
 	
 func show_agency():
-	diceButton.visible = true
+	#diceButton.visible = true
+	diceButton.disabled = false
+	diceButton.modulate = VISIBLE

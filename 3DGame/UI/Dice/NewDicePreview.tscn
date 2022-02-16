@@ -223,8 +223,8 @@ __meta__ = {
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
 [connection signal="update_value" from="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice" to="Control/DiceManager" method="update_text"]
-[connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceResumo/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice" method="update_dice_value"]
+[connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceResumo/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice"]

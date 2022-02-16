@@ -24,21 +24,30 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 	var children = $VBoxContainer/HBoxContainer.get_children()
 	for i in children.size():
 		if i != playersTurn:
+			#children[i].show_agency()
+						
 			children[i].get_node("VBoxContainer/Arrow").modulate = HIDDEN
 			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = false
 			#children[i].get_node("CenterContainer/TextureRect2").texture = null
-			
-			children[i].get_node("VBoxContainer/TurnText").modulate = HIDDEN
+			children[i].get_node("VBoxContainer2/DiceButton").modulate = HIDDEN
 			children[i].get_node("VBoxContainer2/DiceButton").disabled = true
+			print(children[i].get_node("VBoxContainer2/DiceButton").disabled)
+			children[i].get_node("VBoxContainer/TurnText").modulate = HIDDEN
+			#children[i].get_node("VBoxContainer2/DiceButton").disabled = true
+			
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1,1))
 			#children[i].get_node("Arrow").visible = false
 		else:
+			children[i].show_agency()
 			#children[i].get_node("CenterContainer/TextureRect2").texture = load("res://Assets/Sprites/characterSelected.png")
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1.3,1.3))
 			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = true
 			children[i].get_node("VBoxContainer/Arrow").modulate = VISIBLE
 			children[i].get_node("VBoxContainer/TurnText").modulate = VISIBLE
 			children[i].get_node("VBoxContainer2/DiceButton").disabled = false
+			#children[i].get_node("VBoxContainer2/DiceButton").visible = true
+			
+			print("heelo, im about to blink")
 			children[i].get_node("VBoxContainer2/DiceButton").blink()
 			#children[i].get_node("Arrow").visible = true
 

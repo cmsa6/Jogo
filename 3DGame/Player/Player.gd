@@ -11,7 +11,7 @@ signal walkingSound
 export (int) var player_num
 export (int) var speed = 16
 export(NodePath) var GameManager
-export(NodePath) var timer_node
+#export(NodePath) var timer_node
 export (Array, String) var availableFurniture = []
 
 var animPlayer
@@ -106,7 +106,7 @@ func player_reached_target(_body):
 				emit_signal("load_minigame", target.type)
 			
 			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES:
-				get_node(timer_node).start(3.5)
+				#get_node(timer_node).start(3.5)
 				finished_game()
 			canMove = false
 			#is_my_turn = false

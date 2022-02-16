@@ -3,6 +3,10 @@ extends TextureButton
 onready var animPlayer = $AnimationPlayer
 
 
+const VISIBLE = Color(1, 1, 1, 1)
+const HIDDEN = Color(1, 1, 1, 0)
+
+
 func show_dice_screen():
 	var root_node = get_node("/root")
 
@@ -17,16 +21,23 @@ func show_dice_screen():
 func blink():
 	animPlayer.play("blink")
 	
+	
+	
 func disappear():
 	animPlayer.play("disappear")
 
 
 func _on_DiceButton_mouse_entered():
-	if not disabled:
+	#if not disabled:
+	if self.modulate == VISIBLE:
 		animPlayer.play("Still")
 
 
 
 func _on_DiceButton_mouse_exited():
-	if not disabled:
+	#if not disabled:
+	if self.modulate == VISIBLE:
 		animPlayer.play("blink")
+		
+func stop():
+	animPlayer.stop()
