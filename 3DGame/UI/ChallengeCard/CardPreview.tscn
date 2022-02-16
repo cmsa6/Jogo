@@ -1,28 +1,16 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Sprites/head-100x100.png" type="Texture" id=2]
+[ext_resource path="res://UI/ChallengeCard/CardStatus.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Fonts/card_preview2.tres" type="DynamicFont" id=4]
-[ext_resource path="res://UI/ChallengeCard/banjo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Fotos/playButton (6).png" type="Texture" id=6]
-[ext_resource path="res://Fotos/PlayButtonSelected (1).png" type="Texture" id=7]
+[ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/ChallengeCard/NextCard.gd" type="Script" id=9]
-[ext_resource path="res://Fonts/card_preview.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Fotos/challengeBackgroundBig.png" type="Texture" id=11]
-[ext_resource path="res://UI/ChallengeCard/ViewportEnv.tres" type="Environment" id=12]
+[ext_resource path="res://House Furniture/Photos/Couch.png" type="Texture" id=13]
 [ext_resource path="res://UI/ChallengeCard/RewardingManager.gd" type="Script" id=14]
-[ext_resource path="res://Fotos/Banjo.png" type="Texture" id=15]
-
-[sub_resource type="SpatialMaterial" id=1]
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-albedo_color = Color( 0.964706, 0.921569, 0.862745, 0.94902 )
-
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
-size = Vector3( 2, 0.01, 2 )
 
 [node name="CardPreview" type="Spatial"]
 
@@ -31,6 +19,7 @@ anchor_left = 0.000868201
 anchor_top = -0.00148168
 anchor_right = 1.00087
 anchor_bottom = 0.998518
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,75 +43,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -328.0
-margin_top = -262.0
-margin_right = 328.0
-margin_bottom = 262.0
+margin_left = -366.001
+margin_top = -191.0
+margin_right = 351.999
+margin_bottom = 231.0
+rect_min_size = Vector2( 700, 400 )
 rect_pivot_offset = Vector2( 388.889, 585.786 )
-color = Color( 0.964706, 0.921569, 0.862745, 0.94902 )
+color = Color( 0.964706, 0.921569, 0.862745, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="Control/Card"]
+[node name="CardStatus" parent="Control/Card" instance=ExtResource( 5 )]
+
+[node name="RewardingManager" type="VBoxContainer" parent="Control/Card"]
 anchor_right = 1.0
-margin_top = 6.0
-margin_bottom = 57.0
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 10 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "DESAFIO"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RewardingManager" type="HBoxContainer" parent="Control/Card"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -316.0
-margin_top = -214.0
-margin_right = 274.0
-margin_bottom = 236.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 109.0
+margin_right = -86.0
+margin_bottom = 1.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+custom_constants/separation = -12
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+playerAvatar = NodePath("../CardStatus/PlayerAvatar")
+ChallengeTitle = NodePath("../CardStatus/VBoxContainer/ChallengeTitle")
 
-[node name="CardInfo" type="VBoxContainer" parent="Control/Card/RewardingManager"]
-margin_right = 486.0
-margin_bottom = 450.0
-rect_min_size = Vector2( 486, 450 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_constants/separation = -80
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AvatarIcon" type="TextureRect" parent="Control/Card/RewardingManager/CardInfo"]
-margin_left = 193.0
-margin_top = 51.0
-margin_right = 293.0
-margin_bottom = 151.0
-rect_min_size = Vector2( 100, 100 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture = ExtResource( 2 )
-
-[node name="Reward" type="Label" parent="Control/Card/RewardingManager/CardInfo"]
-margin_top = 205.0
-margin_right = 486.0
-margin_bottom = 243.0
+[node name="Reward" type="Label" parent="Control/Card/RewardingManager"]
+margin_right = 630.0
+margin_bottom = 38.0
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "RECOMPENSA"
 align = 1
 valign = 2
@@ -130,80 +86,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ViewportContainer" type="ViewportContainer" parent="Control/Card/RewardingManager/CardInfo"]
-visible = false
-light_mask = 16384
-margin_left = 143.0
-margin_top = 248.0
-margin_right = 343.0
-margin_bottom = 448.0
-grow_vertical = 0
-rect_min_size = Vector2( 200, 200 )
+[node name="RewardPlaceholder" type="TextureRect" parent="Control/Card/RewardingManager"]
+margin_left = 215.0
+margin_top = 26.0
+margin_right = 415.0
+margin_bottom = 226.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+texture = ExtResource( 13 )
 
-[node name="Viewport" type="Viewport" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer"]
-size = Vector2( 150, 150 )
-own_world = true
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 0
-
-[node name="Spatial" type="Spatial" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer/Viewport"]
-
-[node name="object_placeHolder" type="Spatial" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer/Viewport/Spatial"]
-
-[node name="banjo01" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer/Viewport/Spatial/object_placeHolder" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 0.234548, -0.972104, 0, 0.972104, 0.234548, 0, 0.391541, 0 )
-visible = false
-
-[node name="Camera" type="Camera" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, 0.82079, 0.57123, 0, -0.57123, 0.82079, 0.100203, 1.83518, 3.5039 )
-environment = ExtResource( 12 )
-fov = 46.0
-
-[node name="DirectionalLight" type="DirectionalLight" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, -0.00102977, 0.999999, 0, -0.999999, -0.00102977, -0.257783, 2.90285, -0.217394 )
-visible = false
-layers = 0
-light_energy = 1.6
-
-[node name="MeshInstance" type="MeshInstance" parent="Control/Card/RewardingManager/CardInfo/ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00368154, -0.00308275, -8.01086e-05 )
-visible = false
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="TextureRect" type="TextureRect" parent="Control/Card/RewardingManager/CardInfo"]
-visible = false
-margin_left = 193.0
-margin_top = 298.0
-margin_right = 293.0
-margin_bottom = 398.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture = ExtResource( 15 )
-
-[node name="RewardPlaceholder" type="TextureRect" parent="Control/Card/RewardingManager/CardInfo"]
-margin_left = 243.0
-margin_top = 348.0
-margin_right = 243.0
-margin_bottom = 348.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="PlayButton" type="TextureButton" parent="Control/Card/RewardingManager"]
-margin_left = 490.0
-margin_top = 175.0
-margin_right = 590.0
-margin_bottom = 275.0
-rect_min_size = Vector2( 80, 80 )
+[node name="NextButton" type="TextureButton" parent="Control/Card/RewardingManager"]
+margin_left = 265.0
+margin_top = 214.0
+margin_right = 365.0
+margin_bottom = 314.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
-texture_focused = ExtResource( 7 )
+stretch_mode = 4
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -226,6 +126,8 @@ __meta__ = {
 
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
-[connection signal="save_card_data" from="Control/Card/RewardingManager" to="Control/Card/RewardingManager/PlayButton" method="save_data"]
-[connection signal="pressed" from="Control/Card/RewardingManager/PlayButton" to="Control/Card/RewardingManager/PlayButton" method="showNextCard"]
+[connection signal="save_card_data" from="Control/Card/RewardingManager" to="Control/Card/RewardingManager/NextButton" method="save_data"]
+[connection signal="pressed" from="Control/Card/RewardingManager/NextButton" to="Control/Card/RewardingManager/NextButton" method="showNextCard"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
+
+[editable path="Control/Card/CardStatus"]

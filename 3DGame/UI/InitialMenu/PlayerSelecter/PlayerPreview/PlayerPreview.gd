@@ -3,7 +3,7 @@ extends ColorRect
 export(NodePath) var player_placeholder
 export(int) var player_num
 
-const PLAYER_TEXT = "PLAYER "
+const PLAYER_TEXT = "JOGADOR "
 
 var player_turn
 

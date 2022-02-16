@@ -1,19 +1,18 @@
-extends HBoxContainer
+extends VBoxContainer
 
-onready var player = $CardInfo/AvatarIcon
-onready var rewardPlaceHolder = $CardInfo/RewardPlaceholder
+onready var rewardPlaceHolder = $RewardPlaceholder
 
-export (Array, String) var availableFurniture = []
+export(NodePath) var playerAvatar
+export(NodePath) var ChallengeTitle
+
 
 signal save_card_data(data)
+signal update_card_status(card_title)
 
 var reward = "" setget set_reward, get_reward
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	var playerTurn = SavingManager.current_player
-	player.set_texture(CharactersManager.get_character_icon(SettingsManager.players[playerTurn].character))
-	
 	#escolhe randomnly um valor que corresponde a uma carta
 	var randomFile = select_random_file()
 	
@@ -26,6 +25,10 @@ func _ready():
 	
 	var newcontent = content.split("|")
 	
+	#emit_signal("update_card_status", newcontent[1])
+	set_card_status(newcontent[1])
+	
+	
 #	var reward = newcontent[11]
 #	reward = reward.replace(" ", "")
 	reward = check_player_rewards()
@@ -37,11 +40,9 @@ func _ready():
 	var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
 	var rewardPhoto = load(rewardPath)
 
-	print(newcontent)
 	rewardPlaceHolder.texture = rewardPhoto
 	emit_signal("save_card_data", newcontent)
 	
-	print(reward)
 	
 func set_reward(rewardReceived):
 	reward = rewardReceived
@@ -79,3 +80,11 @@ func check_player_rewards():
 			for player in child.get_children():
 				if currentPlayer == (player.get_player_num() - 1):
 					return player.get_random_reward()
+
+
+func set_card_status(cardTitle):
+	var currentPlayer = SavingManager.current_player
+	get_node(playerAvatar).set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
+	
+	var title = get_node(ChallengeTitle)
+	title.text =  cardTitle

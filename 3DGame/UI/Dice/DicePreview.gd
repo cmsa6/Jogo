@@ -7,7 +7,7 @@ onready var diceRes = $Control/DiceManager/DiceResumo
 
 func _ready():
 	var mapNode = get_node("/root/Map1/CanvasLayer")
-	mapNode.disable_canvas()
+	mapNode.disable_additional_info()
 
 func show_animation():
 	diceContainer.visible = false

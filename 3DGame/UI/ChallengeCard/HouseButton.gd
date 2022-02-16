@@ -8,7 +8,7 @@ func show_house():
 	var current_player = SavingManager.current_player
 	
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
-	canvasNode.enable_canvas()
+	canvasNode.enable_additional_info()
 	
 	var currentCard = rootNode.get_child(0)
 	currentCard.queue_free()

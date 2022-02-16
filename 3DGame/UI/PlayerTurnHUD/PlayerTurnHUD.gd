@@ -7,7 +7,7 @@ const HIDDEN = Color(1, 1, 1, 0)
 
 var scene = preload("res://UI/PlayerTurnHUD/PlayerTurnContainer.tscn")
 
-onready var h_box_container = $HBoxContainer
+onready var h_box_container = $VBoxContainer/HBoxContainer
 
 func _ready():
 	var num_players = SettingsManager.num_of_players
@@ -21,17 +21,27 @@ func _ready():
 		i += 1
 	
 func _on_GameManager_on_players_turn_changed(playersTurn):
-	var children = $HBoxContainer.get_children()
+	var children = $VBoxContainer/HBoxContainer.get_children()
 	for i in children.size():
 		if i != playersTurn:
-			#children[i].get_node("Arrow").modulate = HIDDEN
-			children[i].get_node("CenterContainer/TextureRect2").texture = null
+			children[i].get_node("VBoxContainer/Arrow").modulate = HIDDEN
+			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = false
+			#children[i].get_node("CenterContainer/TextureRect2").texture = null
+			
+			children[i].get_node("VBoxContainer/TurnText").modulate = HIDDEN
+			children[i].get_node("VBoxContainer2/DiceButton").disabled = true
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1,1))
+			#children[i].get_node("Arrow").visible = false
 		else:
-			children[i].get_node("CenterContainer/TextureRect2").texture = load("res://Assets/Sprites/characterSelected.png")
+			#children[i].get_node("CenterContainer/TextureRect2").texture = load("res://Assets/Sprites/characterSelected.png")
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1.3,1.3))
-			#children[i].get_node("Arrow").modulate = VISIBLE
+			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = true
+			children[i].get_node("VBoxContainer/Arrow").modulate = VISIBLE
+			children[i].get_node("VBoxContainer/TurnText").modulate = VISIBLE
+			children[i].get_node("VBoxContainer2/DiceButton").disabled = false
+			children[i].get_node("VBoxContainer2/DiceButton").blink()
+			#children[i].get_node("Arrow").visible = true
 
 func _on_Player_player_points_updated(points, extra_arg_0):
-	var child = $HBoxContainer.get_child(extra_arg_0 - 1)
+	var child = $VBoxContainer/HBoxContainer.get_child(extra_arg_0 - 1)
 	child.set_points_text(points)

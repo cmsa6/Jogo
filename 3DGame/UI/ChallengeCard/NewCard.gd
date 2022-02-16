@@ -1,19 +1,21 @@
 extends Spatial
 
-
+onready var playerImage = $Control/GridContainer/Avatar	
 
 var card_data = [] setget set_card_data, get_card_data
+
 
 signal data_saved(card_data)
 
 func _ready():
-	var current_Scene = get_node("/root/CardPreview")
-	current_Scene.queue_free()
+	var currentScene = get_node("/root/CardPreview")
+	currentScene.queue_free()
+	
+	var currentPlayer = SavingManager.current_player
+	playerImage.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
 	
 func set_card_data(dataReceived):
 	card_data = dataReceived
-	var cardInfo = $Control/Card/CardInfo
-	cardInfo.save_card_info(card_data)
 	emit_signal("data_saved", card_data)
 
 	

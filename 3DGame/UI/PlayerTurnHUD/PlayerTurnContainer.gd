@@ -1,11 +1,17 @@
 extends VBoxContainer
 
 #const POINTS_LABEL = "Points: "
-const POINTS_LABEL = " /10 OBJETOS"
+const POINTS_LABEL = " /6 OBJETOS"
 
-onready var icon = $CenterContainer/TextureRect2/CenterContainer/Icon
-onready var button = $CenterContainer/TextureRect2/CenterContainer/TextureButton
+onready var icon = $VBoxContainer2/CenterContainer/Icon
+onready var button = $VBoxContainer2/CenterContainer/TextureButton
 onready var label = $Label
+onready var turnText = $VBoxContainer/TurnText
+onready var arrow = $VBoxContainer/Arrow
+onready var diceButton = $VBoxContainer2/DiceButton
+
+const VISIBLE = Color(1, 1, 1, 1)
+const HIDDEN = Color(1, 1, 1, 0)
 
 var player setget set_player, get_player
 
@@ -27,3 +33,17 @@ func set_player(playerID):
 
 func get_player():
 	return player 
+	
+func hide_turn():
+	turnText.modulate = HIDDEN
+	arrow.modulate = HIDDEN
+
+
+func hide_agency():
+	#diceButton.disappear()
+	diceButton.visible = false
+	hide_turn()
+	
+	
+func show_agency():
+	diceButton.visible = true

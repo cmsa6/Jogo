@@ -9,6 +9,7 @@ bottom_radius = 0.7
 height = 0.01
 
 [sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
 albedo_color = Color( 0.788235, 0.0235294, 0.0235294, 1 )
 
 [sub_resource type="BoxShape" id=3]

@@ -1,0 +1,230 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=1]
+[ext_resource path="res://Fotos/DiceBackground.png" type="Texture" id=2]
+[ext_resource path="res://UI/ChallengeCard/ViewportEnv.tres" type="Environment" id=3]
+[ext_resource path="res://UI/ChallengeCard/BackToMap.gd" type="Script" id=4]
+[ext_resource path="res://UI/Dice/DicePreview.gd" type="Script" id=5]
+[ext_resource path="res://UI/Dice/DiceManager.gd" type="Script" id=6]
+[ext_resource path="res://Fonts/dice_preview.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/Characters/Chad/chad_round.png" type="Texture" id=8]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Dice/dice.tscn" type="PackedScene" id=10]
+[ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=13]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 2, 0.01, 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 2, 0.01, 2 )
+
+[node name="DicePreview" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.000868201
+anchor_top = -0.00148168
+anchor_right = 1.00087
+anchor_bottom = 0.998518
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.00183105
+margin_bottom = 398.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceManager" type="ColorRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.598
+anchor_right = 0.5
+anchor_bottom = 0.598
+margin_left = -269.5
+margin_top = -202.8
+margin_right = 269.5
+margin_bottom = 203.2
+rect_pivot_offset = Vector2( 388.889, 585.786 )
+color = Color( 0.964706, 0.921569, 0.862745, 0.784314 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceResumo" type="VBoxContainer" parent="Control/DiceManager"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.5
+margin_top = -199.335
+margin_right = 214.5
+margin_bottom = 143.665
+rect_scale = Vector2( 1.11393, 1.15982 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/DiceManager/DiceResumo"]
+margin_right = 485.0
+margin_bottom = 100.0
+size_flags_horizontal = 7
+
+[node name="PlayerName" type="Label" parent="Control/DiceManager/DiceResumo/HBoxContainer"]
+margin_left = 151.0
+margin_top = 28.0
+margin_right = 320.0
+margin_bottom = 72.0
+grow_horizontal = 0
+size_flags_horizontal = 10
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Jogador X"
+align = 1
+valign = 1
+
+[node name="Avatar" type="TextureRect" parent="Control/DiceManager/DiceResumo/HBoxContainer"]
+margin_left = 385.0
+margin_right = 485.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 10
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 8 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/DiceManager/DiceResumo"]
+margin_top = 104.0
+margin_right = 485.0
+margin_bottom = 204.0
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Control/DiceManager/DiceResumo/CenterContainer"]
+margin_left = 192.0
+margin_right = 292.0
+margin_bottom = 100.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Viewport" type="Viewport" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer"]
+size = Vector2( 100, 100 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport"]
+
+[node name="Camera" type="Camera" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -62.1176, 12.9595, 0 )
+environment = ExtResource( 3 )
+fov = 46.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial"]
+transform = Transform( 1, 0, 0, 0, -0.00102977, 0.999999, 0, -0.999999, -0.00102977, -0.257783, 2.90285, -0.217394 )
+visible = false
+light_energy = 1.6
+
+[node name="MeshInstance" type="MeshInstance" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00368154, -0.00308275, -8.01086e-05 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Spatial" type="Spatial" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial"]
+
+[node name="object_placeHolder" type="Spatial" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial"]
+
+[node name="dice" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder" instance=ExtResource( 10 )]
+
+[node name="Camera" type="Camera" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial"]
+transform = Transform( 1, 0, 0, 0, -0.0909281, 0.995857, 0, -0.995857, -0.0909281, -0.00486958, 1.09416, -0.0293272 )
+environment = ExtResource( 3 )
+fov = 46.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial"]
+transform = Transform( 1, 0, 0, 0, -0.00102977, 0.999999, 0, -0.999999, -0.00102977, -0.257783, 2.90285, -0.217394 )
+visible = false
+light_energy = 1.6
+
+[node name="MeshInstance" type="MeshInstance" parent="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00368154, -0.00308275, -8.01086e-05 )
+visible = false
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Instructions" type="Label" parent="Control/DiceManager/DiceResumo"]
+margin_left = 156.0
+margin_top = 216.0
+margin_right = 328.0
+margin_bottom = 260.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Vai andar "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapButton" type="TextureButton" parent="Control/DiceManager/DiceResumo"]
+margin_left = 207.0
+margin_top = 273.0
+margin_right = 277.0
+margin_bottom = 343.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+disabled = true
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadMapSceneButton" type="Button" parent="Control"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+custom_fonts/font = ExtResource( 13 )
+text = "LOAD MAP SCENE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadSavedScene" parent="." instance=ExtResource( 11 )]
+
+[node name="UISoundManager" parent="." instance=ExtResource( 9 )]
+
+[connection signal="update_value" from="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice" to="Control/DiceManager" method="update_text"]
+[connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceResumo/MapButton" method="discard_dice_info"]
+[connection signal="pressed" from="Control/DiceManager/DiceResumo/MapButton" to="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice" method="update_dice_value"]
+[connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
+
+[editable path="Control/DiceManager/DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice"]

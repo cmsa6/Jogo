@@ -3,7 +3,7 @@ extends Node
 signal on_players_turn_changed(playersTurn)
 export (Array, NodePath) var cells = [] setget , get_cells 
 export (Array, NodePath) var players = []
-export (NodePath) var timerNode
+#export (NodePath) var timerNode
 
 # Players Manager
 var playersTurn = 0
@@ -17,7 +17,7 @@ func _ready():
 	start_game()
 	print("atualizei o current_player para 0")
 	SavingManager.current_player = 0
-	get_node(timerNode).start(1.2)
+#	get_node(timerNode).start(1.2)
 	
 
 func start_game():

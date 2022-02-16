@@ -14,6 +14,8 @@ func showNextCard():
 	var cardScene = load(nextCard)
 	var cardInstance = cardScene.instance()
 	var card_data = get_data()
+	print("Ainda no preview")
+	print(card_data)
 	cardInstance.set_card_data(card_data)
 	#cardInstance.teste()
 	root_node.add_child(cardInstance)
@@ -21,7 +23,7 @@ func showNextCard():
 	
 	
 func save_data(dataReceived):
-	print("set data to ", dataReceived)
+	print("set data to 2 ", dataReceived)
 	data = dataReceived
 	print(data)
 	

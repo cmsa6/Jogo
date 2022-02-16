@@ -15,7 +15,7 @@ func discardCurrentCard(eval):
 	#var mapChildren = mapNode.get_children()
 	
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
-	canvasNode.enable_canvas()
+	canvasNode.enable_additional_info()
 	
 	var playersNode = get_node("/root/Map1/Spawners")
 	var players = playersNode.get_children()
@@ -31,12 +31,12 @@ func discardCurrentCard(eval):
 			if eval == "Approved":
 				if not child.check_win():
 					child.play_animation(CharactersManager.WIN_ANIM)
-					timer_node.start(3.5)
+					#timer_node.start(3.5)
 				else:
 					child.won_game()
 			elif eval == "Disapproved":
 				child.play_animation(CharactersManager.LOSE_ANIM)
-				timer_node.start(3.5)
+				#timer_node.start(3.5)
 			break
 
 			
@@ -47,13 +47,13 @@ func discard_dice_info():
 	var root_node = get_node("/root")
 
 	var currentCard = root_node.get_child(0)
-	print("a sair do dado")
 	print(currentCard.get_children())
 	currentCard.queue_free()
 	
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
-	canvasNode.enable_canvas()
-	
+	#canvasNode.enable_canvas()
+	print("\n")
+	canvasNode.erase_text()
 	
 	
 	

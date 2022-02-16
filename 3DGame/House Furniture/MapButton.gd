@@ -21,5 +21,5 @@ func back_to_map():
 		if ( child.get_player_num() -1 ) == currentPlayer:
 			child.finished_game()
 	
-	var timer_node = get_node("/root/Map1/PlayTimer")
-	timer_node.start(1)
+	#var timer_node = get_node("/root/Map1/PlayTimer")
+	#timer_node.start(1)
