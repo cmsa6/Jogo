@@ -25,7 +25,7 @@ func start_game():
 	emit_signal("on_players_turn_changed", playersTurn)
 	#print("DEI UPDATE")
 	#SavingManager.current_player = playersTurn
-	UpdateActivePlayersCam()
+	#UpdateActivePlayersCam()
 
 func get_cells():
 	return cells
