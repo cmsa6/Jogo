@@ -30,6 +30,8 @@ var points = 0 setget incr_points
 var furnitureGained = {}
 var rng = RandomNumberGenerator.new()
 
+var iAlreadyWon = false setget set_iAlreadyWon, get_iAlreadyWon
+
 
 
 
@@ -47,7 +49,7 @@ func _ready():
 	#Spwon character
 	var instance
 	if(player_num <= SettingsManager.num_of_players):
-		print(SettingsManager.players[player_num-1])
+		print( "creating player with number: ", SettingsManager.players[player_num-1])
 		instance = CharactersManager.get_character_scene(
 			SettingsManager.players[player_num - 1].character).instance()
 		instance.name = "Body"
@@ -105,7 +107,7 @@ func player_reached_target(_body):
 				#play_animation(CharactersManager.IDLE_ANIM)
 				emit_signal("load_minigame", target.type)
 			
-			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES:
+			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES  || target.type == target.TYPE.INIT:
 				#get_node(timer_node).start(3.5)
 				finished_game()
 			canMove = false
@@ -175,15 +177,18 @@ func get_gained_furniture():
 	return furnitureGained
 	
 func check_win():
+	print("checkwin: ", furnitureGained)
 	var maxFurniture = availableFurniture.size()
 	for i in range(0, maxFurniture):
 		print(furnitureGained[availableFurniture[i]])
 		if furnitureGained[availableFurniture[i]] == 0:
 			return false
-		
+	
+	set_iAlreadyWon(true)	
 	return true
 
-func won_game():
+func all_won_game():
+	print("all won game!")
 	emit_signal("game_finished")
 	
 func get_random_reward():
@@ -198,6 +203,15 @@ func get_random_reward():
 	print("faltam me as rewards ", missingRewards)
 	rng.randomize()
 	var maxMissingRewards = missingRewards.size()
+	if maxMissingRewards == 0:
+		return "Bed"
 	return missingRewards[rng.randi_range(0, maxMissingRewards-1)]
 	
 	 
+	
+func set_iAlreadyWon(bol):
+	iAlreadyWon = bol
+	
+func get_iAlreadyWon():
+	return iAlreadyWon
+	

@@ -27,6 +27,7 @@ func update_dice_value():
 	var dice_value = get_value()
 	#diceText.text = "Dice = " + str(dice_value)
 	#emit_signal("dice_used", dice_value)
+	
 	var gameManagerNode = get_node("/root/Map1/GameManager")
 	gameManagerNode._on_Dado_dice_used(dice_value)
 

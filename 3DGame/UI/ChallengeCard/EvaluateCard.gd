@@ -74,26 +74,27 @@ func approve(bol):
 	
 	if bol: 
 		var currentPlayer = SavingManager.current_player
-		var mapNode =  get_node("/root/Map1")
-		var mapChildren = mapNode.get_children()
+		var spawners =  get_node("/root/Map1/Spawners").get_children()
+		#var mapChildren = mapNode.get_children()
 		
-		for child in mapChildren:
-			if child.get_name() == "Spawners":
-				for player in child.get_children():
-					if currentPlayer == (player.get_player_num() - 1):
-						print("i approved")
-						#player.play_animation(CharactersManager.WIN_ANIM)
-						player.incr_points(1)
-						#var num = checkReward()
-						#print(num)
-						var rewardToSend = get_reward()
-						player.gained_furniture(rewardToSend)
-						break
+		#for child in mapChildren:
+		#	if child.get_name() == "Spawners":
+			#for player in child.get_children():
+		for player in spawners:
+			
+			if currentPlayer == (player.get_player_num() - 1):
+				print("i approved")
+				#player.play_animation(CharactersManager.WIN_ANIM)
+				player.incr_points(1)
+				#var num = checkReward()
+				#print(num)
+				var rewardToSend = get_reward()
+				player.gained_furniture(rewardToSend)
 				break
+				#break
 
 	
 func set_card_data(dataReceived):
-	print("dentro do evaluate card recevi a card data ",dataReceived)
 	reward = dataReceived[11]
 	set_challenge_title(dataReceived[1])
 	#reward = reward.replace(" ", "")
