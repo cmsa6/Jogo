@@ -6,14 +6,20 @@ onready var avatarIcon = $CanvasLayer/PlayerAvatar
 onready var mapButton = $CanvasLayer/MapButton
 
 var finalPlayer  setget set_finalPlayer, get_finalPlayer
+var origin setget set_origin, get_origin
 
 onready var players = SettingsManager.players
 
 
 
 func _ready():
+	
+	
+	
 	var parentName = get_parent().name
 	if not "Final" in parentName:
+		mapButton.set_screenOrigin(get_origin())
+		
 		var currentPlayer = SavingManager.current_player
 		
 		avatarIcon.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
@@ -57,6 +63,7 @@ func show_final_house(playerID):
 	avatarIcon.visible = false
 	mapButton.visible = false
 	
+	
 	#var spawners =  get_node("/root/Map1/Spawners").get_children()
 	#var allPlayers = SavingManager.winning_players
 
@@ -81,3 +88,10 @@ func set_finalPlayer(player):
 	
 func get_finalPlayer():
 	return finalPlayer
+	
+func set_origin(orig):
+	print("setting origin to ", orig)
+	origin = orig
+	
+func get_origin():
+	return origin

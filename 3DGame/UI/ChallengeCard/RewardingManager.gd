@@ -1,6 +1,10 @@
 extends VBoxContainer
 
-onready var rewardPlaceHolder = $RewardPlaceholder
+onready var rewardPlaceHolder = $HBoxContainer/RewardPlaceholder
+onready var numPoints = $HBoxContainer/HBoxContainer/NumberPoints
+onready var skill = $HBoxContainer/HBoxContainer/Skill
+
+var type setget set_type, get_type
 
 export(NodePath) var playerAvatar
 export(NodePath) var ChallengeTitle
@@ -14,9 +18,11 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	#escolhe randomnly um valor que corresponde a uma carta
-	var randomFile = select_random_file()
+	var cardType = get_type()
+	var randomFile = select_random_file(cardType)
 	
-	var fileName = "res://Cards/Cognitive Card/" + randomFile
+	#var fileName = "res://Cards/Cognitive Card/" + randomFile
+	var fileName = "res://Cards/" + str(cardType) + "/" + randomFile
 	print("it selected the file ", fileName)
 	var file = File.new()
 	file.open(fileName, File.READ)
@@ -39,8 +45,15 @@ func _ready():
 	
 	var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
 	var rewardPhoto = load(rewardPath)
-
 	rewardPlaceHolder.texture = rewardPhoto
+	
+	numPoints.text = newcontent[7] 
+	var skillDev = newcontent[9].replace(" ","")
+	print("skill being developed: ", skillDev)
+	var skillPath = "res://Cards/Skills/" + skillDev + ".png"
+	var skillPhoto = load(skillPath)
+	skill.texture = skillPhoto
+	
 	emit_signal("save_card_data", newcontent)
 	
 	
@@ -51,10 +64,12 @@ func get_reward():
 	return reward
 	
 
-func select_random_file():
+func select_random_file(folder):
 	var files = []
 	var dir = Directory.new()
-	dir.open("res://Cards/Cognitive Card/")
+	var folderName = "res://Cards/" + str(folder) + "/"
+	#dir.open("res://Cards/Cognitive Card/")
+	dir.open(folderName)
 	dir.list_dir_begin()
 	
 	while true:
@@ -88,3 +103,10 @@ func set_card_status(cardTitle):
 	
 	var title = get_node(ChallengeTitle)
 	title.text =  cardTitle
+
+
+func set_type(t):
+	type = t
+	
+func get_type():
+	return type

@@ -8,9 +8,6 @@ signal disable_buttons
 
 
 func _on_load_minigame(type):
-	print(type)
-	
-
 	var root_node = get_node("/root") 
 	emit_signal("disable_buttons")
 	
@@ -21,6 +18,7 @@ func _on_load_minigame(type):
 	#var minigame_node = load(minigames[choose_random_minimgame()])
 	var minigame_node = load(minigames[1])
 	minigame_node = minigame_node.instance()
+	minigame_node.set_type(type)
 	root_node.add_child(minigame_node)
 	root_node.move_child(minigame_node,0)
 
@@ -33,9 +31,9 @@ func _on_load_minigame(type):
 	#	root_node.call_deferred("remove_child", game_node)
 	#	print("i have removed the child")
 		
-	print(root_node.get_children())
-	print(root_node.get_children()[0].get_children())
-	print(root_node.get_children()[4].get_children())
+#	print(root_node.get_children())
+#	print(root_node.get_children()[0].get_children())
+#	print(root_node.get_children()[4].get_children())
 
 func choose_random_minimgame():
 	rng.randomize()

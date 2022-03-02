@@ -25,14 +25,16 @@ var canMove = false
 var target_count = 0
 var cells_to_walk = 0
 
-var points = 0 setget incr_points
+#var points = 0 setget incr_points
 
 var furnitureGained = {}
 var rng = RandomNumberGenerator.new()
 
 var iAlreadyWon = false setget set_iAlreadyWon, get_iAlreadyWon
 
-
+#var points = {"COMMERCIAL":0, "SERVICES": 0, "LEISURE":0, "HELP": 0} 
+var points = {"InterpersonalRelationship" : 0, "SocialInclusion": 0, "Rights": 0, "PersonalDevelopment": 0, "Self-Determination": 0, "PhysicalWellbeing": 0, "MaterialWellbeing": 0, "EmotionalWellbeing": 0, "CalculusandProblemSolving": 0, "Language": 0, "MemoryandAttentiontoDetail": 0, "SpatialOrientation": 0, "SocialandEmotionalWellbeing": 0}
+var totalPoints = 0 setget set_totalPoints, get_totalPoints
 
 
 
@@ -61,7 +63,8 @@ func _ready():
 		animPlayer = $Body/AnimationPlayer
 		play_animation(CharactersManager.IDLE_ANIM)
 		create_furniture_array()
-		incr_points(0)
+		#incr_points(0)
+		#set_points(0)
 		
 		
 	else:
@@ -75,12 +78,12 @@ func Move(dice_value):
 	
 func UpdateTarget():
 	target_pos = get_target_position()
-	print("posicao do target: ", target_pos)
+	#print("posicao do target: ", target_pos)
 
 func get_target_position():
 	if target_count == 25:
 		target_count = 0 
-	print("trying to solve problem, target: ", target_count)
+	#print("trying to solve problem, target: ", target_count)
 	target = gameManager.get_node_cell_by_index(target_count)
 	return target.transform.origin
 
@@ -105,7 +108,11 @@ func player_reached_target(_body):
 			if target.type == target.TYPE.GAME_COMMERCIAL || target.type == target.TYPE.GAME_LEISURE || target.type == target.TYPE.GAME_HELP || target.type == target.TYPE.GAME_SERVICES:
 				#SavingManager.current_player = player_num - 1
 				#play_animation(CharactersManager.IDLE_ANIM)
-				emit_signal("load_minigame", target.type)
+				var type = get_type(target.type)
+				
+				#set_points(type, 1)
+				#print("player points: ", get_points())
+				emit_signal("load_minigame", type)
 			
 			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES  || target.type == target.TYPE.INIT:
 				#get_node(timer_node).start(3.5)
@@ -135,14 +142,24 @@ func play_animation(anim_name):
 	
 	
 # Get && Set
-func incr_points(point_to_add):
-	#print("mesmo no inciio ", point_to_add)
-	#if point_to_add == 0:
-	#	create_furniture_array()
-	#else:
-	#	gained_furniture(0)
-	points += point_to_add
-	emit_signal("player_points_updated", points)
+#func incr_points(point_to_add):
+func set_points(type, points_to_add):
+	set_totalPoints(points_to_add)
+	var actualPoints = get_points()
+	#print(actualPoints)
+	#print(actualPoints["Rights"])
+	#print(type)
+	type = type.replace(" ", "")
+	var p = actualPoints[type]
+	var totalPoints =  p + int(points_to_add)
+	actualPoints[type] = totalPoints
+	
+	#points += point_to_add
+	print("I updated my points to ", get_points())
+	#emit_signal("player_points_updated",  totalPoints)
+	
+func get_points():
+	return points
 	
 func get_player_num():
 	return player_num
@@ -171,6 +188,16 @@ func gained_furniture(furnitureId):
 	#furnitureGained.insert(furnitureId,1)
 	furnitureGained[furnitureId] = 1
 	print(furnitureGained)
+	
+	var totalFurniture = 0
+	var values = furnitureGained.values()
+	
+	print(values)
+	for v in values:
+		totalFurniture += v
+		
+	emit_signal("player_points_updated",  totalFurniture)
+		
 	#furnitureGained[furnitureId] = 1
 	
 func get_gained_furniture():
@@ -215,3 +242,19 @@ func set_iAlreadyWon(bol):
 func get_iAlreadyWon():
 	return iAlreadyWon
 	
+func get_type(cellType):
+	if cellType == 5:
+		return "COMMERCIAL"
+	elif cellType == 6:
+		return "SERVICES"
+	elif cellType == 7:
+		return "LEISURE"
+	elif cellType == 8:
+		return "HELP"
+	
+
+func set_totalPoints(points):
+	totalPoints = int(totalPoints) + int(points)
+	
+func get_totalPoints():
+	return totalPoints

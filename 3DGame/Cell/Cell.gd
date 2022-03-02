@@ -38,7 +38,7 @@ onready var sprite = $Sprite3D
 func _ready():
 	var auxMat = SpatialMaterial.new()
 	#var auxMat = mesh.get_surface_material(0)
-	print("colorindoooo")
+	
 	
 	match type:
 		TYPE.INIT:

@@ -7,6 +7,12 @@ const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
 
 
+func _input(event):
+	if not self.modulate == HIDDEN:
+		if event.is_action_pressed("ui_accept"):
+			emit_signal("pressed")
+		
+
 func show_dice_screen():
 	var root_node = get_node("/root")
 

@@ -32,7 +32,6 @@ func enable_additional_info():
 	#var children = infoPlayers.get_children()
 	#var nChildren = children.size()
 	
-	print("hello? trying to enable ")
 	var current_player = SavingManager.current_player
 	var child = infoPlayers.get_child(current_player)
 	

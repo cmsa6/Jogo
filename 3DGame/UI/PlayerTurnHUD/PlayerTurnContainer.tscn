@@ -1,14 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fotos/Seta.png" type="Texture" id=1]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Cris_characters/Bryce/Bryce.png" type="Texture" id=3]
 [ext_resource path="res://UI/PlayerTurnHUD/PlayerTurnContainer.gd" type="Script" id=4]
+[ext_resource path="res://Fotos/HouseButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/characterSelected.png" type="Texture" id=6]
 [ext_resource path="res://Fotos/DiceButtonDisabled.png" type="Texture" id=7]
 [ext_resource path="res://Fotos/DiceButton.png" type="Texture" id=8]
 [ext_resource path="res://Fotos/DiceButtonSelected.png" type="Texture" id=9]
 [ext_resource path="res://UI/PlayerTurnHUD/DiceButton.gd" type="Script" id=10]
+[ext_resource path="res://Fotos/HouseButtonSelected.png" type="Texture" id=11]
+[ext_resource path="res://UI/PlayerTurnHUD/showPlayerHouse.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
@@ -163,7 +166,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "X/10 OBJECTS"
+text = "0 / 6 OBJECTS"
 align = 1
 autowrap = true
 
@@ -205,7 +208,10 @@ margin_right = 300.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 300, 300 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 5 )
 expand = true
+script = ExtResource( 12 )
 
 [node name="DiceButton" type="TextureButton" parent="VBoxContainer2"]
 margin_left = 100.0
@@ -259,6 +265,7 @@ align = 1
 valign = 1
 autowrap = true
 
+[connection signal="pressed" from="VBoxContainer2/CenterContainer/TextureButton" to="VBoxContainer2/CenterContainer/TextureButton" method="show_house"]
 [connection signal="mouse_entered" from="VBoxContainer2/DiceButton" to="VBoxContainer2/DiceButton" method="_on_DiceButton_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer2/DiceButton" to="VBoxContainer2/DiceButton" method="_on_DiceButton_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer2/DiceButton" to="VBoxContainer2/DiceButton" method="show_dice_screen"]

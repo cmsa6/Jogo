@@ -33,6 +33,7 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			children[i].get_node("VBoxContainer2/DiceButton").disabled = true
 			print(children[i].get_node("VBoxContainer2/DiceButton").disabled)
 			children[i].get_node("VBoxContainer/TurnText").modulate = HIDDEN
+			children[i].get_node("VBoxContainer2/CenterContainer/TextureButton").disabled = true
 			#children[i].get_node("VBoxContainer2/DiceButton").disabled = true
 			
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1,1))
@@ -45,6 +46,7 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			children[i].get_node("VBoxContainer/Arrow").modulate = VISIBLE
 			children[i].get_node("VBoxContainer/TurnText").modulate = VISIBLE
 			children[i].get_node("VBoxContainer2/DiceButton").disabled = false
+			children[i].get_node("VBoxContainer2/CenterContainer/TextureButton").disabled = false
 			#children[i].get_node("VBoxContainer2/DiceButton").visible = true
 			
 			print("heelo, im about to blink")

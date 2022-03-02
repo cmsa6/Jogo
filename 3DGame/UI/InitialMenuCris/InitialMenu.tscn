@@ -117,9 +117,6 @@ playerSelecterContainer = NodePath("../../../cris_PlayerSelecterContainer")
 [node name="cris_PlayerSelecterContainer" parent="." instance=ExtResource( 7 )]
 visible = false
 
-[node name="AvatarBody" parent="cris_PlayerSelecterContainer/HBoxContainer" index="0"]
-margin_bottom = 603.0
-
 [node name="PlayerPreview" parent="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody" index="0"]
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.85
@@ -138,15 +135,32 @@ player_num = 2
 [node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" index="1"]
 text = "JOGADOR 2"
 
-[node name="ConfirmAvatar" parent="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody" index="2"]
-margin_top = 503.0
-margin_bottom = 603.0
+[node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
 
-[node name="VBoxContainer" parent="cris_PlayerSelecterContainer/HBoxContainer" index="1"]
-margin_bottom = 603.0
+[node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+
+[node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+
+[node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+
+[node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
 
 [node name="CharacterIconPreview6" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars" index="5"]
 character = 5
+
+[node name="Label" parent="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
 
 [node name="UISoundManager" parent="." instance=ExtResource( 10 )]
 
@@ -157,47 +171,47 @@ character = 5
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_MultipleTypeSelecter/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_MultipleTypeSelecter/VBoxContainer/TextureButton" method="_on_Local_Multiplayer_Selected"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="UISoundManager" method="confirm"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/TextureButton" method="_on_ConfirmButton_pressed"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_ConfirmButton_pressed"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_ConfirmButton_pressed"]
-[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_PlayerSelecterContainer_player_turn_changed"]
-[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_PlayerSelecterContainer_player_turn_changed"]
-[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_PlayerSelecterContainer_player_turn_changed"]
-[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_PlayerSelecterContainer_player_turn_changed"]
-[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_PlayerSelecterContainer_player_turn_changed"]
+[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_ConfirmButton_pressed"]
 [connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_PlayerSelecterContainer_player_turn_changed"]
+[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_PlayerSelecterContainer_player_turn_changed"]
 [connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_PlayerSelecterContainer_player_turn_changed"]
 [connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_PlayerSelecterContainer_player_turn_changed"]
+[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_PlayerSelecterContainer_player_turn_changed"]
+[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_PlayerSelecterContainer_player_turn_changed"]
+[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_PlayerSelecterContainer_player_turn_changed"]
+[connection signal="player_turn_changed" from="cris_PlayerSelecterContainer" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_PlayerSelecterContainer_player_turn_changed"]
 [connection signal="start_load_next_scene" from="cris_PlayerSelecterContainer" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="UISoundManager" method="confirm"]
-[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_ConfirmButton_pressed"]
-[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_ConfirmButton_pressed"]
-[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer" method="_on_ConfirmButton_pressed"]
-[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_ConfirmButton_pressed"]
-[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
+[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_ConfirmButton_pressed"]
 [connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_new_character_selected"]
+[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/TextureRect2/CenterContainer/Button" to="UISoundManager" method="select"]
-[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_new_character_selected"]
+[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="UISoundManager" method="select"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/TextureRect2/CenterContainer/Button" to="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
-[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_new_character_selected"]
+[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="UISoundManager" method="select"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/TextureRect2/CenterContainer/Button" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_new_character_selected"]
+[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="UISoundManager" method="select"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/TextureRect2/CenterContainer/Button" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_new_character_selected"]
+[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="UISoundManager" method="select"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/TextureRect2/CenterContainer/Button" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview2" method="_on_new_character_selected"]
+[connection signal="new_character_selected" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/PlayerPreview" method="_on_new_character_selected"]
 [connection signal="button_down" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/TextureRect2/CenterContainer/Button" to="UISoundManager" method="select"]
 [connection signal="pressed" from="cris_PlayerSelecterContainer/HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/TextureRect2/CenterContainer/Button" to="cris_PlayerSelecterContainer/HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
 

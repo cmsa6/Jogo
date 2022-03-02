@@ -7,17 +7,27 @@ export var character = 0
 
 signal new_character_selected(new_character)
 
-onready var overlay = $TextureRect2/CenterContainer/Overlay
-onready var button = $TextureRect2/CenterContainer/Button
+onready var overlay = $VBoxContainer/TextureRect2/CenterContainer/Overlay
+onready var button = $VBoxContainer/TextureRect2/CenterContainer/Button
+onready var keyboard = $VBoxContainer/Label
 
 var players_turn
 var selected_by_player
 var selected = false
 var locked = false
 
+func _input(event):
+	if event.is_action_pressed("select_avatars"):
+		print("carreguei\n\n")
+		if str(character) in event.as_text():
+			button.avatarSelected()
+		
+
 func _ready():
 	print(character)
 	button.icon = CharactersManager.get_character_icon(character)
+	print("chatracter number: ", character)
+	keyboard.text = str(character)
 
 func _on_Button_pressed():
 	print("hello?")
@@ -40,6 +50,7 @@ func _on_PlayerSelecterContainer_player_turn_changed(new_player_turn):
 	players_turn = new_player_turn
 
 func _on_other_Button_pressed():
+	
 	if locked == false || selected_by_player == 2 && players_turn == 2:
 		selected = false
 		overlay.visible = false
