@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=49 format=2]
 
-[ext_resource path="res://Assets/House Stuff/house.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/House Stuff/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
 [ext_resource path="res://House Furniture/Bookcase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://House Furniture/Cabinet.tscn" type="PackedScene" id=4]
@@ -13,132 +13,286 @@
 [ext_resource path="res://House Furniture/FurnitureManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://House Furniture/Furniture.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Characters/Chad/chad_round.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/progressBarOver.png" type="Texture" id=14]
+[ext_resource path="res://Fotos/progressBar.png" type="Texture" id=15]
+[ext_resource path="res://Fonts/buttonFontCardsSmaller.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Assets/House Stuff/RoofingTiles001_1K_NormalGL.png" type="Texture" id=17]
+[ext_resource path="res://Map Stuff/Grass003_1K_Color.png" type="Texture" id=18]
+[ext_resource path="res://Assets/House Stuff/BedroomDoor.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Map Stuff/PasseioInterior.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/DiDaCityPack - Interior/Models/Interior/Restaurant/R_Stairs.fbx" type="PackedScene" id=21]
+[ext_resource path="res://Assets/House Stuff/window.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/DiDaCityPack - Interior/Models/Interior/Restaurant/R_Door.fbx" type="PackedScene" id=23]
+[ext_resource path="res://Assets/House Stuff/KitchenFloor.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/House Stuff/kitchenWall.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Assets/House Stuff/OfficeWall.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/House Stuff/BedroomWall.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Map Stuff/Tree A.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Assets/House Stuff/OfficeFloor.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/House Stuff/Wall.tscn" type="PackedScene" id=30]
+[ext_resource path="res://House Furniture/AudioFeedback.gd" type="Script" id=31]
+[ext_resource path="res://Sounds/winning.wav" type="AudioStream" id=32]
 
-[sub_resource type="ProceduralSky" id=1]
+[sub_resource type="ProceduralSky" id=9]
 
-[sub_resource type="Environment" id=2]
-background_mode = 3
-background_sky = SubResource( 1 )
-background_color = Color( 0.635294, 0.6, 0.54902, 1 )
+[sub_resource type="Environment" id=10]
+background_mode = 2
+background_sky = SubResource( 9 )
+background_energy = 1.2
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 1.5
+ambient_light_sky_contribution = 0.66
+
+[sub_resource type="Animation" id=11]
+resource_name = "blink"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 20, 0.2, 20 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 18 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 40, 0.2, 40 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 100, 0.2, 100 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 200, 0.2, 200 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 70, 50, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.458824, 0.235294, 0.0627451, 1 )
+normal_enabled = true
+normal_scale = 9.19
+normal_texture = ExtResource( 17 )
+uv1_scale = Vector3( 5, 5, 5 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.290196, 0.152941, 0.0470588, 1 )
+normal_enabled = true
+normal_scale = 9.19
+normal_texture = ExtResource( 17 )
+uv1_scale = Vector3( 5, 5, 5 )
 
 [node name="FurnishedHouse" type="Spatial"]
 script = ExtResource( 7 )
 availableFurniture = [ "Bed", "Chair", "Cabinet", "Bookcase", "Couch", "Table" ]
 
-[node name="house" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.999986, -0.00525342, 0, 0.00525342, 0.999986, 0, 0, 0, 1, 0.127869, -0.105949, 0.0625839 )
-
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.3708, 23.0421, -3.07204 )
-visible = false
-light_energy = 1.3
-shadow_bias = 2.0
-spot_range = 100.6
-spot_attenuation = 0.993345
-spot_angle = 93.1
-spot_angle_attenuation = 4.92458
-
-[node name="SpotLight3" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.3708, 43.7946, -3.07204 )
-light_energy = 1.3
-shadow_bias = 2.0
-spot_range = 42.111
-spot_attenuation = 0.993345
-spot_angle = 70.3125
-spot_angle_attenuation = 4.92458
-
-[node name="SpotLight5" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.3708, 65.6259, -3.07204 )
-light_energy = 1.3
-shadow_bias = 2.0
-spot_range = 42.111
-spot_attenuation = 0.993345
-spot_angle = 70.3125
-spot_angle_attenuation = 4.92458
-
-[node name="SpotLight4" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.3708, 23.7995, -3.07204 )
-light_energy = 1.3
-shadow_bias = 2.0
-spot_range = 42.111
-spot_attenuation = 0.993345
-spot_angle = 70.3125
-spot_angle_attenuation = 4.92458
-
-[node name="SpotLight2" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.3708, 44.9893, -3.07204 )
-visible = false
-layers = 524288
-spot_range = 41.1
-spot_attenuation = 0.0135119
-spot_angle = 67.9
-spot_angle_attenuation = 2.29739
-
-[node name="SpotLight6" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.3708, 68.006, -3.07204 )
-visible = false
-layers = 524288
-spot_range = 33.8651
-spot_attenuation = 0.0135119
-spot_angle = 83.6628
-spot_angle_attenuation = 2.29739
-
-[node name="SpotLight7" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 36.6258, 59.9067, 0.166283 )
-visible = false
-layers = 524288
-spot_range = 15.1174
-spot_attenuation = 0.0135119
-spot_angle = 67.4305
-spot_angle_attenuation = 2.29739
-
-[node name="SpotLight8" type="SpotLight" parent="."]
-transform = Transform( 0.478863, -0.866479, -0.141083, 0.282609, -3.35071e-08, 0.959235, -0.831157, -0.499214, 0.244875, 31.2669, 39.9546, 4.91081 )
-visible = false
-layers = 524288
-light_energy = 0.5
-spot_range = 15.1174
-spot_attenuation = 0.0135119
-spot_angle = 67.4305
-spot_angle_attenuation = 2.29739
-
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.902473, 0.430747, 0, -0.430747, 0.902473, 20, 57.1298, 44.4103 )
-environment = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 20, 44.9663, 57.6663 )
+environment = SubResource( 10 )
 fov = 65.0
 near = 27.69
+far = 1033.4
+
+[node name="SpotLight2" type="SpotLight" parent="."]
+transform = Transform( -0.993631, -0.112684, 3.56794e-09, 8.45435e-09, -4.28861e-08, 1, -0.112684, 0.993631, 4.35656e-08, 54.0888, 44.7456, -24.0121 )
+shadow_enabled = true
+shadow_color = Color( 0.568627, 0.529412, 0.529412, 1 )
+spot_range = 59.9
+spot_attenuation = 0.0473661
+spot_angle = 74.6
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( -0.993631, -0.112684, 3.56794e-09, 8.45434e-09, -4.28861e-08, 1, -0.112684, 0.993631, 4.35656e-08, -6.92494, 44.7456, -24.0121 )
+shadow_enabled = true
+shadow_color = Color( 0.568627, 0.529412, 0.529412, 1 )
+spot_range = 59.9
+spot_attenuation = 0.0473661
+spot_angle = 74.6
 
 [node name="Bed" parent="." instance=ExtResource( 9 )]
-transform = Transform( -0.774304, 0, 0.632814, 0, 1, 0, -0.632814, 0, -0.774304, 6.057, 4, 1.885 )
+transform = Transform( -0.774304, 0, 0.632814, 0, 1, 0, -0.632814, 0, -0.774304, -23.7292, 26.8757, -24.4844 )
+
+[node name="OmniLight" type="OmniLight" parent="Bed"]
+transform = Transform( 1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0, 1.96994, 0 )
+omni_range = 13.4375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bed"]
+anims/blink = SubResource( 11 )
+
+[node name="AudioFeedback" type="AudioStreamPlayer" parent="Bed"]
+stream = ExtResource( 32 )
+script = ExtResource( 31 )
 
 [node name="Chair" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.729172, 0, -0.684331, 0, 1, 0, 0.684331, 0, 0.729172, 36.3445, 4, 3.1739 )
+transform = Transform( 0.729172, 0, -0.684331, 0, 1, 0, 0.684331, 0, 0.729172, 73.4979, 4, -27.9683 )
+
+[node name="OmniLight" type="OmniLight" parent="Chair"]
+transform = Transform( 1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0, 1.96994, 0 )
+visible = false
+omni_range = 13.4375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chair"]
+anims/blink = SubResource( 12 )
 
 [node name="Cabinet" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.819252, 0, 0.573433, 0, 1, 0, -0.573433, 0, 0.819252, 4.003, 28.6056, 0.866689 )
+transform = Transform( 0.819252, 0, 0.573433, 0, 1, 0, -0.573433, 0, 0.819252, 41.9053, 4.86081, -25.69 )
+
+[node name="OmniLight" type="OmniLight" parent="Cabinet"]
+transform = Transform( 1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0, 1.96994, 0 )
+omni_range = 13.4375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cabinet"]
+anims/blink = SubResource( 13 )
 
 [node name="Bookcase" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.651185, 0, -0.75892, 0, 1, 0, 0.75892, 0, 0.651185, 35.06, 31, -1.09662 )
+transform = Transform( 0.825233, 0, 0.564794, -0.00411055, 0.999974, 0.00600601, -0.564779, -0.00727796, 0.825211, 44.7486, 31, -24.7194 )
+
+[node name="OmniLight" type="OmniLight" parent="Bookcase"]
+transform = Transform( 1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0, 1.96994, 0 )
+visible = false
+omni_range = 13.4375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bookcase"]
+anims/blink = SubResource( 14 )
 
 [node name="Couch" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.865256, 0, 0.50133, 0, 1, 0, -0.50133, 0, 0.865256, 3.249, 52.5754, -0.751148 )
+transform = Transform( 0.865256, 0, 0.50133, 0, 1, 0, -0.50133, 0, 0.865256, -30.2766, 6.67268, -28.7582 )
+
+[node name="OmniLight" type="OmniLight" parent="Couch"]
+transform = Transform( 1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0, 1.96994, 0 )
+visible = false
+omni_range = 13.4375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Couch"]
+anims/blink = SubResource( 15 )
 
 [node name="Table" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.852175, 0, -0.523257, 0, 1, 0, 0.523257, 0, 0.852175, 37.035, 51.4644, 1.72493 )
+transform = Transform( 0.852175, 0, -0.523257, 0, 1, 0, 0.523257, 0, 0.852175, 67.3168, 26.4885, -27.3808 )
 script = ExtResource( 12 )
 uid = 5
+
+[node name="OmniLight" type="OmniLight" parent="Table"]
+transform = Transform( 1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 0, 1.96994, 0 )
+visible = false
+omni_range = 13.4375
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Table"]
+anims/blink = SubResource( 16 )
+
+[node name="R_Stairs" parent="." instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 11.019, 0, -46.4596 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MapButton" type="TextureButton" parent="CanvasLayer"]
-anchor_left = 0.897
-anchor_top = 0.174
-anchor_right = 0.995
-anchor_bottom = 0.341
-margin_left = 2.07965
-margin_top = 0.0494232
-margin_right = 1.7276
-margin_bottom = -0.150574
+anchor_left = 0.922
+anchor_top = 0.178
+anchor_right = 0.988
+anchor_bottom = 0.278
+margin_left = 0.250427
+margin_top = 0.0107956
+margin_right = 82.6664
+margin_bottom = 90.0108
+rect_min_size = Vector2( 50, 50 )
+rect_scale = Vector2( 0.4, 0.4 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
 texture_normal = ExtResource( 8 )
 script = ExtResource( 10 )
 __meta__ = {
@@ -167,4 +321,462 @@ transform = Transform( 1, 0, 0, 0, 0.951637, 0.307224, 0, -0.307224, 0.951637, 1
 visible = false
 light_energy = 0.5
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -47.0
+margin_right = 8.0
+margin_bottom = 1.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+max_value = 6.0
+texture_under = ExtResource( 14 )
+texture_progress = ExtResource( 15 )
+radial_initial_angle = 108.4
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBarText" type="Label" parent="CanvasLayer2/TextureProgress"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -13.5
+margin_right = 75.0
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 16 )
+text = "X / 6 OBJETOS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer2"]
+
+[node name="LivingRoom" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50.2169 )
+
+[node name="R_Floor_Medium4" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -24.3325, 0, 29.0451 )
+
+[node name="R_Floor_Medium2" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -0.5, -4.37114e-08, 0, -2.18557e-08, 1, -1, 2.18557e-08, 1.91069e-15, -39.1498, 0, 9.55355 )
+
+[node name="R_Floor_Medium3" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -24.3325, 0, 9.55355 )
+
+[node name="R_Floor_Medium7" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -4.50976, 0, 9.55355 )
+
+[node name="R_Floor_Medium8" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 14.8648, 0, 9.55355 )
+
+[node name="R_Floor_Medium9" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 14.8648, 0, 29.0542 )
+
+[node name="R_Floor_Medium10" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -4.93888, 0, 29.0531 )
+
+[node name="R_Floor_Medium5" parent="LivingRoom" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -0.5, -4.37114e-08, 0, -2.18557e-08, 1, -1, 2.18557e-08, 1.91069e-15, -38.9128, 0, 29.0451 )
+
+[node name="C_Wall_Big2" parent="LivingRoom" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -28.2123, 0.542779, 0 )
+
+[node name="C_Wall_Big3" parent="LivingRoom" instance=ExtResource( 30 )]
+transform = Transform( 1.3, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.21503, 0.542779, 0 )
+
+[node name="C_Wall_Big4" parent="LivingRoom" instance=ExtResource( 30 )]
+transform = Transform( -5.68248e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1.3, 4.37114e-08, 1.91069e-15, -43.6743, 0.542779, 19.6207 )
+
+[node name="C_Wall_Big5" parent="LivingRoom" instance=ExtResource( 30 )]
+transform = Transform( -5.68248e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1.3, 4.37114e-08, 1.91069e-15, 24.4084, 0.542779, 19.6207 )
+
+[node name="R_Door" parent="LivingRoom" instance=ExtResource( 23 )]
+transform = Transform( 0.459595, 0, -0.888128, 0, 1, 0, 0.888128, 0, 0.459595, 23.63, 7.84184, 36.8694 )
+
+[node name="R_Window" parent="LivingRoom" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1316, 15.7075, 1.91326 )
+
+[node name="R_Window2" parent="LivingRoom" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.984, 14.8466, 17.058 )
+
+[node name="Ma_Door2" parent="LivingRoom" instance=ExtResource( 19 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.6063, 8.48837, 28.7559 )
+
+[node name="Kitchen" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1343, 0, -50.2169 )
+
+[node name="R_Window2" parent="Kitchen" instance=ExtResource( 22 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -43.2123, 12.3793, 0.640747 )
+
+[node name="KitchenWall" parent="Kitchen" instance=ExtResource( 25 )]
+transform = Transform( 4, 0, 0, 0, 1.4, 0, 0, 0, 0.5, -53.7756, 8.34293, 0 )
+
+[node name="KitchenWall2" parent="Kitchen" instance=ExtResource( 25 )]
+transform = Transform( 4, 0, 0, 0, 1.4, 0, 0, 0, 0.5, -34.6942, 8.34293, 0 )
+
+[node name="KitchenWall3" parent="Kitchen" instance=ExtResource( 25 )]
+transform = Transform( -1.74846e-07, 0, -0.5, 0, 1.4, 0, 4, 0, -2.18557e-08, -15.1622, 8.29233, 19.072 )
+
+[node name="KitchenFloor" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.385, 0.769143, 33.9578 )
+
+[node name="KitchenFloor2" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4537, 0.769143, 33.9578 )
+
+[node name="KitchenFloor3" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4865, 0.769143, 33.9578 )
+
+[node name="KitchenFloor4" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5031, 0.769143, 33.9578 )
+
+[node name="KitchenFloor5" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4913, 0.769143, 33.9578 )
+
+[node name="KitchenFloor6" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.526, 0.769143, 33.9578 )
+
+[node name="KitchenFloor7" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.385, 0.769143, 23.8785 )
+
+[node name="KitchenFloor8" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4537, 0.769143, 23.8785 )
+
+[node name="KitchenFloor9" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4865, 0.769143, 23.8785 )
+
+[node name="KitchenFloor10" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5031, 0.769143, 23.8785 )
+
+[node name="KitchenFloor11" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4913, 0.769143, 23.8785 )
+
+[node name="KitchenFloor12" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.526, 0.769143, 23.8785 )
+
+[node name="KitchenFloor13" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.385, 0.769143, 13.8731 )
+
+[node name="KitchenFloor14" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4537, 0.769143, 13.8731 )
+
+[node name="KitchenFloor15" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4865, 0.769143, 13.8731 )
+
+[node name="KitchenFloor16" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5031, 0.769143, 13.8731 )
+
+[node name="KitchenFloor17" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4913, 0.769143, 13.8731 )
+
+[node name="KitchenFloor18" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.526, 0.769143, 13.8731 )
+
+[node name="KitchenFloor19" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.385, 0.769143, 5.26968 )
+
+[node name="KitchenFloor20" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4537, 0.769143, 5.26968 )
+
+[node name="KitchenFloor21" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4865, 0.769143, 5.26968 )
+
+[node name="KitchenFloor22" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5031, 0.769143, 5.26968 )
+
+[node name="KitchenFloor23" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4913, 0.769143, 5.26968 )
+
+[node name="KitchenFloor24" parent="Kitchen" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.526, 0.769143, 5.26968 )
+
+[node name="Bedrooom" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.5671, -50.2169 )
+
+[node name="C_Wall_Medium" parent="Bedrooom" instance=ExtResource( 27 )]
+transform = Transform( -8.74228e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -2, 4.37114e-08, 1.91069e-15, -43.9086, 0.494785, 19.0236 )
+
+[node name="C_Wall_Medium2" parent="Bedrooom" instance=ExtResource( 27 )]
+transform = Transform( 2, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.3731, 0.494785, -0.182877 )
+
+[node name="C_Wall_Medium3" parent="Bedrooom" instance=ExtResource( 27 )]
+transform = Transform( 1.5, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.67364, 0.494785, -0.182877 )
+
+[node name="C_Wall_Medium4" parent="Bedrooom" instance=ExtResource( 27 )]
+transform = Transform( -8.74228e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 2, 4.37114e-08, 1.91069e-15, 24.4693, 0.494789, 18.8321 )
+
+[node name="Ma_Door" parent="Bedrooom" instance=ExtResource( 19 )]
+transform = Transform( 0.817527, 0, -0.57589, 0, 1, 0, 0.57589, 0, 0.817527, 25.2995, 7.57728, 22.9051 )
+
+[node name="H_Floor_Medium_Ofiice" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.6013, 0, 28.9351 )
+
+[node name="H_Floor_Medium_Ofiice2" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.6013, 0, 10.177 )
+
+[node name="H_Floor_Medium_Ofiice3" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -14.4002, 0, 10.177 )
+
+[node name="H_Floor_Medium_Ofiice4" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.46733, 0, 10.177 )
+
+[node name="H_Floor_Medium_Ofiice5" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 13.8539, 0, 10.177 )
+
+[node name="H_Floor_Medium_Ofiice6" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15.4174, 0, 28.7922 )
+
+[node name="H_Floor_Medium_Ofiice7" parent="Bedrooom" instance=ExtResource( 29 )]
+transform = Transform( 1.5, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.54601, 0, 28.7922 )
+
+[node name="R_Window3" parent="Bedrooom" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42.984, 11.4422, 30.6407 )
+
+[node name="R_Window4" parent="Bedrooom" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0758467, 11.4422, 0.584339 )
+
+[node name="Office" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.1343, 22.5671, -50.2169 )
+
+[node name="R_Floor_Medium" parent="Office" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -64.2057, 0, 28.9411 )
+
+[node name="R_Floor_Medium2" parent="Office" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -44.175, 0, 28.9411 )
+
+[node name="R_Floor_Medium3" parent="Office" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.3524, -1.90735e-06, 28.8921 )
+
+[node name="R_Floor_Medium4" parent="Office" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.3516, 0, 8.90871 )
+
+[node name="R_Floor_Medium5" parent="Office" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -44.2475, 0, 8.97425 )
+
+[node name="R_Floor_Medium6" parent="Office" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -64.2796, 0, 8.90871 )
+
+[node name="R_Window5" parent="Office" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.709, 11.4422, 0.584339 )
+
+[node name="C_Wall_Big" parent="Office" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 0.451973, 0 )
+
+[node name="C_Wall_Big2" parent="Office" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0265, 0.451973, 0 )
+
+[node name="C_Wall_Big3" parent="Office" instance=ExtResource( 26 )]
+transform = Transform( -5.68248e-08, 0, -1, 0, 1, 0, 1.3, 0, -4.37114e-08, -15.005, 0.329893, 19.4054 )
+
+[node name="Outdoors" type="Spatial" parent="."]
+
+[node name="PasseioInterior" parent="Outdoors" instance=ExtResource( 20 )]
+transform = Transform( 4, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, -49.9716, 0, -17.4742 )
+
+[node name="PasseioInterior2" parent="Outdoors" instance=ExtResource( 20 )]
+transform = Transform( 4, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, -62.0477, 0, -17.4742 )
+
+[node name="PasseioInterior3" parent="Outdoors" instance=ExtResource( 20 )]
+transform = Transform( 4, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, -74.0634, 0, -17.4742 )
+
+[node name="PasseioInterior4" parent="Outdoors" instance=ExtResource( 20 )]
+transform = Transform( 4, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, -86.3526, 0, -17.4742 )
+
+[node name="Spatial" type="Spatial" parent="Outdoors"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.9372, 0, -33.3464 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Spatial4" type="Spatial" parent="Outdoors"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.9372, 0, -53.1553 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1799, 0, -53.1553 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1015, 0, -53.1553 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9283, 0, -83.0895 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9283, 0, -121.527 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9283, 0, -160.521 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance13" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.9203, 0, -229.892 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance14" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -289.003, 0, -290.107 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance15" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -290.107 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance19" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 181.146, 0, -113.065 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance16" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -190.426 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance18" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -190.076, 0, -111.099 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance17" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -288.29, 0, -191.19 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.473, 0, -160.521 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance10" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.316, 0, -120.81 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.316, 0, -82.0702 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance12" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.316, 0, -43.8058 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0992, 0, -83.0895 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93601, 0, -83.0895 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 2 )
+
+[node name="Spatial3" type="Spatial" parent="Outdoors"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1035, 0, -33.3464 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Spatial2" type="Spatial" parent="Outdoors"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3772, 0, -33.3464 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Attic" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2589, -0.789227, 0 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Attic"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 56.8433, 46.3655, -35.3218 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="Attic"]
+transform = Transform( 0.993961, -0.109734, 0, 0.109734, 0.993961, 0, 0, 0, 1, -7.83819, 25.395, -51.836 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 8 )
+
+[node name="MeshInstance10" type="MeshInstance" parent="Attic"]
+transform = Transform( 0.99406, 0.108832, 0, -0.108832, 0.99406, 0, 0, 0, 1, 53.1081, 25.395, -51.836 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 8 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="Attic"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -10.6608, 46.3655, -35.3218 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Roof" type="Spatial" parent="."]
+
+[node name="MeshInstance2" type="MeshInstance" parent="Roof"]
+transform = Transform( -0.994234, 8.62917e-08, 0.107236, 0.107236, 4.0347e-09, 0.994234, 8.53614e-08, 1, -1.3265e-08, 55.5844, 49.0737, -30.1506 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Roof"]
+transform = Transform( -0.99441, 8.34836e-08, -0.105587, -0.105587, 2.22039e-08, 0.99441, 8.53614e-08, 1, -1.3265e-08, -13.4331, 49.0737, -30.1506 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Forest" type="Spatial" parent="."]
+
+[node name="Tree A" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -95.0509, 49.5193, -52.9474 )
+
+[node name="Tree A2" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -78.4851, 49.5193, -82.0789 )
+
+[node name="Tree A3" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -41.8308, 49.5193, -103.057 )
+
+[node name="Tree A4" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -5.54637, 49.5193, -122.537 )
+
+[node name="Tree A5" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 50.9588, 49.5193, -122.537 )
+
+[node name="Tree A6" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 109.12, 49.5193, -122.537 )
+
+[node name="Tree A7" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 163.642, 49.5193, -122.537 )
+
+[node name="Tree A11" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 120.569, 49.5193, -46.1099 )
+
+[node name="Tree A8" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 135.49, 49.5193, -145.622 )
+
+[node name="Tree A9" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.1438, 49.5193, -156.594 )
+
+[node name="Tree A10" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 49.5193, -126.858 )
+
 [connection signal="pressed" from="CanvasLayer/MapButton" to="CanvasLayer/MapButton" method="back_to_map"]
+
+[editable path="LivingRoom/C_Wall_Big4"]

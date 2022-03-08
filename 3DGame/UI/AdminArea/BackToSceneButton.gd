@@ -5,6 +5,7 @@ export(String, FILE) var previousScene
 func _input(event):
 	#if Input.is_key_pressed(KEY_SPACE):
 	if event.is_action_pressed("ui_accept"):
+		print("foi aqui que entrei ne 2")
 		_on_BackToSceneButton_pressed()
 		
 

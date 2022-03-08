@@ -47,3 +47,5 @@ func _on_DiceButton_mouse_exited():
 		
 func stop():
 	animPlayer.stop()
+	
+

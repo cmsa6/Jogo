@@ -16,7 +16,6 @@ func _ready():
 	var current_player = SavingManager.current_player
 	diceResumoAvatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
 	playerName.text = "Jogador " + str(current_player + 1)
-	
 	diceAnim.play("thrown")
 	
 

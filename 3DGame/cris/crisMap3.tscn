@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Map Stuff/Grid Stuff/BlankRoad.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -34,14 +34,18 @@
 [ext_resource path="res://Map Stuff/Buildings/Mechanic.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Private Buildings/Building C Green.fbx" type="PackedScene" id=33]
 [ext_resource path="res://Map Stuff/Grid Stuff/cityFloor.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Fotos/quitButton.png" type="Texture" id=35]
 [ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Private Buildings/Building C Orange.fbx" type="PackedScene" id=36]
 [ext_resource path="res://Map Stuff/Buildings/Restaurant.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Map Stuff/Garden.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Map Stuff/Road.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Fotos/QuitButtonDisabled.png" type="Texture" id=40]
 [ext_resource path="res://Map Stuff/passeio.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Map Stuff/Passeio_canto.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Map Stuff/Passeio_semBerma.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Map Stuff/BasketballField.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Fotos/quitButtonSelected.png" type="Texture" id=45]
+[ext_resource path="res://UI/QuitMenu/QuitButton.gd" type="Script" id=46]
 
 [node name="Map1" type="Spatial"]
 
@@ -2965,6 +2969,29 @@ light_energy = 1.5
 light_indirect_energy = 0.0
 light_specular = 1.0
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer2"]
+anchor_left = 0.938
+anchor_top = 0.016
+anchor_right = 0.938
+anchor_bottom = 0.024
+margin_left = -0.323364
+margin_top = 4.68662
+margin_right = 149.677
+margin_bottom = 149.887
+rect_scale = Vector2( 0.4, 0.4 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 45 )
+texture_hover = ExtResource( 45 )
+texture_disabled = ExtResource( 40 )
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="hide_exit" from="CanvasLayer" to="CanvasLayer2/QuitButton" method="hide_button"]
+[connection signal="hide_exit" from="CanvasLayer/CenterContainer/PlayerTurnHUD" to="CanvasLayer2/QuitButton" method="hide_button"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 [connection signal="game_finished" from="Spawners/Player2" to="SceneTransitionAnim/Control" method="on_fade_out_finished"]
 [connection signal="load_minigame" from="Spawners/Player2" to="MinigamesLoader" method="_on_load_minigame"]
@@ -2974,61 +3001,62 @@ light_specular = 1.0
 [connection signal="load_minigame" from="Spawners/Player" to="MinigamesLoader" method="_on_load_minigame"]
 [connection signal="player_points_updated" from="Spawners/Player" to="CanvasLayer/CenterContainer/PlayerTurnHUD" method="_on_Player_player_points_updated" binds= [ 1 ]]
 [connection signal="player_turn_ended" from="Spawners/Player" to="GameManager" method="UpdatePlayersTurn"]
-[connection signal="body_entered" from="InitCell" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="InitCell" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell1" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="InitCell" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell1" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell2" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell1" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell2" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell3" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell2" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell3" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell4" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell3" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell4" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell5" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell4" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell5" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell6" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell5" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell6" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell7" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell6" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell7" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell8" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell7" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell8" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell9" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell8" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell9" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell10" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell9" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell10" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell11" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell10" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell11" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell12" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell11" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell12" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell13" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell12" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell13" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell15" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell13" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell15" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell16" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell15" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell16" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell17" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell16" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell17" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell18" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell17" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell18" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell19" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell18" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell19" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell20" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell19" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell20" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell21" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell20" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell21" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell22" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell21" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell22" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell23" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell22" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell23" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell24" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell23" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell24" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/Cell25" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell24" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/Cell25" to="Spawners/Player" method="player_reached_target"]
-[connection signal="body_entered" from="Cells/End_Cell" to="Spawners/Player2" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/Cell25" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="body_entered" from="Cells/End_Cell" to="Spawners/Player" method="player_reached_target"]
+[connection signal="body_entered" from="Cells/End_Cell" to="Spawners/Player2" method="player_reached_target"]
 [connection signal="on_players_turn_changed" from="GameManager" to="CanvasLayer/CenterContainer/PlayerTurnHUD" method="_on_GameManager_on_players_turn_changed"]
 [connection signal="disable_buttons" from="MinigamesLoader" to="CanvasLayer" method="disable_canvas"]
 [connection signal="timeout" from="PlayTimer" to="PlayTimer" method="test"]
+[connection signal="pressed" from="CanvasLayer2/QuitButton" to="CanvasLayer2/QuitButton" method="check_quit"]
 
 [editable path="CanvasLayer/CenterContainer/PlayerTurnHUD"]
 [editable path="SceneTransitionAnim"]

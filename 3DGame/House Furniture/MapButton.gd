@@ -41,9 +41,11 @@ func back_to_map():
 		
 		var all = true
 		var player
+		var onePlayerWon = false
 		
-		
+		print("number of children in button of housewithforniture: ", players.size())
 		for child in players:
+			print("child ",  child.get_player_num() -1)
 			if ( child.get_player_num() -1 ) == currentPlayer:
 				player = child
 				child.finished_game()
@@ -53,11 +55,22 @@ func back_to_map():
 					child.play_animation(CharactersManager.WIN_ANIM)
 				#break
 			print("have i won? ", child.get_iAlreadyWon())
-			if child.get_iAlreadyWon():
+			if child.get_iAlreadyWon() and (not SavingManager.winning_players.has(child)):
+				print("adicionei este player aos vencedores")
 				SavingManager.winning_players.append(child)
-		print(all)
+				onePlayerWon = true
+				
+		print("# winning players: ", SavingManager.winning_players.size())
+		print("total players: ", SettingsManager.num_of_players )
 		if SavingManager.winning_players.size() == SettingsManager.num_of_players:
+			print("todos ganahram")
 			player.all_won_game()
+		elif onePlayerWon and SettingsManager.num_of_players >= 2:
+			var quitScreen = load("res://UI/QuitMenu/CheckQuit.tscn")
+			var quitNode = quitScreen.instance()
+			quitNode.set_player(currentPlayer)
+			rootNode.add_child(quitNode)
+			rootNode.move_child(quitNode,0)
 			
 	
 	

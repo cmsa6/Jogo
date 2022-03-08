@@ -1,7 +1,7 @@
 extends TextureButton
 
 func _input(event):
-	if Input.is_key_pressed(KEY_SPACE):
+	if event.is_action_pressed("ui_accept") and not self.disabled:
 		emit_signal("pressed")
 
 func _on_Button_pressed():

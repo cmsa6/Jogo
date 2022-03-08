@@ -30,7 +30,7 @@ onready var houseScene = preload("res://House Furniture/houseWithFurniture.tscn"
 
 
 
-
+var playerNoLongerPlaying = false setget set_playerNoLongerPlaying, get_playerNoLongerPlaying
 
 var iconScene = preload("res://UI/ChallengeCard/PlayerPlaceHolder.tscn")
 var reward = "" setget set_card_data, get_reward
@@ -62,9 +62,13 @@ func _ready():
 	disapprovedTitle.text = get_challenge_title()
 	
 	reward = get_reward()
-	var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
-	var rewardPhoto = load(rewardPath)
-	rewardPreview.texture = rewardPhoto
+	if reward != "none":
+		var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
+		var rewardPhoto = load(rewardPath)
+		rewardPreview.texture = rewardPhoto
+	else:
+		rewardPreview.visible = false
+		set_playerNoLongerPlaying(true)
 	
 	var skillBenefit = get_skillEvaluated()
 	
@@ -77,6 +81,7 @@ func _ready():
 	
 	
 func approve(bol):
+	print("no approve")
 #	reward = get_reward()
 #	var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
 #	print("dentro do approve ", rewardPath)
@@ -107,12 +112,16 @@ func approve(bol):
 				player.set_points(cardReward[0],cardReward[1])
 				#var num = checkReward()
 				#print(num)
-				var rewardToSend = get_reward()
-				player.gained_furniture(rewardToSend)
+				if not get_playerNoLongerPlaying():
+					var rewardToSend = get_reward()
+					player.gained_furniture(rewardToSend)
+				
 				break
 				#break
-
-		show_house()
+		if not get_playerNoLongerPlaying():
+			show_house()
+		else:
+			show_map()
 	
 	else:
 		show_map()
@@ -202,4 +211,8 @@ func show_map():
 		
 			
 	
-
+func set_playerNoLongerPlaying(bol):
+	playerNoLongerPlaying = bol
+	
+func get_playerNoLongerPlaying():
+	return playerNoLongerPlaying

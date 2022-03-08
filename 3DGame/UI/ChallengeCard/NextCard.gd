@@ -5,6 +5,10 @@ export(String, FILE) var nextCard
 
 var data=[] setget save_data, get_data
 
+func _input(event):
+	if event.is_action_pressed("ui_accept") and self.visible:
+		emit_signal("pressed")
+
 func showNextCard():
 	var root_node = get_node("/root")
 

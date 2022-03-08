@@ -1,5 +1,16 @@
 extends TextureButton
 
+onready var parent = get_parent()
+onready var grandparent = parent.get_parent()
+onready var grandgrandparent = grandparent.get_parent()
+
+
+func _input(event):
+	if (not self.disabled) and self.visible and event.is_action_pressed("ui_accept"):
+		print("did i happened here")
+		print(grandgrandparent.get_parent().name)
+		emit_signal("pressed")
+
 	
 func discardCurrentCard(eval):
 	print("discardfunction")
@@ -16,7 +27,8 @@ func discardCurrentCard(eval):
 	#var mapChildren = mapNode.get_children()
 	
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
-	canvasNode.enable_additional_info()
+	#comentei agora
+	#canvasNode.enable_additional_info()
 	
 	var playersNode = get_node("/root/Map1/Spawners")
 	var players = playersNode.get_children()

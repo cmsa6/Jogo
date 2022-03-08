@@ -150,6 +150,7 @@ func set_points(type, points_to_add):
 	#print(actualPoints["Rights"])
 	#print(type)
 	type = type.replace(" ", "")
+	print(type)
 	var p = actualPoints[type]
 	var totalPoints =  p + int(points_to_add)
 	actualPoints[type] = totalPoints
@@ -212,6 +213,7 @@ func check_win():
 			return false
 	
 	set_iAlreadyWon(true)	
+	print("ja ganhei tudo")
 	return true
 
 func all_won_game():
@@ -231,7 +233,7 @@ func get_random_reward():
 	rng.randomize()
 	var maxMissingRewards = missingRewards.size()
 	if maxMissingRewards == 0:
-		return "Bed"
+		return "none"
 	return missingRewards[rng.randi_range(0, maxMissingRewards-1)]
 	
 	 

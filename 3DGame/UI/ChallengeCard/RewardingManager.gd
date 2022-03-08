@@ -43,9 +43,12 @@ func _ready():
 	#reward = " " + reward
 	newcontent.append(reward) 
 	
-	var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
-	var rewardPhoto = load(rewardPath)
-	rewardPlaceHolder.texture = rewardPhoto
+	if reward != "none":
+		var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
+		var rewardPhoto = load(rewardPath)
+		rewardPlaceHolder.texture = rewardPhoto
+	else:
+		rewardPlaceHolder.visible = false
 	
 	numPoints.text = newcontent[7] 
 	var skillDev = newcontent[9].replace(" ","")

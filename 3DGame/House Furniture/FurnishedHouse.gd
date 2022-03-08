@@ -5,6 +5,10 @@ export (Array, String) var availableFurniture = []
 onready var avatarIcon = $CanvasLayer/PlayerAvatar
 onready var mapButton = $CanvasLayer/MapButton
 
+onready var progressBar = $CanvasLayer2/TextureProgress
+onready var tween = $CanvasLayer2/Tween
+onready var text = $CanvasLayer2/TextureProgress/ProgressBarText
+
 var finalPlayer  setget set_finalPlayer, get_finalPlayer
 var origin setget set_origin, get_origin
 
@@ -19,6 +23,8 @@ func _ready():
 	var parentName = get_parent().name
 	if not "Final" in parentName:
 		mapButton.set_screenOrigin(get_origin())
+		
+		
 		
 		var currentPlayer = SavingManager.current_player
 		
@@ -48,15 +54,24 @@ func checkActives(playerFurniture):
 	var size = availableFurniture.size()
 	var furniture
 	var pathFurniture
+	var numActives = 0
 	for i in range(0,size):
 		furniture = availableFurniture[i]
 		print("furniture gained: ", furniture)
 		pathFurniture = "/root/FurnishedHouse/" + availableFurniture[i]
 		
 		if playerFurniture[furniture] == 1:
+			#progressBar.value += 1
+			print("activeee")
+			numActives += 1
 			get_node(furniture).activateObject()
 		else:
 			get_node(furniture).deactivateObject()
+			
+	print("NUM DE ACTIVES: ", numActives)
+	text.text = str(numActives) + " / " + str(size) + " OBJECTS"
+	tween.interpolate_property(progressBar, "value", numActives - 1, numActives, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
 			
 
 func show_final_house(playerID):

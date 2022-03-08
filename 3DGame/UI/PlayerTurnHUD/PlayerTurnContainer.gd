@@ -16,6 +16,7 @@ const HIDDEN = Color(1, 1, 1, 0)
 var player setget set_player, get_player
 
 
+
 func set_icon(new_icon):
 	icon.texture = new_icon
 
@@ -46,6 +47,7 @@ func hide_turn():
 
 
 func hide_agency():
+	print("hide_agency")
 	#diceButton.disappear()
 	button.disabled = true
 	diceButton.stop()
@@ -56,10 +58,17 @@ func hide_agency():
 	
 	
 func show_agency():
+	print("show_agency")
 	EnablePLayerButton()
 	#diceButton.visible = true
 	diceButton.disabled = false
 	diceButton.modulate = VISIBLE
+	
+	diceButton.blink()
+#
+	arrow.modulate = VISIBLE
+	turnText.modulate = VISIBLE
+	icon.visible = true
 
 
 func EnablePLayerButton():
