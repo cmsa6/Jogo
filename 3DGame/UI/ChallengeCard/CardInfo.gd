@@ -10,7 +10,7 @@ var card_info = [] setget save_card_info, get_card_info
 
 
 func _ready():
-	audio.play()
+	audio.play(0)
 	
 	#var randomFile = select_random_file()
 	

@@ -112,12 +112,14 @@ func player_reached_target(_body):
 				
 				#set_points(type, 1)
 				#print("player points: ", get_points())
+				stop_animation()
 				emit_signal("load_minigame", type)
 			
 			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES  || target.type == target.TYPE.INIT:
 				#get_node(timer_node).start(3.5)
 				finished_game()
 			canMove = false
+			
 			#is_my_turn = false
 			#play_animation(CharactersManager.IDLE_ANIM)
 			#UpdateTarget()
@@ -140,6 +142,8 @@ func _physics_process(_delta):
 func play_animation(anim_name):
 	animPlayer.play(anim_name)
 	
+func stop_animation():
+	animPlayer.stop()	
 	
 # Get && Set
 #func incr_points(point_to_add):

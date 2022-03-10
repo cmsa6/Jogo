@@ -22,9 +22,11 @@ func get_dice_value():
 	emit_signal("update_value", diceValue)
 	
 func update_dice_value():
-	#dice_value = 2
+	#var dice_value = 2
+	
 	
 	var dice_value = get_value()
+	
 	#diceText.text = "Dice = " + str(dice_value)
 	#emit_signal("dice_used", dice_value)
 	

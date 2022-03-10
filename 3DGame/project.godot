@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 SettingsManager="*res://SettingsManager/SettingsManager.gd"
 CharactersManager="*res://CharactersManager/CharactersManager.tscn"
 SavingManager="*res://SavingSystem/SavingManager.gd"
+ChallengesManager="*res://ChallengesManager/ChallengesManager.gd"
 
 [display]
 
@@ -85,6 +86,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"

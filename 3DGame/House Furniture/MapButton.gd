@@ -72,6 +72,12 @@ func back_to_map():
 			rootNode.add_child(quitNode)
 			rootNode.move_child(quitNode,0)
 			
+		var cellNode = get_node("/root/Map1/Cells")
+		var cells = cellNode.get_children()
+		
+		for cell in cells:
+			cell.set_doNotPlay(true)
+			
 	
 	
 

@@ -14,6 +14,8 @@ var origin setget set_origin, get_origin
 
 onready var players = SettingsManager.players
 
+onready var lattestReward setget set_lattestReward, get_lattestReward
+
 
 
 func _ready():
@@ -64,9 +66,12 @@ func checkActives(playerFurniture):
 			#progressBar.value += 1
 			print("activeee")
 			numActives += 1
-			get_node(furniture).activateObject()
+			if get_lattestReward() == furniture:
+				get_node(furniture).stand_out_object(get_origin())
+			else:
+				get_node(furniture).activate_object()
 		else:
-			get_node(furniture).deactivateObject()
+			get_node(furniture).deactivate_object()
 			
 	print("NUM DE ACTIVES: ", numActives)
 	text.text = str(numActives) + " / " + str(size) + " OBJECTS"
@@ -91,7 +96,7 @@ func show_final_house(playerID):
 
 	for i in range(0,size):
 		furniture = availableFurniture[i]
-		get_node(furniture).activateObject()
+		get_node(furniture).activate_object()
 
 	
 	
@@ -110,3 +115,9 @@ func set_origin(orig):
 	
 func get_origin():
 	return origin
+
+func set_lattestReward(reward):
+	lattestReward = reward
+	
+func get_lattestReward():
+	return lattestReward

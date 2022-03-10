@@ -19,9 +19,9 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	#escolhe randomnly um valor que corresponde a uma carta
 	var cardType = get_type()
-	var randomFile = select_random_file(cardType)
+	#var randomFile = select_random_file(cardType)
 	
-	#var fileName = "res://Cards/Cognitive Card/" + randomFile
+	var randomFile = select_random_file_name(cardType)
 	var fileName = "res://Cards/" + str(cardType) + "/" + randomFile
 	print("it selected the file ", fileName)
 	var file = File.new()
@@ -87,6 +87,36 @@ func select_random_file(folder):
 	rng.randomize()
 	var fileSelected = rng.randi_range(0, files.size() - 1)
 	return files[fileSelected]
+	
+	
+func select_random_file_name(folder):
+	var files = [] 
+	
+	files = check_challenge_array(folder)
+
+		
+		
+	if files.size() == 0:
+		ChallengesManager.register_cards(folder)
+		files  = check_challenge_array(folder)
+		
+	rng.randomize()
+	var fileSelected = rng.randi_range(0, files.size() - 1)
+	var file = files[fileSelected]
+	files.remove(fileSelected)
+	return file
+	
+	
+func check_challenge_array(folder):
+	if folder == "COMMERCIAL":
+		return ChallengesManager.COMMERCIAL_challenges
+	elif folder == "LEISURE":
+		return  ChallengesManager.LEISURE_challenges
+	elif folder == "HELP":
+		return  ChallengesManager.HELP_challenges
+	elif folder == "SERVICES":
+		return  ChallengesManager.SERVICES_challenges
+	
 	
 func check_player_rewards():
 	var currentPlayer = SavingManager.current_player

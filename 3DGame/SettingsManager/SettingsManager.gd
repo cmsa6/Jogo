@@ -7,6 +7,7 @@ enum GAME_TYPE {
 }
 var game_type = null
 
+
 # Players
 var players = []
 var num_of_players = 0

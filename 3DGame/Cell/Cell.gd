@@ -18,11 +18,11 @@ enum TYPE {
 #export(Color) var end_color = Color(0.8, 0.7, 0.02, 255)
 #export(Color) var game_color = Color(0.02, 0.8, 0.02, 255)
 
-var init_color = Color8(132, 135, 130, 255)
-var commercial_color = Color8( 237, 72, 21, 255 )
-var help_color =  Color8( 11, 72, 125, 255 )
-var leisure_color = Color8(113, 28, 232, 255)
-var services_color = Color8(63, 230, 30, 255)
+var init_color = Color8(132, 135, 130, 0)
+var commercial_color = Color8( 237, 72, 21, 0 )
+var help_color =  Color8( 11, 72, 125, 100 )
+var leisure_color = Color8(113, 28, 232, 0)
+var services_color = Color8(63, 230, 30, 0)
 
 var commercialGame_color = Color8(158, 39, 2, 255)
 var helpGame_color = Color8(4, 25, 43, 255)
@@ -33,7 +33,13 @@ var servicesGame_color = Color8(21, 125, 0, 255)
 export(TYPE) var type# = TYPE.NORMAL
 
 onready var mesh = $MeshInstance
+onready var mesh2 = $MeshInstance2
 onready var sprite = $Sprite3D
+onready var light = $OmniLight
+onready var audio = $AudioStreamPlayer
+
+var occupied = false setget set_occupied, get_occupied
+var doNotPlay = false setget set_doNotPlay, get_doNotPlay
 
 func _ready():
 	var auxMat = SpatialMaterial.new()
@@ -62,17 +68,58 @@ func _ready():
 		#	sprite.visible = false
 		TYPE.GAME_COMMERCIAL:
 			auxMat.albedo_color = commercialGame_color
-			sprite.visible = true
+#			sprite.visible = true
+			mesh2.material_override = auxMat
 		TYPE.GAME_HELP:
 			auxMat.albedo_color = helpGame_color
-			sprite.visible = true
+#			sprite.visible = true
+			mesh2.material_override = auxMat
 		TYPE.GAME_SERVICES:
 			auxMat.albedo_color = servicesGame_color
-			sprite.visible = true
+#			sprite.visible = true
+			mesh2.material_override = auxMat
 		TYPE.GAME_LEISURE:
 			auxMat.albedo_color = leisureGame_color
-			sprite.visible = true
+#			sprite.visible = true
+			mesh2.material_override = auxMat
 	
 	
 	#mesh.set_surface_material(0, auxMat)
 	mesh.material_override = auxMat
+	
+	
+
+
+func _on_Cell_body_entered(body):
+	print(doNotPlay)
+	if get_occupied() and not doNotPlay:
+		audio.play(0.2)
+		set_doNotPlay(false)
+
+	set_occupied(true)
+	light.visible = true
+
+
+
+func _on_Cell_body_exited(body):
+	set_occupied(false)
+	light.fade_out()
+	set_doNotPlay(false)
+
+	
+func set_occupied(bol):
+	occupied = bol
+
+func get_occupied():
+	return occupied
+	
+func set_doNotPlay(bol):
+	doNotPlay = bol
+	
+func get_doNotPlay():
+	return doNotPlay
+
+
+
+
+

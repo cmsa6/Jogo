@@ -102,6 +102,7 @@ func approve(bol):
 		#for child in mapChildren:
 		#	if child.get_name() == "Spawners":
 			#for player in child.get_children():
+		var rewardToSend
 		for player in spawners:
 			
 			if currentPlayer == (player.get_player_num() - 1):
@@ -113,13 +114,13 @@ func approve(bol):
 				#var num = checkReward()
 				#print(num)
 				if not get_playerNoLongerPlaying():
-					var rewardToSend = get_reward()
+					rewardToSend = get_reward()
 					player.gained_furniture(rewardToSend)
 				
 				break
 				#break
 		if not get_playerNoLongerPlaying():
-			show_house()
+			show_house(rewardToSend)
 		else:
 			show_map()
 	
@@ -151,7 +152,7 @@ func get_skillEvaluated():
 	return skillEvaluated
 
 
-func show_house():
+func show_house(reward):
 	
 	var rootNode = get_node("/root")
 	var current_player = SavingManager.current_player
@@ -163,6 +164,7 @@ func show_house():
 	currentCard.queue_free()
 	
 	var house = houseScene.instance()
+	house.set_lattestReward(reward)
 	rootNode.add_child(house)
 	rootNode.move_child(house,0)
 	
