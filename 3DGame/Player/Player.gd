@@ -32,8 +32,10 @@ var rng = RandomNumberGenerator.new()
 
 var iAlreadyWon = false setget set_iAlreadyWon, get_iAlreadyWon
 
-#var points = {"COMMERCIAL":0, "SERVICES": 0, "LEISURE":0, "HELP": 0} 
-var points = {"InterpersonalRelationship" : 0, "SocialInclusion": 0, "Rights": 0, "PersonalDevelopment": 0, "Self-Determination": 0, "PhysicalWellbeing": 0, "MaterialWellbeing": 0, "EmotionalWellbeing": 0, "CalculusandProblemSolving": 0, "Language": 0, "MemoryandAttentiontoDetail": 0, "SpatialOrientation": 0, "SocialandEmotionalWellbeing": 0}
+
+#var points = {"InterpersonalRelationship" : 0, "SocialInclusion": 0, "Rights": 0, "PersonalDevelopment": 0, "Self-Determination": 0, "PhysicalWellbeing": 0, "MaterialWellbeing": 0, "EmotionalWellbeing": 0, "CalculusandProblemSolving": 0, "Language": 0, "MemoryandAttentiontoDetail": 0, "SpatialOrientation": 0, "SocialandEmotionalWellbeing": 0}
+var QOLPoints  = {"InterpersonalRelationship" : 0, "SocialInclusion": 0, "Rights": 0, "PersonalDevelopment": 0, "Self-Determination": 0, "PhysicalWellbeing": 0, "MaterialWellbeing": 0, "EmotionalWellbeing": 0}
+var CFPoints = {"CalculusandProblemSolving": 0, "Language": 0, "MemoryandAttentiontoDetail": 0, "SpatialOrientation": 0, "SocialandEmotionalWellbeing": 0}
 var totalPoints = 0 setget set_totalPoints, get_totalPoints
 
 
@@ -65,6 +67,8 @@ func _ready():
 		create_furniture_array()
 		#incr_points(0)
 		#set_points(0)
+		
+
 		
 		
 	else:
@@ -149,22 +153,42 @@ func stop_animation():
 #func incr_points(point_to_add):
 func set_points(type, points_to_add):
 	set_totalPoints(points_to_add)
-	var actualPoints = get_points()
-	#print(actualPoints)
-	#print(actualPoints["Rights"])
-	#print(type)
+	
 	type = type.replace(" ", "")
 	print(type)
+	
+	var category = check_type(type)
+	print(category)
+	var actualPoints	
+	if category == "QOL":
+		print("hello entrei no qol")
+		actualPoints = get_QOLPoints()
+	elif category == "CF":
+		print("hello entrei no cf")
+		actualPoints = get_CFPoints()
+	
+	print(actualPoints)
+	#var actualPoints = get_points()
+
+	
 	var p = actualPoints[type]
 	var totalPoints =  p + int(points_to_add)
 	actualPoints[type] = totalPoints
 	
 	#points += point_to_add
-	print("I updated my points to ", get_points())
+	
+	#print("I updated my points to ", get_points())
+	
 	#emit_signal("player_points_updated",  totalPoints)
 	
-func get_points():
-	return points
+#func get_points():
+#	return points
+	
+func get_CFPoints():
+	return CFPoints
+
+func get_QOLPoints():
+	return QOLPoints
 	
 func get_player_num():
 	return player_num
@@ -180,6 +204,9 @@ func finished_game():
 	UpdateTarget()
 	RotatePlayerToNextTarget()
 	emit_signal("play_aguen")
+	print("who am i")
+	print(self)
+
 	emit_signal("player_turn_ended")
 
 func create_furniture_array():
@@ -264,3 +291,9 @@ func set_totalPoints(points):
 	
 func get_totalPoints():
 	return totalPoints
+	
+func check_type(type): 
+	if type == "InterpersonalRelationship" or type == "SocialInclusion" or type == "Rights" or type == "PersonalDevelopment" or type == "Self-Determination" or type == "PhysicalWellbeing" or type == "MaterialWellbeing" or type == "EmotionalWellbeing":
+		return "QOL"
+	elif type == "CalculusandProblemSolving" or type == "Language" or type == "MemoryandAttentiontoDetail" or type == "SpatialOrientation" or type == "SocialandEmotionalWellbeing": 
+		return "CF"

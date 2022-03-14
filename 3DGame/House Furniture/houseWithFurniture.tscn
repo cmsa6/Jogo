@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Assets/House Stuff/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -30,7 +30,11 @@
 [ext_resource path="res://Map Stuff/Tree A.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Assets/House Stuff/OfficeFloor.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/House Stuff/Wall.tscn" type="PackedScene" id=30]
+[ext_resource path="res://House Furniture/PointsBar.gd" type="Script" id=31]
 [ext_resource path="res://Sounds/winning.wav" type="AudioStream" id=32]
+[ext_resource path="res://Fotos/porogressBar_skills_selected2.png" type="Texture" id=33]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=34]
+[ext_resource path="res://House Furniture/ScoreInfoManager.gd" type="Script" id=35]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -361,6 +365,7 @@ transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MapButton" type="TextureButton" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.922
 anchor_top = 0.178
 anchor_right = 0.988
@@ -394,6 +399,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+
+[node name="MapButton" type="TextureButton" parent="ButtonsLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -101.0
+margin_top = -151.587
+margin_right = 49.0
+margin_bottom = -1.5874
+rect_min_size = Vector2( 50, 50 )
+rect_scale = Vector2( 0.6, 0.6 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 34 )
+expand = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FurnitureManager" parent="." instance=ExtResource( 11 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -403,16 +430,29 @@ light_energy = 0.5
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer2"]
+[node name="Tween" type="Tween" parent="CanvasLayer2"]
+
+[node name="ScoreInfoManager" type="HBoxContainer" parent="CanvasLayer2"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = -47.0
-margin_right = 8.0
-margin_bottom = 1.0
-size_flags_horizontal = 6
+margin_left = -18.0
+margin_top = -50.0
+margin_right = -7.0
 size_flags_vertical = 6
+custom_constants/separation = -25
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer2/ScoreInfoManager"]
+margin_right = 940.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 900, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.66
 max_value = 6.0
 texture_under = ExtResource( 14 )
 texture_progress = ExtResource( 15 )
@@ -422,7 +462,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBarText" type="Label" parent="CanvasLayer2/TextureProgress"]
+[node name="ProgressBarText" type="Label" parent="CanvasLayer2/ScoreInfoManager/TextureProgress"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -437,7 +477,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer2"]
+[node name="PointsBar" type="TextureButton" parent="CanvasLayer2/ScoreInfoManager"]
+margin_left = 915.0
+margin_right = 1035.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 120, 50 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 33 )
+texture_disabled = ExtResource( 14 )
+expand = true
+script = ExtResource( 31 )
+
+[node name="Points" type="Label" parent="CanvasLayer2/ScoreInfoManager/PointsBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -13.5
+margin_right = 58.5
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 16 )
+text = "X POINTS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LivingRoom" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50.2169 )
@@ -858,5 +926,10 @@ transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.
 transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 49.5193, -126.858 )
 
 [connection signal="pressed" from="CanvasLayer/MapButton" to="CanvasLayer/MapButton" method="back_to_map"]
+[connection signal="pressed" from="ButtonsLayer/MapButton" to="ButtonsLayer/MapButton" method="back_to_map"]
+[connection signal="pressed" from="CanvasLayer2/ScoreInfoManager/PointsBar" to="ButtonsLayer/MapButton" method="set_checkingSkills" binds= [ true ]]
+[connection signal="pressed" from="CanvasLayer2/ScoreInfoManager/PointsBar" to="CanvasLayer2/ScoreInfoManager/PointsBar" method="show_skillScreen"]
+[connection signal="pressed" from="CanvasLayer2/ScoreInfoManager/PointsBar" to="CanvasLayer2/ScoreInfoManager" method="hide_bar"]
+[connection signal="pressed" from="CanvasLayer2/ScoreInfoManager/PointsBar" to="CanvasLayer2/ScoreInfoManager" method="disable_points"]
 
 [editable path="LivingRoom/C_Wall_Big4"]

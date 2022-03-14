@@ -1,6 +1,9 @@
 extends TextureButton
 
 var screenOrigin setget set_screenOrigin, get_screenOrigin
+var checkingSkills setget set_checkingSkills, get_checkingSkills
+
+
 
 func _input(event):
 	if event.is_action_released("ExitHouse"):
@@ -11,6 +14,8 @@ func _input(event):
 #	if Input.is_action_just_released("ExitHouse"):
 #		print("im exiting the house")
 #		back_to_map()
+
+
 		
 func back_to_map():
 	var rootNode = get_node("/root")
@@ -23,19 +28,34 @@ func back_to_map():
 	
 	var currentPlayer = SavingManager.current_player
 	
-	# Load saved scene
-	var saved_scene = SavingManager.saved_scene
-	rootNode.add_child(saved_scene)
-	print("the orgiin is ", get_screenOrigin())
+	var isItCheckingSkills = get_checkingSkills()
+	var origin = get_screenOrigin()
+	print("origin: ", origin)
+	print("checking skills: ", isItCheckingSkills)
 	
-	if get_screenOrigin() == "Map":
-		#var game_node = get_node("/root/Map1")
-		#SavingManager.saved_scene = game_node 
-		pass
+	# Load saved scene
+	if isItCheckingSkills:
+		print("entrei aqui")
+		set_checkingSkills(false)
+		var scoreInfo = get_node("/root/FurnishedHouse/CanvasLayer2/ScoreInfoManager")
+		scoreInfo.show_bar()
+		scoreInfo.enable_points()
+		return
+
+	
+	if origin == "Map":
+		var saved_scene = SavingManager.saved_scene
+		rootNode.add_child(saved_scene)
+		print("the orgiin is ", get_screenOrigin())
+		
+
 		
 		
-	else:
-		print("entrei mas nao devia ter entrado")
+		
+	elif origin != "Map" and (not isItCheckingSkills):
+		var saved_scene = SavingManager.saved_scene
+		rootNode.add_child(saved_scene)
+
 		var playersNode = get_node("/root/Map1/Spawners")
 		var players = playersNode.get_children()
 		
@@ -92,3 +112,9 @@ func set_screenOrigin(orig):
 	
 func get_screenOrigin():
 	return screenOrigin
+	
+func set_checkingSkills(bol):
+	checkingSkills = bol
+	
+func get_checkingSkills():
+	return checkingSkills

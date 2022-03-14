@@ -4,10 +4,14 @@ export (Array, String) var availableFurniture = []
 
 onready var avatarIcon = $CanvasLayer/PlayerAvatar
 onready var mapButton = $CanvasLayer/MapButton
+onready var newMapButton = $ButtonsLayer/MapButton
 
-onready var progressBar = $CanvasLayer2/TextureProgress
+onready var progressBar = $CanvasLayer2/ScoreInfoManager/TextureProgress
 onready var tween = $CanvasLayer2/Tween
-onready var text = $CanvasLayer2/TextureProgress/ProgressBarText
+onready var text = $CanvasLayer2/ScoreInfoManager/TextureProgress/ProgressBarText
+
+onready var pointsBarText = $CanvasLayer2/ScoreInfoManager/PointsBar/Points
+onready var pointsBar = $CanvasLayer2/ScoreInfoManager/PointsBar
 
 var finalPlayer  setget set_finalPlayer, get_finalPlayer
 var origin setget set_origin, get_origin
@@ -25,6 +29,7 @@ func _ready():
 	var parentName = get_parent().name
 	if not "Final" in parentName:
 		mapButton.set_screenOrigin(get_origin())
+		newMapButton.set_screenOrigin(get_origin())
 		
 		
 		
@@ -47,6 +52,9 @@ func _ready():
 				var activeFurnitures = player.get_gained_furniture()
 				print(activeFurnitures)
 				checkActives(activeFurnitures)
+				show_points(player.get_totalPoints())
+				pointsBar.set_QOLPoints(player.get_QOLPoints())
+				pointsBar.set_CFPoints(player.get_CFPoints())
 				break
 						
 	
@@ -77,6 +85,8 @@ func checkActives(playerFurniture):
 	text.text = str(numActives) + " / " + str(size) + " OBJECTS"
 	tween.interpolate_property(progressBar, "value", numActives - 1, numActives, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+	
+	
 			
 
 func show_final_house(playerID):
@@ -121,3 +131,9 @@ func set_lattestReward(reward):
 	
 func get_lattestReward():
 	return lattestReward
+	
+func show_points(points):
+	pointsBarText.text = str(points) + " POINTS"
+	
+	
+
