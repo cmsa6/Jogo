@@ -12,8 +12,7 @@ func _process(_delta):
 		self.disabled = false
 
 func _on_ConfirmButton_pressed():
-	print("did i work?")
 	get_node(gameTypeSelecterContainer).visible = false
 	get_node(playerSelecterContainer).visible = true
 	
-	print(playerSelecterContainer)
+

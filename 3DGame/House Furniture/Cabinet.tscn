@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://House Furniture/Furniture.gd" type="Script" id=1]
-[ext_resource path="res://Assets/DiDaCityPack - Interior/Models/Interior/textures/Texture_Atlas_Colors_2.png" type="Texture" id=2]
-
-[sub_resource type="SpatialMaterial" id=1]
-resource_name = "Atlas_2"
-albedo_color = Color( 0.8, 0.8, 0.8, 1 )
-albedo_texture = ExtResource( 2 )
+[ext_resource path="res://House Furniture/Materials/CabinetMaterial.tres" type="Material" id=2]
 
 [sub_resource type="ArrayMesh" id=2]
 blend_shape_mode = 0
@@ -17,7 +12,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 1860,
-"material": SubResource( 1 ),
+"material": ExtResource( 2 ),
 "name": "Atlas_2",
 "primitive": 4,
 "skeleton_aabb": [  ],

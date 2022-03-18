@@ -1,15 +1,15 @@
 extends Node
 
 const BRYCE_SCENE = preload("res://Assets/Cris_characters/Bryce/Bryce.tscn")
-const LIAM_SCENE = preload("res://Assets/Cris_characters/Liam/Liam.tscn")
-const MALCOM_SCENE = preload("res://Assets/Cris_characters/Malcom/Malcom.tscn")
+const LIAM_SCENE = preload("res://Assets/Characters/Remy/Remy.tscn")
+const MALCOM_SCENE = preload("res://Assets/Characters/Megan/Megan.tscn")
 const REGINA_SCENE = preload("res://Assets/Cris_characters/Regina/Regina.tscn")
-const SHAE_SCENE = preload("res://Assets/Cris_characters/Shae/Shae.tscn")
+const SHAE_SCENE = preload("res://Assets/Characters/Stefani/stefani.tscn")
 const SOPHIE_SCENE = preload("res://Assets/Cris_characters/Sophie/Sophie.tscn")
 
 const BRYCE_ICON = preload("res://Assets/Cris_characters/Bryce/Bryce.png")
-const LIAM_ICON = preload("res://Assets/Cris_characters/Liam/Liam.png")
-const MALCOM_ICON = preload("res://Assets/Cris_characters/Malcom/Malcom.png")
+const LIAM_ICON = preload("res://Assets/Characters/Remy/Remy.png")
+const MALCOM_ICON = preload("res://Assets/Characters/Megan/Megan.png")
 const REGINA_ICON = preload("res://Assets/Cris_characters/Regina/Regina.png")
 const SHAE_ICON = preload("res://Assets/Cris_characters/Shae/Shae.png")
 const SOPHIE_ICON = preload("res://Assets/Cris_characters/Sophie/Sophie.png")

@@ -22,7 +22,8 @@ func activate_object():
 	
 	
 func stand_out_object(origin):
-	var materialName = "res://House Furniture/Materials/" + self.get_name() + "Material.tres"
+	#var materialName = "res://House Furniture/Materials/" + self.get_name() + "Material.tres"
+	var materialName = "res://House Furniture/Materials/BedMaterial.tres"
 	var newMaterial = load(materialName)
 
 	meshInstance.set_surface_material(0, newMaterial)
@@ -37,6 +38,7 @@ func stand_out_object(origin):
 	
 func deactivate_object():
 	var materialName = "res://House Furniture/Materials/transparent.tres"
+	
 	var newMaterial = load(materialName)
 
 	meshInstance.set_surface_material(0, newMaterial)

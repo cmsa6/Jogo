@@ -1,14 +1,30 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://House Furniture/houseWithFurniture_old.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/buttonFontCardsSmaller.tres" type="DynamicFont" id=1]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Cris_characters/Bryce/Bryce.png" type="Texture" id=3]
 [ext_resource path="res://UI/FinalScreen/PlayerFinalContainer.gd" type="Script" id=4]
+[ext_resource path="res://House Furniture/houseWithFurniture.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fotos/progressBarOver.png" type="Texture" id=6]
+[ext_resource path="res://Fotos/porogressBar_skills_selected2.png" type="Texture" id=7]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=8]
+[ext_resource path="res://UI/FinalScreen/DetailsManager.gd" type="Script" id=9]
+[ext_resource path="res://UI/FinalScreen/ScoreBoard.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
-size = 46
+size = 40
 outline_size = 1
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_size = 1
 font_data = ExtResource( 2 )
 
 [node name="PlayerFinalContainer" type="VBoxContainer"]
@@ -18,8 +34,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -510.0
 margin_top = -304.0
-margin_right = -10.0
-margin_bottom = 212.0
+margin_right = -160.0
+margin_bottom = -90.0
+rect_min_size = Vector2( 0, 200 )
 rect_scale = Vector2( 0.996413, 1.16 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -28,11 +45,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 115.0
-margin_right = 385.0
-margin_bottom = 58.0
-rect_min_size = Vector2( 270, 40 )
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 48.0
+margin_right = 302.0
+margin_bottom = 51.0
+size_flags_horizontal = 6
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 200, 40 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
@@ -41,29 +63,202 @@ text = "Player x"
 align = 1
 autowrap = true
 
-[node name="Avatar" type="TextureRect" parent="."]
-margin_left = 175.0
-margin_top = 62.0
-margin_right = 325.0
-margin_bottom = 212.0
-rect_min_size = Vector2( 150, 150 )
+[node name="Avatar" type="TextureRect" parent="HBoxContainer"]
+margin_left = 204.0
+margin_right = 254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource( 3 )
 expand = true
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_left = 100.0
-margin_top = 216.0
-margin_right = 400.0
-margin_bottom = 516.0
-rect_min_size = Vector2( 250, 300 )
+[node name="Control" type="Control" parent="."]
+margin_top = 55.0
+margin_right = 350.0
+margin_bottom = 255.0
+rect_min_size = Vector2( 350, 200 )
+script = ExtResource( 9 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Control"]
+modulate = Color( 0.729412, 0.682353, 0.682353, 0.352941 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.0
+margin_top = -100.0
+margin_right = 175.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 350, 200 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="FinalViewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 300, 300 )
+[node name="FinalViewport" type="Viewport" parent="Control/ViewportContainer"]
+size = Vector2( 350, 200 )
+own_world = true
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="FurnishedHouse" parent="ViewportContainer/FinalViewport" instance=ExtResource( 1 )]
+[node name="FurnishedHouse" parent="Control/ViewportContainer/FinalViewport" instance=ExtResource( 5 )]
+
+[node name="Camera" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 20, 48.7421, 48.7348 )
+v_offset = -5.0
+fov = 63.0
+near = 21.26
+far = 247.8
+
+[node name="PlayerAvatar" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/CanvasLayer" index="1"]
+visible = false
+
+[node name="MapButton" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ButtonsLayer" index="0"]
+visible = false
+
+[node name="ScoreInfoManager" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo" index="1"]
+visible = false
+
+[node name="TextureProgress" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo/ScoreInfoManager" index="0"]
+margin_right = 900.0
+
+[node name="PointsBar" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo/ScoreInfoManager" index="1"]
+margin_left = 875.0
+margin_right = 995.0
+
+[node name="Buttons" type="VBoxContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -52.0
+margin_right = 125.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 100, 70 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberObjects" type="Label" parent="Control/Buttons"]
+visible = false
+margin_top = 18.0
+margin_right = 250.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 250, 10 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Objects Gained: X"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberPoints" type="Label" parent="Control/Buttons"]
+visible = false
+margin_left = 25.0
+margin_top = 36.0
+margin_right = 225.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Points: X"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Objects" type="TextureButton" parent="Control/Buttons"]
+margin_right = 250.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 120, 50 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 6 )
+expand = true
+
+[node name="ObjectsText" type="Label" parent="Control/Buttons/Objects"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -13.5
+margin_right = 58.5
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 1 )
+text = "X OBJECTS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points" type="TextureButton" parent="Control/Buttons"]
+margin_top = 54.0
+margin_right = 250.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 120, 50 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 6 )
+expand = true
+
+[node name="PointsText" type="Label" parent="Control/Buttons/Points"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -13.5
+margin_right = 58.5
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 1 )
+text = "X POINTS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreBoard" parent="Control" instance=ExtResource( 10 )]
+visible = false
+
+[node name="GoBackButton" type="TextureButton" parent="Control"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -52.0
+margin_top = -42.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/Buttons/Objects" to="Control" method="show_house"]
+[connection signal="pressed" from="Control/Buttons/Points" to="Control" method="show_points"]
+[connection signal="pressed" from="Control/GoBackButton" to="Control" method="show_buttons"]
+
+[editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse"]
+[editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bed"]
+[editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Kitchen/Window"]
+[editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bedrooom/BedroomWall"]
+[editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bedrooom/FrontDoor2"]

@@ -1,8 +1,8 @@
 extends VBoxContainer
 
-onready var rewardPlaceHolder = $HBoxContainer/RewardPlaceholder
-onready var numPoints = $HBoxContainer/HBoxContainer/NumberPoints
-onready var skill = $HBoxContainer/HBoxContainer/Skill
+onready var rewardPlaceHolder = $RewardPlaceholder
+export(NodePath) var numPoints
+export(NodePath) var skill
 
 var type setget set_type, get_type
 
@@ -50,12 +50,12 @@ func _ready():
 	else:
 		rewardPlaceHolder.visible = false
 	
-	numPoints.text = newcontent[7] 
+	get_node(numPoints).text = newcontent[7] 
 	var skillDev = newcontent[9].replace(" ","")
 	print("skill being developed: ", skillDev)
 	var skillPath = "res://Cards/Skills/" + skillDev + ".png"
 	var skillPhoto = load(skillPath)
-	skill.texture = skillPhoto
+	get_node(skill).texture = skillPhoto
 	
 	emit_signal("save_card_data", newcontent)
 	

@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/FinalScreen/ShowAllPlayers.gd" type="Script" id=1]
+[ext_resource path="res://GameFonts/kenney_fontpackage/Fonts/Kenney Future.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_size = 1
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="FinalCreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_horizontal_guides_": [ 585.95 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ -6.25492 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = -0.000803351
+anchor_right = 0.999197
+anchor_bottom = 1.0
+margin_top = 1.02008
+margin_bottom = 1.02008
+color = Color( 0.964706, 0.921569, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -513.0
+margin_top = -288.0
+margin_right = 513.0
+margin_bottom = 234.0
+size_flags_horizontal = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+margin_left = 336.0
+margin_right = 690.0
+margin_bottom = 40.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "O jogo acabou!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowAllPlayers" type="GridContainer" parent="ColorRect/VBoxContainer"]
+margin_left = 513.0
+margin_top = 283.0
+margin_right = 513.0
+margin_bottom = 283.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/hseparation = 100
+columns = 2
+script = ExtResource( 1 )

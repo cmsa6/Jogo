@@ -10,7 +10,7 @@ func _ready():
 	
 	for i in range(0, num_players):
 		var instance = scene.instance()
-		h_box_container.add_child(instance)
+		#h_box_container.add_child(instance)
 		#instance.set_icon(CharactersManager.get_character_icon(SettingsManager.players[i].character))
 		instance.set_texture(CharactersManager.get_character_icon(SettingsManager.players[i].character))
 		instance.set_player(i)

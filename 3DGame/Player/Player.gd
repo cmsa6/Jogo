@@ -65,6 +65,9 @@ func _ready():
 		animPlayer = $Body/AnimationPlayer
 		play_animation(CharactersManager.IDLE_ANIM)
 		create_furniture_array()
+		SavingManager.playersSkillScores[player_num] = 0
+		SavingManager.playersQOLSkills[player_num] = QOLPoints
+		SavingManager.playersCFSkills[player_num] = CFPoints
 		#incr_points(0)
 		#set_points(0)
 		
@@ -159,21 +162,31 @@ func set_points(type, points_to_add):
 	
 	var category = check_type(type)
 	print(category)
-	var actualPoints	
+	var actualPoints
+	var p
+	var totalPoints	
+	
 	if category == "QOL":
 		print("hello entrei no qol")
 		actualPoints = get_QOLPoints()
+		p = actualPoints[type]
+		totalPoints =  p + int(points_to_add)
+		actualPoints[type] = totalPoints
+		SavingManager.playersQOLSkills[player_num] = actualPoints
+		
 	elif category == "CF":
 		print("hello entrei no cf")
 		actualPoints = get_CFPoints()
+		p = actualPoints[type]
+		totalPoints =  p + int(points_to_add)
+		actualPoints[type] = totalPoints
+		SavingManager.playersCFSkills[player_num] = actualPoints
 	
-	print(actualPoints)
+	
 	#var actualPoints = get_points()
 
 	
-	var p = actualPoints[type]
-	var totalPoints =  p + int(points_to_add)
-	actualPoints[type] = totalPoints
+	
 	
 	#points += point_to_add
 	
@@ -214,12 +227,17 @@ func create_furniture_array():
 	var maxFurniture = availableFurniture.size()
 	for i in range(0, maxFurniture):
 		furnitureGained[availableFurniture[i]] = 0
+	SavingManager.playersScores[player_num] = furnitureGained
+	print("scores dos players: ", SavingManager.playersScores)
 		
 func gained_furniture(furnitureId):
 	print("dentro do gained furniture: ", furnitureId)
 	#furnitureGained.insert(furnitureId,1)
 	furnitureGained[furnitureId] = 1
 	print(furnitureGained)
+	
+	SavingManager.playersScores[player_num] = furnitureGained
+	print("scores dos players: ", SavingManager.playersScores)
 	
 	var totalFurniture = 0
 	var values = furnitureGained.values()
@@ -249,6 +267,11 @@ func check_win():
 
 func all_won_game():
 	print("all won game!")
+	#var allPlayers = get_node("/root/Map1/Spawners").get_children()
+	
+	#for player in allPlayers:
+	#	SavingManager.playersScores[player.get_player_num()] = player.get_gained_furniture()
+		
 	emit_signal("game_finished")
 	
 func get_random_reward():
@@ -288,6 +311,9 @@ func get_type(cellType):
 
 func set_totalPoints(points):
 	totalPoints = int(totalPoints) + int(points)
+	SavingManager.playersSkillScores[player_num] = totalPoints
+
+	
 	
 func get_totalPoints():
 	return totalPoints

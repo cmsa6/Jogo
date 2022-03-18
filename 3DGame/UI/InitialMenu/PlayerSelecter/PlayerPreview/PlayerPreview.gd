@@ -8,7 +8,7 @@ const PLAYER_TEXT = "JOGADOR "
 var player_turn
 
 onready var player_color = $ColorRect
-onready var player_label = $Label
+onready var player_label = $ColorRect/HBoxContainer/Label
 
 func init():
 	if(player_num <= SettingsManager.num_of_players):

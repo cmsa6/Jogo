@@ -37,7 +37,7 @@ func back_to_map():
 	if isItCheckingSkills:
 		print("entrei aqui")
 		set_checkingSkills(false)
-		var scoreInfo = get_node("/root/FurnishedHouse/CanvasLayer2/ScoreInfoManager")
+		var scoreInfo = get_node("/root/FurnishedHouse/ScoreInfo/ScoreInfoManager")
 		scoreInfo.show_bar()
 		scoreInfo.enable_points()
 		return
@@ -88,6 +88,7 @@ func back_to_map():
 		elif onePlayerWon and SettingsManager.num_of_players >= 2:
 			var quitScreen = load("res://UI/QuitMenu/CheckQuit.tscn")
 			var quitNode = quitScreen.instance()
+			quitNode.set_origin("Won")
 			quitNode.set_player(currentPlayer)
 			rootNode.add_child(quitNode)
 			rootNode.move_child(quitNode,0)

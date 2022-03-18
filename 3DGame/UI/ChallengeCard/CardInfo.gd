@@ -45,13 +45,21 @@ func _ready():
 	#skills.text = "Skills: " + card_info[9]
 	print("vendo imagens")
 	print(files)
-	var imageName = card_info[1] + ".png"
+	var imageName = card_info[1] 
+	
+	imageName = imageName.replace(" ","")
 	
 	
 	print(imageName)
-	if imageName in files:
-		print("entrei")
-		image.set_texture(load("res://Cards/Fotos/" + imageName ))
+	for f in files:
+		if imageName in f:
+			print("entrei")
+			#image.set_texture(image)
+			
+			var imagePath = "res://Cards/Fotos/" + imageName +".png"
+			var imagePhoto = load(imagePath)
+			image.texture = imagePhoto
+			print("i setted the picture")
 	
 
 		

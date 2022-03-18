@@ -16,7 +16,9 @@ func _on_load_minigame(type):
 
 	# Load mini game
 	#var minigame_node = load(minigames[choose_random_minimgame()])
-	var minigame_node = load(minigames[1])
+	
+	#var minigame_node = load(minigames[1])
+	var minigame_node = load("res://UI/ChallengeCard/CardPreview.tscn")
 	minigame_node = minigame_node.instance()
 	minigame_node.set_type(type)
 	root_node.add_child(minigame_node)

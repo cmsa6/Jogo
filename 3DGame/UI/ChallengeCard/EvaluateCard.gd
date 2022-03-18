@@ -12,7 +12,7 @@ onready var disapprovedContainer = $Disapproved
 #
 onready var rewardApproved = $Approved/ColorRect2/HBoxContainer/VBoxContainer/RewardPhotoPlaceholder
 onready var rewardDisapproved = $Disapproved/ColorRect2/HBoxContainer/VBoxContainer/RewardPhotoPlaceholder
-onready var rewardPreview = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/RewardPreview
+onready var rewardPreview = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardPreview
 
 onready var title = $Evaluation/ColorRect/CardHeader/VBoxContainer/ChallengeTitle
 onready var approvedTitle = $Approved/ColorRect2/CardHeader/VBoxContainer/ChallengeTitle
@@ -23,8 +23,8 @@ onready var approvedIcon = $Approved/ColorRect2/CardHeader/PlayerAvatar
 onready var disapprovedIcon = $Disapproved/ColorRect2/CardHeader/PlayerAvatar
 
 
-onready var skill = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/Skill
-onready var numPoints = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/NumberPoints 
+onready var skill = $Evaluation/ColorRect/SkillInfo/Skill
+onready var numPoints = $Evaluation/ColorRect/SkillInfo/NumberPoints
 
 onready var houseScene = preload("res://House Furniture/houseWithFurniture.tscn")
 

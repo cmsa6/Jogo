@@ -8,3 +8,5 @@ func _on_SinglePlayer_Selected():
 
 func _on_Local_Multiplayer_Selected():
 	settings._on_Local_Multiplayer_Selected()
+
+

@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 export(NodePath) var player_placeholder
 export(int) var player_num
@@ -8,7 +8,7 @@ const PLAYER_TEXT = "Player "
 var player_turn
 
 onready var player_color = $ColorRect
-onready var player_label = $Label
+onready var player_label = $PlayerPreview/HBoxContainer/ColorRect/HBoxContainer/Label
 
 func init():
 	if(player_num <= SettingsManager.num_of_players):

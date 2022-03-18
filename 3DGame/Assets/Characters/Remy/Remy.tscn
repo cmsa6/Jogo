@@ -124,7 +124,7 @@ surfaces/0 = {
 }
 
 [node name="Remy" type="Spatial"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+transform = Transform( -2.9, 0, 4.37888e-07, 0, 2.9, 0, -4.37888e-07, 0, -2.9, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="."]
 bones/0/name = "mixamorig_Hips"
