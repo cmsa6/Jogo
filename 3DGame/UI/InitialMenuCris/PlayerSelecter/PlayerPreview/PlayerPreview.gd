@@ -10,14 +10,18 @@ var player_turn
 onready var player_color = $ColorRect
 onready var player_label = $PlayerPreview/HBoxContainer/ColorRect/HBoxContainer/Label
 
-func init():
-	if(player_num <= SettingsManager.num_of_players):
-		player_color.color = SettingsManager.players[player_num - 1].color
-		player_label.text = PLAYER_TEXT + str(player_num)
+#func init():
+#	if(player_num <= SettingsManager.num_of_players):
+#		#player_color.color = SettingsManager.players[player_num - 1].color
+#		player_label.text = PLAYER_TEXT + str(player_num)
 
-func _on_ConfirmButton_pressed():
-	#when the button of the game_type is pressed
-	init()
+#func _on_ConfirmButton_pressed():
+#	#when the button of the game_type is pressed
+#	init()
+
+func _ready():
+	if(player_num <= SettingsManager.num_of_players):
+		player_label.text = PLAYER_TEXT + str(player_num)
 
 func _on_new_character_selected(character):
 	var instance

@@ -3,7 +3,7 @@ extends Spatial
 
 var rng = RandomNumberGenerator.new()
 
-onready var anim = $AnimationPlayer
+onready var anim = $Spatial/AnimationPlayer
 
 var value setget set_value, get_value
 
@@ -39,4 +39,7 @@ func set_value(v):
 
 func get_value():
 	return value
+	
+func play(animName):
+	anim.play(animName)
 
