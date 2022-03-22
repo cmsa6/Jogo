@@ -47,11 +47,15 @@ var cells_size = 0
 
 
 onready var cam = $Camera
+onready var arrow = $Arrow
 
  
 func _ready():
 	#Spwon character
 	var instance
+	print(self.get_name())
+	print(player_num)
+	print(SettingsManager.num_of_players)
 	if(player_num <= SettingsManager.num_of_players):
 		print( "creating player with number: ", SettingsManager.players[player_num-1])
 		instance = CharactersManager.get_character_scene(
@@ -141,7 +145,6 @@ func player_reached_target(_body):
 
 func _physics_process(_delta):
 	if canMove:
-		print("MOving")
 		RotatePlayerToNextTarget()
 		velocity = -transform.basis.z * speed
 		if transform.origin.distance_to(target_pos) > 0.2:
@@ -329,3 +332,13 @@ func check_type(type):
 	elif type == "CalculusandProblemSolving" or type == "Language" or type == "MemoryandAttentiontoDetail" or type == "SpatialOrientation" or type == "SocialandEmotionalWellbeing": 
 		return "CF"
 
+
+func show_arrow(playerTurn):
+	print("player turn: ", playerTurn)
+	print("player num: ", player_num)
+	print(self.get_name())
+	if playerTurn == (player_num - 1):
+		arrow.visible = true
+	else:
+		arrow.visible = false
+	

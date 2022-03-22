@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Arrow/Arrow5.FBX" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "spin"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -90 ), Vector3( 0, 20, -90 ), Vector3( 0, 40, -90 ), Vector3( 0, 60, -90 ), Vector3( 0, 80, -90 ), Vector3( 0, 100, -90 ), Vector3( 0, 120, -90 ), Vector3( 0, 140, -90 ), Vector3( 0, 160, -90 ), Vector3( 0, 180, -90 ) ]
+}
+
+[node name="Arrow" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Arrow5" parent="RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="RootNode" index="1"]
+autoplay = "spin"
+anims/spin = SubResource( 1 )

@@ -202,12 +202,12 @@ __meta__ = {
 }
 
 [node name="MapButton" type="TextureButton" parent="Control/DiceManager/DiceResumo"]
-margin_left = 207.0
+margin_left = 415.0
 margin_top = 276.0
-margin_right = 277.0
+margin_right = 485.0
 margin_bottom = 346.0
 rect_min_size = Vector2( 70, 70 )
-size_flags_horizontal = 6
+size_flags_horizontal = 10
 size_flags_vertical = 6
 disabled = true
 texture_normal = ExtResource( 1 )

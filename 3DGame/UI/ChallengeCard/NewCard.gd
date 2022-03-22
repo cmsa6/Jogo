@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var playerImage = $Control/GridContainer/Avatar	
+onready var playerImage = $Control/GridContainer/VBoxContainer2/Avatar	
 
 var card_data = [] setget set_card_data, get_card_data
 

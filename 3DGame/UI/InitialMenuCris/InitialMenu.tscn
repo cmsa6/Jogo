@@ -162,6 +162,8 @@ margin_right = 226.0
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 13 )
 
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer" index="1"]
 margin_right = 253.0
@@ -188,17 +190,17 @@ gameTypeSelecterContainer = NodePath("../..")
 
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" method="_on_one_player_selected"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" method="_on_one_player_selected"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" method="_on_two_player_selected"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" method="_on_two_player_selected"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" method="_on_three_player_selected"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" method="_on_three_player_selected"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" method="_on_four_player_selected"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" method="_on_four_player_selected"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="UISoundManager" method="confirm"]
 [connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 
