@@ -16,6 +16,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	instructions.modulate = HIDDEN
+	button.modulate = HIDDEN
+	
 	var current_player = SavingManager.current_player
 	diceResumoAvatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
 	playerName.text = "Jogador " + str(current_player + 1)
@@ -41,4 +43,5 @@ func update_text(value):
 	print("hello")
 	instructions.text = "Vai andar " + str(value) + " vezes"
 	instructions.modulate = VISIBLE
+	button.modulate = VISIBLE
 	button.disabled = false

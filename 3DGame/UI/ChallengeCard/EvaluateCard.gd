@@ -72,7 +72,7 @@ func _ready():
 	
 	var skillBenefit = get_skillEvaluated()
 	
-	numPoints.text = skillBenefit[1]
+	numPoints.text = "+" + skillBenefit[1]
 	
 	var skillName = skillBenefit[0].replace(" ","")
 	var skillPath = "res://Cards/Skills/" + skillName + ".png"
@@ -128,12 +128,10 @@ func approve(bol):
 		show_map()
 	
 func set_card_data(dataReceived):
-	print(dataReceived)
 	reward = dataReceived[11]
 	set_challenge_title(dataReceived[1])
 	set_skillEvaluated(dataReceived[9], dataReceived[7])
 	#reward = reward.replace(" ", "")
-	print("e dei set da reward como ", reward)
 	
 func get_reward():
 	return reward

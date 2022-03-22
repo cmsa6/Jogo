@@ -58,6 +58,7 @@ func _ready():
 			SettingsManager.players[player_num - 1].character).instance()
 		instance.name = "Body"
 		self.add_child(instance)
+		print("nasci aqui: ", transform.origin)
 		
 		gameManager = get_node(GameManager)
 		cells_size = gameManager.get_cells().size()
@@ -82,6 +83,9 @@ func Move(dice_value):
 	canMove = true
 	is_my_turn = true
 	UpdateTarget()
+	print("AFTER MOVE")
+	print(target_pos)
+	print("canMove: ", canMove)
 	
 func UpdateTarget():
 	target_pos = get_target_position()
@@ -137,6 +141,7 @@ func player_reached_target(_body):
 
 func _physics_process(_delta):
 	if canMove:
+		print("MOving")
 		RotatePlayerToNextTarget()
 		velocity = -transform.basis.z * speed
 		if transform.origin.distance_to(target_pos) > 0.2:
@@ -323,3 +328,4 @@ func check_type(type):
 		return "QOL"
 	elif type == "CalculusandProblemSolving" or type == "Language" or type == "MemoryandAttentiontoDetail" or type == "SpatialOrientation" or type == "SocialandEmotionalWellbeing": 
 		return "CF"
+

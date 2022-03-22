@@ -23,6 +23,7 @@ func _ready():
 		i += 1
 	
 func _on_GameManager_on_players_turn_changed(playersTurn):
+	print("estou a atualizar para a vez: ", playersTurn)
 	var children = $VBoxContainer/HBoxContainer.get_children()
 	emit_signal("hide_exit", false)
 	for i in children.size():

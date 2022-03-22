@@ -6,3 +6,4 @@ func _input(event):
 
 func _on_Button_pressed():
 	disabled = false
+	visible = true

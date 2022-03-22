@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SinglePlayerSelected.png-c569100bdec09ab371af09402bc3236a.stex"
+path="res://.import/4players.png-6e5f41fb58168c8a889b49b875492ce6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fotos/SinglePlayerSelected.png"
-dest_files=[ "res://.import/SinglePlayerSelected.png-c569100bdec09ab371af09402bc3236a.stex" ]
+source_file="res://Fotos/4players.png"
+dest_files=[ "res://.import/4players.png-6e5f41fb58168c8a889b49b875492ce6.stex" ]
 
 [params]
 

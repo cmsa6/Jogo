@@ -50,7 +50,7 @@ func _ready():
 	else:
 		rewardPlaceHolder.visible = false
 	
-	get_node(numPoints).text = newcontent[7] 
+	get_node(numPoints).text = "+" + newcontent[7] 
 	var skillDev = newcontent[9].replace(" ","")
 	print("skill being developed: ", skillDev)
 	var skillPath = "res://Cards/Skills/" + skillDev + ".png"

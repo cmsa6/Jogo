@@ -39,12 +39,15 @@ func get_node_cell_by_index(index):
 func _on_Dado_dice_used(value):
 	print("////// estou na funcao on_dado_dice_used || PLAYER: ", playersTurn)
 	var player = get_player_by_index(playersTurn)
+	print("PLAYER WALK!")
 	player.Move(value)
 
 func UpdatePlayersTurn():
 	playersTurn += 1
+	print("updating TURN to: " , playersTurn)
 	SavingManager.current_player = playersTurn
 	if playersTurn >= players.size():
+		print("Entrie nest if 896")
 		playersTurn = 0
 		SavingManager.current_player = 0
 		print("atualizei o current_player para 0")

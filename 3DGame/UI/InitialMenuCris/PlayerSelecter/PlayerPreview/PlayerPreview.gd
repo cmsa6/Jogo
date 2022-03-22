@@ -26,6 +26,9 @@ func _ready():
 func _on_new_character_selected(character):
 	var instance
 	
+	print("PLAYER NUM: ", player_num)
+	print("PLAYER TURN: ", player_turn)
+	
 	if(player_num == player_turn):
 		delete_characters()
 			
@@ -41,6 +44,7 @@ func _on_new_character_selected(character):
 func _on_PlayerSelecterContainer_player_turn_changed(new_player_turn):
 	delete_characters()
 	player_turn = new_player_turn
+	print("defini mudança de vez para player_turn: ", player_turn)
 
 
 func delete_characters():
@@ -49,3 +53,7 @@ func delete_characters():
 		for i in range(0, get_node(player_placeholder).get_child_count()):
 			get_node(player_placeholder).get_child(i).visible = false
 			get_node(player_placeholder).get_child(i).free()
+
+
+
+

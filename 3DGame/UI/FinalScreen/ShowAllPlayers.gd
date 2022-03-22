@@ -10,11 +10,11 @@ func _ready():
 	var map_node = get_node("/root/Map1")
 
 
-	print("scores dos players: ", SavingManager.playersScores)
-	print("scores dos players: ", SavingManager.playersScores.keys())
+
 	var playersID = SavingManager.playersScores.keys()
-	playersID.invert()
-	print(playersID)
+	
+	playersID.sort()
+	
 
 	for id in playersID:
 		var instance = scene.instance()

@@ -25,7 +25,7 @@ func _ready():
 
 func _on_new_character_selected(character):
 	var instance
-	print("im here3")
+	print("criando preview do avatar")
 	print(character)
 	print(player_num)
 	print(player_turn)
