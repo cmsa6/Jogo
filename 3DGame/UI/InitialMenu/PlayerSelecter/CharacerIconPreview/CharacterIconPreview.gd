@@ -12,7 +12,7 @@ onready var button = $VBoxContainer/TextureRect2/CenterContainer/Button
 onready var keyboard = $VBoxContainer/Label
 
 var players_turn
-var selected_by_player
+var selected_by_player 
 var selected = false
 var locked = false
 
@@ -68,5 +68,8 @@ func _on_ConfirmButton_pressed():
 	locked =  true
 	if selected == true && locked == true:
 		button.disabled = true
-
+		get_parent().get_parent().set_playerID(selected_by_player)
 		SettingsManager.players[selected_by_player - 1].character = character
+
+
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/InitialMenu/PlayerSelecter/PlayerSelecter.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/SmallerConfirmButton.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://Fotos/SmallerConfirmButtonSelected.png" type="Texture" id=4]
 [ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/PlayerPreview/PlayerPreview_new.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/CharacerIconPreview/CharacterIconPreview.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/AvatarCostumization.gd" type="Script" id=7]
 [ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/ConfirmButton.gd" type="Script" id=8]
+[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=9]
 
 [node name="cris_PlayerSelecterContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -98,14 +100,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="AvatarCostumization" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 415.0
 margin_right = 1023.0
 margin_bottom = 600.0
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 custom_constants/separation = 20
+script = ExtResource( 7 )
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/AvatarCostumization"]
 margin_right = 608.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 5, 50 )
@@ -113,7 +116,18 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 1.23
 color = Color( 0.945098, 0.631373, 0.427451, 1 )
 
-[node name="AvailableAvatars" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Instructions" type="Label" parent="HBoxContainer/AvatarCostumization/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Choose Your Character"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AvailableAvatars" type="GridContainer" parent="HBoxContainer/AvatarCostumization"]
 margin_top = 70.0
 margin_right = 608.0
 margin_bottom = 534.0
@@ -121,7 +135,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
 columns = 3
 
-[node name="CharacterIconPreview" parent="HBoxContainer/VBoxContainer/AvailableAvatars" instance=ExtResource( 6 )]
+[node name="CharacterIconPreview" parent="HBoxContainer/AvatarCostumization/AvailableAvatars" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -132,11 +146,11 @@ margin_right = 200.0
 margin_bottom = 230.0
 rect_scale = Vector2( 1, 1 )
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" index="0"]
+[node name="VBoxContainer" parent="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview" index="0"]
 margin_top = 0.0
 margin_bottom = 230.0
 
-[node name="CharacterIconPreview2" parent="HBoxContainer/VBoxContainer/AvailableAvatars" instance=ExtResource( 6 )]
+[node name="CharacterIconPreview2" parent="HBoxContainer/AvatarCostumization/AvailableAvatars" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -148,11 +162,11 @@ margin_bottom = 230.0
 rect_scale = Vector2( 1, 1 )
 character = 1
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" index="0"]
+[node name="VBoxContainer" parent="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2" index="0"]
 margin_top = 0.0
 margin_bottom = 230.0
 
-[node name="CharacterIconPreview3" parent="HBoxContainer/VBoxContainer/AvailableAvatars" instance=ExtResource( 6 )]
+[node name="CharacterIconPreview3" parent="HBoxContainer/AvatarCostumization/AvailableAvatars" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -164,11 +178,11 @@ margin_bottom = 230.0
 rect_scale = Vector2( 1, 1 )
 character = 2
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" index="0"]
+[node name="VBoxContainer" parent="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3" index="0"]
 margin_top = 0.0
 margin_bottom = 230.0
 
-[node name="CharacterIconPreview4" parent="HBoxContainer/VBoxContainer/AvailableAvatars" instance=ExtResource( 6 )]
+[node name="CharacterIconPreview4" parent="HBoxContainer/AvatarCostumization/AvailableAvatars" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -180,11 +194,11 @@ margin_bottom = 464.0
 rect_scale = Vector2( 1, 1 )
 character = 3
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" index="0"]
+[node name="VBoxContainer" parent="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4" index="0"]
 margin_top = 0.0
 margin_bottom = 230.0
 
-[node name="CharacterIconPreview5" parent="HBoxContainer/VBoxContainer/AvailableAvatars" instance=ExtResource( 6 )]
+[node name="CharacterIconPreview5" parent="HBoxContainer/AvatarCostumization/AvailableAvatars" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -196,11 +210,11 @@ margin_bottom = 464.0
 rect_scale = Vector2( 1, 1 )
 character = 4
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" index="0"]
+[node name="VBoxContainer" parent="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5" index="0"]
 margin_top = 0.0
 margin_bottom = 230.0
 
-[node name="CharacterIconPreview6" parent="HBoxContainer/VBoxContainer/AvailableAvatars" instance=ExtResource( 6 )]
+[node name="CharacterIconPreview6" parent="HBoxContainer/AvatarCostumization/AvailableAvatars" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -212,50 +226,76 @@ margin_bottom = 464.0
 rect_scale = Vector2( 1, 1 )
 character = 4
 
-[node name="VBoxContainer" parent="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" index="0"]
+[node name="VBoxContainer" parent="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6" index="0"]
 margin_top = 0.0
 margin_bottom = 230.0
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[node name="AvatarName" type="LineEdit" parent="HBoxContainer/AvatarCostumization"]
+visible = false
+margin_left = 101.0
+margin_top = 275.0
+margin_right = 501.0
+margin_bottom = 325.0
+rect_min_size = Vector2( 400, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 10
+clear_button_enabled = true
+placeholder_text = "Write here your player "
 
-[editable path="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview"]
-[editable path="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview2"]
-[editable path="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview3"]
-[editable path="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview4"]
-[editable path="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview5"]
-[editable path="HBoxContainer/VBoxContainer/AvailableAvatars/CharacterIconPreview6"]
+[node name="ConfirmAvatarName" type="TextureButton" parent="HBoxContainer/AvatarCostumization"]
+visible = false
+margin_left = 251.0
+margin_top = 70.0
+margin_right = 351.0
+margin_bottom = 170.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 4 )
+
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarBody/ConfirmAvatar" method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5" method="_on_other_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6/VBoxContainer/TextureRect2/CenterContainer/Button" to="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3" method="_on_other_Button_pressed"]
+
+[editable path="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview"]
+[editable path="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview2"]
+[editable path="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview3"]
+[editable path="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview4"]
+[editable path="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview5"]
+[editable path="HBoxContainer/AvatarCostumization/AvailableAvatars/CharacterIconPreview6"]

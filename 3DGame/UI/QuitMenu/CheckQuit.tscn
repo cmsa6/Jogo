@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/QuitMenu/ConfirmQuitting.gd" type="Script" id=1]
 [ext_resource path="res://UI/QuitMenu/QuitManager.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Characters/Chad/chad_round.png" type="Texture" id=3]
+[ext_resource path="res://UI/QuitMenu/Avatar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/QuitMenu/CheckQuit.gd" type="Script" id=4]
 [ext_resource path="res://Fotos/EvalButton (12).png" type="Texture" id=5]
 [ext_resource path="res://Fotos/DiceBackground.png" type="Texture" id=6]
@@ -68,12 +68,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/QuitManager/QuitInfo"]
-margin_right = 485.0
-margin_bottom = 100.0
-size_flags_horizontal = 7
+[node name="PlayersContainer" type="HBoxContainer" parent="Control/QuitManager/QuitInfo"]
+margin_left = 242.0
+margin_right = 242.0
+size_flags_horizontal = 6
 
-[node name="PlayerName" type="Label" parent="Control/QuitManager/QuitInfo/HBoxContainer"]
+[node name="PlayerName" type="Label" parent="Control/QuitManager/QuitInfo/PlayersContainer"]
+visible = false
 margin_left = 151.0
 margin_top = 28.0
 margin_right = 320.0
@@ -87,22 +88,16 @@ text = "Jogador X"
 align = 1
 valign = 1
 
-[node name="Avatar" type="TextureRect" parent="Control/QuitManager/QuitInfo/HBoxContainer"]
-margin_left = 385.0
-margin_right = 485.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-size_flags_horizontal = 10
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.5
-texture = ExtResource( 3 )
-expand = true
+[node name="Avatar0" parent="Control/QuitManager/QuitInfo/PlayersContainer" instance=ExtResource( 3 )]
+visible = false
+margin_left = 70.0
+margin_right = 170.0
 
 [node name="Text" type="Label" parent="Control/QuitManager/QuitInfo"]
 margin_left = 42.0
-margin_top = 127.0
+margin_top = 58.0
 margin_right = 442.0
-margin_bottom = 227.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 400, 100 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -115,9 +110,9 @@ autowrap = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/QuitManager/QuitInfo"]
 margin_left = 132.0
-margin_top = 263.0
+margin_top = 244.0
 margin_right = 352.0
-margin_bottom = 333.0
+margin_bottom = 314.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = 80

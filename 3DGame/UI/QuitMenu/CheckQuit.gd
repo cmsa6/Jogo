@@ -1,9 +1,11 @@
 extends Spatial
 
 
-onready var avatar = $Control/QuitManager/QuitInfo/HBoxContainer/Avatar
+onready var players = $Control/QuitManager/QuitInfo/PlayersContainer
 onready var avatarName = $Control/QuitManager/QuitInfo/HBoxContainer/PlayerName
 onready var text = $Control/QuitManager/QuitInfo/Text
+
+var iconScene = preload("res://UI/QuitMenu/Avatar.tscn")
 
 var player = -1 setget set_player, get_player
 var origin setget set_origin, get_origin
@@ -14,11 +16,27 @@ func _ready():
 	var current_player = get_player()
 	if current_player == -1:
 		current_player = SavingManager.current_player
+		
+	var name = SavingManager.playersNames[current_player + 1]
+	if name == "" or name == " ":
+		#avatarName.text = "Jogador " + str(current_player + 1)
+		name = "Jogador " + str(current_player + 1)
+	#else:
+	#	avatarName.text = name
 	
 	if get_origin() == "Won":
-		text.text = "Congratulations! You just completed your house!! Do you want to finish the game?"
-	avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
-	avatarName.text = "Jogador " + str(current_player + 1)
+		var string = "Congratulations " + name + "! You just completed your house!! Do we want to end the game now?"
+		text.text = string
+	
+	#avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
+	var numPlayers = SettingsManager.num_of_players
+	for i in range(0, numPlayers):
+		var instance = iconScene.instance()
+		players.add_child(instance)
+		instance.set_texture(CharactersManager.get_character_icon(SettingsManager.players[i].character))
+		
+	
+
 	
 	
 	

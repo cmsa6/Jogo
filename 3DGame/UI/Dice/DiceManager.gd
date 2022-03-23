@@ -1,13 +1,13 @@
 extends ColorRect
 
-onready var diceResumoAvatar = $DiceResumo/HBoxContainer/Avatar
-onready var diceAnim = $DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll/Spatial/AnimationPlayer
-onready var playerName = $DiceResumo/HBoxContainer/PlayerName
-onready var roll = $DiceResumo/CenterContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll
+onready var diceResumoAvatar = $HBoxContainer/VBoxContainer/Avatar
+onready var diceAnim = $HBoxContainer/DiceResumo/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll/Spatial/AnimationPlayer
+onready var playerName = $HBoxContainer/DiceResumo/PlayerName
+onready var roll = $HBoxContainer/DiceResumo/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll
 
 
-onready var instructions = $DiceResumo/Instructions
-onready var button = $DiceResumo/MapButton
+onready var instructions = $HBoxContainer/DiceResumo/Instructions
+onready var button = $HBoxContainer/VBoxContainer/MapButton
 
 const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
@@ -20,7 +20,13 @@ func _ready():
 	
 	var current_player = SavingManager.current_player
 	diceResumoAvatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
-	playerName.text = "Jogador " + str(current_player + 1)
+	#playerName.text = "Jogador " + str(current_player + 1)
+	
+	var name = SavingManager.playersNames[current_player + 1]
+	if name == "" or name == " ":
+		playerName.text = "Jogador " + str(current_player + 1)
+	else:
+		playerName.text = name
 	#diceAnim.play("thrown")
 	
 	rng.randomize()
@@ -41,7 +47,7 @@ func _ready():
 
 func update_text(value):
 	print("hello")
-	instructions.text = "Vai andar " + str(value) + " vezes"
+	instructions.text = "Is gonna walk " + str(value) + " steps"
 	instructions.modulate = VISIBLE
 	button.modulate = VISIBLE
 	button.disabled = false

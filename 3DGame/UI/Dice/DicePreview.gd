@@ -1,9 +1,9 @@
 extends Spatial
 
-onready var diceContainer = $Control/DiceManager/DiceContainer
+onready var diceContainer = $Control/DiceManager/HBoxContainer
 onready var diceThrowing = $Control/DiceManager/DiceValue
 onready var diceAnim = $Control/DiceManager/DiceValue/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice/AnimationPlayer
-onready var diceRes = $Control/DiceManager/DiceResumo
+onready var diceRes = $Control/DiceManager/HBoxContainer/DiceResumo
 
 
 

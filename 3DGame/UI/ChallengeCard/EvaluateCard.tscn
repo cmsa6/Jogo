@@ -24,12 +24,12 @@
 [ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=27]
 [ext_resource path="res://UI/ChallengeCard/EvalButtons.gd" type="Script" id=29]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 21
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 26 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 25
 outline_size = 1
 outline_color = Color( 0.945098, 0.631373, 0.427451, 1 )
@@ -170,7 +170,7 @@ custom_constants/separation = -5
 [node name="Label" type="Label" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/Buttons/VBoxContainer"]
 margin_right = 100.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "A"
 align = 1
@@ -195,7 +195,7 @@ custom_constants/separation = -5
 [node name="Label2" type="Label" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/Buttons/VBoxContainer2"]
 margin_right = 100.0
 margin_bottom = 27.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "B"
 align = 1
@@ -228,7 +228,7 @@ margin_right = 27.0
 margin_bottom = 49.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "+1"
 align = 1

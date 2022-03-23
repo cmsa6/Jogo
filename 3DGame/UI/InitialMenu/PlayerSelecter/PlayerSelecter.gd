@@ -60,4 +60,11 @@ func _on_ConfirmButton_pressed():
 		
 	confirm_button.disabled = true
 	confirm_button.visible = false
+	
+	
 
+
+
+
+func show_characters():
+	pass # Replace with function body.

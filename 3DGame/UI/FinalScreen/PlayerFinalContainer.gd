@@ -19,7 +19,14 @@ func _ready():
 
 func show_houses(playerFurniture, playerID):
 	control.set_playerID(playerID)
-	playerName.text = "Jogador " + str(playerID)
+	#playerName.text = "Jogador " + str(playerID)
+	var name = SavingManager.playersNames[playerID]
+	if name == "" or name == " ":
+		playerName.text = "Jogador " + str(playerID)
+	else:
+		playerName.text = name
+		
+	
 	playerAvatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[playerID-1].character))
 	house.show_final_house(playerFurniture)
 	var numObjs = check_objects(playerFurniture)

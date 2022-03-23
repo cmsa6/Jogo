@@ -13,6 +13,8 @@ var playersSkillScores = {}
 var playersCFSkills = {}
 
 var playersQOLSkills = {}
+
+var playersNames = {}
 		
 
 		

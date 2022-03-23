@@ -12,6 +12,8 @@ var scene = preload("res://UI/PlayerTurnHUD/PlayerTurnContainer.tscn")
 onready var h_box_container = $VBoxContainer/HBoxContainer
 
 func _ready():
+	print("NAMES============================")
+	print(SavingManager.playersNames)
 	var num_players = SettingsManager.num_of_players
 	
 	for i in range(0, num_players):

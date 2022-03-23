@@ -21,7 +21,7 @@ onready var player_label = $PlayerPreview/HBoxContainer/ColorRect/HBoxContainer/
 
 func _ready():
 	if(player_num <= SettingsManager.num_of_players):
-		player_label.text = PLAYER_TEXT + str(player_num)
+		player_label.text = PLAYER_TEXT + str(player_num) 
 
 func _on_new_character_selected(character):
 	var instance
@@ -53,6 +53,10 @@ func delete_characters():
 		for i in range(0, get_node(player_placeholder).get_child_count()):
 			get_node(player_placeholder).get_child(i).visible = false
 			get_node(player_placeholder).get_child(i).free()
+
+
+
+
 
 
 
