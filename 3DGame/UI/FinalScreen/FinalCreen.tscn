@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/FinalScreen/ShowAllPlayers.gd" type="Script" id=1]
+[ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameFonts/kenney_fontpackage/Fonts/Kenney Future.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
+[ext_resource path="res://UI/FinalScreen/NextButton.gd" type="Script" id=7]
+[ext_resource path="res://UI/FinalScreen/FinalCreen.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -76,6 +79,7 @@ tracks/1/keys = {
 [node name="FinalCreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 585.95 ],
 "_edit_use_anchors_": false,
@@ -83,11 +87,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = -0.000803351
-anchor_right = 0.999197
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.02008
-margin_bottom = 1.02008
 color = Color( 0.964706, 0.921569, 0.862745, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,8 +102,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
-margin_left = 384.0
-margin_right = 634.0
+margin_left = 386.0
+margin_right = 636.0
 margin_bottom = 599.0
 size_flags_horizontal = 6
 __meta__ = {
@@ -135,25 +136,32 @@ columns = 2
 script = ExtResource( 1 )
 
 [node name="TextureButton" type="TextureButton" parent="ColorRect/HBoxContainer"]
+visible = false
 margin_left = 1023.0
 margin_right = 1023.0
 margin_bottom = 599.0
 
-[node name="NextButton" type="TextureButton" parent="ColorRect"]
+[node name="ExitGame" type="TextureButton" parent="ColorRect"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -70.0
 margin_top = -80.0
+margin_bottom = -15.0
 size_flags_horizontal = 6
 size_flags_vertical = 10
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer" parent="ColorRect/ExitGame" instance=ExtResource( 2 )]
+margin_top = -4.0
+margin_bottom = 12.0
 
 [node name="SceneTransitionAnim" parent="." instance=ExtResource( 5 )]
 
@@ -170,7 +178,7 @@ anims/FadeOut = SubResource( 3 )
 [node name="SceneLoader" parent="." instance=ExtResource( 4 )]
 next_scene_path = "res://UI/Credits/Credits.tscn"
 
-[connection signal="pressed" from="ColorRect/NextButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="pressed" from="ColorRect/ExitGame" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 
 [editable path="SceneTransitionAnim"]

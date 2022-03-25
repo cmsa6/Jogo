@@ -5,10 +5,13 @@ const POINTS_LABEL = " / 8 OBJECTS"
 
 onready var icon = $VBoxContainer2/CenterContainer/Icon
 onready var button = $VBoxContainer2/CenterContainer/TextureButton
-onready var label = $Label
+onready var label = $HBoxContainer/Label
 onready var turnText = $VBoxContainer/TurnText
 onready var arrow = $VBoxContainer/Arrow
 onready var diceButton = $VBoxContainer2/DiceButton
+
+onready var star1 = $HBoxContainer/Star1
+onready var star2 = $HBoxContainer/Star2
 
 const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
@@ -74,3 +77,7 @@ func show_agency():
 func EnablePLayerButton():
 	if get_player() == SavingManager.current_player:
 		button.disabled = false
+		
+func show_stars():
+	star1.visible = true
+	star2.visible = true

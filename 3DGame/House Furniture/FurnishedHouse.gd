@@ -2,8 +2,9 @@ extends Spatial
 
 export (Array, String) var availableFurniture = []
 
-onready var avatarIcon = $CanvasLayer/PlayerAvatar
-onready var mapButton = $CanvasLayer/MapButton
+onready var avatarIcon = $CanvasLayer/VBoxContainer/PlayerAvatar
+onready var avatarName = $CanvasLayer/VBoxContainer/ColorRect/PlayerName
+
 onready var newMapButton = $ButtonsLayer/MapButton
 
 onready var progressBar = $ScoreInfo/ScoreInfoManager/TextureProgress
@@ -40,7 +41,7 @@ func _ready():
 	
 	var parentName = get_parent().name
 	if not "Final" in parentName:
-		mapButton.set_screenOrigin(get_origin())
+		#mapButton.set_screenOrigin(get_origin())
 		newMapButton.set_screenOrigin(get_origin())
 		
 		
@@ -48,6 +49,7 @@ func _ready():
 		var currentPlayer = SavingManager.current_player
 		
 		avatarIcon.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
+		avatarName.text = SavingManager.playersNames[currentPlayer+1]
 
 		var spawners =  get_node("/root/Map1/Spawners").get_children()
 

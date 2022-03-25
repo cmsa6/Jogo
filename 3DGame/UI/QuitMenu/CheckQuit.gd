@@ -18,9 +18,10 @@ func _ready():
 		current_player = SavingManager.current_player
 		
 	var name = SavingManager.playersNames[current_player + 1]
-	if name == "" or name == " ":
-		#avatarName.text = "Jogador " + str(current_player + 1)
-		name = "Jogador " + str(current_player + 1)
+#	if name == "" or name == " ":
+#		#avatarName.text = "Jogador " + str(current_player + 1)
+#		name = "Player " + str(current_player + 1)
+
 	#else:
 	#	avatarName.text = name
 	

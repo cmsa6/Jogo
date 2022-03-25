@@ -69,3 +69,5 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 func _on_Player_player_points_updated(points, extra_arg_0):
 	var child = $VBoxContainer/HBoxContainer.get_child(extra_arg_0 - 1)
 	child.set_points_text(points)
+	if points == 8:
+		child.show_stars()

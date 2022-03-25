@@ -52,6 +52,7 @@ func _on_ConfirmButton_pressed():
 	player_turn += 1
 	
 	print(player_turn)
+	print(SettingsManager.num_of_players)
 	
 	if player_turn > SettingsManager.num_of_players:
 		emit_signal("start_load_next_scene")
@@ -66,5 +67,3 @@ func _on_ConfirmButton_pressed():
 
 
 
-func show_characters():
-	pass # Replace with function body.

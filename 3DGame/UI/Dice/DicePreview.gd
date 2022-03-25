@@ -2,7 +2,7 @@ extends Spatial
 
 onready var diceContainer = $Control/DiceManager/HBoxContainer
 onready var diceThrowing = $Control/DiceManager/DiceValue
-onready var diceAnim = $Control/DiceManager/DiceValue/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice/AnimationPlayer
+#onready var diceAnim = $Control/DiceManager/DiceValue/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/dice/AnimationPlayer
 onready var diceRes = $Control/DiceManager/HBoxContainer/DiceResumo
 
 
@@ -14,7 +14,7 @@ func _ready():
 func show_animation():
 	diceContainer.visible = false
 	diceThrowing.visible = true
-	diceAnim.play("thrown")
+	#diceAnim.play("thrown")
 	
 	
 func show_resumo():

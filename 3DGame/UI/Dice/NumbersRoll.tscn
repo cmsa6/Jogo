@@ -19,11 +19,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 40 ), Vector3( 0, 0, 60 ), Vector3( 0, 0, 80 ), Vector3( 0, 0, 100 ), Vector3( 0, 0, 120 ), Vector3( 0, 0, 140 ), Vector3( 0, 0, 160 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 200 ), Vector3( 0, 0, 220 ), Vector3( 0, 0, 240 ), Vector3( 0, 0, 260 ), Vector3( 0, 0, 280 ), Vector3( 0, 0, 300 ), Vector3( 0, 0, 320 ), Vector3( 0, 0, 340 ), Vector3( 0, 0, 360 ), Vector3( 0, 0, 380 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 420 ), Vector3( 0, 0, 440 ), Vector3( 0, 0, 460 ), Vector3( 0, 0, 480 ), Vector3( 0, 0, 500 ), Vector3( 0, 0, 520 ), Vector3( 0, 0, 540 ), Vector3( 0, 0, 560 ), Vector3( 0, 0, 580 ), Vector3( 0, 0, 600 ), Vector3( 0, 0, 620 ), Vector3( 0, 0, 640 ), Vector3( 0, 0, 660 ), Vector3( 0, 0, 680 ), Vector3( 0, 0, 700 ), Vector3( 0, 0, 720 ), Vector3( 0, 0, 740 ), Vector3( 0, 0, 760 ), Vector3( 0, 0, 780 ), Vector3( 0, 0, 800 ), Vector3( 0, 0, 820 ), Vector3( 0, 0, 840 ), Vector3( 0, 0, 860 ), Vector3( 0, 0, 880 ), Vector3( 0, 0, 900 ), Vector3( 0, 0, 920 ), Vector3( 0, 0, 940 ), Vector3( 0, 0, 960 ), Vector3( 0, 0, 980 ), Vector3( 0, 0, 1000 ), Vector3( 0, 0, 1020 ), Vector3( 0, 0, 1040 ), Vector3( 0, 0, 1060 ), Vector3( 0, 0, 1080 ), Vector3( 0, 0, 1100 ), Vector3( 0, 0, 1120 ), Vector3( 0, 0, 1140 ), Vector3( 0, 0, 1160 ), Vector3( 0, 0, 1180 ), Vector3( 0, 0, 1200 ), Vector3( 0, 0, 1220 ), Vector3( 0, 0, 1240 ), Vector3( 0, 0, 1260 ), Vector3( 0, 0, 1280 ), Vector3( 0, 0, 1300 ), Vector3( 0, 0, 1320 ), Vector3( 0, 0, 1340 ), Vector3( 0, 0, 1360 ), Vector3( 0, 0, 1380 ), Vector3( 0, 0, 1400 ), Vector3( 0, 0, 1420 ), Vector3( 0, 0, 1440 ), Vector3( 0, 0, 1460 ), Vector3( 0, 0, 1480 ), Vector3( 0, 0, 1500 ), Vector3( 0, 0, 1520 ), Vector3( 0, 0, 1540 ), Vector3( 0, 0, 1560 ), Vector3( 0, 0, 1580 ), Vector3( 0, 0, 1600 ), Vector3( 0, 0, 1620 ), Vector3( 0, 0, 1640 ), Vector3( 0, 0, 1660 ), Vector3( 0, 0, 1680 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Spatial/AnimationPlayer:playback_speed")
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5, 2.1, 3.7, 4.9, 5.9, 6.8, 7.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -31,7 +31,7 @@ tracks/1/keys = {
 "values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("../../../../../../../../..")
+tracks/2/path = NodePath("../../../../../../../../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -43,18 +43,6 @@ tracks/2/keys = {
 "args": [ 1 ],
 "method": "update_text"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2.1, 3.7, 4.9, 5.9, 6.8, 7.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -73,11 +61,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 40 ), Vector3( 0, 0, 60 ), Vector3( 0, 0, 80 ), Vector3( 0, 0, 100 ), Vector3( 0, 0, 120 ), Vector3( 0, 0, 140 ), Vector3( 0, 0, 160 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 200 ), Vector3( 0, 0, 220 ), Vector3( 0, 0, 240 ), Vector3( 0, 0, 260 ), Vector3( 0, 0, 280 ), Vector3( 0, 0, 300 ), Vector3( 0, 0, 320 ), Vector3( 0, 0, 340 ), Vector3( 0, 0, 360 ), Vector3( 0, 0, 380 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 420 ), Vector3( 0, 0, 440 ), Vector3( 0, 0, 460 ), Vector3( 0, 0, 480 ), Vector3( 0, 0, 500 ), Vector3( 0, 0, 520 ), Vector3( 0, 0, 540 ), Vector3( 0, 0, 560 ), Vector3( 0, 0, 580 ), Vector3( 0, 0, 600 ), Vector3( 0, 0, 620 ), Vector3( 0, 0, 640 ), Vector3( 0, 0, 660 ), Vector3( 0, 0, 680 ), Vector3( 0, 0, 700 ), Vector3( 0, 0, 720 ), Vector3( 0, 0, 740 ), Vector3( 0, 0, 760 ), Vector3( 0, 0, 780 ), Vector3( 0, 0, 800 ), Vector3( 0, 0, 820 ), Vector3( 0, 0, 840 ), Vector3( 0, 0, 860 ), Vector3( 0, 0, 880 ), Vector3( 0, 0, 900 ), Vector3( 0, 0, 920 ), Vector3( 0, 0, 940 ), Vector3( 0, 0, 960 ), Vector3( 0, 0, 980 ), Vector3( 0, 0, 1000 ), Vector3( 0, 0, 1020 ), Vector3( 0, 0, 1040 ), Vector3( 0, 0, 1060 ), Vector3( 0, 0, 1080 ), Vector3( 0, 0, 1100 ), Vector3( 0, 0, 1120 ), Vector3( 0, 0, 1140 ), Vector3( 0, 0, 1160 ), Vector3( 0, 0, 1180 ), Vector3( 0, 0, 1200 ), Vector3( 0, 0, 1220 ), Vector3( 0, 0, 1240 ), Vector3( 0, 0, 1260 ), Vector3( 0, 0, 1280 ), Vector3( 0, 0, 1300 ), Vector3( 0, 0, 1320 ), Vector3( 0, 0, 1340 ), Vector3( 0, 0, 1360 ), Vector3( 0, 0, 1380 ), Vector3( 0, 0, 1400 ), Vector3( 0, 0, 1420 ), Vector3( 0, 0, 1440 ), Vector3( 0, 0, 1460 ), Vector3( 0, 0, 1480 ), Vector3( 0, 0, 1500 ), Vector3( 0, 0, 1520 ), Vector3( 0, 0, 1540 ), Vector3( 0, 0, 1560 ), Vector3( 0, 0, 1580 ), Vector3( 0, 0, 1600 ), Vector3( 0, 0, 1620 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Spatial/AnimationPlayer:playback_speed")
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5, 2, 3.5, 4.6, 5.6, 6.7, 7.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -85,7 +73,7 @@ tracks/1/keys = {
 "values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("../../../../../../../../..")
+tracks/2/path = NodePath("../../../../../../../../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -97,18 +85,6 @@ tracks/2/keys = {
 "args": [ 2 ],
 "method": "update_text"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2, 3.5, 4.6, 5.6, 6.7, 7.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -127,11 +103,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 40 ), Vector3( 0, 0, 60 ), Vector3( 0, 0, 80 ), Vector3( 0, 0, 100 ), Vector3( 0, 0, 120 ), Vector3( 0, 0, 140 ), Vector3( 0, 0, 160 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 200 ), Vector3( 0, 0, 220 ), Vector3( 0, 0, 240 ), Vector3( 0, 0, 260 ), Vector3( 0, 0, 280 ), Vector3( 0, 0, 300 ), Vector3( 0, 0, 320 ), Vector3( 0, 0, 340 ), Vector3( 0, 0, 360 ), Vector3( 0, 0, 380 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 420 ), Vector3( 0, 0, 440 ), Vector3( 0, 0, 460 ), Vector3( 0, 0, 480 ), Vector3( 0, 0, 500 ), Vector3( 0, 0, 520 ), Vector3( 0, 0, 540 ), Vector3( 0, 0, 560 ), Vector3( 0, 0, 580 ), Vector3( 0, 0, 600 ), Vector3( 0, 0, 620 ), Vector3( 0, 0, 640 ), Vector3( 0, 0, 660 ), Vector3( 0, 0, 680 ), Vector3( 0, 0, 700 ), Vector3( 0, 0, 720 ), Vector3( 0, 0, 740 ), Vector3( 0, 0, 760 ), Vector3( 0, 0, 780 ), Vector3( 0, 0, 800 ), Vector3( 0, 0, 820 ), Vector3( 0, 0, 840 ), Vector3( 0, 0, 860 ), Vector3( 0, 0, 880 ), Vector3( 0, 0, 900 ), Vector3( 0, 0, 920 ), Vector3( 0, 0, 940 ), Vector3( 0, 0, 960 ), Vector3( 0, 0, 980 ), Vector3( 0, 0, 1000 ), Vector3( 0, 0, 1020 ), Vector3( 0, 0, 1040 ), Vector3( 0, 0, 1060 ), Vector3( 0, 0, 1080 ), Vector3( 0, 0, 1100 ), Vector3( 0, 0, 1120 ), Vector3( 0, 0, 1140 ), Vector3( 0, 0, 1160 ), Vector3( 0, 0, 1180 ), Vector3( 0, 0, 1200 ), Vector3( 0, 0, 1220 ), Vector3( 0, 0, 1240 ), Vector3( 0, 0, 1260 ), Vector3( 0, 0, 1280 ), Vector3( 0, 0, 1300 ), Vector3( 0, 0, 1320 ), Vector3( 0, 0, 1340 ), Vector3( 0, 0, 1360 ), Vector3( 0, 0, 1380 ), Vector3( 0, 0, 1400 ), Vector3( 0, 0, 1420 ), Vector3( 0, 0, 1440 ), Vector3( 0, 0, 1460 ), Vector3( 0, 0, 1480 ), Vector3( 0, 0, 1500 ), Vector3( 0, 0, 1520 ), Vector3( 0, 0, 1540 ), Vector3( 0, 0, 1560 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Spatial/AnimationPlayer:playback_speed")
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5, 2.2, 3.7, 4.9, 6, 6.8, 7.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -139,7 +115,7 @@ tracks/1/keys = {
 "values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("../../../../../../../../..")
+tracks/2/path = NodePath("../../../../../../../../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -151,18 +127,6 @@ tracks/2/keys = {
 "args": [ 3 ],
 "method": "update_text"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2.2, 3.7, 4.9, 6, 6.8, 7.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -181,11 +145,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 40 ), Vector3( 0, 0, 60 ), Vector3( 0, 0, 80 ), Vector3( 0, 0, 100 ), Vector3( 0, 0, 120 ), Vector3( 0, 0, 140 ), Vector3( 0, 0, 160 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 200 ), Vector3( 0, 0, 220 ), Vector3( 0, 0, 240 ), Vector3( 0, 0, 260 ), Vector3( 0, 0, 280 ), Vector3( 0, 0, 300 ), Vector3( 0, 0, 320 ), Vector3( 0, 0, 340 ), Vector3( 0, 0, 360 ), Vector3( 0, 0, 380 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 420 ), Vector3( 0, 0, 440 ), Vector3( 0, 0, 460 ), Vector3( 0, 0, 480 ), Vector3( 0, 0, 500 ), Vector3( 0, 0, 520 ), Vector3( 0, 0, 540 ), Vector3( 0, 0, 560 ), Vector3( 0, 0, 580 ), Vector3( 0, 0, 600 ), Vector3( 0, 0, 620 ), Vector3( 0, 0, 640 ), Vector3( 0, 0, 660 ), Vector3( 0, 0, 680 ), Vector3( 0, 0, 700 ), Vector3( 0, 0, 720 ), Vector3( 0, 0, 740 ), Vector3( 0, 0, 760 ), Vector3( 0, 0, 780 ), Vector3( 0, 0, 800 ), Vector3( 0, 0, 820 ), Vector3( 0, 0, 840 ), Vector3( 0, 0, 860 ), Vector3( 0, 0, 880 ), Vector3( 0, 0, 900 ), Vector3( 0, 0, 920 ), Vector3( 0, 0, 940 ), Vector3( 0, 0, 960 ), Vector3( 0, 0, 980 ), Vector3( 0, 0, 1000 ), Vector3( 0, 0, 1020 ), Vector3( 0, 0, 1040 ), Vector3( 0, 0, 1060 ), Vector3( 0, 0, 1080 ), Vector3( 0, 0, 1100 ), Vector3( 0, 0, 1120 ), Vector3( 0, 0, 1140 ), Vector3( 0, 0, 1160 ), Vector3( 0, 0, 1180 ), Vector3( 0, 0, 1200 ), Vector3( 0, 0, 1220 ), Vector3( 0, 0, 1240 ), Vector3( 0, 0, 1260 ), Vector3( 0, 0, 1280 ), Vector3( 0, 0, 1300 ), Vector3( 0, 0, 1320 ), Vector3( 0, 0, 1340 ), Vector3( 0, 0, 1360 ), Vector3( 0, 0, 1380 ), Vector3( 0, 0, 1400 ), Vector3( 0, 0, 1420 ), Vector3( 0, 0, 1440 ), Vector3( 0, 0, 1460 ), Vector3( 0, 0, 1480 ), Vector3( 0, 0, 1500 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Spatial/AnimationPlayer:playback_speed")
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5, 2.1, 3.7, 4.9, 6.1, 6.8, 7.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -193,7 +157,7 @@ tracks/1/keys = {
 "values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("../../../../../../../../..")
+tracks/2/path = NodePath("../../../../../../../../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -205,18 +169,6 @@ tracks/2/keys = {
 "args": [ 4 ],
 "method": "update_text"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2.1, 3.7, 4.9, 6.1, 6.8, 7.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -235,11 +187,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 40 ), Vector3( 0, 0, 60 ), Vector3( 0, 0, 80 ), Vector3( 0, 0, 100 ), Vector3( 0, 0, 120 ), Vector3( 0, 0, 140 ), Vector3( 0, 0, 160 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 200 ), Vector3( 0, 0, 220 ), Vector3( 0, 0, 240 ), Vector3( 0, 0, 260 ), Vector3( 0, 0, 280 ), Vector3( 0, 0, 300 ), Vector3( 0, 0, 320 ), Vector3( 0, 0, 340 ), Vector3( 0, 0, 360 ), Vector3( 0, 0, 380 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 420 ), Vector3( 0, 0, 440 ), Vector3( 0, 0, 460 ), Vector3( 0, 0, 480 ), Vector3( 0, 0, 500 ), Vector3( 0, 0, 520 ), Vector3( 0, 0, 540 ), Vector3( 0, 0, 560 ), Vector3( 0, 0, 580 ), Vector3( 0, 0, 600 ), Vector3( 0, 0, 620 ), Vector3( 0, 0, 640 ), Vector3( 0, 0, 660 ), Vector3( 0, 0, 680 ), Vector3( 0, 0, 700 ), Vector3( 0, 0, 720 ), Vector3( 0, 0, 740 ), Vector3( 0, 0, 760 ), Vector3( 0, 0, 780 ), Vector3( 0, 0, 800 ), Vector3( 0, 0, 820 ), Vector3( 0, 0, 840 ), Vector3( 0, 0, 860 ), Vector3( 0, 0, 880 ), Vector3( 0, 0, 900 ), Vector3( 0, 0, 920 ), Vector3( 0, 0, 940 ), Vector3( 0, 0, 960 ), Vector3( 0, 0, 980 ), Vector3( 0, 0, 1000 ), Vector3( 0, 0, 1020 ), Vector3( 0, 0, 1040 ), Vector3( 0, 0, 1060 ), Vector3( 0, 0, 1080 ), Vector3( 0, 0, 1100 ), Vector3( 0, 0, 1120 ), Vector3( 0, 0, 1140 ), Vector3( 0, 0, 1160 ), Vector3( 0, 0, 1180 ), Vector3( 0, 0, 1200 ), Vector3( 0, 0, 1220 ), Vector3( 0, 0, 1240 ), Vector3( 0, 0, 1260 ), Vector3( 0, 0, 1280 ), Vector3( 0, 0, 1300 ), Vector3( 0, 0, 1320 ), Vector3( 0, 0, 1340 ), Vector3( 0, 0, 1360 ), Vector3( 0, 0, 1380 ), Vector3( 0, 0, 1400 ), Vector3( 0, 0, 1420 ), Vector3( 0, 0, 1440 ), Vector3( 0, 0, 1460 ), Vector3( 0, 0, 1480 ), Vector3( 0, 0, 1500 ), Vector3( 0, 0, 1520 ), Vector3( 0, 0, 1540 ), Vector3( 0, 0, 1560 ), Vector3( 0, 0, 1580 ), Vector3( 0, 0, 1600 ), Vector3( 0, 0, 1620 ), Vector3( 0, 0, 1640 ), Vector3( 0, 0, 1660 ), Vector3( 0, 0, 1680 ), Vector3( 0, 0, 1700 ), Vector3( 0, 0, 1720 ), Vector3( 0, 0, 1740 ), Vector3( 0, 0, 1760 ), Vector3( 0, 0, 1780 ), Vector3( 0, 0, 1800 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Spatial/AnimationPlayer:playback_speed")
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5, 2, 3.5, 4.8, 6, 6.8, 7.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -247,7 +199,7 @@ tracks/1/keys = {
 "values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("../../../../../../../../..")
+tracks/2/path = NodePath("../../../../../../../../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -259,18 +211,6 @@ tracks/2/keys = {
 "args": [ 5 ],
 "method": "update_text"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2, 3.5, 4.8, 6, 6.8, 7.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -289,11 +229,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 40 ), Vector3( 0, 0, 60 ), Vector3( 0, 0, 80 ), Vector3( 0, 0, 100 ), Vector3( 0, 0, 120 ), Vector3( 0, 0, 140 ), Vector3( 0, 0, 160 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 200 ), Vector3( 0, 0, 220 ), Vector3( 0, 0, 240 ), Vector3( 0, 0, 260 ), Vector3( 0, 0, 280 ), Vector3( 0, 0, 300 ), Vector3( 0, 0, 320 ), Vector3( 0, 0, 340 ), Vector3( 0, 0, 360 ), Vector3( 0, 0, 380 ), Vector3( 0, 0, 400 ), Vector3( 0, 0, 420 ), Vector3( 0, 0, 440 ), Vector3( 0, 0, 460 ), Vector3( 0, 0, 480 ), Vector3( 0, 0, 500 ), Vector3( 0, 0, 520 ), Vector3( 0, 0, 540 ), Vector3( 0, 0, 560 ), Vector3( 0, 0, 580 ), Vector3( 0, 0, 600 ), Vector3( 0, 0, 620 ), Vector3( 0, 0, 640 ), Vector3( 0, 0, 660 ), Vector3( 0, 0, 680 ), Vector3( 0, 0, 700 ), Vector3( 0, 0, 720 ), Vector3( 0, 0, 740 ), Vector3( 0, 0, 760 ), Vector3( 0, 0, 780 ), Vector3( 0, 0, 800 ), Vector3( 0, 0, 820 ), Vector3( 0, 0, 840 ), Vector3( 0, 0, 860 ), Vector3( 0, 0, 880 ), Vector3( 0, 0, 900 ), Vector3( 0, 0, 920 ), Vector3( 0, 0, 940 ), Vector3( 0, 0, 960 ), Vector3( 0, 0, 980 ), Vector3( 0, 0, 1000 ), Vector3( 0, 0, 1020 ), Vector3( 0, 0, 1040 ), Vector3( 0, 0, 1060 ), Vector3( 0, 0, 1080 ), Vector3( 0, 0, 1100 ), Vector3( 0, 0, 1120 ), Vector3( 0, 0, 1140 ), Vector3( 0, 0, 1160 ), Vector3( 0, 0, 1180 ), Vector3( 0, 0, 1200 ), Vector3( 0, 0, 1220 ), Vector3( 0, 0, 1240 ), Vector3( 0, 0, 1260 ), Vector3( 0, 0, 1280 ), Vector3( 0, 0, 1300 ), Vector3( 0, 0, 1320 ), Vector3( 0, 0, 1340 ), Vector3( 0, 0, 1360 ), Vector3( 0, 0, 1380 ), Vector3( 0, 0, 1400 ), Vector3( 0, 0, 1420 ), Vector3( 0, 0, 1440 ), Vector3( 0, 0, 1460 ), Vector3( 0, 0, 1480 ), Vector3( 0, 0, 1500 ), Vector3( 0, 0, 1520 ), Vector3( 0, 0, 1540 ), Vector3( 0, 0, 1560 ), Vector3( 0, 0, 1580 ), Vector3( 0, 0, 1600 ), Vector3( 0, 0, 1620 ), Vector3( 0, 0, 1640 ), Vector3( 0, 0, 1660 ), Vector3( 0, 0, 1680 ), Vector3( 0, 0, 1700 ), Vector3( 0, 0, 1720 ), Vector3( 0, 0, 1740 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Spatial/AnimationPlayer:playback_speed")
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.5, 2.1, 3.5, 4.7, 5.9, 6.9, 8.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -301,7 +241,7 @@ tracks/1/keys = {
 "values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("../../../../../../../../..")
+tracks/2/path = NodePath("../../../../../../../../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -313,18 +253,6 @@ tracks/2/keys = {
 "args": [ 6 ],
 "method": "update_text"
 } ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer:playback_speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.5, 2.1, 3.5, 4.7, 5.9, 6.9, 8.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0 ]
 }
 
 [sub_resource type="SpatialMaterial" id=7]

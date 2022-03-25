@@ -7,18 +7,35 @@ onready var backButton = $GoBackButton
 onready var points = $ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo/ScoreInfoManager/PointsBar
 onready var scoreBoard = $ScoreBoard
 
+onready var pointsButton = $Buttons/Points
+onready var objectsButton = $Buttons/Objects
+
+
 var blurred setget set_blurred, get_blurred
 var playerID setget set_playerID, get_playerID
 
+
+
+		
+	
+
 func show_house():
-	buttonsLayer.visible = false
-	set_blurred(viewport.modulate)
-	viewport.modulate = Color(1,1,1,1)
-	backButton.visible = true
+	pointsButton.pressed = false
+	#buttonsLayer.visible = false
+	#set_blurred(viewport.modulate)
+	#viewport.modulate = Color(1,1,1,1)
+	#backButton.visible = true
+
+	
+	scoreBoard.visible = false
 	
 func show_points():
-	buttonsLayer.visible = false
-	backButton.visible = true
+	objectsButton.pressed = false
+
+	
+	#buttonsLayer.visible = false
+	#backButton.visible = true
+	viewport.modulate == Color(1,1,1,0.5)
 	scoreBoard.set_up(get_playerID())
 	scoreBoard.visible = true
 

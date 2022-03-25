@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://House Furniture/Extras/WoodFloorOffice.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://House Furniture/Chair.tscn" type="PackedScene" id=5]
 [ext_resource path="res://House Furniture/Couch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://House Furniture/FurnishedHouse.gd" type="Script" id=7]
-[ext_resource path="res://Fotos/MapButton.png" type="Texture" id=8]
+[ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=8]
 [ext_resource path="res://House Furniture/Bed.tscn" type="PackedScene" id=9]
 [ext_resource path="res://House Furniture/MapButton.gd" type="Script" id=10]
 [ext_resource path="res://House Furniture/FurnitureManager.tscn" type="PackedScene" id=11]
@@ -25,13 +25,14 @@
 [ext_resource path="res://House Furniture/Extras/OfficeDoor.tscn" type="PackedScene" id=23]
 [ext_resource path="res://House Furniture/Extras/KitchenWall.tscn" type="PackedScene" id=24]
 [ext_resource path="res://House Furniture/Extras/OfficeWall.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Fotos/pointsBar.png" type="Texture" id=26]
 [ext_resource path="res://House Furniture/Extras/BedroomWall.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Map Stuff/Tree A.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Assets/House Stuff/OfficeFloor.tscn" type="PackedScene" id=29]
 [ext_resource path="res://House Furniture/Extras/KitchenFloor.tscn" type="PackedScene" id=30]
 [ext_resource path="res://House Furniture/PointsBar.gd" type="Script" id=31]
 [ext_resource path="res://Sounds/winning.wav" type="AudioStream" id=32]
-[ext_resource path="res://Fotos/porogressBar_skills_selected2.png" type="Texture" id=33]
+[ext_resource path="res://Fotos/pointsBar_selected.png" type="Texture" id=33]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=34]
 [ext_resource path="res://House Furniture/ScoreInfoManager.gd" type="Script" id=35]
 [ext_resource path="res://House Furniture/CoffeeMachine.tscn" type="PackedScene" id=36]
@@ -41,6 +42,8 @@
 [ext_resource path="res://Assets/DiDaCityPack - Interior/Models/Interior/Textures/Texture_Atlas_Colors_2.png" type="Texture" id=40]
 [ext_resource path="res://House Furniture/Extras/Plaster001_1K_NormalDX.jpg" type="Texture" id=41]
 [ext_resource path="res://House Furniture/Extras/LivingRoomWall.tscn" type="PackedScene" id=42]
+[ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Assets/Keyboard/Tiles/letter_P.png" type="Texture" id=44]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -530,30 +533,18 @@ transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MapButton" type="TextureButton" parent="CanvasLayer"]
-visible = false
-anchor_left = 0.922
-anchor_top = 0.178
-anchor_right = 0.988
-anchor_bottom = 0.278
-margin_left = 0.250427
-margin_top = 0.0107956
-margin_right = 82.6664
-margin_bottom = 90.0108
-rect_min_size = Vector2( 50, 50 )
-rect_scale = Vector2( 0.4, 0.4 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture_normal = ExtResource( 8 )
-script = ExtResource( 10 )
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -100.0
+margin_bottom = 123.0
+custom_constants/separation = -10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerAvatar" type="TextureRect" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -100.0
+[node name="PlayerAvatar" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+margin_right = 100.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 10
@@ -565,6 +556,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 100.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="Label" parent="CanvasLayer/VBoxContainer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "PLyaer x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonsLayer" type="CanvasLayer" parent="."]
 
 [node name="MapButton" type="TextureButton" parent="ButtonsLayer"]
@@ -572,10 +588,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -101.0
-margin_top = -151.587
-margin_right = 49.0
-margin_bottom = -1.5874
+margin_left = -81.0
+margin_top = -193.587
+margin_right = 69.0
+margin_bottom = -43.5874
 rect_min_size = Vector2( 50, 50 )
 rect_scale = Vector2( 0.6, 0.6 )
 size_flags_horizontal = 6
@@ -586,6 +602,14 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer" parent="ButtonsLayer" instance=ExtResource( 8 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -61.0
+margin_top = -113.0
+margin_right = -13.0
+margin_bottom = -97.0
 
 [node name="FurnitureManager" parent="." instance=ExtResource( 11 )]
 
@@ -603,8 +627,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -18.0
-margin_top = -50.0
+margin_top = -71.0
 margin_right = -7.0
+margin_bottom = -21.0
 size_flags_vertical = 6
 custom_constants/separation = -25
 script = ExtResource( 35 )
@@ -650,7 +675,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 120, 50 )
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
-texture_normal = ExtResource( 14 )
+texture_normal = ExtResource( 26 )
 texture_pressed = ExtResource( 33 )
 texture_hover = ExtResource( 33 )
 texture_disabled = ExtResource( 14 )
@@ -667,11 +692,19 @@ margin_top = -13.5
 margin_right = 58.5
 margin_bottom = 13.5
 custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "X POINTS"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Shortcut" parent="ScoreInfo/ScoreInfoManager/PointsBar" instance=ExtResource( 43 )]
+margin_left = 46.0
+margin_top = 44.0
+margin_right = 76.0
+margin_bottom = 74.0
+texture = ExtResource( 44 )
 
 [node name="LivingRoom" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50.2169 )
@@ -1083,12 +1116,13 @@ transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.
 [node name="Tree A10" parent="Forest" instance=ExtResource( 28 )]
 transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 49.5193, -126.858 )
 
-[connection signal="pressed" from="CanvasLayer/MapButton" to="CanvasLayer/MapButton" method="back_to_map"]
 [connection signal="pressed" from="ButtonsLayer/MapButton" to="ButtonsLayer/MapButton" method="back_to_map"]
+[connection signal="mouse_entered" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager/PointsBar" method="change_text" binds= [ false ]]
+[connection signal="mouse_exited" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager/PointsBar" method="change_text" binds= [ true ]]
+[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="disable_points"]
+[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="hide_bar"]
 [connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ButtonsLayer/MapButton" method="set_checkingSkills" binds= [ true ]]
 [connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager/PointsBar" method="show_skillScreen" binds= [ "house" ]]
-[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="hide_bar"]
-[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="disable_points"]
 
 [editable path="Bed"]
 [editable path="Kitchen/Window"]

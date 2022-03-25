@@ -9,7 +9,8 @@ signal new_character_selected(new_character)
 
 onready var overlay = $VBoxContainer/TextureRect2/CenterContainer/Overlay
 onready var button = $VBoxContainer/TextureRect2/CenterContainer/Button
-onready var keyboard = $VBoxContainer/Label
+#onready var keyboard = $VBoxContainer/Label
+onready var playerName = $VBoxContainer/PlayerName
 
 var players_turn
 var selected_by_player 
@@ -17,17 +18,21 @@ var selected = false
 var locked = false
 
 func _input(event):
-	if event.is_action_pressed("select_avatars"):
+	if event.is_action_pressed("select_avatars") and not button.disabled:
 		print("carreguei\n\n")
-		if str(character) in event.as_text():
+		if str(character+1) in event.as_text():
 			button.avatarSelected()
 		
 
 func _ready():
 	print(character)
 	button.icon = CharactersManager.get_character_icon(character)
-	print("chatracter number: ", character)
-	keyboard.text = str(character)
+#	print("chatracter number: ", character)
+#	#keyboard.text = str(character)
+#	var shortcut = character + 1
+#	var keyImagePath = "res://Assets/Keyboard/Tiles/" + str(shortcut) + ".png"
+#	var keyImage = load(keyImagePath)
+#	keyboard.texture = keyImage
 
 func _on_Button_pressed():
 	print("Selecionei uma personagem e sou o player_turn: ", players_turn)
@@ -66,10 +71,25 @@ func _on_other_Button_pressed():
 	
 func _on_ConfirmButton_pressed():
 	locked =  true
+	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+	print("I am ", self.get_name() )
+	print("Am i locked? ", locked)
+	print("Am i selected? ", selected)
+	
 	if selected == true && locked == true:
 		button.disabled = true
 		get_parent().get_parent().set_playerID(selected_by_player)
 		SettingsManager.players[selected_by_player - 1].character = character
+		playerName.visible = true
+		locked = false
 
 
+func get_playerName_visibility():
+	return playerName.visible
+
+func get_playerName():
+	return playerName.text
+	
+func set_playerName(name):
+	playerName.text = name
 	

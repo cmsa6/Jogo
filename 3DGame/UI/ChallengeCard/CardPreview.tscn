@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ChallengeCard/CardStatus.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/ChallengeCard/CardPreview.gd" type="Script" id=7]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/ChallengeCard/NextCard.gd" type="Script" id=9]
+[ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Fotos/challengeBackgroundBig.png" type="Texture" id=11]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://House Furniture/Photos/Couch.png" type="Texture" id=13]
@@ -116,15 +117,14 @@ margin_bottom = 303.0
 rect_min_size = Vector2( 80, 0 )
 size_flags_horizontal = 2
 size_flags_vertical = 6
-custom_constants/separation = -5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NumberPoints" type="Label" parent="Control/Card/RewardingManager/SkillInfo"]
-margin_left = 8.0
+margin_left = 3.0
 margin_top = 9.0
-margin_right = 27.0
+margin_right = 22.0
 margin_bottom = 41.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -152,7 +152,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -76.0
-margin_top = -75.0
+margin_top = -89.0
 margin_right = -1.0
 margin_bottom = 3.05176e-05
 size_flags_horizontal = 6
@@ -165,6 +165,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 nextCard = "res://UI/ChallengeCard/NewCard.tscn"
+
+[node name="HBoxContainer" parent="Control/Card/NextButton" instance=ExtResource( 10 )]
+anchor_top = 0.865
+anchor_bottom = 0.865
+margin_top = -7.98501
+margin_bottom = 8.01499
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false

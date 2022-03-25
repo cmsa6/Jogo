@@ -58,7 +58,7 @@ margin_top = -262.0
 margin_right = 450.0
 margin_bottom = 262.0
 rect_pivot_offset = Vector2( 388.889, 585.786 )
-color = Color( 0.964706, 0.921569, 0.862745, 0.839216 )
+color = Color( 0.352941, 0.333333, 0.309804, 0.839216 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

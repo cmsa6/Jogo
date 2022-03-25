@@ -9,22 +9,24 @@ onready var numPoints = $Control/Buttons/Points/PointsText
 
 onready var control = $Control
 
+onready var objectsButton = $Control/Buttons/Objects
+
 
 
 
 func _ready():
-	pass
+	objectsButton.pressed = true
 
 
 
 func show_houses(playerFurniture, playerID):
 	control.set_playerID(playerID)
 	#playerName.text = "Jogador " + str(playerID)
-	var name = SavingManager.playersNames[playerID]
-	if name == "" or name == " ":
-		playerName.text = "Jogador " + str(playerID)
-	else:
-		playerName.text = name
+	playerName.text = SavingManager.playersNames[playerID]
+#	if name == "" or name == " ":
+#		playerName.text = "Jogador " + str(playerID)
+#	else:
+#		playerName.text = name
 		
 	
 	playerAvatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[playerID-1].character))

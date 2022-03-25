@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/SkillScreen/qol.png" type="Texture" id=2]
@@ -29,6 +29,11 @@ size = 15
 outline_color = Color( 0.917647, 0.403922, 0.0705882, 1 )
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 17
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 15
 outline_color = Color( 0, 0, 0, 1 )
@@ -47,8 +52,8 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 350.0
-margin_bottom = 200.0
-color = Color( 0.729412, 0.682353, 0.682353, 0.352941 )
+margin_bottom = 167.0
+color = Color( 0.415686, 0.392157, 0.392157, 0.466667 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,10 +63,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -2.5
-margin_top = -100.0
-margin_right = 2.5
-margin_bottom = 100.0
+margin_left = -4.0
+margin_top = -83.5
+margin_right = 4.0
+margin_bottom = 83.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,7 +75,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1.0
-margin_bottom = -1.0
+margin_bottom = -41.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 __meta__ = {
@@ -106,7 +111,7 @@ expand = true
 margin_right = 143.0
 margin_bottom = 23.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Quality of Life Skills"
 
 [node name="CF" type="HBoxContainer" parent="ColorRect/VBoxContainer/SkillCategory"]
@@ -129,13 +134,13 @@ expand = true
 margin_right = 141.0
 margin_bottom = 23.0
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Cognitive Functions"
 
 [node name="Skills" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 margin_top = 27.0
 margin_right = 349.0
-margin_bottom = 199.0
+margin_bottom = 159.0
 size_flags_vertical = 6
 size_flags_stretch_ratio = 9.96
 __meta__ = {
@@ -143,9 +148,9 @@ __meta__ = {
 }
 
 [node name="qolSkills" type="GridContainer" parent="ColorRect/VBoxContainer/Skills"]
-margin_left = 19.0
-margin_right = 153.0
-margin_bottom = 172.0
+margin_left = 32.0
+margin_right = 140.0
+margin_bottom = 132.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/hseparation = 20
@@ -153,24 +158,27 @@ columns = 2
 
 [node name="InterpersonalRelationship" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 6 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship" index="1"]
@@ -183,25 +191,28 @@ text = "Interpersonal
 Relationships"
 
 [node name="SocialInclusion" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 77.0
-margin_right = 134.0
-margin_bottom = 40.0
+margin_left = 64.0
+margin_right = 108.0
+margin_bottom = 30.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion" index="1"]
 visible = false
@@ -214,25 +225,28 @@ Relationships"
 
 [node name="Self-Determination" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 44.0
-margin_right = 57.0
-margin_bottom = 84.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 64.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 9 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination" index="1"]
@@ -245,26 +259,29 @@ text = "Interpersonal
 Relationships"
 
 [node name="PhysicalWellbeing" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 77.0
-margin_top = 44.0
-margin_right = 134.0
-margin_bottom = 84.0
+margin_left = 64.0
+margin_top = 34.0
+margin_right = 108.0
+margin_bottom = 64.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 14 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing" index="1"]
@@ -278,25 +295,28 @@ Relationships"
 
 [node name="MaterialWellbeing" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 88.0
-margin_right = 57.0
-margin_bottom = 128.0
+margin_top = 68.0
+margin_right = 44.0
+margin_bottom = 98.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 16 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing" index="1"]
@@ -309,26 +329,29 @@ text = "Interpersonal
 Relationships"
 
 [node name="EmotionalWellbeing" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 77.0
-margin_top = 88.0
-margin_right = 134.0
-margin_bottom = 128.0
+margin_left = 64.0
+margin_top = 68.0
+margin_right = 108.0
+margin_bottom = 98.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 12 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing" index="1"]
@@ -342,25 +365,28 @@ Relationships"
 
 [node name="PersonalDevelopment" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 132.0
-margin_right = 57.0
-margin_bottom = 172.0
+margin_top = 102.0
+margin_right = 44.0
+margin_bottom = 132.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 10 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment" index="1"]
@@ -373,26 +399,29 @@ text = "Interpersonal
 Relationships"
 
 [node name="Rights" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 77.0
-margin_top = 132.0
-margin_right = 134.0
-margin_bottom = 172.0
+margin_left = 64.0
+margin_top = 102.0
+margin_right = 108.0
+margin_bottom = 132.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/Rights" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/Rights/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/qolSkills/Rights/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 17 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/qolSkills/Rights" index="1"]
@@ -405,10 +434,10 @@ text = "Interpersonal
 Relationships"
 
 [node name="cfSkills" type="GridContainer" parent="ColorRect/VBoxContainer/Skills"]
-margin_left = 203.0
-margin_top = 22.0
-margin_right = 321.0
-margin_bottom = 150.0
+margin_left = 216.0
+margin_top = 17.0
+margin_right = 308.0
+margin_bottom = 115.0
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -416,24 +445,27 @@ columns = 2
 
 [node name="CalculusandProblemSolving" parent="ColorRect/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 15 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving" index="1"]
@@ -446,25 +478,28 @@ text = "Interpersonal
 Relationships"
 
 [node name="MemoryandAttentiontoDetail" parent="ColorRect/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
-margin_left = 61.0
-margin_right = 118.0
-margin_bottom = 40.0
+margin_left = 48.0
+margin_right = 92.0
+margin_bottom = 30.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 8 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail" index="1"]
@@ -478,25 +513,28 @@ Relationships"
 
 [node name="SocialandEmotionalWellbeing" parent="ColorRect/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 44.0
-margin_right = 57.0
-margin_bottom = 84.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 64.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 7 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing" index="1"]
@@ -509,26 +547,29 @@ text = "Interpersonal
 Relationships"
 
 [node name="Language" parent="ColorRect/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
-margin_left = 61.0
-margin_top = 44.0
-margin_right = 118.0
-margin_bottom = 84.0
+margin_left = 48.0
+margin_top = 34.0
+margin_right = 92.0
+margin_bottom = 64.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/cfSkills/Language" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/cfSkills/Language/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/cfSkills/Language/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 11 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/cfSkills/Language" index="1"]
@@ -542,25 +583,28 @@ Relationships"
 
 [node name="SpatialOrientation" parent="ColorRect/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 88.0
-margin_right = 57.0
-margin_bottom = 128.0
+margin_top = 68.0
+margin_right = 44.0
+margin_bottom = 98.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/cfSkills/SpatialOrientation" index="0"]
 margin_left = 0.0
-margin_right = 57.0
-margin_bottom = 40.0
+margin_right = 44.0
+margin_bottom = 30.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="0"]
-margin_top = 6.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_top = 4.0
+margin_right = 10.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
 [node name="TextureRect" parent="ColorRect/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="1"]
-margin_right = 57.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+margin_left = 14.0
+margin_right = 44.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 13 )
 
 [node name="Name" parent="ColorRect/VBoxContainer/Skills/cfSkills/SpatialOrientation" index="1"]

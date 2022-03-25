@@ -6,9 +6,10 @@ var checkingSkills setget set_checkingSkills, get_checkingSkills
 
 
 func _input(event):
-	if event.is_action_released("ExitHouse"):
-		if event.as_text() == "M":
-			back_to_map()
+	if event.is_action_released("ui_select") and not disabled and visible:
+		#if event.as_text() == "M":
+			#print("//////////////parent name: ", get_parent().get_name())
+		emit_signal("pressed")
 			
 #func _process(delta):
 #	if Input.is_action_just_released("ExitHouse"):

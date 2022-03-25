@@ -8,7 +8,8 @@ const HIDDEN = Color(1, 1, 1, 0)
 
 
 func _input(event):
-	if not self.modulate == HIDDEN:
+	#if not self.modulate == HIDDEN:
+	if not self.disabled:
 		if event.is_action_pressed("ui_accept"):
 			emit_signal("pressed")
 		

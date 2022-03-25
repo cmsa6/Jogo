@@ -120,6 +120,7 @@ func approve(bol):
 				break
 				#break
 		if not get_playerNoLongerPlaying():
+			print("+++++++++++++++++++++++++++++++++++++++++++++++++++++SHOWING HOUSE")
 			show_house(rewardToSend)
 		else:
 			show_map()

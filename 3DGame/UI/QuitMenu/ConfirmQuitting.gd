@@ -1,8 +1,17 @@
 extends TextureButton
 
 func _input(event):
-	if (not self.disabled) and event.is_action_pressed("ui_accept"):
-		emit_signal("pressed")
+	if event.is_action_pressed("Evaluate"):
+		print("foi aqui23")
+		if self.name == "Confirm" and event.as_text() == "A":
+			print("foi aqui1")
+			emit_signal("pressed")
+		if self.name == "NotConfirm" and event.as_text() == "B":
+			print("foi aqui2")
+			emit_signal("pressed")
+			
+#	if (not self.disabled) and event.is_action_pressed("ui_accept"):
+#		emit_signal("pressed")
 
 	
 func go_back_game():
