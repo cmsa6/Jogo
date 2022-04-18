@@ -87,9 +87,7 @@ func Move(dice_value):
 	canMove = true
 	is_my_turn = true
 	UpdateTarget()
-	print("AFTER MOVE")
-	print(target_pos)
-	print("canMove: ", canMove)
+
 	
 func UpdateTarget():
 	target_pos = get_target_position()

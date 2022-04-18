@@ -4,9 +4,11 @@ export(String, FILE) var nextCard
 
 
 var data=[] setget save_data, get_data
+var cardType = "" setget save_cardType, get_cardType
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and self.visible:
+		emit_signal("button_down")
 		emit_signal("pressed")
 
 func showNextCard():
@@ -20,6 +22,7 @@ func showNextCard():
 	var card_data = get_data()
 
 	cardInstance.set_card_data(card_data)
+	cardInstance.set_cardType(get_cardType())
 	#cardInstance.teste()
 	root_node.add_child(cardInstance)
 	root_node.move_child(cardInstance,0)
@@ -30,5 +33,11 @@ func save_data(dataReceived):
 	
 func get_data():
 	return data
+	
+func save_cardType(type):
+	cardType = type
+	
+func get_cardType():
+	return cardType
 	
 

@@ -22,6 +22,7 @@ func get_dice_value():
 	emit_signal("update_value", diceValue)
 	
 func update_dice_value():
+	print("being pressed")
 	#var dice_value = 2
 	
 	

@@ -29,5 +29,5 @@ spot_angle = 78.4
 spot_angle_attenuation = 472516.0
 
 [node name="Arrow" parent="." instance=ExtResource( 1 )]
-transform = Transform( -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, 0, 0, 0, 0.6, 0, 17.1668, 0 )
+transform = Transform( -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, 0, 0, 0, 0.6, 0, 20, 0 )
 visible = false

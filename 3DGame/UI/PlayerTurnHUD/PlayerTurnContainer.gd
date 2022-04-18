@@ -13,6 +13,8 @@ onready var diceButton = $VBoxContainer2/DiceButton
 onready var star1 = $HBoxContainer/Star1
 onready var star2 = $HBoxContainer/Star2
 
+onready var anim = $HBoxContainer/AnimationPlayer
+
 const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
 
@@ -79,5 +81,6 @@ func EnablePLayerButton():
 		button.disabled = false
 		
 func show_stars():
-	star1.visible = true
-	star2.visible = true
+	anim.play("Win")
+#	star1.visible = true
+#	star2.visible = true

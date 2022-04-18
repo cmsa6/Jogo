@@ -20,7 +20,7 @@ tracks/0/keys = {
 }
 
 [node name="Arrow" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Arrow5" parent="RootNode" index="0"]
 transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )

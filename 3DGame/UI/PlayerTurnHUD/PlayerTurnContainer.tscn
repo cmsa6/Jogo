@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Fotos/Seta.png" type="Texture" id=1]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Cris_characters/Bryce/Bryce.png" type="Texture" id=3]
 [ext_resource path="res://UI/PlayerTurnHUD/PlayerTurnContainer.gd" type="Script" id=4]
 [ext_resource path="res://Fotos/HouseButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/characterSelected.png" type="Texture" id=6]
@@ -21,12 +20,64 @@ outline_size = 1
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="InputEventKey" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "Win"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Star1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Star1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Star2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Star2:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ) ]
+}
 
-[sub_resource type="ShortCut" id=3]
-shortcut = SubResource( 2 )
+[sub_resource type="InputEventKey" id=3]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -41,7 +92,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../VBoxContainer/Arrow:modulate")
+tracks/1/path = NodePath("../../VBoxContainer/Arrow:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -50,10 +101,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.857143 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../VBoxContainer/TurnText:modulate")
+tracks/2/path = NodePath("../../VBoxContainer/TurnText:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -62,34 +113,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.933824 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../../VBoxContainer/Arrow:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("../../VBoxContainer/TurnText:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -105,7 +132,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.666667 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../VBoxContainer/Arrow:modulate")
+tracks/1/path = NodePath("../../VBoxContainer/Arrow:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -114,10 +141,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.1, 0.8, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.858824 ), Color( 1, 1, 1, 0.666667 ), Color( 1, 1, 1, 0.857143 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.486275 ), Color( 1, 1, 1, 0.958333 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../VBoxContainer/TurnText:modulate")
+tracks/2/path = NodePath("../../VBoxContainer/TurnText:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -126,34 +153,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0.1, 0.8, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.254902 ), Color( 1, 1, 1, 0.933824 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../../VBoxContainer/Arrow:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.8, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.486275 ), Color( 1, 1, 1, 0.958333 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("../../VBoxContainer/TurnText:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.1, 0.8, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.486275 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -168,48 +171,24 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../VBoxContainer/Arrow:modulate")
+tracks/1/path = NodePath("../../VBoxContainer/Arrow:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.857143 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../VBoxContainer/TurnText:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0.933824 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../../VBoxContainer/Arrow:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0.1, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("../../VBoxContainer/TurnText:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../VBoxContainer/TurnText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.1, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -224,7 +203,7 @@ anchor_bottom = 0.5
 margin_left = -510.0
 margin_top = -259.0
 margin_right = -10.0
-margin_bottom = 468.0
+margin_bottom = 549.0
 rect_scale = Vector2( 0.996413, 1.16 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -234,18 +213,17 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 115.0
-margin_right = 385.0
+margin_left = 97.0
+margin_right = 403.0
 margin_bottom = 119.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = -32
 
 [node name="Star1" type="TextureRect" parent="HBoxContainer"]
-visible = false
-margin_left = 48.0
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 34.0
-margin_right = 98.0
+margin_right = 50.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 6
@@ -254,7 +232,8 @@ texture = ExtResource( 13 )
 expand = true
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-margin_right = 270.0
+margin_left = 18.0
+margin_right = 288.0
 margin_bottom = 119.0
 rect_min_size = Vector2( 270, 76 )
 size_flags_horizontal = 6
@@ -266,16 +245,19 @@ align = 1
 autowrap = true
 
 [node name="Star2" type="TextureRect" parent="HBoxContainer"]
-visible = false
-margin_left = 344.0
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 256.0
 margin_top = 34.0
-margin_right = 394.0
+margin_right = 306.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource( 13 )
 expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer"]
+anims/Win = SubResource( 2 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 margin_left = 100.0
@@ -311,12 +293,13 @@ texture = ExtResource( 6 )
 stretch_mode = 6
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer2/CenterContainer"]
-margin_right = 300.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 300, 300 )
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 275.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 250, 250 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 5 )
 expand = true
@@ -329,7 +312,7 @@ margin_bottom = 560.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-shortcut = SubResource( 3 )
+shortcut = SubResource( 4 )
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 9 )
@@ -338,9 +321,9 @@ expand = true
 script = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer2/DiceButton"]
-anims/Still = SubResource( 4 )
-anims/blink = SubResource( 5 )
-anims/disappear = SubResource( 6 )
+anims/Still = SubResource( 5 )
+anims/blink = SubResource( 6 )
+anims/disappear = SubResource( 7 )
 
 [node name="HBoxContainer" parent="VBoxContainer2/DiceButton" instance=ExtResource( 14 )]
 margin_left = -50.0
@@ -351,7 +334,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="TextureRect" parent="VBoxContainer2/DiceButton/HBoxContainer" index="0"]
-modulate = Color( 0.658039, 0.642353, 0.642353, 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
@@ -360,7 +342,6 @@ size_flags_vertical = 6
 expand = true
 
 [node name="TextureRect2" parent="VBoxContainer2/DiceButton/HBoxContainer" index="1"]
-modulate = Color( 0.658039, 0.642353, 0.642353, 1 )
 margin_left = 40.0
 margin_right = 80.0
 margin_bottom = 40.0
@@ -368,7 +349,6 @@ rect_min_size = Vector2( 40, 40 )
 expand = true
 
 [node name="TextureRect3" parent="VBoxContainer2/DiceButton/HBoxContainer" index="2"]
-modulate = Color( 0.658039, 0.642353, 0.642353, 1 )
 margin_left = 80.0
 margin_right = 100.0
 margin_bottom = 40.0

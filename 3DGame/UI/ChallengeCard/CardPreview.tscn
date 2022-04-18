@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ChallengeCard/CardStatus.gd" type="Script" id=2]
@@ -10,15 +10,25 @@
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/ChallengeCard/NextCard.gd" type="Script" id=9]
 [ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Fotos/challengeBackgroundBig.png" type="Texture" id=11]
+[ext_resource path="res://Sounds/challenge.mp3" type="AudioStream" id=11]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://House Furniture/Photos/Couch.png" type="Texture" id=13]
 [ext_resource path="res://UI/ChallengeCard/RewardingManager.gd" type="Script" id=14]
+[ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 3
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 25
-outline_size = 1
-outline_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+outline_size = 3
 font_data = ExtResource( 12 )
 
 [node name="CardPreview" type="Spatial"]
@@ -29,21 +39,11 @@ anchor_left = 0.000868201
 anchor_top = -0.00148168
 anchor_right = 1.00087
 anchor_bottom = 0.998518
+margin_left = 1.11096
+margin_top = 0.889008
+margin_right = 1.10913
+margin_bottom = 0.889221
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect3" type="TextureRect" parent="Control"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -74.6769
-margin_top = -38.2275
-margin_right = 949.323
-margin_bottom = 561.773
-rect_scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,28 +53,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -366.001
+margin_left = -366.0
 margin_top = -191.0
-margin_right = 351.999
+margin_right = 352.0
 margin_bottom = 231.0
 rect_min_size = Vector2( 700, 400 )
-rect_pivot_offset = Vector2( 388.889, 585.786 )
-color = Color( 0.964706, 0.921569, 0.862745, 0.784314 )
+color = Color( 0.705882, 0.756863, 0.584314, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CardStatus" parent="Control/Card" instance=ExtResource( 5 )]
 margin_right = 720.0
-margin_bottom = 99.1867
+margin_bottom = 112.187
+
+[node name="VBoxContainer" parent="Control/Card/CardStatus" index="0"]
+margin_top = 23.0
+margin_bottom = 90.0
+
+[node name="Title" parent="Control/Card/CardStatus/VBoxContainer" index="0"]
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.552941, 0.776471, 0.145098, 1 )
+custom_colors/font_outline_modulate = Color( 0.219608, 0.392157, 0.027451, 1 )
+text = "With this challenge:"
+
+[node name="ChallengeTitle" parent="Control/Card/CardStatus/VBoxContainer" index="1"]
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+
+[node name="PlayerAvatar" parent="Control/Card/CardStatus" index="1"]
+margin_top = 21.0
+margin_bottom = 91.0
 
 [node name="RewardingManager" type="VBoxContainer" parent="Control/Card"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.0
-margin_top = 109.0
-margin_right = -86.0
-margin_bottom = 1.0
+margin_top = 88.0
+margin_right = -101.0
+margin_bottom = -20.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = -12
@@ -82,69 +99,66 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-numPoints = NodePath("SkillInfo/NumberPoints")
-skill = NodePath("SkillInfo/Skill")
+numPoints = NodePath("../SkillInfo/NumberPoints")
+skill = NodePath("../SkillInfo/Skill")
 playerAvatar = NodePath("../CardStatus/PlayerAvatar")
 ChallengeTitle = NodePath("../CardStatus/VBoxContainer/ChallengeTitle")
+title = NodePath("../CardStatus/VBoxContainer/Title")
+backgroundColor = NodePath("..")
 
 [node name="Reward" type="Label" parent="Control/Card/RewardingManager"]
-margin_top = 15.0
-margin_right = 630.0
-margin_bottom = 53.0
+margin_top = 18.0
+margin_right = 615.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 0, 40 )
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "RECOMPENSAS"
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "You can win"
 align = 1
 valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ViewportContainer" type="ViewportContainer" parent="Control/Card/RewardingManager"]
+margin_left = 132.0
+margin_top = 64.0
+margin_right = 482.0
+margin_bottom = 314.0
+rect_min_size = Vector2( 350, 250 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Viewport" type="Viewport" parent="Control/Card/RewardingManager/ViewportContainer"]
+size = Vector2( 350, 250 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="Control/Card/RewardingManager/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.889584, 0.456772, 0, -0.456772, 0.889584, 0, 7, 15 )
+current = true
+fov = 40.0
+near = 0.63
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Control/Card/RewardingManager/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.848584, 0.529061, 0, -0.529061, 0.848584, 0, 8.90357, 19.1516 )
+
+[node name="ObjectPlaceHolder" type="Spatial" parent="Control/Card/RewardingManager/ViewportContainer/Viewport"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+
 [node name="RewardPlaceholder" type="TextureRect" parent="Control/Card/RewardingManager"]
+visible = false
 margin_left = 215.0
-margin_top = 56.0
+margin_top = 50.0
 margin_right = 415.0
-margin_bottom = 256.0
+margin_bottom = 250.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource( 13 )
-
-[node name="SkillInfo" type="HBoxContainer" parent="Control/Card/RewardingManager"]
-margin_top = 253.0
-margin_right = 80.0
-margin_bottom = 303.0
-rect_min_size = Vector2( 80, 0 )
-size_flags_horizontal = 2
-size_flags_vertical = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NumberPoints" type="Label" parent="Control/Card/RewardingManager/SkillInfo"]
-margin_left = 3.0
-margin_top = 9.0
-margin_right = 22.0
-margin_bottom = 41.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "+1"
-align = 1
-valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Skill" type="TextureRect" parent="Control/Card/RewardingManager/SkillInfo"]
-margin_left = 30.0
-margin_right = 80.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 50, 50 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-expand = true
 
 [node name="NextButton" type="TextureButton" parent="Control/Card"]
 anchor_left = 1.0
@@ -152,9 +166,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -76.0
-margin_top = -89.0
+margin_top = -90.1225
 margin_right = -1.0
-margin_bottom = 3.05176e-05
+margin_bottom = -1.12247
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture_normal = ExtResource( 6 )
@@ -174,6 +188,46 @@ margin_bottom = 8.01499
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
+[node name="SkillInfo" type="HBoxContainer" parent="Control/Card"]
+margin_left = 2.0
+margin_top = 352.0
+margin_right = 102.0
+margin_bottom = 422.0
+rect_min_size = Vector2( 100, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberPoints" type="Label" parent="Control/Card/SkillInfo"]
+margin_left = 10.0
+margin_top = 19.0
+margin_right = 36.0
+margin_bottom = 51.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "+ 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skill" type="TextureRect" parent="Control/Card/SkillInfo"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 15 )
+expand = true
+
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false
 anchor_top = 1.0
@@ -190,8 +244,13 @@ __meta__ = {
 
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
 [connection signal="type_setted" from="." to="Control/Card/RewardingManager" method="set_type"]
 [connection signal="save_card_data" from="Control/Card/RewardingManager" to="Control/Card/NextButton" method="save_data"]
+[connection signal="save_card_type" from="Control/Card/RewardingManager" to="Control/Card/NextButton" method="save_cardType"]
+[connection signal="button_down" from="Control/Card/NextButton" to="UISoundManager" method="select"]
 [connection signal="pressed" from="Control/Card/NextButton" to="Control/Card/NextButton" method="showNextCard"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 

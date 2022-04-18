@@ -1,18 +1,18 @@
 extends Node
 
-const BRYCE_SCENE = preload("res://Assets/Cris_characters/Bryce/Bryce.tscn")
-const LIAM_SCENE = preload("res://Assets/Characters/Remy/Remy.tscn")
-const MALCOM_SCENE = preload("res://Assets/Characters/Megan/Megan.tscn")
-const REGINA_SCENE = preload("res://Assets/Cris_characters/Regina/Regina.tscn")
-const SHAE_SCENE = preload("res://Assets/Characters/Stefani/stefani.tscn")
-const SOPHIE_SCENE = preload("res://Assets/Cris_characters/Sophie/Sophie.tscn")
+const LEWIS_SCENE  = preload("res://Assets/new_characters/Lewis/Lewis.tscn")
+const BRIAN_SCENE   = preload("res://Assets/new_characters/Brian/Brian.tscn")
+const JOSH_SCENE = preload("res://Assets/new_characters/Josh/Josh.tscn")
+const JODY_SCENE = preload("res://Assets/new_characters/Jody/Jody.tscn")
+const ELIZABETH_SCENE   = preload("res://Assets/new_characters/Elizabeth/elizabeth.tscn")
+const SOPHIE_SCENE = preload("res://Assets/new_characters/Sophie/Sophie.tscn")
 
-const BRYCE_ICON = preload("res://Assets/Cris_characters/Bryce/Bryce.png")
-const LIAM_ICON = preload("res://Assets/Characters/Remy/Remy.png")
-const MALCOM_ICON = preload("res://Assets/Characters/Megan/Megan.png")
-const REGINA_ICON = preload("res://Assets/Cris_characters/Regina/Regina.png")
-const SHAE_ICON = preload("res://Assets/Cris_characters/Shae/Shae.png")
-const SOPHIE_ICON = preload("res://Assets/Cris_characters/Sophie/Sophie.png")
+const LEWIS_ICON = preload("res://Assets/new_characters/Lewis/Lewis.png")
+const BRIAN_ICON = preload("res://Assets/new_characters/Brian/Brian.png")
+const JOSH_ICON = preload("res://Assets/new_characters/Josh/Josh.png")
+const JODY_ICON = preload("res://Assets/new_characters/Jody/Jody.png")
+const ELIZABETH_ICON = preload("res://Assets/new_characters/Elizabeth/Elizabeth.png")
+const SOPHIE_ICON = preload("res://Assets/new_characters/Sophie/Sophie.png")
 
 # Animations
 const IDLE_ANIM = "Idle"
@@ -22,40 +22,42 @@ const LOSE_ANIM = "Defeat"
 const SELECTED_ANIM = "OnPlayerSelected"
 
 enum CHARACTERS {
-	BRYCE = 0,
-	LIAM,
-	MALCOM,
-	REGINA,
-	SHAE,
+	LEWIS = 0,
+	BRIAN,
+	JOSH,
+	JODY,
+	ELIZABETH,
 	SOPHIE,
 }
 
+
+
 func get_character_scene(character):
 	match character:
-		CHARACTERS.BRYCE:
-			return BRYCE_SCENE
-		CHARACTERS.LIAM:
-			return LIAM_SCENE
-		CHARACTERS.MALCOM:
-			return MALCOM_SCENE
-		CHARACTERS.REGINA:
-			return REGINA_SCENE
-		CHARACTERS.SHAE:
-			return SHAE_SCENE
+		CHARACTERS.LEWIS:
+			return LEWIS_SCENE
+		CHARACTERS.BRIAN:
+			return BRIAN_SCENE
+		CHARACTERS.JOSH:
+			return JOSH_SCENE
+		CHARACTERS.JODY:
+			return JODY_SCENE
+		CHARACTERS.ELIZABETH:
+			return ELIZABETH_SCENE
 		CHARACTERS.SOPHIE:
 			return SOPHIE_SCENE
 
 func get_character_icon(character):
 	match character:
-		CHARACTERS.BRYCE:
-			return BRYCE_ICON
-		CHARACTERS.LIAM:
-			return LIAM_ICON
-		CHARACTERS.MALCOM:
-			return MALCOM_ICON
-		CHARACTERS.REGINA:
-			return REGINA_ICON
-		CHARACTERS.SHAE:
-			return SHAE_ICON
+		CHARACTERS.LEWIS:
+			return LEWIS_ICON
+		CHARACTERS.BRIAN:
+			return BRIAN_ICON
+		CHARACTERS.JOSH:
+			return JOSH_ICON
+		CHARACTERS.JODY:
+			return JODY_ICON
+		CHARACTERS.ELIZABETH:
+			return ELIZABETH_ICON
 		CHARACTERS.SOPHIE:
 			return SOPHIE_ICON

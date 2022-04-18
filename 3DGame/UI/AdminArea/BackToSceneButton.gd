@@ -5,11 +5,12 @@ export(String, FILE) var previousScene
 func _input(event):
 	#if Input.is_key_pressed(KEY_SPACE):
 	if event.is_action_pressed("ui_accept"):
-		print("foi aqui que entrei ne 2")
+		emit_signal("button_down")
 		_on_BackToSceneButton_pressed()
 		
 
 func _on_BackToSceneButton_pressed():
+	#AudioManager.stream_paused = true
 	print(previousScene)
 	#get_node(previousScene).queue_free()
 	

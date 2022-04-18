@@ -1,6 +1,11 @@
 extends Spatial
 
+onready var audio = $AudioStreamPlayer
+
 signal type_setted(type)
+
+func _ready():
+	audio.play(0)
 
 func set_type(type):
 #	if type == 5:
@@ -13,3 +18,5 @@ func set_type(type):
 #		type = "HELP"
 
 	emit_signal("type_setted", type)
+
+

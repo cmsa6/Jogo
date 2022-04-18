@@ -4,18 +4,19 @@ onready var playerName = $HBoxContainer/Label
 onready var playerAvatar = $HBoxContainer/Avatar
 onready var house = $Control/ViewportContainer/FinalViewport/FurnishedHouse
 
-onready var numObjects = $Control/Buttons/Objects/ObjectsText
-onready var numPoints = $Control/Buttons/Points/PointsText
+onready var numObjects = $Buttons/Objects/ObjectsText
+onready var numPoints = $Buttons/Points/PointsText
 
 onready var control = $Control
 
-onready var objectsButton = $Control/Buttons/Objects
+onready var objectsButton = $Buttons/Objects
 
 
 
 
 func _ready():
 	objectsButton.pressed = true
+	objectsButton.disabled = true
 
 
 

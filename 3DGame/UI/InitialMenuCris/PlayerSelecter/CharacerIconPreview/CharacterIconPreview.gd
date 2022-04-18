@@ -4,6 +4,7 @@ extends CenterContainer
 
 export(CharactersManager.CHARACTERS) var character
 
+
 signal new_character_selected(new_character)
 
 onready var overlay = $TextureRect2/CenterContainer/Overlay
@@ -15,6 +16,7 @@ var selected = false
 var locked = false
 
 func _ready():
+	print("character: ", character)
 	button.icon = CharactersManager.get_character_icon(character)
 
 func _on_Button_pressed():

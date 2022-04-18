@@ -4,6 +4,7 @@ extends Spatial
 onready var players = $Control/QuitManager/QuitInfo/PlayersContainer
 onready var avatarName = $Control/QuitManager/QuitInfo/HBoxContainer/PlayerName
 onready var text = $Control/QuitManager/QuitInfo/Text
+onready var audio = $AudioStreamPlayer
 
 var iconScene = preload("res://UI/QuitMenu/Avatar.tscn")
 
@@ -26,6 +27,7 @@ func _ready():
 	#	avatarName.text = name
 	
 	if get_origin() == "Won":
+		audio.play(0)
 		var string = "Congratulations " + name + "! You just completed your house!! Do we want to end the game now?"
 		text.text = string
 	

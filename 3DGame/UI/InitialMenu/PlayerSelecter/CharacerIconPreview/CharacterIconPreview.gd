@@ -18,8 +18,7 @@ var selected = false
 var locked = false
 
 func _input(event):
-	if event.is_action_pressed("select_avatars") and not button.disabled:
-		print("carreguei\n\n")
+	if event.is_action_pressed("select_avatars") and not button.disabled and get_parent().visible:
 		if str(character+1) in event.as_text():
 			button.avatarSelected()
 		

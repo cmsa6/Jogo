@@ -47,9 +47,9 @@ func _ready():
 
 
 func update_text(value):
-	print("hello")
 	instructions.text = "Is gonna walk " + str(value) + " steps"
 	instructions.modulate = VISIBLE
 	button.modulate = VISIBLE
 	button.disabled = false
 	shortcut.visible = true
+	print(button.disabled)

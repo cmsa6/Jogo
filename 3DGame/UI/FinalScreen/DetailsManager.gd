@@ -1,15 +1,18 @@
 extends Control
 
 
-onready var buttonsLayer = $Buttons
+#onready var buttonsLayer = $Buttons
 onready var viewport = $ViewportContainer
 onready var backButton = $GoBackButton
 onready var points = $ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo/ScoreInfoManager/PointsBar
 onready var scoreBoard = $ScoreBoard
 
-onready var pointsButton = $Buttons/Points
-onready var objectsButton = $Buttons/Objects
+#onready var pointsButton = $Buttons/Points
+#onready var objectsButton = $Buttons/Objects
 
+export(NodePath) var objectsButton
+export(NodePath) var pointsButton
+export(NodePath) var buttonsLayer
 
 var blurred setget set_blurred, get_blurred
 var playerID setget set_playerID, get_playerID
@@ -20,17 +23,23 @@ var playerID setget set_playerID, get_playerID
 	
 
 func show_house():
-	pointsButton.pressed = false
+	get_node(objectsButton).disabled = true
+	get_node(pointsButton).disabled = false
+	
+	get_node(pointsButton).pressed = false
 	#buttonsLayer.visible = false
 	#set_blurred(viewport.modulate)
 	#viewport.modulate = Color(1,1,1,1)
 	#backButton.visible = true
-
-	
 	scoreBoard.visible = false
 	
+	#get_node(objectsButton).pressed = true
+	
 func show_points():
-	objectsButton.pressed = false
+	get_node(objectsButton).disabled = false
+	get_node(pointsButton).disabled = true
+	
+	get_node(objectsButton).pressed = false
 
 	
 	#buttonsLayer.visible = false
@@ -38,6 +47,8 @@ func show_points():
 	viewport.modulate == Color(1,1,1,0.5)
 	scoreBoard.set_up(get_playerID())
 	scoreBoard.visible = true
+
+	#get_node(pointsButton).pressed = true
 
 func set_blurred(value):
 	blurred = value
@@ -52,7 +63,7 @@ func get_playerID():
 	return playerID
 	
 func show_buttons():
-	buttonsLayer.visible = true
+	get_node(buttonsLayer).visible = true
 	backButton.visible = false
 	if scoreBoard.visible:
 		scoreBoard.visible = false

@@ -1,13 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=1]
-[ext_resource path="res://Fotos/DiceBackground.png" type="Texture" id=2]
 [ext_resource path="res://UI/ChallengeCard/ViewportEnv.tres" type="Environment" id=3]
 [ext_resource path="res://UI/ChallengeCard/BackToMap.gd" type="Script" id=4]
 [ext_resource path="res://UI/Dice/DicePreview.gd" type="Script" id=5]
 [ext_resource path="res://UI/Dice/DiceManager.gd" type="Script" id=6]
 [ext_resource path="res://Fonts/dice_preview.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Assets/Characters/Chad/chad_round.png" type="Texture" id=8]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Dice/NumbersRoll.tscn" type="PackedScene" id=10]
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=11]
@@ -46,17 +44,6 @@ anchor_left = 0.000868201
 anchor_top = -0.00148168
 anchor_right = 1.00087
 anchor_bottom = 0.998518
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect3" type="TextureRect" parent="Control"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -0.00183105
-margin_bottom = 398.0
-texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -151,10 +138,10 @@ material/0 = null
 [node name="Roll" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder" instance=ExtResource( 10 )]
 
 [node name="AnimationPlayer" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll/Spatial" index="0"]
-playback_speed = 1.0
+playback_speed = 6.875
 
 [node name="MeshInstance" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll/Spatial" index="1"]
-transform = Transform( 0.500001, 0.866024, 0, -0.866024, 0.500001, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.766044, -0.642787, 0, 0.642787, 0.766044, 0, 0, 0, 1, 0, 0, 0 )
 material/0 = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial"]
@@ -191,25 +178,24 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/DiceManager/HBoxContainer"]
-margin_left = 427.0
-margin_right = 527.0
+margin_left = 442.0
+margin_right = 512.0
 margin_bottom = 377.0
 rect_min_size = Vector2( 0, 350 )
 size_flags_horizontal = 6
 
 [node name="Avatar" type="TextureRect" parent="Control/DiceManager/HBoxContainer/VBoxContainer"]
+visible = false
 margin_right = 100.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 6
 size_flags_stretch_ratio = 0.5
-texture = ExtResource( 8 )
 expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/DiceManager/HBoxContainer/VBoxContainer"]
-margin_left = 30.0
 margin_top = 307.0
-margin_right = 100.0
+margin_right = 70.0
 margin_bottom = 377.0
 size_flags_horizontal = 10
 size_flags_vertical = 10
@@ -244,6 +230,33 @@ margin_bottom = 78.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -312.501
+margin_top = 156.0
+margin_right = -242.501
+margin_bottom = 226.0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+custom_constants/separation = -8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut" parent="Control/VBoxContainer2" instance=ExtResource( 15 )]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 62.0
+margin_right = 59.0
+margin_bottom = 78.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false
 anchor_top = 1.0
@@ -260,8 +273,8 @@ __meta__ = {
 
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
-[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll" method="update_dice_value"]
+[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll"]

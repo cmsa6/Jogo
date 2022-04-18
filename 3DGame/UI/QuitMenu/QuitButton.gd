@@ -3,6 +3,7 @@ extends TextureButton
 func _input(event):
 	if event.is_action_released("QuitGame"):
 		if event.as_text() == "E" and self.visible:
+			emit_signal("button_down")
 			check_quit()
 
 func check_quit():

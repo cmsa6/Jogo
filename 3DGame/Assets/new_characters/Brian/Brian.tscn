@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/new_characters/Brian/Victory.anim" type="Animation" id=1]
+[ext_resource path="res://Assets/new_characters/Brian/Ch01_nonPBR.dae" type="PackedScene" id=2]
+[ext_resource path="res://Assets/new_characters/Brian/Idle.anim" type="Animation" id=3]
+[ext_resource path="res://Assets/new_characters/Brian/Defeat.anim" type="Animation" id=4]
+[ext_resource path="res://Assets/new_characters/Brian/Walk.anim" type="Animation" id=5]
+[ext_resource path="res://Assets/new_characters/AudioFeedback.tscn" type="PackedScene" id=6]
+
+[node name="Brian" instance=ExtResource( 2 )]
+transform = Transform( -8, 0, -1.20797e-06, 0, 8, 0, 1.20797e-06, 0, -8, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Defeat = ExtResource( 4 )
+anims/Idle = ExtResource( 3 )
+anims/Victory = ExtResource( 1 )
+anims/Walk = ExtResource( 5 )
+
+[node name="AudioFeedback" parent="." index="2" instance=ExtResource( 6 )]

@@ -13,6 +13,8 @@ onready var disapprovedContainer = $Disapproved
 onready var rewardApproved = $Approved/ColorRect2/HBoxContainer/VBoxContainer/RewardPhotoPlaceholder
 onready var rewardDisapproved = $Disapproved/ColorRect2/HBoxContainer/VBoxContainer/RewardPhotoPlaceholder
 onready var rewardPreview = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardPreview
+onready var viewportContainer = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer
+onready var objectPlaceHolder = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer/Viewport/ObjectPlaceHolder
 
 onready var title = $Evaluation/ColorRect/CardHeader/VBoxContainer/ChallengeTitle
 onready var approvedTitle = $Approved/ColorRect2/CardHeader/VBoxContainer/ChallengeTitle
@@ -26,7 +28,12 @@ onready var disapprovedIcon = $Disapproved/ColorRect2/CardHeader/PlayerAvatar
 onready var skill = $Evaluation/ColorRect/SkillInfo/Skill
 onready var numPoints = $Evaluation/ColorRect/SkillInfo/NumberPoints
 
+
 onready var houseScene = preload("res://House Furniture/houseWithFurniture.tscn")
+
+onready var background = $Evaluation/ColorRect
+onready var screenTitle = $Evaluation/ColorRect/CardHeader/VBoxContainer/Title
+
 
 
 
@@ -37,8 +44,10 @@ var reward = "" setget set_card_data, get_reward
 var challengeTitle = "" setget set_challenge_title, get_challenge_title
 
 var skillEvaluated = [] 
+var cardType setget set_cardType, get_cardType 
 
 func _ready():
+	set_card_color()
 	var currentPlayer = SavingManager.current_player
 	print("player atual, ", currentPlayer)
 	var num_players = SettingsManager.num_of_players
@@ -63,11 +72,15 @@ func _ready():
 	
 	reward = get_reward()
 	if reward != "none":
-		var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
-		var rewardPhoto = load(rewardPath)
-		rewardPreview.texture = rewardPhoto
+#		var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
+#		var rewardPhoto = load(rewardPath)
+#		rewardPreview.texture = rewardPhoto
+		var objectName = "res://House Furniture/" + reward + ".tscn"
+		var object = load(objectName)
+		objectPlaceHolder.add_child(object.instance())
 	else:
-		rewardPreview.visible = false
+		#rewardPreview.visible = false
+		viewportContainer.visible = false
 		set_playerNoLongerPlaying(true)
 	
 	var skillBenefit = get_skillEvaluated()
@@ -120,7 +133,6 @@ func approve(bol):
 				break
 				#break
 		if not get_playerNoLongerPlaying():
-			print("+++++++++++++++++++++++++++++++++++++++++++++++++++++SHOWING HOUSE")
 			show_house(rewardToSend)
 		else:
 			show_map()
@@ -217,3 +229,26 @@ func set_playerNoLongerPlaying(bol):
 	
 func get_playerNoLongerPlaying():
 	return playerNoLongerPlaying
+	
+	
+func set_cardType(type):
+	cardType = type
+	print("i setted the type to ", type)
+	
+func get_cardType():
+	return cardType
+	
+func set_card_color():
+	var colors = get_cardType()
+	
+	background.color = colors[1]
+	
+	title.set("custom_colors/font_color", colors[2])
+	title.set("custom_colors/font_outline_modulate", colors[0])
+	
+	screenTitle.set("custom_colors/font_color", colors[0])
+	screenTitle.set("custom_colors/font_outline_modulate", colors[2])
+	
+	numPoints.set("custom_colors/font_color", colors[0])
+	numPoints.set("custom_colors/font_outline_modulate", colors[2])
+	

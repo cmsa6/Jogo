@@ -1,11 +1,12 @@
 extends Spatial
 
-onready var playerImage = $Control/GridContainer/VBoxContainer2/Avatar	
+onready var playerImage = $Control/BackgroundRect/CardHeader/PlayerAvatar
 
 var card_data = [] setget set_card_data, get_card_data
 
 
 signal data_saved(card_data)
+signal type_saved(type)
 
 func _ready():
 	var currentScene = get_node("/root/CardPreview")
@@ -21,3 +22,6 @@ func set_card_data(dataReceived):
 	
 func get_card_data():
 	return card_data
+	
+func set_cardType(type):
+	emit_signal("type_saved", type)

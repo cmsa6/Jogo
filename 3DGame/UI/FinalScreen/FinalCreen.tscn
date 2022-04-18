@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/FinalScreen/ShowAllPlayers.gd" type="Script" id=1]
 [ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
 [ext_resource path="res://UI/FinalScreen/NextButton.gd" type="Script" id=7]
 [ext_resource path="res://UI/FinalScreen/FinalCreen.gd" type="Script" id=8]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -95,16 +96,16 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
-margin_right = 1023.0
-margin_bottom = 599.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
-margin_left = 386.0
-margin_right = 636.0
-margin_bottom = 599.0
+margin_left = 387.0
+margin_right = 637.0
+margin_bottom = 600.0
 size_flags_horizontal = 6
 __meta__ = {
 "_edit_use_anchors_": false
@@ -126,9 +127,9 @@ __meta__ = {
 
 [node name="ShowAllPlayers" type="GridContainer" parent="ColorRect/HBoxContainer/VBoxContainer"]
 margin_left = 125.0
-margin_top = 321.0
+margin_top = 322.0
 margin_right = 125.0
-margin_bottom = 321.0
+margin_bottom = 322.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/hseparation = 100
@@ -178,6 +179,9 @@ anims/FadeOut = SubResource( 3 )
 [node name="SceneLoader" parent="." instance=ExtResource( 4 )]
 next_scene_path = "res://UI/Credits/Credits.tscn"
 
+[node name="UISoundManager" parent="." instance=ExtResource( 9 )]
+
+[connection signal="button_down" from="ColorRect/ExitGame" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="ColorRect/ExitGame" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 

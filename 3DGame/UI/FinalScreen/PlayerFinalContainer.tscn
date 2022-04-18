@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/buttonFontCardsSmaller.tres" type="DynamicFont" id=1]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Cris_characters/Bryce/Bryce.png" type="Texture" id=3]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/FinalScreen/PlayerFinalContainer.gd" type="Script" id=4]
 [ext_resource path="res://House Furniture/houseWithFurniture.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fotos/progressBarOver.png" type="Texture" id=6]
@@ -37,11 +37,11 @@ anchor_bottom = 0.5
 margin_left = -510.0
 margin_top = -304.0
 margin_right = -160.0
-margin_bottom = -49.0
+margin_bottom = -9.0
 rect_min_size = Vector2( 0, 200 )
 rect_scale = Vector2( 0.996413, 1.16 )
 size_flags_horizontal = 6
-size_flags_vertical = 6
+custom_constants/separation = -5
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,6 +52,7 @@ margin_left = 48.0
 margin_right = 302.0
 margin_bottom = 51.0
 size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 margin_right = 200.0
@@ -72,15 +73,147 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-texture = ExtResource( 3 )
 expand = true
 
-[node name="Control" type="Control" parent="."]
-margin_top = 55.0
+[node name="Buttons" type="HBoxContainer" parent="."]
+margin_top = 53.0
 margin_right = 350.0
-margin_bottom = 255.0
+margin_bottom = 93.0
+rect_min_size = Vector2( 100, 40 )
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberObjects" type="Label" parent="Buttons"]
+visible = false
+margin_top = 18.0
+margin_right = 250.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 250, 10 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Objects Gained: X"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberPoints" type="Label" parent="Buttons"]
+visible = false
+margin_left = 25.0
+margin_top = 36.0
+margin_right = 225.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Points: X"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Objects" type="TextureButton" parent="Buttons"]
+margin_right = 173.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+expand = true
+
+[node name="ObjectsText" type="Label" parent="Buttons/Objects"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -13.5
+margin_right = 58.5
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 1 )
+text = "X OBJECTS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut" parent="Buttons/Objects" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.028
+anchor_right = 0.5
+anchor_bottom = 1.028
+margin_left = -7.5
+margin_top = -7.499
+margin_right = 7.5
+margin_bottom = 7.501
+rect_min_size = Vector2( 15, 15 )
+texture = ExtResource( 12 )
+
+[node name="Points" type="TextureButton" parent="Buttons"]
+margin_left = 177.0
+margin_right = 350.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+expand = true
+
+[node name="PointsText" type="Label" parent="Buttons/Points"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -13.5
+margin_right = 58.5
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 1 )
+text = "X POINTS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut2" parent="Buttons/Points" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.5
+margin_top = -6.3793
+margin_right = 7.5
+margin_bottom = 8.6207
+rect_min_size = Vector2( 15, 15 )
+
+[node name="UISoundManager" parent="Buttons" instance=ExtResource( 3 )]
+
+[node name="Control" type="Control" parent="."]
+margin_top = 95.0
+margin_right = 350.0
+margin_bottom = 295.0
 rect_min_size = Vector2( 350, 200 )
+size_flags_vertical = 6
 script = ExtResource( 9 )
+objectsButton = NodePath("../Buttons/Objects")
+pointsButton = NodePath("../Buttons/Points")
+buttonsLayer = NodePath("../Buttons")
 
 [node name="ViewportContainer" type="ViewportContainer" parent="Control"]
 anchor_left = 0.5
@@ -91,7 +224,7 @@ margin_left = -175.0
 margin_top = -100.0
 margin_right = 175.0
 margin_bottom = 100.0
-rect_min_size = Vector2( 350, 200 )
+rect_min_size = Vector2( 325, 170 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 __meta__ = {
@@ -99,7 +232,7 @@ __meta__ = {
 }
 
 [node name="FinalViewport" type="Viewport" parent="Control/ViewportContainer"]
-size = Vector2( 350, 200 )
+size = Vector2( 350, 170 )
 own_world = true
 handle_input_locally = false
 render_target_update_mode = 3
@@ -107,9 +240,9 @@ render_target_update_mode = 3
 [node name="FurnishedHouse" parent="Control/ViewportContainer/FinalViewport" instance=ExtResource( 5 )]
 
 [node name="Camera" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse" index="0"]
-transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 20, 48.7421, 48.7348 )
+transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 20, 50, 48.735 )
 v_offset = -5.0
-fov = 63.0
+fov = 66.5
 near = 21.26
 far = 247.8
 
@@ -132,134 +265,6 @@ margin_right = 900.0
 margin_left = 875.0
 margin_right = 995.0
 
-[node name="Buttons" type="HBoxContainer" parent="Control"]
-anchor_right = 1.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 100, 40 )
-size_flags_vertical = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NumberObjects" type="Label" parent="Control/Buttons"]
-visible = false
-margin_top = 18.0
-margin_right = 250.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 250, 10 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Objects Gained: X"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NumberPoints" type="Label" parent="Control/Buttons"]
-visible = false
-margin_left = 25.0
-margin_top = 36.0
-margin_right = 225.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 200, 0 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Points: X"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
-[node name="Objects" type="TextureButton" parent="Control/Buttons"]
-margin_right = 173.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 120, 40 )
-size_flags_horizontal = 3
-size_flags_vertical = 2
-toggle_mode = true
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 6 )
-expand = true
-
-[node name="ObjectsText" type="Label" parent="Control/Buttons/Objects"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -58.5
-margin_top = -13.5
-margin_right = 58.5
-margin_bottom = 13.5
-custom_fonts/font = ExtResource( 1 )
-text = "X OBJECTS"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shortcut" parent="Control/Buttons/Objects" instance=ExtResource( 11 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 1.028
-anchor_right = 0.5
-anchor_bottom = 1.028
-margin_left = -7.5
-margin_top = -7.499
-margin_right = 7.5
-margin_bottom = 7.501
-rect_min_size = Vector2( 15, 15 )
-texture = ExtResource( 12 )
-
-[node name="Points" type="TextureButton" parent="Control/Buttons"]
-margin_left = 177.0
-margin_right = 350.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 120, 40 )
-size_flags_horizontal = 3
-size_flags_vertical = 2
-toggle_mode = true
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 6 )
-expand = true
-
-[node name="PointsText" type="Label" parent="Control/Buttons/Points"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -58.5
-margin_top = -13.5
-margin_right = 58.5
-margin_bottom = 13.5
-custom_fonts/font = ExtResource( 1 )
-text = "X POINTS"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Shortcut2" parent="Control/Buttons/Points" instance=ExtResource( 11 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -7.5
-margin_top = -6.3793
-margin_right = 7.5
-margin_bottom = 8.6207
-rect_min_size = Vector2( 15, 15 )
-
 [node name="GoBackButton" type="TextureButton" parent="Control"]
 visible = false
 anchor_left = 1.0
@@ -277,13 +282,15 @@ __meta__ = {
 [node name="ScoreBoard" parent="Control" instance=ExtResource( 10 )]
 visible = false
 margin_left = 0.0
-margin_top = 36.0
 margin_right = 0.0
+margin_bottom = -31.0
 size_flags_horizontal = 6
 size_flags_vertical = 10
 
-[connection signal="pressed" from="Control/Buttons/Objects" to="Control" method="show_house"]
-[connection signal="pressed" from="Control/Buttons/Points" to="Control" method="show_points"]
+[connection signal="button_down" from="Buttons/Objects" to="Buttons/UISoundManager" method="select"]
+[connection signal="pressed" from="Buttons/Objects" to="Control" method="show_house"]
+[connection signal="button_down" from="Buttons/Points" to="Buttons/UISoundManager" method="select"]
+[connection signal="pressed" from="Buttons/Points" to="Control" method="show_points"]
 [connection signal="pressed" from="Control/GoBackButton" to="Control" method="show_buttons"]
 
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse"]

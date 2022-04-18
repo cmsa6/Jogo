@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/challenge.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Context Screen/StoryManager.gd" type="Script" id=10]
 [ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -404,13 +405,19 @@ mouse_filter = 2
 anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
 
+[node name="UISoundManager" parent="." instance=ExtResource( 12 )]
+
 [connection signal="show_map" from="GridContainer" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="button_down" from="GridContainer/Part1/NextStory1" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part1/NextStory1" to="GridContainer/Part1/NextStory1" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part1/NextStory1" to="GridContainer" method="show_next"]
+[connection signal="button_down" from="GridContainer/Part2/NextStory2" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part2/NextStory2" to="GridContainer/Part2/NextStory2" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part2/NextStory2" to="GridContainer" method="show_next"]
+[connection signal="button_down" from="GridContainer/Part3/NextStory3" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part3/NextStory3" to="GridContainer/Part3/NextStory3" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part3/NextStory3" to="GridContainer" method="show_next"]
+[connection signal="button_down" from="FinalButton" to="UISoundManager" method="play"]
 [connection signal="pressed" from="FinalButton" to="FinalButton" method="show_next"]
 [connection signal="show_next" from="FinalButton" to="GridContainer" method="show_next"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]

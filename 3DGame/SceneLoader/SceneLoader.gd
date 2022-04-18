@@ -14,9 +14,9 @@ func load_scene():
 		var err = get_tree().change_scene(next_scene_path)
 		
 		if err:
-			push_error("Scene not loaded... Error: " + err)
+			push_error("Scene not loaded... Error: " + str(err))
 	else:
-		push_error("Scene path invalid. Scene path used: " + next_scene_path)
+		push_error("Scene path invalid. Scene path used: " + str(next_scene_path))
 
 
 

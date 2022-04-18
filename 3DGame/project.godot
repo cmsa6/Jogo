@@ -20,6 +20,7 @@ SettingsManager="*res://SettingsManager/SettingsManager.gd"
 CharactersManager="*res://CharactersManager/CharactersManager.tscn"
 SavingManager="*res://SavingSystem/SavingManager.gd"
 ChallengesManager="*res://ChallengesManager/ChallengesManager.gd"
+AudioManager="*res://Audio Manager/AudioManager.tscn"
 
 [display]
 

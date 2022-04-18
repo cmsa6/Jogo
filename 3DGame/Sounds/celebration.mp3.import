@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/celebration.mp3-802de312fda7a59cdcb6ed791bc26b0f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/celebration.mp3"
+dest_files=[ "res://.import/celebration.mp3-802de312fda7a59cdcb6ed791bc26b0f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

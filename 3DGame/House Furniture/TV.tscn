@@ -20,6 +20,7 @@ surfaces/0 = {
 }
 
 [node name="TV" type="Spatial"]
+transform = Transform( 3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0 )
 script = ExtResource( 2 )
 uid = 6
 
