@@ -29,7 +29,6 @@ func show_skillScreen(orig):
 	skillScreen_node.set_QOLPoints(get_QOLPoints())
 		
 	skillScreen_node.set_up()
-	print("got out")
 	root_node.add_child(skillScreen_node)
 	root_node.move_child(skillScreen_node,0)
 	

@@ -75,12 +75,12 @@ func checkActives(playerFurniture):
 	var numActives = 0
 	for i in range(0,size):
 		furniture = availableFurniture[i]
-		print("furniture gained: ", furniture)
+	
 		pathFurniture = "/root/FurnishedHouse/" + availableFurniture[i]
 		
 		if playerFurniture[furniture] == 1:
 			#progressBar.value += 1
-			print("activeee")
+			
 			numActives += 1
 			if get_lattestReward() == furniture:
 				get_node(furniture).stand_out_object(get_origin())
@@ -89,11 +89,11 @@ func checkActives(playerFurniture):
 		else:
 			get_node(furniture).deactivate_object()
 			
-	print("NUM DE ACTIVES: ", numActives)
+
 	
 
 	
-	text.text = str(numActives) + " / " + str(size) + " OBJECTS"
+	text.text = str(numActives) + " / " + str(size) + text.text
 	tween.interpolate_property(progressBar, "value", numActives - 1, numActives, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	
@@ -102,7 +102,6 @@ func checkActives(playerFurniture):
 
 func show_final_house(playerFurnitures):
 	
-	print(SavingManager.playersScores)
 #	avatarIcon.visible = false
 #	mapButton.visible = false
 	
@@ -115,19 +114,16 @@ func show_final_house(playerFurnitures):
 	#		var activeFurnitures = player.get_gained_furniture()
 	#		checkActives(activeFurnitures)
 
-	print(playerFurnitures)
+	
 	var furnitures = playerFurnitures.keys()
 	
 	for f in furnitures:
-		print(f)
 		if playerFurnitures[f] == 1:
-			print("activated")
 			get_node(f).activate_object()
 		elif playerFurnitures[f] == 0:
-			print("deactivated")
 			get_node(f).deactivate_object()
 			
-	print(scoreInfoManager.visible)
+	
 		
 		
 	
@@ -161,11 +157,8 @@ func show_points(points):
 	
 func hide_extra_info():
 	avatarIcon.visible = false
-	print("trying to erase")
-	print(scoreInfoManager.visible)
 	scoreInfoManager.visible = false
 	progressBar.visible = false
-	print(scoreInfoManager.visible)
 	newMapButton.visible = false
 	
 	

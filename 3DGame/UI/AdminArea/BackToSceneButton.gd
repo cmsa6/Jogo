@@ -11,8 +11,9 @@ func _input(event):
 
 func _on_BackToSceneButton_pressed():
 	#AudioManager.stream_paused = true
-	print(previousScene)
+	
 	#get_node(previousScene).queue_free()
+	
 	
 	ChallengesManager.register_cards("SERVICES")
 	ChallengesManager.register_cards("HELP")

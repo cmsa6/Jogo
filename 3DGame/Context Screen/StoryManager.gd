@@ -18,7 +18,6 @@ signal show_map()
 	
 
 func show_next(currentID):
-	print(currentID)
 	if currentID == "1":
 		nextButton1.visible = false
 		story2.visible = true

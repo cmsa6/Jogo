@@ -1,60 +1,23 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/EvalButton (12).png" type="Texture" id=2]
 [ext_resource path="res://Fotos/EvalButton (14).png" type="Texture" id=3]
 [ext_resource path="res://Fotos/EvalButton (11).png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/head-100x100.png" type="Texture" id=6]
+[ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=7]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Keyboard/Tiles/letterA.png" type="Texture" id=9]
 [ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Fotos/EvalButton (13).png" type="Texture" id=12]
-[ext_resource path="res://Fotos/MapButtonSelected.png" type="Texture" id=13]
-[ext_resource path="res://Fotos/HouseButton.png" type="Texture" id=14]
-[ext_resource path="res://Fotos/HouseButtonSelected.png" type="Texture" id=15]
-[ext_resource path="res://Fotos/MapButton.png" type="Texture" id=16]
-[ext_resource path="res://UI/ChallengeCard/banjo.tscn" type="PackedScene" id=18]
 [ext_resource path="res://UI/ChallengeCard/EvaluateCard.gd" type="Script" id=19]
-[ext_resource path="res://Fotos/ChallengeDisappBackground.png" type="Texture" id=20]
-[ext_resource path="res://UI/ChallengeCard/ViewportEnv.tres" type="Environment" id=21]
-[ext_resource path="res://UI/ChallengeCard/BackToMap.gd" type="Script" id=22]
-[ext_resource path="res://UI/ChallengeCard/HouseButton.gd" type="Script" id=24]
-[ext_resource path="res://House Furniture/Photos/Couch.png" type="Texture" id=25]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=26]
-[ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=27]
 [ext_resource path="res://UI/ChallengeCard/EvalButtons.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
-outline_size = 2
-font_data = ExtResource( 26 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 25
 outline_size = 3
 font_data = ExtResource( 26 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 30
-outline_size = 1
-outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-font_data = ExtResource( 26 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 30
-outline_size = 1
-outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-font_data = ExtResource( 26 )
-
-[sub_resource type="SpatialMaterial" id=5]
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-albedo_color = Color( 0.945098, 0.631373, 0.427451, 1 )
-
-[sub_resource type="CubeMesh" id=6]
-material = SubResource( 5 )
-size = Vector3( 2, 0.01, 2 )
 
 [node name="EvaluateCard" type="Spatial"]
 script = ExtResource( 19 )
@@ -83,68 +46,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardHeader" parent="Evaluation/ColorRect" instance=ExtResource( 27 )]
-margin_right = 720.0
-margin_bottom = 99.1867
-
-[node name="VBoxContainer" parent="Evaluation/ColorRect/CardHeader" index="0"]
-margin_top = 16.0
-margin_bottom = 83.0
-
-[node name="Title" parent="Evaluation/ColorRect/CardHeader/VBoxContainer" index="0"]
-text = "Did the player succeeded the challenge?"
-
-[node name="ChallengeTitle" parent="Evaluation/ColorRect/CardHeader/VBoxContainer" index="1"]
-custom_fonts/font = SubResource( 1 )
-
-[node name="PlayerAvatar" parent="Evaluation/ColorRect/CardHeader" index="1"]
-margin_top = 15.0
-margin_bottom = 85.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Evaluation/ColorRect"]
-margin_left = 80.0
-margin_top = 55.0
-margin_right = 621.0
-margin_bottom = 423.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 32.0
+margin_bottom = 10.0
 size_flags_horizontal = 6
 custom_constants/separation = -12
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OtherPlayers" type="GridContainer" parent="Evaluation/ColorRect/VBoxContainer"]
-visible = false
-margin_left = 359.0
-margin_top = 52.0
-margin_right = 359.0
-margin_bottom = 52.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_constants/hseparation = 22
-columns = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player" type="TextureRect" parent="Evaluation/ColorRect/VBoxContainer"]
-visible = false
-modulate = Color( 1, 1, 1, 0.341176 )
-margin_left = 309.0
-margin_top = 298.0
-margin_right = 409.0
-margin_bottom = 398.0
-rect_min_size = Vector2( 80, 80 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture = ExtResource( 6 )
+[node name="Control" parent="Evaluation/ColorRect/VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 750.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Evaluation/ColorRect/VBoxContainer"]
-margin_left = 95.0
-margin_top = 12.0
-margin_right = 445.0
-margin_bottom = 356.0
+margin_left = 200.0
+margin_top = 88.0
+margin_right = 550.0
+margin_bottom = 432.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = -20
@@ -174,15 +94,6 @@ transform = Transform( 1, 0, 0, 0, 0.848584, 0.529061, 0, -0.529061, 0.848584, 0
 
 [node name="ObjectPlaceHolder" type="Spatial" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer/Viewport"]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
-
-[node name="RewardPreview" type="TextureRect" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer"]
-visible = false
-margin_left = 30.0
-margin_right = 230.0
-margin_bottom = 200.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture = ExtResource( 25 )
 
 [node name="Buttons" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer"]
 margin_left = 45.0
@@ -240,10 +151,10 @@ margin_right = 55.0
 margin_bottom = 114.0
 
 [node name="SkillInfo" type="HBoxContainer" parent="Evaluation/ColorRect"]
-margin_left = 2.0
-margin_top = 352.0
-margin_right = 102.0
-margin_bottom = 422.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -70.0
+margin_right = 100.0
 rect_min_size = Vector2( 100, 70 )
 size_flags_horizontal = 2
 size_flags_vertical = 6
@@ -258,7 +169,7 @@ margin_right = 36.0
 margin_bottom = 51.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "+ 1"
@@ -279,286 +190,14 @@ size_flags_vertical = 6
 texture = ExtResource( 7 )
 expand = true
 
-[node name="Approved" type="Control" parent="."]
-visible = false
-anchor_left = 0.000868082
-anchor_right = 1.00087
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="Approved"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -366.001
-margin_top = -191.0
-margin_right = 351.999
-margin_bottom = 231.0
-color = Color( 0.964706, 0.921569, 0.862745, 0.784314 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CardHeader" parent="Approved/ColorRect2" instance=ExtResource( 27 )]
-margin_right = 720.0
-margin_bottom = 99.1867
-
-[node name="Title" parent="Approved/ColorRect2/CardHeader/VBoxContainer" index="0"]
-text = "GANHASTE O DESAFIO"
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Approved/ColorRect2"]
-margin_left = 1.0
-margin_top = 72.0
-margin_right = 624.0
-margin_bottom = 414.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_constants/separation = -39
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Approved/ColorRect2/HBoxContainer"]
-margin_left = 211.0
-margin_top = 21.0
-margin_right = 411.0
-margin_bottom = 259.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Approved/ColorRect2/HBoxContainer/VBoxContainer"]
-margin_left = 15.0
-margin_right = 184.0
-margin_bottom = 38.0
-size_flags_horizontal = 6
-size_flags_vertical = 2
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "RECEBESTE"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RewardPhotoPlaceholder" type="TextureRect" parent="Approved/ColorRect2/HBoxContainer/VBoxContainer"]
-margin_top = 38.0
-margin_right = 200.0
-margin_bottom = 238.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.85
-texture = ExtResource( 25 )
-
-[node name="VBoxContainer2" type="HBoxContainer" parent="Approved/ColorRect2/HBoxContainer"]
-margin_left = 111.0
-margin_top = 242.0
-margin_right = 511.0
-margin_bottom = 342.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.0
-custom_constants/separation = 200
-
-[node name="HouseButton" type="TextureButton" parent="Approved/ColorRect2/HBoxContainer/VBoxContainer2"]
-visible = false
-margin_right = 100.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 15 )
-script = ExtResource( 24 )
-
-[node name="MapButton" type="TextureButton" parent="Approved/ColorRect2/HBoxContainer/VBoxContainer2"]
-visible = false
-margin_left = 300.0
-margin_right = 400.0
-margin_bottom = 100.0
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 13 )
-script = ExtResource( 22 )
-
-[node name="Disapproved" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = 6.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="TextureRect" parent="Disapproved"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.76685
-margin_right = 1.76685
-texture = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="Disapproved"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -366.0
-margin_top = -194.0
-margin_right = 352.0
-margin_bottom = 228.0
-color = Color( 0.964706, 0.921569, 0.862745, 0.94902 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CardHeader" parent="Disapproved/ColorRect2" instance=ExtResource( 27 )]
-anchor_top = -0.417453
-anchor_bottom = -0.417453
-margin_top = 177.165
-margin_right = 720.0
-margin_bottom = 277.165
-
-[node name="Title" parent="Disapproved/ColorRect2/CardHeader/VBoxContainer" index="0"]
-text = "PERDESTE O DESAFIO "
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Disapproved/ColorRect2"]
-margin_left = 1.0
-margin_top = 97.0
-margin_right = 625.0
-margin_bottom = 409.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_constants/separation = -39
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Disapproved/ColorRect2/HBoxContainer"]
-margin_right = 624.0
-margin_bottom = 238.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer"]
-margin_left = 208.0
-margin_right = 416.0
-margin_bottom = 38.0
-size_flags_horizontal = 6
-size_flags_vertical = 2
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "NÃO RECEBESTE"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ViewportContainer" type="ViewportContainer" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer"]
-visible = false
-modulate = Color( 1, 1, 1, 0.411765 )
-margin_left = 340.0
-margin_top = 221.0
-margin_right = 540.0
-margin_bottom = 421.0
-grow_vertical = 0
-rect_min_size = Vector2( 150, 150 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="Viewport" type="Viewport" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer"]
-size = Vector2( 200, 200 )
-own_world = true
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 0
-
-[node name="Spatial" type="Spatial" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer/Viewport"]
-
-[node name="object_placeHolder" type="Spatial" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer/Viewport/Spatial"]
-
-[node name="banjo01" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer/Viewport/Spatial/object_placeHolder" instance=ExtResource( 18 )]
-transform = Transform( 0.931209, -0.144492, -0.334623, 0, 0.918066, -0.396427, 0.364487, 0.369156, 0.854911, 0, 0, 0 )
-
-[node name="Camera" type="Camera" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, -0.0909281, 0.995857, 0, -0.995857, -0.0909281, -0.00486958, 1.09416, -0.0293272 )
-environment = ExtResource( 21 )
-fov = 46.0
-
-[node name="DirectionalLight" type="DirectionalLight" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, -0.00102977, 0.999999, 0, -0.999999, -0.00102977, -0.257783, 2.90285, -0.217394 )
-visible = false
-light_energy = 1.6
-
-[node name="MeshInstance" type="MeshInstance" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer/ViewportContainer/Viewport/Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00368154, -0.00308275, -8.01086e-05 )
-visible = false
-mesh = SubResource( 6 )
-material/0 = null
-
-[node name="RewardPhotoPlaceholder" type="TextureRect" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer"]
-modulate = Color( 1, 1, 1, 0.427451 )
-margin_left = 212.0
-margin_top = 38.0
-margin_right = 412.0
-margin_bottom = 238.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture = ExtResource( 25 )
-
-[node name="VBoxContainer2" type="HBoxContainer" parent="Disapproved/ColorRect2/HBoxContainer"]
-margin_left = 112.0
-margin_top = 205.0
-margin_right = 512.0
-margin_bottom = 305.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.0
-custom_constants/separation = 200
-
-[node name="HouseButton" type="TextureButton" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2"]
-visible = false
-margin_right = 100.0
-margin_bottom = 100.0
-size_flags_horizontal = 4
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 15 )
-script = ExtResource( 24 )
-
-[node name="MapButton" type="TextureButton" parent="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2"]
-visible = false
-margin_left = 300.0
-margin_right = 400.0
-margin_bottom = 100.0
-size_flags_horizontal = 0
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 13 )
-script = ExtResource( 22 )
-
 [node name="LoadSavedScene" parent="." instance=ExtResource( 1 )]
 
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
+[connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/Control/CardHeader/BackButton" to="." method="go_back"]
 [connection signal="button_down" from="Evaluation/ColorRect/VBoxContainer/VBoxContainer/Buttons/VBoxContainer/ApproveButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/VBoxContainer/Buttons/VBoxContainer/ApproveButton" to="." method="approve" binds= [ true ]]
 [connection signal="button_down" from="Evaluation/ColorRect/VBoxContainer/VBoxContainer/Buttons/VBoxContainer2/DisapproveButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/VBoxContainer/Buttons/VBoxContainer2/DisapproveButton" to="." method="approve" binds= [ false ]]
-[connection signal="pressed" from="Approved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" to="Approved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" method="show_house"]
-[connection signal="pressed" from="Approved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" to="Approved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" method="discardCurrentCard" binds= [ "Approved" ]]
-[connection signal="pressed" from="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" to="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/HouseButton" method="show_house"]
-[connection signal="pressed" from="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" to="Disapproved/ColorRect2/HBoxContainer/VBoxContainer2/MapButton" method="discardCurrentCard" binds= [ "Disapproved" ]]
 
-[editable path="Evaluation/ColorRect/CardHeader"]
-[editable path="Approved/ColorRect2/CardHeader"]
-[editable path="Disapproved/ColorRect2/CardHeader"]
+[editable path="Evaluation/ColorRect/VBoxContainer/Control"]

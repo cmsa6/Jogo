@@ -3,7 +3,6 @@ extends Control
 export(NodePath) var player_placeholder
 export(int) var player_num
 
-const PLAYER_TEXT = "Player "
 
 var player_turn
 
@@ -21,7 +20,9 @@ onready var player_label = $PlayerPreview/HBoxContainer/ColorRect/HBoxContainer/
 
 func _ready():
 	if(player_num <= SettingsManager.num_of_players):
-		player_label.text = PLAYER_TEXT + str(player_num) 
+		print("ready onde escreve o numero")
+		player_label.text = player_label.text + str(player_num) 
+		
 
 func _on_new_character_selected(character):
 	var instance

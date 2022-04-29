@@ -1,5 +1,7 @@
 extends ColorRect
 
+export(NodePath) var translationManager
+
 onready var diceResumoAvatar = $HBoxContainer/VBoxContainer/Avatar
 onready var diceAnim = $HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll/Spatial/AnimationPlayer
 onready var playerName = $HBoxContainer/DiceResumo/PlayerName
@@ -31,7 +33,11 @@ func _ready():
 	#diceAnim.play("thrown")
 	
 	rng.randomize()
-	var diceValue = rng.randi_range(2, 6)
+	
+	var diceValue = rng.randi_range(1, 6)
+	
+#	var diceValue = 4
+	
 	var animName = "Roll_" + str(diceValue)
 	print("acabei a animacao")
 	roll.set_value(diceValue)
@@ -47,7 +53,8 @@ func _ready():
 
 
 func update_text(value):
-	instructions.text = "Is gonna walk " + str(value) + " steps"
+	#instructions.text = "Is gonna walk " + str(value) + " steps"
+	get_node(translationManager).translate(str(value))
 	instructions.modulate = VISIBLE
 	button.modulate = VISIBLE
 	button.disabled = false

@@ -16,6 +16,10 @@ func _ready():
 	confirm_button.visible = false
 	confirm_button.disabled = true
 	
+	print("no ready do menu")
+	
+	print(SettingsManager.language)
+	
 	set_player_selecter()
 	
 func set_player_selecter():

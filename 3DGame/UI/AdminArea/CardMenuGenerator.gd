@@ -22,7 +22,7 @@ func _ready():
 				file.open(pathToFile, File.READ)
 				var content = file.get_as_text()
 				file.close()
-				print("nome: " + file_name)
+				
 				makeNewCard(content)
 
 				

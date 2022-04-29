@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/challenge.png" type="Texture" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://Context Screen/Story1.gd" type="Script" id=8]
 [ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Context Screen/StoryManager.gd" type="Script" id=10]
-[ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Context Screen/TranslationManager.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -82,6 +84,13 @@ __meta__ = {
 "_edit_vertical_guides_": [ -6.25492 ]
 }
 
+[node name="TranslationManager" parent="." instance=ExtResource( 11 )]
+script = ExtResource( 14 )
+space1 = NodePath("../GridContainer/Part1/Story1/VBoxContainer/WelcomeText")
+space2 = NodePath("../GridContainer/Part2/Story2/VBoxContainer/Label")
+space3 = NodePath("../GridContainer/Part3/Story3/VBoxContainer/Label")
+space4 = NodePath("../GridContainer/Part4/Story4/VBoxContainer/Label")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = -0.000803351
 anchor_right = 0.999197
@@ -92,6 +101,8 @@ color = Color( 0.894118, 0.388235, 0.054902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UISoundManager" parent="." instance=ExtResource( 12 )]
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
@@ -138,7 +149,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "Welcome Player 1, player 2, player 3 and player 4!"
+text = "Welcome "
 align = 1
 valign = 1
 autowrap = true
@@ -166,9 +177,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="GridContainer/Part1/NextStory1" instance=ExtResource( 11 )]
-margin_top = -10.0
-margin_bottom = 6.0
+[node name="HBoxContainer2" parent="GridContainer/Part1/NextStory1" instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -5.0
+margin_right = 8.0
+margin_bottom = 21.0
 
 [node name="Part2" type="Control" parent="GridContainer"]
 margin_left = 514.0
@@ -241,11 +258,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="GridContainer/Part2/NextStory2" instance=ExtResource( 11 )]
-anchor_top = 0.91
-anchor_bottom = 0.91
-margin_top = 0.0
-margin_bottom = 16.0
+[node name="HBoxContainer2" parent="GridContainer/Part2/NextStory2" instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -5.0
+margin_right = 8.0
+margin_bottom = 21.0
 
 [node name="Part3" type="Control" parent="GridContainer"]
 margin_top = 302.0
@@ -314,11 +335,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="GridContainer/Part3/NextStory3" instance=ExtResource( 11 )]
-anchor_top = 0.97
-anchor_bottom = 0.97
-margin_top = -8.0
-margin_bottom = 8.0
+[node name="HBoxContainer2" parent="GridContainer/Part3/NextStory3" instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -5.0
+margin_right = 8.0
+margin_bottom = 21.0
 
 [node name="Part4" type="Control" parent="GridContainer"]
 margin_left = 514.0
@@ -357,7 +382,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "You can gain objects by completing challenges you will find in the city"
+text = "You can win objects by completing challenges around the city."
 align = 1
 valign = 1
 autowrap = true
@@ -381,7 +406,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = -103.0
+margin_top = -127.0
 margin_bottom = -3.0
 texture_normal = ExtResource( 6 )
 script = ExtResource( 7 )
@@ -389,9 +414,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="FinalButton" instance=ExtResource( 11 )]
-margin_top = -15.0
-margin_bottom = 1.0
+[node name="HBoxContainer2" parent="FinalButton" instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -29.0
+margin_right = 8.0
+margin_bottom = -3.0
 
 [node name="SceneLoader" parent="." instance=ExtResource( 1 )]
 next_scene_path = "res://cris/crisMap3.tscn"
@@ -404,8 +435,6 @@ mouse_filter = 2
 [node name="AnimationPlayer" parent="SceneTransitionAnim/Control" index="1"]
 anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
-
-[node name="UISoundManager" parent="." instance=ExtResource( 12 )]
 
 [connection signal="show_map" from="GridContainer" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="GridContainer/Part1/NextStory1" to="UISoundManager" method="confirm"]

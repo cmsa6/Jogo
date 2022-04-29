@@ -22,6 +22,7 @@ var velocity = Vector3.ZERO
 
 var is_my_turn = false
 var canMove = false
+var adjust = false
 var target_count = 0
 var cells_to_walk = 0
 
@@ -31,6 +32,7 @@ var furnitureGained = {}
 var rng = RandomNumberGenerator.new()
 
 var iAlreadyWon = false setget set_iAlreadyWon, get_iAlreadyWon
+
 
 
 #var points = {"InterpersonalRelationship" : 0, "SocialInclusion": 0, "Rights": 0, "PersonalDevelopment": 0, "Self-Determination": 0, "PhysicalWellbeing": 0, "MaterialWellbeing": 0, "EmotionalWellbeing": 0, "CalculusandProblemSolving": 0, "Language": 0, "MemoryandAttentiontoDetail": 0, "SpatialOrientation": 0, "SocialandEmotionalWellbeing": 0}
@@ -52,17 +54,18 @@ onready var arrow = $Arrow
  
 func _ready():
 	#Spwon character
+	
 	var instance
-	print(self.get_name())
-	print(player_num)
-	print(SettingsManager.num_of_players)
+	
+
+	
 	if(player_num <= SettingsManager.num_of_players):
-		print( "creating player with number: ", SettingsManager.players[player_num-1])
+		
 		instance = CharactersManager.get_character_scene(
 			SettingsManager.players[player_num - 1].character).instance()
 		instance.name = "Body"
 		self.add_child(instance)
-		print("nasci aqui: ", transform.origin)
+		
 		
 		gameManager = get_node(GameManager)
 		cells_size = gameManager.get_cells().size()
@@ -91,20 +94,30 @@ func Move(dice_value):
 	
 func UpdateTarget():
 	target_pos = get_target_position()
-	#print("posicao do target: ", target_pos)
+	
+
 
 func get_target_position():
+	print(target_count)
 	if target_count == 25:
 		target_count = 0 
 	#print("trying to solve problem, target: ", target_count)
+	
 	target = gameManager.get_node_cell_by_index(target_count)
-	return target.transform.origin
+	print("target name | ", target.get_name())
+	print("target pos | ", target.transform.origin )
+	return target.transform.origin 
+		
+		
+		
 
 func RotatePlayerToNextTarget():
 	look_at(target_pos, Vector3.UP)
 	
 func player_reached_target(_body):
+	
 	if is_my_turn:
+		print("i HAVE THESE CELLS TO WALK: ", cells_to_walk)
 		target_count += 1
 		cells_to_walk -= 1
 #		if target_count >= cells_size || target.type == target.TYPE.END:
@@ -115,13 +128,28 @@ func player_reached_target(_body):
 #			emit_signal("game_finished")
 		if cells_to_walk > 0:
 			UpdateTarget()
+				
+
 			#incr_points(1)
+		
 		else:
-			# Player reached destiniation cell
+#			var is_occupied = false
+#			print("NEXT CELL NAME: ", gameManager.get_node_cell_by_index(target_count).get_name())
+#
+#			var occupations = gameManager.get_occupations()
+#			print(occupations)
+#			for o in occupations.values():
+#				if o == gameManager.get_node_cell_by_index(target_count).get_name(): 
+#					is_occupied = true
+#					print("esta ocupada!")
+#
+#			gameManager.register_occupation(get_player_num(), gameManager.get_node_cell_by_index(target_count).get_name())
+
+			# Player reached destiniation cell			
 			if target.type == target.TYPE.GAME_COMMERCIAL || target.type == target.TYPE.GAME_LEISURE || target.type == target.TYPE.GAME_HELP || target.type == target.TYPE.GAME_SERVICES:
 				#SavingManager.current_player = player_num - 1
 				#play_animation(CharactersManager.IDLE_ANIM)
-				var type = get_type(target.type)
+				var type = get_type(target.type) 
 				
 				#set_points(type, 1)
 				#print("player points: ", get_points())
@@ -130,8 +158,38 @@ func player_reached_target(_body):
 			
 			elif target.type == target.TYPE.COMMERCIAL || target.type == target.TYPE.LEISURE || target.type == target.TYPE.HELP || target.type == target.TYPE.SERVICES  || target.type == target.TYPE.INIT:
 				#get_node(timer_node).start(3.5)
+				stop_animation()
 				finished_game()
 			canMove = false
+			adjust = true
+			
+			
+			
+			play_animation(CharactersManager.IDLE_ANIM)
+			
+			#self.transform.origin  =  gameManager.get_node_cell_by_index(target_count).get_dot_pos()
+			
+			# This code avoids that avatars overlap when in the same space
+#			if is_occupied:
+#				if target.type == target.TYPE.COMMERCIAL or target.type == target.TYPE.GAME_COMMERCIAL:
+#					print("entrei3")
+#					self.transform.origin = self.transform.origin - Vector3(0,0,0.5*(get_player_num()-1))
+#
+#				elif target.type == target.TYPE.LEISURE or target.type == target.TYPE.GAME_LEISURE:
+#					print("entrei2")
+#					self.transform.origin = self.transform.origin + Vector3(0.5*(get_player_num()-1),0,0)
+#
+#				elif target.type == target.TYPE.HELP or target.type == target.TYPE.GAME_HELP:
+#					print(self.transform.origin)
+#					self.transform.origin = self.transform.origin + Vector3(0,0,(get_player_num()-1))
+#					print(self.transform.origin)
+#					print("entrei1")
+#
+#
+#				elif target.type == target.TYPE.SERVICES or target.type == target.TYPE.GAME_SERVICES:
+#					print("entrei4")
+#					self.transform.origin = self.transform.origin - Vector3(0.5*(get_player_num()-1),0,0)
+
 			
 			#is_my_turn = false
 			#play_animation(CharactersManager.IDLE_ANIM)
@@ -142,6 +200,8 @@ func player_reached_target(_body):
 			
 
 func _physics_process(_delta):
+#	if adjust:
+#		self.transform.origin = self.transform.origin - Vector3(0,0,(get_player_num()-1))
 	if canMove:
 		RotatePlayerToNextTarget()
 		velocity = -transform.basis.z * speed
@@ -149,6 +209,19 @@ func _physics_process(_delta):
 			velocity = move_and_slide(velocity)
 		play_animation(CharactersManager.WALK_ANIM)
 		emit_signal("walkingSound")
+#	elif adjust:
+#		var dot =  gameManager.get_node_cell_by_index(target_count).get_dot()
+#		var point = dot.transform.origin
+#		print(gameManager.get_node_cell_by_index(target_count).get_name())
+#		print(target_pos)
+#		print(point)
+#		velocity = transform.basis.z * speed
+#		print(transform.origin.distance_to(point))
+#		if transform.origin.distance_to(point) > 0.2:
+#			velocity = move_and_slide(velocity)
+#		else:
+#			adjust = false
+
 		
 
 # Animation controller
@@ -164,16 +237,16 @@ func set_points(type, points_to_add):
 	set_totalPoints(points_to_add)
 	
 	type = type.replace(" ", "")
-	print(type)
+
 	
 	var category = check_type(type)
-	print(category)
+	
 	var actualPoints
 	var p
 	var totalPoints	
 	
 	if category == "QOL":
-		print("hello entrei no qol")
+	
 		actualPoints = get_QOLPoints()
 		p = actualPoints[type]
 		totalPoints =  p + int(points_to_add)
@@ -181,7 +254,7 @@ func set_points(type, points_to_add):
 		SavingManager.playersQOLSkills[player_num] = actualPoints
 		
 	elif category == "CF":
-		print("hello entrei no cf")
+	
 		actualPoints = get_CFPoints()
 		p = actualPoints[type]
 		totalPoints =  p + int(points_to_add)
@@ -215,7 +288,6 @@ func get_player_num():
 	
 func finished_game():
 	#canMove = false
-	print("finishged game")
 	var game_node = get_node("/root/Map1")
 	SavingManager.saved_scene = game_node 
 	is_my_turn = false
@@ -223,32 +295,31 @@ func finished_game():
 	UpdateTarget()
 	RotatePlayerToNextTarget()
 	emit_signal("play_aguen")
-	print("who am i")
-	print(self)
+
 
 	emit_signal("player_turn_ended")
 
 func create_furniture_array():
-	print("create array")
+	
 	var maxFurniture = availableFurniture.size()
 	for i in range(0, maxFurniture):
 		furnitureGained[availableFurniture[i]] = 0
 	SavingManager.playersScores[player_num] = furnitureGained
-	print("scores dos players: ", SavingManager.playersScores)
+	
 		
 func gained_furniture(furnitureId):
-	print("dentro do gained furniture: ", furnitureId)
+
 	#furnitureGained.insert(furnitureId,1)
 	furnitureGained[furnitureId] = 1
-	print(furnitureGained)
+
 	
 	SavingManager.playersScores[player_num] = furnitureGained
-	print("scores dos players: ", SavingManager.playersScores)
+	
 	
 	var totalFurniture = 0
 	var values = furnitureGained.values()
 	
-	print(values)
+	
 	for v in values:
 		totalFurniture += v
 		
@@ -260,19 +331,19 @@ func get_gained_furniture():
 	return furnitureGained
 	
 func check_win():
-	print("checkwin: ", furnitureGained)
+	
 	var maxFurniture = availableFurniture.size()
 	for i in range(0, maxFurniture):
-		print(furnitureGained[availableFurniture[i]])
+		
 		if furnitureGained[availableFurniture[i]] == 0:
 			return false
 	
 	set_iAlreadyWon(true)	
-	print("ja ganhei tudo")
+	
 	return true
 
 func all_won_game():
-	print("all won game!")
+	
 	#var allPlayers = get_node("/root/Map1/Spawners").get_children()
 	
 	#for player in allPlayers:
@@ -288,8 +359,7 @@ func get_random_reward():
 			missingRewards.append(availableFurniture[i])
 	
 		
-	print(availableFurniture)
-	print("faltam me as rewards ", missingRewards)
+
 	rng.randomize()
 	var maxMissingRewards = missingRewards.size()
 	if maxMissingRewards == 0:
@@ -332,11 +402,12 @@ func check_type(type):
 
 
 func show_arrow(playerTurn):
-	print("player turn: ", playerTurn)
-	print("player num: ", player_num)
-	print(self.get_name())
+
 	if playerTurn == (player_num - 1):
 		arrow.visible = true
 	else:
 		arrow.visible = false
+		
+		
+
 	

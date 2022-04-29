@@ -6,13 +6,13 @@ onready var players = $VBoxContainer/PlayersList
 var iconScene = preload("res://UI/QuitMenu/Avatar.tscn")
 
 func _ready():
+	print("ready dos textos")
 	var numPlayers = SettingsManager.num_of_players
 	var playersNames = SavingManager.playersNames
-	print(playersNames)
-	welcomeText.text = "Welcome "
+	
 	
 	for i in range(0, numPlayers):
-		welcomeText.text = welcomeText.text  + playersNames[i+1]
+		welcomeText.text += playersNames[i+1]
 		if numPlayers > 1 and i != (numPlayers - 1):
 			welcomeText.text = welcomeText.text + ", "
 		

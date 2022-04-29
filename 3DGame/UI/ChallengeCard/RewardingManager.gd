@@ -1,20 +1,22 @@
 extends VBoxContainer
 
-onready var rewardPlaceHolder = $RewardPlaceholder
-onready var rewardTitle = $Reward
-onready var objectPlaceHolder = $ViewportContainer/Viewport/ObjectPlaceHolder
-onready var viewportContainer = $ViewportContainer
+#onready var rewardPlaceHolder = $RewardPlaceholder
+onready var rewardTitle = $RewardTitle
+onready var objectPlaceHolder = $CenterContainer/ViewportContainer/Viewport/ObjectPlaceHolder
+onready var viewportContainer = $CenterContainer/ViewportContainer
 
 
 export(NodePath) var numPoints
 export(NodePath) var skill
 
 var type setget set_type, get_type
+var cardData setget set_cardData, get_cardData
 
 export(NodePath) var playerAvatar
 export(NodePath) var ChallengeTitle
 export(NodePath) var title
 export(NodePath) var backgroundColor
+export(NodePath) var SkillBackgroundColor
 
 
 signal save_card_data(data)
@@ -22,59 +24,80 @@ signal save_card_type(type)
 signal update_card_status(card_title)
 
 var reward = "" setget set_reward, get_reward
+var origin = "" setget set_origin, get_origin
+
 var rng = RandomNumberGenerator.new()
 
 func _ready():
 	#escolhe randomnly um valor que corresponde a uma carta
-	var cardType = get_type()
-	#var randomFile = select_random_file(cardType)
-	
-	var randomFile = select_random_file_name(cardType)
-	var fileName = "res://Cards/" + str(cardType) + "/" + randomFile
-	print("it selected the file ", fileName)
-	var file = File.new()
-	file.open(fileName, File.READ)
-	var content = file.get_as_text()
-	file.close()
-	
-	var newcontent = content.split("|")
-	
-	#emit_signal("update_card_status", newcontent[1])
-	set_card_status(newcontent[1])
-	
-	
-#	var reward = newcontent[11]
-#	reward = reward.replace(" ", "")
-	reward = check_player_rewards()
-	
-	newcontent.append("REWARD")
-	#reward = " " + reward
-	newcontent.append(reward) 
-	
-	if reward != "none":
-#		var rewardPath = "res://House Furniture/Photos/" + reward + ".png"
-#		var rewardPhoto = load(rewardPath)
-#		rewardPlaceHolder.texture = rewardPhoto
-		var objectName = "res://House Furniture/" + reward + ".tscn"
-		var object = load(objectName)
-		objectPlaceHolder.add_child(object.instance())
-	else:
-		viewportContainer.visible = false
-		#rewardPlaceHolder.visible = false
-	
-	get_node(numPoints).text = "+" + newcontent[7] 
-	var skillDev = newcontent[9].replace(" ","")
-	print("skill being developed: ", skillDev)
-	var skillPath = "res://Cards/Skills/" + skillDev + ".png"
-	var skillPhoto = load(skillPath)
-	get_node(skill).texture = skillPhoto
-	
-	emit_signal("save_card_data", newcontent)
-	
-	var colors = set_cardColor(type)
-	
-	#emit_signal("save_card_type", cardType)
-	emit_signal("save_card_type", colors)
+	if get_origin() == "":
+		var cardType = get_type()
+
+		
+		var randomFile = select_random_file_name(cardType)
+		var fileName = "res://Cards/" + str(cardType) + "/" + randomFile
+		
+		var file = File.new()
+		file.open(fileName, File.READ)
+		var content = file.get_as_text()
+		file.close()
+		
+		var newcontent = content.split("|")
+		
+		set_card_status(newcontent[1])
+		
+		reward = check_player_rewards()
+		
+		newcontent.append("REWARD")
+		newcontent.append(reward) 
+		
+		if reward != "none":
+			var objectName = "res://House Furniture/" + reward + ".tscn"
+			var object = load(objectName)
+			objectPlaceHolder.add_child(object.instance())
+		else:
+			viewportContainer.visible = false
+
+		
+		get_node(numPoints).text = "+" + newcontent[7] 
+		var skillDev = newcontent[9].replace(" ","")
+		
+		var skillPath = "res://Cards/Skills/" + skillDev + ".png"
+		var skillPhoto = load(skillPath)
+		get_node(skill).texture = skillPhoto
+		
+		emit_signal("save_card_data", newcontent)
+		
+		var colors = get_type_colors(type)
+		set_cardColor(colors)
+		
+
+		emit_signal("save_card_type", colors)
+		
+	elif origin == "back":		
+		set_card_status(get_cardData()[1]) 
+		var reward = get_cardData()[11]
+		if reward != "none":
+			var objectName = "res://House Furniture/" + reward + ".tscn"
+			var object = load(objectName)
+			objectPlaceHolder.add_child(object.instance())
+		else:
+			viewportContainer.visible = false
+
+		
+		get_node(numPoints).text = "+" + get_cardData()[7]
+		var skillDev = get_cardData()[9].replace(" ","")
+		print(skillDev)
+		
+		var skillPath = "res://Cards/Skills/" + skillDev + ".png"
+		var skillPhoto = load(skillPath)
+		get_node(skill).texture = skillPhoto
+		
+		set_cardColor(get_type())
+		
+		emit_signal("save_card_data", get_cardData())
+
+		emit_signal("save_card_type", get_type())
 	
 	
 	
@@ -163,33 +186,24 @@ func set_type(t):
 func get_type():
 	return type
 	
-	
-func set_cardColor(type):
-	print("setting color for card of type: ", type)
-	#var card = get_node(cardColor)
-	var background = get_node(backgroundColor)
-	var titleFont = get_node(title)
-	var challengeTitlefont = get_node(ChallengeTitle)
-	var numPointsFont = get_node(numPoints)
-	
-	var backColor
-	var fontColor
-	var outlineColor
-	
+func get_type_colors(type):
+	var fontColor    = Color8(0, 0, 0, 255)
+	var backColor    = Color8(0, 0, 0, 255)
+	var outlineColor = Color8(0, 0, 0, 255)
 	
 	if type == "COMMERCIAL":
 		backColor    = Color8(244, 202, 156, 200)
-		fontColor    =  Color8(223, 135, 31, 255)
+		fontColor    = Color8(223, 135, 31, 255)
 		outlineColor = Color8(159, 86, 0, 255)
 		
 	elif type == "SERVICES":
 		backColor    = Color8(180, 193, 149, 200)
-		fontColor    =  Color8(81, 132, 26, 255)
+		fontColor    = Color8(81, 132, 26, 255)
 		outlineColor = Color8(56, 100, 7, 255)
 		
 	elif type == "LEISURE":
 		backColor    = Color8(231, 189, 232, 200)
-		fontColor    =  Color8(186, 74, 169, 255)
+		fontColor    = Color8(186, 74, 169, 255)
 		outlineColor = Color8(116, 19, 101, 255)
 		
 	elif type == "HELP":		
@@ -197,9 +211,29 @@ func set_cardColor(type):
 		outlineColor = Color8(15, 86, 177, 255)
 		backColor    = Color8(184, 206, 222, 200)
 		
+	return [fontColor, backColor, outlineColor]
+	
+	
+func set_cardColor(colors):
+	
+	#var card = get_node(cardColor)
+	var background = get_node(backgroundColor)
+	var skillBackground = get_node(SkillBackgroundColor)
+	var titleFont = get_node(title)
+	var challengeTitlefont = get_node(ChallengeTitle)
+	var numPointsFont = get_node(numPoints)
+	
+	var fontColor    = colors[0]
+	var backColor    = colors[1]
+	var outlineColor = colors[2]
+	
+	
+	
+		
 		
 		
 	background.color = backColor
+	skillBackground.color = fontColor
 	titleFont.set("custom_colors/font_color", fontColor)
 	titleFont.set("custom_colors/font_outline_modulate", outlineColor)
 	
@@ -212,6 +246,19 @@ func set_cardColor(type):
 	numPointsFont.set("custom_colors/font_color", fontColor)
 	numPointsFont.set("custom_colors/font_outline_modulate", outlineColor)
 	
-	
-	return [fontColor, backColor, outlineColor]
 
+	
+	
+func set_origin(orig):
+	origin = orig
+	print("setting origin to ", orig)
+
+func get_origin():
+	return origin
+	
+func set_cardData(data):
+	cardData = data
+	
+func get_cardData():
+	return cardData
+	

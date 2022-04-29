@@ -11,7 +11,6 @@ onready var cardType = $CardTitle
 func submit():
 	var file = File.new()
 	var pathToFile = "res://Cards/" + cardType.text + "/" + title.text + ".txt"
-	print(pathToFile)
 	file.open(pathToFile, File.WRITE)
 	file.store_string("TITULO| " + title.text + "|\n")
 	file.store_string("INSTRUCTIONS| " + explanation.text + "|\n")

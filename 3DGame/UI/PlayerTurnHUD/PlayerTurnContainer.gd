@@ -26,7 +26,6 @@ func set_icon(new_icon):
 	icon.texture = new_icon
 
 func set_points_text(new_points):
-	print("helooo? im on set points: ", new_points)
 	label.text = str(new_points) + POINTS_LABEL  
 	#if new_points < 10:
 	#	label.text = str(new_points) + POINTS_LABEL + "S"
@@ -46,13 +45,11 @@ func get_player():
 	return player 
 	
 func hide_turn():
-	print("hide text")
 	turnText.modulate = HIDDEN
 	arrow.modulate = HIDDEN
 
 
 func hide_agency():
-	print("hide_agency")
 	#diceButton.disappear()
 	button.disabled = true
 	diceButton.stop()
@@ -63,7 +60,6 @@ func hide_agency():
 	
 	
 func show_agency():
-	print("show_agency")
 	EnablePLayerButton()
 	#diceButton.visible = true
 	diceButton.disabled = false

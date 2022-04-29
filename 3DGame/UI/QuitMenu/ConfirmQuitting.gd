@@ -17,9 +17,8 @@ func go_back_game():
 	var rootNode = get_node("/root")
 	
 	var currentCard = rootNode.get_child(0)
-	print(currentCard)
 	currentCard.queue_free()
-	print(rootNode.get_children())
+
 	
 	
 	# Load saved scene

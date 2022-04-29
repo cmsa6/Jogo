@@ -11,7 +11,7 @@ func _input(event):
 
 	
 func discardCurrentCard(eval):
-	print("discardfunction")
+	
 	var root_node = get_node("/root")
 	var current_player = SavingManager.current_player
 
@@ -33,11 +33,11 @@ func discardCurrentCard(eval):
 	
 	#var timer_node = get_node("/root/Map1/PlayTimer")
 	
-	print(eval)
+	
 	
 	var player
 
-	print("num players: ", players.size())
+
 	var numPlayers =  SettingsManager.num_of_players
 	for child in players:
 		if ( child.get_player_num() -1 ) == current_player:
@@ -54,28 +54,25 @@ func discardCurrentCard(eval):
 				#timer_node.start(3.5)
 			#break
 		
-		print("did i won? ", child.get_iAlreadyWon())
+	
 		if child.get_iAlreadyWon():
 			SavingManager.winning_players.append(child)
-		print("quantos players ja ganharam: ", SavingManager.winning_players.size())
+	
 	if SavingManager.winning_players.size() == SettingsManager.num_of_players:
-		print("GANHEIII")
+
 		player.all_won_game()
 			
 	
 
 	
 func discard_dice_info():
-	print("im being pressed")
 	var root_node = get_node("/root")
 
 	var currentCard = root_node.get_child(0)
-	print(currentCard.get_children())
 	currentCard.queue_free()
 	
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
 	#canvasNode.enable_canvas()
-	print("\n")
 	canvasNode.erase_text()
 	
 func teste():

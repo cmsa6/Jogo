@@ -3,7 +3,6 @@ extends Node
 export(String, FILE) var next_scene_path
 
 func load_scene():
-	print(next_scene_path)
 	if next_scene_path.strip_edges(true, true) != "" && next_scene_path != null:
 		
 		if "Final" in next_scene_path:

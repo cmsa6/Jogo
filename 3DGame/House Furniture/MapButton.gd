@@ -22,21 +22,16 @@ func back_to_map():
 	var rootNode = get_node("/root")
 	
 	var currentCard = rootNode.get_child(0)
-	print("firstChild")	
-	print(currentCard)
 	currentCard.queue_free()
-	print(rootNode.get_children())
 	
 	var currentPlayer = SavingManager.current_player
 	
 	var isItCheckingSkills = get_checkingSkills()
 	var origin = get_screenOrigin()
-	print("origin: ", origin)
-	print("checking skills: ", isItCheckingSkills)
+
 	
 	# Load saved scene
 	if isItCheckingSkills:
-		print("entrei aqui")
 		set_checkingSkills(false)
 		var scoreInfo = get_node("/root/FurnishedHouse/ScoreInfo/ScoreInfoManager")
 		scoreInfo.show_bar()

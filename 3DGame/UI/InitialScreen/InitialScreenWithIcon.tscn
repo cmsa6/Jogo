@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
@@ -6,11 +6,15 @@
 [ext_resource path="res://Fonts/kenney_future.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fotos/settings.png" type="Texture" id=5]
 [ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=6]
-[ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Fotos/playButton (6).png" type="Texture" id=8]
-[ext_resource path="res://Fotos/PlayButtonSelected (1).png" type="Texture" id=9]
+[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fotos/PlayButtonSelected.png" type="Texture" id=8]
+[ext_resource path="res://Fotos/playButton.png" type="Texture" id=9]
 [ext_resource path="res://UI/InitialScreen/SettingsButton.gd" type="Script" id=10]
 [ext_resource path="res://UI/AdminArea/BackToSceneButton.gd" type="Script" id=11]
+[ext_resource path="res://Languages/en.png" type="Texture" id=12]
+[ext_resource path="res://Fotos/languageButton.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/languageButtonSelected.png" type="Texture" id=14]
+[ext_resource path="res://UI/InitialScreen/LanguageSwitcher.gd" type="Script" id=15]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -39,7 +43,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -229.139
 margin_top = -286.833
-margin_right = 794.86
+margin_right = 794.861
 margin_bottom = 313.167
 rect_min_size = Vector2( 600, 600 )
 rect_scale = Vector2( 0.44, 0.48 )
@@ -81,11 +85,8 @@ scale = Vector2( 0.364762, 0.366212 )
 texture = ExtResource( 6 )
 
 [node name="SettingsButton" type="TextureButton" parent="."]
-anchor_bottom = 5.08626e-08
-margin_left = -7.09221
-margin_top = -6.56278
-margin_right = 92.9078
-margin_bottom = 93.4372
+margin_right = 100.0
+margin_bottom = 100.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 5 )
 script = ExtResource( 10 )
@@ -99,24 +100,28 @@ anchor_top = 0.501482
 anchor_right = 0.5
 anchor_bottom = 0.501482
 margin_left = -50.0
-margin_top = -51.1225
+margin_top = -50.8892
 margin_right = 50.0
-margin_bottom = 48.8775
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 9 )
-texture_focused = ExtResource( 9 )
+margin_bottom = 49.1108
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_focused = ExtResource( 8 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 previousScene = "res://UI/InitialMenuCris/InitialMenu.tscn"
 
-[node name="HBoxContainer" parent="PlayButton" instance=ExtResource( 7 )]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = 55.0
-margin_bottom = 71.0
+[node name="HBoxContainer2" parent="PlayButton" instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = 6.0
+margin_right = 12.0
+margin_bottom = 36.0
 
 [node name="UISoundManager" parent="." instance=ExtResource( 1 )]
 
@@ -149,7 +154,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LanguageButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -77.0
+margin_right = -2.0
+margin_bottom = 75.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+expand = true
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flag" type="TextureRect" parent="LanguageButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+margin_bottom = 15.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_down" from="SettingsButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
 [connection signal="button_down" from="PlayButton" to="UISoundManager" method="play"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_BackToSceneButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="LanguageButton" method="register_language"]
+[connection signal="pressed" from="LanguageButton" to="LanguageButton" method="change_language"]

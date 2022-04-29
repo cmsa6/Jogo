@@ -37,6 +37,7 @@ onready var mesh2 = $MeshInstance2
 onready var sprite = $Sprite3D
 onready var light = $OmniLight
 onready var audio = $AudioStreamPlayer
+onready var dot  = $MeshInstance_old
 
 var occupied = false setget set_occupied, get_occupied
 var doNotPlay = false setget set_doNotPlay, get_doNotPlay
@@ -49,7 +50,6 @@ func _ready():
 	match type:
 		TYPE.INIT:
 			auxMat.albedo_color = init_color
-			print(init_color)
 			sprite.visible = false
 		TYPE.COMMERCIAL:
 			auxMat.albedo_color = commercial_color
@@ -91,21 +91,28 @@ func _ready():
 
 
 func _on_Cell_body_entered(body):
-	print(doNotPlay)
+#	print("***************ENTROUUUU***************")
+#	print(body.get_player_num())
 	if get_occupied() and not doNotPlay:
 		#audio.play(0.2)
 		audio.play(0)
 		set_doNotPlay(false)
 
+
 	set_occupied(true)
 	light.visible = true
+	#print("OCCUPIED: ",get_occupied())
+	#print("cell ", self.get_name())
+
 
 
 
 func _on_Cell_body_exited(body):
+	#print("***************SAIUUUUUU***************")
 	set_occupied(false)
 	light.fade_out()
 	set_doNotPlay(false)
+	#print("OCCUPIED: ",get_occupied())
 
 	
 func set_occupied(bol):
@@ -119,6 +126,14 @@ func set_doNotPlay(bol):
 	
 func get_doNotPlay():
 	return doNotPlay
+	
+	
+func get_dot():
+	return dot
+	
+func teste():
+	light.visible = true
+	light.light_color = Color(1,0,0,0)
 
 
 
