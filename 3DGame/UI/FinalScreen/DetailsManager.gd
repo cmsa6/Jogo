@@ -5,7 +5,8 @@ extends Control
 onready var viewport = $ViewportContainer
 onready var backButton = $GoBackButton
 onready var points = $ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo/ScoreInfoManager/PointsBar
-onready var scoreBoard = $ScoreBoard
+#onready var scoreBoard = $ScoreBoard
+onready var scoreBoard = $ScoreBoardGlobal
 
 #onready var pointsButton = $Buttons/Points
 #onready var objectsButton = $Buttons/Objects

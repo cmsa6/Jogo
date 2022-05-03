@@ -6,6 +6,8 @@ onready var avatarName = $Control/QuitManager/QuitInfo/HBoxContainer/PlayerName
 onready var text = $Control/QuitManager/QuitInfo/Text
 onready var audio = $AudioStreamPlayer
 
+onready var translator = $TranslationManager
+
 var iconScene = preload("res://UI/QuitMenu/Avatar.tscn")
 
 var player = -1 setget set_player, get_player
@@ -28,8 +30,9 @@ func _ready():
 	
 	if get_origin() == "Won":
 		audio.play(0)
-		var string = "Congratulations " + name + "! You just completed your house!! Do we want to end the game now?"
-		text.text = string
+		translator.translate_win(name)
+		#var string = "Congratulations " + name + "! You just completed your house!! Do we want to end the game now?"
+		#text.text = string
 	
 	#avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
 	var numPlayers = SettingsManager.num_of_players

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fonts/buttonFontCardsSmaller.tres" type="DynamicFont" id=1]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=2]
@@ -12,21 +12,14 @@
 [ext_resource path="res://UI/FinalScreen/ScoreBoard.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Keyboard/Tiles/letterA.png" type="Texture" id=12]
+[ext_resource path="res://UI/FinalScreen/ScoreBoard_global.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=14]
+[ext_resource path="res://UI/FinalScreen/TranslationManager.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 outline_size = 1
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 25
-outline_size = 1
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 25
-outline_size = 1
 font_data = ExtResource( 2 )
 
 [node name="PlayerFinalContainer" type="VBoxContainer"]
@@ -46,6 +39,16 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TranslationManager" parent="." instance=ExtResource( 14 )]
+script = ExtResource( 15 )
+objects = NodePath("../Buttons/Objects/ObjectsText")
+points = NodePath("../Buttons/Points/PointsText")
+qol = NodePath("../Control/ScoreBoardGlobal/ColorRect/VBoxContainer/SkillCategory/QOL/Label")
+cf = NodePath("../Control/ScoreBoardGlobal/ColorRect/VBoxContainer/SkillCategory/CF/Label3")
+qolPoints = NodePath("../Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/QOL/TotalQOL")
+cfPoints = NodePath("../Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/CF/TotalCF")
+seeDetails = NodePath("../Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Details/ObjectsText")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 48.0
@@ -85,41 +88,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NumberObjects" type="Label" parent="Buttons"]
-visible = false
-margin_top = 18.0
-margin_right = 250.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 250, 10 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Objects Gained: X"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NumberPoints" type="Label" parent="Buttons"]
-visible = false
-margin_left = 25.0
-margin_top = 36.0
-margin_right = 225.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 200, 0 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Points: X"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
 [node name="Objects" type="TextureButton" parent="Buttons"]
 margin_right = 173.0
 margin_bottom = 40.0
@@ -142,7 +110,7 @@ margin_top = -13.5
 margin_right = 58.5
 margin_bottom = 13.5
 custom_fonts/font = ExtResource( 1 )
-text = "X OBJECTS"
+text = " OBJECTS"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,7 +152,7 @@ margin_top = -13.5
 margin_right = 58.5
 margin_bottom = 13.5
 custom_fonts/font = ExtResource( 1 )
-text = "X POINTS"
+text = " POINTS"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -239,7 +207,7 @@ render_target_update_mode = 3
 
 [node name="FurnishedHouse" parent="Control/ViewportContainer/FinalViewport" instance=ExtResource( 5 )]
 
-[node name="Camera" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse" index="0"]
+[node name="Camera" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse" index="1"]
 transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 20, 50, 48.735 )
 v_offset = -5.0
 fov = 66.5
@@ -287,6 +255,12 @@ margin_bottom = -31.0
 size_flags_horizontal = 6
 size_flags_vertical = 10
 
+[node name="ScoreBoardGlobal" parent="Control" instance=ExtResource( 13 )]
+visible = false
+margin_left = 0.0
+margin_right = 0.0
+margin_bottom = -32.0
+
 [connection signal="button_down" from="Buttons/Objects" to="Buttons/UISoundManager" method="select"]
 [connection signal="pressed" from="Buttons/Objects" to="Control" method="show_house"]
 [connection signal="button_down" from="Buttons/Points" to="Buttons/UISoundManager" method="select"]
@@ -298,3 +272,17 @@ size_flags_vertical = 10
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Kitchen/Window"]
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bedrooom/BedroomWall"]
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bedrooom/FrontDoor2"]
+[editable path="Control/ScoreBoardGlobal"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/qolSkills/Rights"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/cfSkills/Language"]
+[editable path="Control/ScoreBoardGlobal/ColorRect/VBoxContainer/Skills/cfSkills/SpatialOrientation"]

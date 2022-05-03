@@ -188,6 +188,6 @@ __meta__ = {
 [connection signal="button_down" from="SettingsButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
 [connection signal="button_down" from="PlayButton" to="UISoundManager" method="play"]
-[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_BackToSceneButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="LanguageButton" method="register_language"]
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_BackToSceneButton_pressed"]
 [connection signal="pressed" from="LanguageButton" to="LanguageButton" method="change_language"]

@@ -1130,10 +1130,10 @@ transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33
 [connection signal="pressed" from="ButtonsLayer/MapButton" to="ButtonsLayer/MapButton" method="back_to_map"]
 [connection signal="mouse_entered" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager/PointsBar" method="change_text" binds= [ false ]]
 [connection signal="mouse_exited" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager/PointsBar" method="change_text" binds= [ true ]]
-[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="hide_bar"]
-[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="disable_points"]
-[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ButtonsLayer/MapButton" method="set_checkingSkills" binds= [ true ]]
 [connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager/PointsBar" method="show_skillScreen" binds= [ "house" ]]
+[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ButtonsLayer/MapButton" method="set_checkingSkills" binds= [ true ]]
+[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="disable_points"]
+[connection signal="pressed" from="ScoreInfo/ScoreInfoManager/PointsBar" to="ScoreInfo/ScoreInfoManager" method="hide_bar"]
 
 [editable path="Bed"]
 [editable path="Kitchen/Window"]

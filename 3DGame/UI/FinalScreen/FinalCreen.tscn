@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://UI/FinalScreen/ShowAllPlayers.gd" type="Script" id=1]
 [ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://UI/FinalScreen/NextButton.gd" type="Script" id=7]
 [ext_resource path="res://UI/FinalScreen/FinalCreen.gd" type="Script" id=8]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/FinalScreen/DetailVersion.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -87,10 +89,22 @@ __meta__ = {
 "_edit_vertical_guides_": [ -6.25492 ]
 }
 
+[node name="TranslationManager" parent="." instance=ExtResource( 10 )]
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.964706, 0.921569, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DetailVersion" type="Control" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 15.0
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -159,6 +173,8 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+detailedVersions = NodePath("../DetailVersion")
+allPlayers = NodePath("../HBoxContainer/VBoxContainer/ShowAllPlayers")
 
 [node name="HBoxContainer" parent="ColorRect/ExitGame" instance=ExtResource( 2 )]
 margin_top = -4.0
@@ -181,8 +197,10 @@ next_scene_path = "res://UI/Credits/Credits.tscn"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
+[connection signal="register_detailed_version" from="ColorRect/HBoxContainer/VBoxContainer/ShowAllPlayers" to="ColorRect/DetailVersion" method="register_detailed_version"]
 [connection signal="button_down" from="ColorRect/ExitGame" to="UISoundManager" method="confirm"]
-[connection signal="pressed" from="ColorRect/ExitGame" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="finish_game" from="ColorRect/ExitGame" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="pressed" from="ColorRect/ExitGame" to="ColorRect/ExitGame" method="button_pressed"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 
 [editable path="SceneTransitionAnim"]

@@ -11,6 +11,8 @@ onready var control = $Control
 
 onready var objectsButton = $Buttons/Objects
 
+onready var translator = $TranslationManager
+
 
 
 
@@ -33,8 +35,9 @@ func show_houses(playerFurniture, playerID):
 	playerAvatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[playerID-1].character))
 	house.show_final_house(playerFurniture)
 	var numObjs = check_objects(playerFurniture)
-	numObjects.text = str(numObjs) + " OBJECTS"
-	numPoints.text = str(SavingManager.playersSkillScores[playerID]) + " POINTS"
+	#numObjects.text = str(numObjs) + " OBJECTS"
+	#numPoints.text = str(SavingManager.playersSkillScores[playerID]) + " POINTS"
+	translator.translate_total(str(numObjs), str(SavingManager.playersSkillScores[playerID]))
 	
 	
 

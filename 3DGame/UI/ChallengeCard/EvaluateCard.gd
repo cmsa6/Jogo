@@ -49,7 +49,7 @@ func _ready():
 	var currentPlayer = SavingManager.current_player
 	var num_players = SettingsManager.num_of_players
 	avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
-	titlePlace.text = "Did the player(s) successed?"
+	#titlePlace.text = "Did the player(s) successed?"
 	
 	
 	if get_origin() == "":

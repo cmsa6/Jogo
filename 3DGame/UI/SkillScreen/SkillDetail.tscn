@@ -12,16 +12,17 @@ font_data = ExtResource( 3 )
 
 [node name="Skill" type="VBoxContainer"]
 margin_left = 256.0
-margin_right = 432.0
-margin_bottom = 105.0
+margin_right = 436.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 180, 107 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Details" type="HBoxContainer" parent="."]
-margin_left = 44.0
-margin_right = 131.0
+margin_left = 46.0
+margin_right = 133.0
 margin_bottom = 70.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -47,10 +48,12 @@ expand = true
 
 [node name="Name" type="Label" parent="."]
 margin_top = 74.0
-margin_right = 176.0
+margin_right = 180.0
 margin_bottom = 107.0
 custom_fonts/font = SubResource( 1 )
 custom_constants/line_spacing = -5
 text = "Skill
  Name"
 align = 1
+valign = 1
+autowrap = true

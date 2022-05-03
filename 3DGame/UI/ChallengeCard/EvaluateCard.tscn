@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/EvalButton (12).png" type="Texture" id=2]
 [ext_resource path="res://Fotos/EvalButton (14).png" type="Texture" id=3]
 [ext_resource path="res://Fotos/EvalButton (11).png" type="Texture" id=4]
 [ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=7]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Keyboard/Tiles/letterA.png" type="Texture" id=9]
 [ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/ChallengeCard/TranslationManager_evaluate.gd" type="Script" id=11]
 [ext_resource path="res://Fotos/EvalButton (13).png" type="Texture" id=12]
 [ext_resource path="res://UI/ChallengeCard/EvaluateCard.gd" type="Script" id=19]
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=26]
@@ -21,6 +23,10 @@ font_data = ExtResource( 26 )
 
 [node name="EvaluateCard" type="Spatial"]
 script = ExtResource( 19 )
+
+[node name="TranslationManager" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 11 )
+instructions = NodePath("../Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer/Title")
 
 [node name="Evaluation" type="Control" parent="."]
 anchor_right = 1.0
@@ -59,6 +65,9 @@ __meta__ = {
 
 [node name="Control" parent="Evaluation/ColorRect/VBoxContainer" instance=ExtResource( 5 )]
 margin_right = 750.0
+
+[node name="Title" parent="Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer" index="0"]
+text = "Did the player got it right?"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Evaluation/ColorRect/VBoxContainer"]
 margin_left = 200.0
