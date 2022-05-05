@@ -70,18 +70,22 @@ func _ready():
 			auxMat.albedo_color = commercialGame_color
 #			sprite.visible = true
 			mesh2.material_override = auxMat
+			mesh.visible = false
 		TYPE.GAME_HELP:
 			auxMat.albedo_color = helpGame_color
 #			sprite.visible = true
 			mesh2.material_override = auxMat
+			mesh.visible = false
 		TYPE.GAME_SERVICES:
 			auxMat.albedo_color = servicesGame_color
 #			sprite.visible = true
+			mesh.visible = false
 			mesh2.material_override = auxMat
 		TYPE.GAME_LEISURE:
 			auxMat.albedo_color = leisureGame_color
 #			sprite.visible = true
 			mesh2.material_override = auxMat
+			mesh.visible = false
 	
 	
 	#mesh.set_surface_material(0, auxMat)

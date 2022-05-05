@@ -13,16 +13,18 @@ onready var rewardPreview = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/Re
 onready var viewportContainer = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer
 onready var objectPlaceHolder = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer/Viewport/ObjectPlaceHolder
 
-onready var challengeTitlePlace = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer/ChallengeTitle
+onready var screenTitle = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer/ChallengeTitle
 onready var titlePlace = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer/Title
+onready var rewardTitle = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardTitle
 
 
 onready var avatar = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/PlayerAvatar
 
 
 
-onready var skill = $Evaluation/ColorRect/SkillInfo/Skill
-onready var numPoints = $Evaluation/ColorRect/SkillInfo/NumberPoints
+onready var skill = $Evaluation/ColorRect/VBoxContainer/SkillsBackground/SkillInfo/Skill
+onready var numPoints = $Evaluation/ColorRect/VBoxContainer/SkillsBackground/SkillInfo/NumberPoints
+onready var skillBackground = $Evaluation/ColorRect/VBoxContainer/SkillsBackground
 
 
 onready var houseScene = preload("res://House Furniture/houseWithFurniture.tscn")
@@ -60,7 +62,8 @@ func _ready():
 
 		#avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
 		#title.text = get_challenge_title()
-
+		titlePlace.text = get_challenge_title()
+		
 		reward = get_reward()
 		if reward != "none":
 			var objectName = "res://House Furniture/" + reward + ".tscn"
@@ -84,6 +87,8 @@ func _ready():
 		set_text_color(get_cardType())
 		#avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
 		#title.text = get_challenge_title()
+		titlePlace.text = get_challenge_title()
+		
 
 		reward = get_reward()
 		if reward != "none":
@@ -262,12 +267,16 @@ func set_card_color():
 	var colors = get_cardType()
 	
 	background.color = colors[1]
+	skillBackground.color = colors[0]
 	
-#	title.set("custom_colors/font_color", colors[2])
-#	title.set("custom_colors/font_outline_modulate", colors[0])
-#
-#	screenTitle.set("custom_colors/font_color", colors[0])
-#	screenTitle.set("custom_colors/font_outline_modulate", colors[2])
+	titlePlace.set("custom_colors/font_color", colors[2])
+	titlePlace.set("custom_colors/font_outline_modulate", colors[0])
+
+	screenTitle.set("custom_colors/font_color", colors[0])
+	screenTitle.set("custom_colors/font_outline_modulate", colors[2])
+	
+	rewardTitle.set("custom_colors/font_color", colors[0])
+	rewardTitle.set("custom_colors/font_outline_modulate", colors[2])
 	
 	numPoints.set("custom_colors/font_color", colors[0])
 	numPoints.set("custom_colors/font_outline_modulate", colors[2])
@@ -309,8 +318,8 @@ func get_cardData():
 	return cardData
 
 func set_text_color(colors):
-	titlePlace.set("custom_colors/font_color", colors[0])
-	titlePlace.set("custom_colors/font_outline_modulate", colors[2])
+	titlePlace.set("custom_colors/font_color", colors[2])
+	titlePlace.set("custom_colors/font_outline_modulate", colors[0])
 	
 
 

@@ -34,5 +34,11 @@ func set_playerID(id):
 	
 func get_playerID():
 	return playerID
+	
+func hide():
+	self.visible = false
+
+func show():
+	self.visible = true
 
 

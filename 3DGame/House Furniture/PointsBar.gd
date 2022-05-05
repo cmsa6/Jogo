@@ -6,6 +6,18 @@ onready var points = $Points
 var CFPoints setget set_CFPoints, get_CFPoints
 var QOLPoints setget set_QOLPoints, get_QOLPoints
 
+var isShowingSkills = false setget set_isShowingSkills, get_isShowingSkills
+
+var houseButton = preload("res://Fotos/HouseButton.png")
+var houseButtonSelected = preload("res://Fotos/HouseButtonSelected.png")
+
+var pointsButton = preload("res://Fotos/points.png")
+var pointsButtonSelected = preload("res://Fotos/points_selected.png")
+
+
+signal show_skills()
+signal hide_mapButton(bol)
+
 func _input(event):
 	if event.is_action_released("check_points") and not disabled:
 			emit_signal("pressed")
@@ -16,7 +28,7 @@ func show_skillScreen(orig):
 	
 	var root_node = get_node("/root") 
 	
-	
+	set_isShowingSkills(true)
 	var skillScreen_node = skillScreen.instance()
 	
 #	if orig == "Final":
@@ -32,6 +44,26 @@ func show_skillScreen(orig):
 	root_node.add_child(skillScreen_node)
 	root_node.move_child(skillScreen_node,0)
 	
+
+	
+	
+func change_to_house_button(bol):
+	print("changing the button")
+	print(bol)
+	if bol:
+		print("entrei aqui")
+		
+		#self.set_pressed(false)
+		self.set_pressed_texture(houseButtonSelected)
+		#self.set_focused_texture(houseButtonSelected)
+		self.set_hover_texture(houseButtonSelected)
+		self.set_normal_texture(houseButton)
+	else:
+		print("mas nao aqui")
+		self.set_normal_texture(pointsButton)
+		self.set_pressed_texture(pointsButtonSelected)
+		#self.set_focused_texture(pointsButtonSelected)
+		self.set_hover_texture(pointsButtonSelected)
 	
 func set_CFPoints(p):
 	CFPoints = p
@@ -55,3 +87,31 @@ func change_text(bol):
 			points.set("custom_colors/font_color", Color8(241, 161, 109, 255))
 
 	
+	
+func show_or_hide():
+	if get_isShowingSkills():
+		var rootNode = get_node("/root")
+	
+		var currentCard = rootNode.get_child(0)
+		currentCard.queue_free()
+	
+	
+		set_isShowingSkills(false)
+		var scoreInfo = get_node("/root/FurnishedHouse/ScoreInfo/ScoreInfoManager")
+		scoreInfo.show_bar()
+		scoreInfo.enable_points()
+		emit_signal("hide_mapButton", false)
+		change_to_house_button(false)
+	else: 
+		emit_signal("hide_mapButton", true)
+		emit_signal("show_skills")
+		change_to_house_button(true)
+		
+func set_isShowingSkills(bol):
+	isShowingSkills = bol
+	
+func get_isShowingSkills():
+	return isShowingSkills
+
+
+

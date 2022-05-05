@@ -1,10 +1,11 @@
-extends VBoxContainer
+extends HBoxContainer
 
 #onready var rewardPlaceHolder = $RewardPlaceholder
 onready var rewardTitle = $RewardTitle
 onready var objectPlaceHolder = $CenterContainer/ViewportContainer/Viewport/ObjectPlaceHolder
 onready var viewportContainer = $CenterContainer/ViewportContainer
-
+onready var viewportHouse = $CenterContainer/ViewportHouse
+onready var house = $CenterContainer/ViewportHouse/FinalViewport/FurnishedHouse
 
 export(NodePath) var numPoints
 export(NodePath) var skill
@@ -14,7 +15,7 @@ var cardData setget set_cardData, get_cardData
 
 export(NodePath) var playerAvatar
 export(NodePath) var ChallengeTitle
-export(NodePath) var title
+#export(NodePath) var title
 export(NodePath) var backgroundColor
 export(NodePath) var SkillBackgroundColor
 
@@ -57,6 +58,8 @@ func _ready():
 			objectPlaceHolder.add_child(object.instance())
 		else:
 			viewportContainer.visible = false
+			viewportHouse.visible     = true
+			house.show_final_house({"Bed":1, "Chair": 1, "Cabinet":1, "Bookcase":1, "Couch":1, "Table":1, "TV":1})
 
 		
 		get_node(numPoints).text = "+" + newcontent[7] 
@@ -83,6 +86,8 @@ func _ready():
 			objectPlaceHolder.add_child(object.instance())
 		else:
 			viewportContainer.visible = false
+			viewportHouse.visible     = true
+			house.show_final_house({"Bed":1, "Chair": 1, "Cabinet":1, "Bookcase":1, "Couch":1, "Table":1, "TV":1})
 
 		
 		get_node(numPoints).text = "+" + get_cardData()[7]
@@ -219,7 +224,7 @@ func set_cardColor(colors):
 	#var card = get_node(cardColor)
 	var background = get_node(backgroundColor)
 	var skillBackground = get_node(SkillBackgroundColor)
-	var titleFont = get_node(title)
+	#var titleFont = get_node(title)
 	var challengeTitlefont = get_node(ChallengeTitle)
 	var numPointsFont = get_node(numPoints)
 	
@@ -234,8 +239,8 @@ func set_cardColor(colors):
 		
 	background.color = backColor
 	skillBackground.color = fontColor
-	titleFont.set("custom_colors/font_color", fontColor)
-	titleFont.set("custom_colors/font_outline_modulate", outlineColor)
+	#titleFont.set("custom_colors/font_color", fontColor)
+	#titleFont.set("custom_colors/font_outline_modulate", outlineColor)
 	
 	challengeTitlefont.set("custom_colors/font_color", outlineColor)
 	challengeTitlefont.set("custom_colors/font_outline_modulate", fontColor)

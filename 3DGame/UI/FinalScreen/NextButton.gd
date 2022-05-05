@@ -14,14 +14,14 @@ func _input(event):
 			
 			
 func button_pressed():
-	var children = get_node(detailedVersions).get_children()
-	var showAllPlayers = get_node(allPlayers)
-	
-	for child in children:
-		if child.visible:
-			child.visible = false
-			showAllPlayers.visible = true
-			return
+#	var children = get_node(detailedVersions).get_children()
+#	var showAllPlayers = get_node(allPlayers)
+#
+#	for child in children:
+#		if child.visible:
+#			child.visible = false
+#			showAllPlayers.visible = true
+#			return
 			
 	
 	emit_signal("finish_game")

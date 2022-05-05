@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ChallengeCard/CardInfo.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=3]
-[ext_resource path="res://UI/ChallengeCard/apagar_teste.gd" type="Script" id=4]
 [ext_resource path="res://GameFonts/Kanit/Kanit-Thin.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Cards/Fotos/WhereistheBall.png" type="Texture" id=6]
 [ext_resource path="res://Sounds/kenney_interfacesounds/Audio/open_004.ogg" type="AudioStream" id=7]
@@ -18,11 +17,13 @@
 [ext_resource path="res://Fotos/zoom_out_selected.png" type="Texture" id=16]
 [ext_resource path="res://Fotos/zoom_selected.png" type="Texture" id=17]
 [ext_resource path="res://Fotos/zoom.png" type="Texture" id=18]
+[ext_resource path="res://Assets/new_characters/Brian/Brian.png" type="Texture" id=19]
+[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=20]
 
 [sub_resource type="DynamicFont" id=1]
-size = 26
+size = 30
 outline_size = 1
-outline_color = Color( 0.760784, 0.647059, 0.776471, 1 )
+outline_color = Color( 0.466667, 0.466667, 0.466667, 1 )
 extra_spacing_top = -18
 font_data = ExtResource( 5 )
 
@@ -58,66 +59,59 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 32.0
-margin_bottom = 2.0
+margin_right = -3.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control" parent="Control/BackgroundRect/VBoxContainer" instance=ExtResource( 12 )]
-margin_right = 750.0
+margin_right = 715.0
 margin_bottom = 60.0
-rect_min_size = Vector2( 750, 60 )
+rect_min_size = Vector2( 700, 60 )
 size_flags_vertical = 0
 
 [node name="CardHeader" parent="Control/BackgroundRect/VBoxContainer/Control" index="0"]
 margin_top = -0.4
-margin_bottom = 86.6
+margin_bottom = 85.6
 
 [node name="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader" index="1"]
-margin_top = 24.0
-margin_bottom = 62.0
+margin_left = 55.0
+margin_right = 625.0
 
 [node name="ChallengeTitle" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader/VBoxContainer" index="1"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="PlayerAvatar" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader" index="2"]
+size_flags_horizontal = 8
 
 [node name="GridContainer" type="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer"]
-margin_left = 35.0
-margin_top = 84.0
-margin_right = 714.0
-margin_bottom = 404.0
+margin_top = 64.0
+margin_right = 715.0
+margin_bottom = 422.0
 rect_min_size = Vector2( 0, 300 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer"]
-margin_right = 600.0
-margin_bottom = 320.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_vertical = 3
 custom_constants/separation = -10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardColor" type="ColorRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer"]
-margin_right = 600.0
-margin_bottom = 320.0
+[node name="CardColor" type="ColorRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer"]
+margin_left = 22.0
+margin_top = 19.0
+margin_right = 622.0
+margin_bottom = 339.0
 rect_min_size = Vector2( 600, 320 )
 rect_pivot_offset = Vector2( 388.889, 585.786 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-size_flags_stretch_ratio = 1.87
 color = Color( 0.318603, 0.519531, 0.101471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CardInfo" type="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor"]
-margin_right = 602.0
+[node name="CardInfo" type="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor"]
+margin_left = -1.0
+margin_right = 599.0
 margin_bottom = 321.0
 rect_min_size = Vector2( 0, 250 )
 alignment = 1
@@ -126,20 +120,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 cardColor = NodePath("..")
-backColor = NodePath("../../../../..")
-title = NodePath("../../../../Control/CardHeader/VBoxContainer/Title")
+backColor = NodePath("../../../..")
+title = NodePath("../../../Control/CardHeader/VBoxContainer/Title")
 
-[node name="MinigameSound" type="AudioStreamPlayer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo"]
+[node name="MinigameSound" type="AudioStreamPlayer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo"]
 stream = ExtResource( 7 )
 volume_db = 5.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo"]
 margin_right = 260.0
 margin_bottom = 321.0
 rect_min_size = Vector2( 260, 0 )
 custom_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo/VBoxContainer"]
 margin_left = 10.0
 margin_top = 15.0
 margin_right = 250.0
@@ -152,7 +146,7 @@ texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
 
-[node name="ZoomInButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo/VBoxContainer"]
+[node name="ZoomInButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo/VBoxContainer"]
 margin_top = 231.0
 margin_right = 75.0
 margin_bottom = 320.0
@@ -168,14 +162,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo/VBoxContainer/ZoomInButton" instance=ExtResource( 13 )]
+[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo/VBoxContainer/ZoomInButton" instance=ExtResource( 13 )]
 margin_top = -20.0
 margin_bottom = -4.0
 
-[node name="Instructions" type="Label" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo"]
-margin_left = 283.0
+[node name="Instructions" type="Label" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo"]
+margin_left = 282.0
 margin_top = 35.0
-margin_right = 583.0
+margin_right = 582.0
 margin_bottom = 285.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -188,7 +182,7 @@ text = "placeholder"
 valign = 1
 autowrap = true
 
-[node name="ZoomOutButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo"]
+[node name="ZoomOutButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo"]
 visible = false
 margin_left = 263.0
 margin_top = 246.0
@@ -206,11 +200,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo/ZoomOutButton" instance=ExtResource( 13 )]
+[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo/ZoomOutButton" instance=ExtResource( 13 )]
 margin_top = -10.0
 margin_bottom = 6.0
 
-[node name="ZoomedInImage" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo"]
+[node name="ZoomedInImage" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo"]
 visible = false
 margin_left = 90.0
 margin_top = 10.0
@@ -224,15 +218,72 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
 
+[node name="RightSide" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer"]
+margin_left = 635.0
+margin_right = 715.0
+margin_bottom = 358.0
+size_flags_horizontal = 6
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.0
+
+[node name="PlayerAvatar" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide"]
+visible = false
+margin_left = 5.0
+margin_right = 75.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 6
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide"]
+margin_top = 262.0
+margin_right = 80.0
+margin_bottom = 358.0
+size_flags_vertical = 10
+custom_constants/separation = -10
+
+[node name="NextButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+nextCard = "res://UI/ChallengeCard/EvaluateCard.tscn"
+
+[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer" instance=ExtResource( 20 )]
+margin_left = 27.0
+margin_top = 70.0
+margin_right = 53.0
+margin_bottom = 96.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/GridContainer"]
-margin_left = 604.0
-margin_top = 231.0
-margin_right = 679.0
-margin_bottom = 320.0
+visible = false
+margin_left = 697.0
+margin_top = 358.0
+margin_right = 697.0
+margin_bottom = 358.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 
 [node name="NextButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer2"]
+visible = false
 margin_right = 75.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 75, 89 )
@@ -262,32 +313,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Control"]
-visible = false
-margin_left = 570.211
-margin_top = 114.491
-margin_right = 741.211
-margin_bottom = 185.491
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="LoadSavedScene" parent="." instance=ExtResource( 1 )]
 
 [node name="UISoundManager" parent="." instance=ExtResource( 8 )]
 
-[connection signal="data_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo" method="save_card_info"]
-[connection signal="data_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer2/NextButton" method="save_data"]
-[connection signal="set_origin" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo" method="set_origin"]
-[connection signal="type_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo" method="save_cardType"]
-[connection signal="type_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer2/NextButton" method="save_cardType"]
+[connection signal="data_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer/NextButton" method="save_data"]
+[connection signal="data_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo" method="save_card_info"]
+[connection signal="set_origin" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo" method="set_origin"]
+[connection signal="type_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer/NextButton" method="save_cardType"]
+[connection signal="type_saved" from="." to="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo" method="save_cardType"]
 [connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/Control/CardHeader/BackButton" to="." method="go_back"]
-[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo/VBoxContainer/ZoomInButton" to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo" method="enable_zoom"]
-[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo/ZoomOutButton" to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer/CardColor/CardInfo" method="enable_zoom"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo/VBoxContainer/ZoomInButton" to="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo" method="enable_zoom"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo/ZoomOutButton" to="Control/BackgroundRect/VBoxContainer/GridContainer/CardColor/CardInfo" method="enable_zoom"]
+[connection signal="button_down" from="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer/NextButton" to="UISoundManager" method="select"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer/NextButton" to="Control/BackgroundRect/VBoxContainer/GridContainer/RightSide/VBoxContainer/NextButton" method="showNextCard"]
 [connection signal="button_down" from="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer2/NextButton" to="UISoundManager" method="select"]
 [connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer2/NextButton" to="Control/BackgroundRect/VBoxContainer/GridContainer/VBoxContainer2/NextButton" method="showNextCard"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
-[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]
 
 [editable path="Control/BackgroundRect/VBoxContainer/Control"]

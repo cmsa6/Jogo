@@ -99,16 +99,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DetailVersion" type="Control" parent="ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 2.0
-margin_bottom = 15.0
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -155,6 +145,9 @@ visible = false
 margin_left = 1023.0
 margin_right = 1023.0
 margin_bottom = 599.0
+
+[node name="DetailVersion" type="Node" parent="ColorRect"]
+script = ExtResource( 12 )
 
 [node name="ExitGame" type="TextureButton" parent="ColorRect"]
 anchor_left = 1.0

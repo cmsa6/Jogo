@@ -13,8 +13,10 @@
 [ext_resource path="res://Assets/DiDaCityPack_Exterior/Models/City/Garden/Garden Walkway.fbx" type="PackedScene" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
+flags_disable_ambient_light = true
 albedo_color = Color( 0.105882, 0.407843, 0.168627, 1 )
 albedo_texture = ExtResource( 7 )
+metallic = 0.18
 
 [sub_resource type="CubeMesh" id=2]
 material = SubResource( 1 )
@@ -26,7 +28,7 @@ size = Vector3( 20, 21, 0.1 )
 transform = Transform( 0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, 3.35615, 0.00694036, -0.0195718 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.735799, 0, 0, 0, -3.09469e-08, -1, 0, 0.707984, -4.37114e-08, 2.73864, -7.0449e-09, 0.161169 )
+transform = Transform( 0.735799, 0, 0, 0, -3.09469e-08, -1, 0, 0.707984, -4.37114e-08, 2.73864, 0.150127, 0.161169 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -67,7 +69,7 @@ transform = Transform( 0.103962, 0.590925, 2.58301e-08, 0, -2.62268e-08, 0.6, 0.
 transform = Transform( 0.439126, 0.408862, 1.78719e-08, 0, -2.62268e-08, 0.6, 0.408862, -0.439126, -1.91948e-08, 3.67575, 0.194402, 1.35036 )
 
 [node name="walk" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.410344, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0787405, 0, 0 )
 
 [node name="Garden Walkway" parent="walk" instance=ExtResource( 11 )]
 transform = Transform( 0.000890092, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -0.000890092, -3.89072e-11, 2.68052, 0.2, -0.16349 )

@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/challenge.png" type="Texture" id=2]
-[ext_resource path="res://Fotos/city.png" type="Texture" id=3]
 [ext_resource path="res://Fotos/house2.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/buttonFontCards.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
@@ -75,7 +74,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="ContextScreen" type="Control"]
+[node name="SecondContextScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -140,27 +139,29 @@ __meta__ = {
 }
 
 [node name="WelcomeText" type="Label" parent="GridContainer/Part1/Story1/VBoxContainer"]
-margin_left = 55.0
-margin_top = 23.0
-margin_right = 455.0
-margin_bottom = 123.0
+margin_right = 510.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 400, 100 )
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "Welcome "
+text = "If your character stops at a triangle tile, a challenge pops up! "
 align = 1
 valign = 1
 autowrap = true
 
-[node name="PlayersList" type="HBoxContainer" parent="GridContainer/Part1/Story1/VBoxContainer"]
-margin_left = 255.0
-margin_top = 224.0
-margin_right = 255.0
-margin_bottom = 224.0
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Part1/Story1/VBoxContainer"]
+margin_left = 105.0
+margin_top = 126.0
+margin_right = 405.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
+size_flags_stretch_ratio = 2.94
+texture = ExtResource( 2 )
+expand = true
 
 [node name="NextStory1" type="TextureButton" parent="GridContainer/Part1"]
 anchor_left = 1.0
@@ -198,7 +199,6 @@ __meta__ = {
 }
 
 [node name="Story2" type="ColorRect" parent="GridContainer/Part2"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 100, 100 )
@@ -218,28 +218,27 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_top = 18.0
 margin_right = 508.0
-margin_bottom = 56.0
+margin_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "You have just moved to a new city"
+text = "For example, this challenge is called  \"Going to the doctor\" and if you succeed you can win a chair!"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_left = 54.0
-margin_top = 88.0
-margin_right = 454.0
-margin_bottom = 288.0
-rect_min_size = Vector2( 400, 200 )
+margin_left = 104.0
+margin_top = 136.0
+margin_right = 404.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 2.94
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 expand = true
 
 [node name="NextStory2" type="TextureButton" parent="GridContainer/Part2"]
@@ -276,7 +275,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Story3" type="ColorRect" parent="GridContainer/Part3"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 100, 100 )
@@ -302,7 +300,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "Each one of you has a new empty house! But to live there, first you will need to furnish it"
+text = "After pressing the arrow button, you can read the challenge and then say the answer out loud"
 align = 1
 valign = 1
 autowrap = true
@@ -357,7 +355,6 @@ __meta__ = {
 }
 
 [node name="Story4" type="ColorRect" parent="GridContainer/Part4"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 100, 100 )
@@ -371,27 +368,29 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part4/Story4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -1.0
+margin_bottom = 17.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part4/Story4/VBoxContainer"]
-margin_right = 510.0
-margin_bottom = 120.0
+margin_right = 509.0
+margin_bottom = 161.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "You can win objects by moving through out the city by pressing the dice button"
+text = "Then, the other players decide if you got the answer right! If you did, they press \"Like\" and you win the chair"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part4/Story4/VBoxContainer"]
-margin_left = 105.0
-margin_top = 136.0
-margin_right = 405.0
-margin_bottom = 286.0
+margin_left = 104.0
+margin_top = 165.0
+margin_right = 404.0
+margin_bottom = 315.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6

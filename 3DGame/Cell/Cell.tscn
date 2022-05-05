@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Cell/Cell.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/question-mark.png" type="Texture" id=2]
@@ -21,16 +21,18 @@ size = Vector3( 2, 0.1, 2 )
 albedo_color = Color( 0.788235, 0.0235294, 0.0235294, 0 )
 metallic = 1.0
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="CylinderMesh" id=5]
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
 albedo_color = Color( 0.788235, 0.0235294, 0.0235294, 0 )
 metallic = 1.0
 
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 1.15775, 0.2, 0.640854 )
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 0.2, 1 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=8]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:light_energy")
@@ -70,6 +72,7 @@ texture = ExtResource( 2 )
 
 [node name="MeshInstance_old" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, -1.006 )
+visible = false
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
@@ -80,12 +83,12 @@ material/0 = SubResource( 4 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 0.709976, 0, -0.704225, 0, 1, 0, 0.704225, 0, 0.709976, 0, -0.01, 0 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00994794, -0.0206175, -0.57182 )
-shape = SubResource( 6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00994794, -0.0206175, 0.0106782 )
+shape = SubResource( 7 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 0.333333, 0, 0, 0, 1, 0, 0, 0, 0.333333, 0, 0.86879, 0 )
@@ -96,7 +99,7 @@ omni_attenuation = 0.034674
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OmniLight"]
-anims/fade_out = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
 
 [node name="AudioStreamPlayer_old" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

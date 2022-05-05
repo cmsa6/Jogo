@@ -6,7 +6,7 @@ var checkingSkills setget set_checkingSkills, get_checkingSkills
 
 
 func _input(event):
-	if event.is_action_released("ui_select") and not disabled and visible:
+	if event.is_action_released("ui_select") and not self.disabled and self.visible:
 		#if event.as_text() == "M":
 			#print("//////////////parent name: ", get_parent().get_name())
 		emit_signal("pressed")
@@ -31,12 +31,12 @@ func back_to_map():
 
 	
 	# Load saved scene
-	if isItCheckingSkills:
-		set_checkingSkills(false)
-		var scoreInfo = get_node("/root/FurnishedHouse/ScoreInfo/ScoreInfoManager")
-		scoreInfo.show_bar()
-		scoreInfo.enable_points()
-		return
+	#if isItCheckingSkills:
+	#	set_checkingSkills(false)
+	#	var scoreInfo = get_node("/root/FurnishedHouse/ScoreInfo/ScoreInfoManager")
+	#	scoreInfo.show_bar()
+	#	scoreInfo.enable_points()
+	#	return
 
 	
 	if origin == "Map":
@@ -115,3 +115,11 @@ func set_checkingSkills(bol):
 	
 func get_checkingSkills():
 	return checkingSkills
+	
+func disable_and_hide(bol):
+	if bol:
+		self.visible  = false
+		self.disabled = true
+	else: 
+		self.visible  = true
+		self.disabled = false

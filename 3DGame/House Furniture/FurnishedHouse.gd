@@ -2,8 +2,8 @@ extends Spatial
 
 export (Array, String) var availableFurniture = []
 
-onready var avatarIcon = $CanvasLayer/VBoxContainer/PlayerAvatar
-onready var avatarName = $CanvasLayer/VBoxContainer/ColorRect/PlayerName
+onready var avatarIcon = $CanvasLayer/VBoxContainer2/VBoxContainer/PlayerAvatar
+onready var avatarName = $CanvasLayer/VBoxContainer2/VBoxContainer/ColorRect/PlayerName
 
 onready var newMapButton = $ButtonsLayer/MapButton
 
@@ -11,8 +11,9 @@ onready var progressBar = $ScoreInfo/ScoreInfoManager/TextureProgress
 onready var tween = $ScoreInfo/Tween
 onready var text = $ScoreInfo/ScoreInfoManager/TextureProgress/ProgressBarText
 
-onready var pointsBarText = $ScoreInfo/ScoreInfoManager/PointsBar/Points
-onready var pointsBar = $ScoreInfo/ScoreInfoManager/PointsBar
+#onready var pointsBarText = $ScoreInfo/ScoreInfoManager/PointsBar/Points
+#onready var pointsBar = $ScoreInfo/ScoreInfoManager/PointsBar
+onready var pointsBar = $CanvasLayer/VBoxContainer2/PointsBar
 
 onready var scoreInfoManager = $ScoreInfo/ScoreInfoManager
 
@@ -153,7 +154,8 @@ func get_lattestReward():
 	return lattestReward
 	
 func show_points(points):
-	pointsBarText.text = str(points) + " POINTS"
+	#pointsBarText.text = str(points) + " POINTS"
+	pass
 	
 func hide_extra_info():
 	avatarIcon.visible = false

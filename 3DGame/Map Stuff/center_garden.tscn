@@ -17,7 +17,8 @@
 size = Vector3( 60, 0.5, 130 )
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.0862745, 0.458824, 0.0352941, 1 )
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.505882, 0.941176, 0.207843, 1 )
 albedo_texture = ExtResource( 1 )
 normal_enabled = true
 normal_scale = 16.0

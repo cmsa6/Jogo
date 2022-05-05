@@ -214,13 +214,10 @@ fov = 66.5
 near = 21.26
 far = 247.8
 
-[node name="VBoxContainer" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/CanvasLayer" index="0"]
+[node name="VBoxContainer2" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/CanvasLayer" index="0"]
 visible = false
 
 [node name="MapButton" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ButtonsLayer" index="0"]
-visible = false
-
-[node name="HBoxContainer" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ButtonsLayer" index="1"]
 visible = false
 
 [node name="ScoreInfoManager" parent="Control/ViewportContainer/FinalViewport/FurnishedHouse/ScoreInfo" index="1"]
