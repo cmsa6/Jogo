@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://UI/QuitMenu/ConfirmQuitting.gd" type="Script" id=1]
 [ext_resource path="res://UI/QuitMenu/QuitManager.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Fonts/dice_preview.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=11]
-[ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Fonts/greekFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Fotos/EvalButton (11).png" type="Texture" id=13]
 [ext_resource path="res://Fotos/EvalButton (13).png" type="Texture" id=14]
 [ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=15]
@@ -19,12 +19,6 @@
 [ext_resource path="res://Sounds/celebration.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=18]
 [ext_resource path="res://UI/QuitMenu/TranslationManager.gd" type="Script" id=19]
-
-[sub_resource type="DynamicFont" id=1]
-size = 30
-outline_size = 1
-outline_color = Color( 0.945098, 0.631373, 0.427451, 1 )
-font_data = ExtResource( 12 )
 
 [node name="CheckQuit" type="Spatial"]
 script = ExtResource( 4 )
@@ -113,7 +107,7 @@ margin_bottom = 151.0
 rect_min_size = Vector2( 400, 100 )
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.65
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Do we want to finish the game?"
 align = 1

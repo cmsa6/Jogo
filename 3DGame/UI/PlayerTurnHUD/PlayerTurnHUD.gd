@@ -12,8 +12,6 @@ var scene = preload("res://UI/PlayerTurnHUD/PlayerTurnContainer.tscn")
 onready var h_box_container = $VBoxContainer/HBoxContainer
 
 func _ready():
-	print("NAMES============================")
-	print(SavingManager.playersNames)
 	var num_players = SettingsManager.num_of_players
 	
 	for i in range(0, num_players):
@@ -34,7 +32,9 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			print("player NAO atual: ", i)
 			children[i].hide_agency()
 #			children[i].get_node("VBoxContainer/Arrow").modulate = HIDDEN
+
 			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = false
+			children[i].change_progress_colors("secondary")
 #			#children[i].get_node("CenterContainer/TextureRect2").texture = null
 #			children[i].get_node("VBoxContainer2/DiceButton").modulate = HIDDEN
 #			children[i].get_node("VBoxContainer2/DiceButton").disabled = true
@@ -56,6 +56,7 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			
 #			children[i].show_agency()
 			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = true
+			children[i].change_progress_colors("main")
 #			children[i].get_node("VBoxContainer/Arrow").modulate = VISIBLE
 #			children[i].get_node("VBoxContainer/TurnText").modulate = VISIBLE
 #			children[i].get_node("VBoxContainer2/DiceButton").disabled = false
@@ -69,5 +70,6 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 func _on_Player_player_points_updated(points, extra_arg_0):
 	var child = $VBoxContainer/HBoxContainer.get_child(extra_arg_0 - 1)
 	child.set_points_text(points)
+	
 	if points == 8:
 		child.show_stars()

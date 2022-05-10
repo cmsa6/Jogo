@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/2players_selected.png" type="Texture" id=2]
@@ -21,7 +21,14 @@
 [ext_resource path="res://Assets/Keyboard/Tiles/4.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Keyboard/Tiles/3.png" type="Texture" id=20]
 [ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=21]
-[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=22]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://Fonts/greekFont.tres" type="DynamicFont" id=23]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+extra_spacing_char = 2
+font_data = ExtResource( 22 )
 
 [node name="InitialMenu" type="Node"]
 __meta__ = {
@@ -62,7 +69,7 @@ __meta__ = {
 
 [node name="TextureButton" type="TextureButton" parent="ColorRect/ColorRect/HBoxContainer"]
 margin_right = 50.0
-margin_bottom = 51.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 21 )
@@ -74,11 +81,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="ColorRect/ColorRect/HBoxContainer"]
-margin_left = 196.0
-margin_right = 892.0
-margin_bottom = 51.0
+margin_left = 265.0
+margin_top = 7.0
+margin_right = 824.0
+margin_bottom = 43.0
 size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 22 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "How many players are going to play?"
 __meta__ = {
@@ -126,6 +134,7 @@ margin_right = 252.0
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer" index="0"]
 margin_left = 51.0
 margin_right = 201.0
+custom_fonts/font = ExtResource( 23 )
 text = "1
  Player"
 
@@ -159,8 +168,9 @@ size_flags_horizontal = 3
 margin_right = 252.0
 
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer" index="0"]
-margin_left = 50.0
-margin_right = 202.0
+margin_left = 51.0
+margin_right = 201.0
+custom_fonts/font = ExtResource( 23 )
 text = "2
  Players"
 
@@ -196,6 +206,7 @@ margin_right = 252.0
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer" index="0"]
 margin_left = 51.0
 margin_right = 201.0
+custom_fonts/font = ExtResource( 23 )
 text = "3 
 Players"
 
@@ -231,6 +242,7 @@ margin_right = 253.0
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer" index="0"]
 margin_left = 51.0
 margin_right = 201.0
+custom_fonts/font = ExtResource( 23 )
 text = "4 
 Players"
 

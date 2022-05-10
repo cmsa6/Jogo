@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/InitialMenu/PlayerSelecter/CharacerIconPreview/CharacterIconPreview.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/head-100x100.png" type="Texture" id=2]
@@ -6,9 +6,14 @@
 [ext_resource path="res://Assets/Sprites/charactersOverlay.png" type="Texture" id=4]
 [ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/CharacerIconPreview/ChoosingAvatar.gd" type="Script" id=6]
-[ext_resource path="res://Fonts/buttonFontCardsSmaller.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf" type="DynamicFontData" id=7]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="DynamicFont" id=1]
+size = 21
+extra_spacing_char = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="CharacterIconPreview" type="CenterContainer"]
 anchor_left = 0.471
@@ -37,7 +42,7 @@ custom_constants/separation = -10
 visible = false
 margin_right = 200.0
 margin_bottom = 27.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = " "
 align = 1
@@ -84,7 +89,7 @@ __meta__ = {
 margin_right = 112.0
 margin_bottom = 106.0
 mouse_default_cursor_shape = 2
-custom_styles/focus = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
 action_mode = 0
 icon = ExtResource( 2 )
 flat = true

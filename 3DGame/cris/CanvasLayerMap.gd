@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var infoDice = $Dado
+#onready var infoDice = $Dado
 onready var infoPlayers = $CenterContainer/PlayerTurnHUD/VBoxContainer/HBoxContainer
 
 signal hide_exit(bol)

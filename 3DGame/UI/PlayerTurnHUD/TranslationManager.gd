@@ -1,6 +1,7 @@
 extends Node
 
 export(NodePath) var turn
+export(NodePath) var objects
 
 
 
@@ -21,6 +22,22 @@ func translate(language):
 	
 	elif language == "pt":
 		turnText.text = "É A TUA VEZ "
+		
+func translate_points(points):
+	var language = SettingsManager.language
+	var objectsText = get_node(objects)
+	
+	if language == "el":
+		objectsText.text = points + "/8 ΑΝΤΙΚΕΙΜΕΝΑ"
+	
+	elif language == "es":
+		objectsText.text = points + "/8 OBJETOS"
+		
+	elif language == "it":
+		objectsText.text =  points + "/8 OGGETTI"
+	
+	elif language == "pt":
+		objectsText.text =  points + "/8 OBJETOS "
 		
 			
 

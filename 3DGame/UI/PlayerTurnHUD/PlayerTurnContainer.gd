@@ -6,14 +6,18 @@ const POINTS_LABEL = " / 8 OBJECTS"
 onready var icon = $VBoxContainer2/CenterContainer/Icon
 onready var button = $VBoxContainer2/CenterContainer/TextureButton
 onready var label = $HBoxContainer/Label
-onready var turnText = $VBoxContainer/TurnText
-onready var arrow = $VBoxContainer/Arrow
+onready var turnText = $VBoxContainer2/Control/TurnBackground/VBoxContainer/TurnText
+onready var arrow = $VBoxContainer2/Control/TurnBackground/VBoxContainer/Arrow
+onready var turnBack = $VBoxContainer2/Control/TurnBackground
 onready var diceButton = $VBoxContainer2/DiceButton
 
 onready var star1 = $HBoxContainer/Star1
 onready var star2 = $HBoxContainer/Star2
 
 onready var anim = $HBoxContainer/AnimationPlayer
+
+onready var playerProgress = $VBoxContainer2/CenterContainer/PlayerProgress
+onready var translator = $TranslationManager
 
 const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
@@ -26,7 +30,9 @@ func set_icon(new_icon):
 	icon.texture = new_icon
 
 func set_points_text(new_points):
-	label.text = str(new_points) + POINTS_LABEL  
+	#label.text = str(new_points) + POINTS_LABEL 
+	translator.translate_points(str(new_points))
+	playerProgress.increase(new_points) 
 	#if new_points < 10:
 	#	label.text = str(new_points) + POINTS_LABEL + "S"
 	#else:
@@ -46,7 +52,8 @@ func get_player():
 	
 func hide_turn():
 	turnText.modulate = HIDDEN
-	arrow.modulate = HIDDEN
+	arrow.modulate    = HIDDEN
+	turnBack.modulate = HIDDEN
 
 
 func hide_agency():
@@ -67,9 +74,10 @@ func show_agency():
 	
 	diceButton.blink()
 #
-	arrow.modulate = VISIBLE
+	arrow.modulate    = VISIBLE
 	turnText.modulate = VISIBLE
-	icon.visible = true
+	turnBack.modulate = VISIBLE
+	#icon.visible = true
 
 
 func EnablePLayerButton():
@@ -80,3 +88,6 @@ func show_stars():
 	anim.play("Win")
 #	star1.visible = true
 #	star2.visible = true
+
+func change_progress_colors(role):
+	playerProgress.change_colors(role)

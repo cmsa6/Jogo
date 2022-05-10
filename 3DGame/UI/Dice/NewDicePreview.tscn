@@ -6,7 +6,7 @@
 [ext_resource path="res://UI/ChallengeCard/BackToMap.gd" type="Script" id=4]
 [ext_resource path="res://UI/Dice/DicePreview.gd" type="Script" id=5]
 [ext_resource path="res://UI/Dice/DiceManager.gd" type="Script" id=6]
-[ext_resource path="res://Fonts/dice_preview.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Fonts/greekFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://UI/Dice/TranslationManager.gd" type="Script" id=8]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Dice/NumbersRoll.tscn" type="PackedScene" id=10]
@@ -16,26 +16,26 @@
 [ext_resource path="res://Fotos/diceNumbers (1).png" type="Texture" id=14]
 [ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=15]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 albedo_color = Color( 0.945098, 0.631373, 0.427451, 1 )
 
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
 size = Vector3( 2, 0.01, 2 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=5]
 resource_local_to_scene = true
 albedo_texture = ExtResource( 14 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=6]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 albedo_color = Color( 0.945098, 0.631373, 0.427451, 1 )
 
-[sub_resource type="CubeMesh" id=5]
-material = SubResource( 4 )
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
 size = Vector3( 2, 0.01, 2 )
 
 [node name="DicePreview" type="Spatial"]
@@ -81,9 +81,9 @@ __meta__ = {
 
 [node name="DiceResumo" type="VBoxContainer" parent="Control/DiceManager/HBoxContainer"]
 margin_left = 81.0
-margin_top = 46.0
+margin_top = 58.0
 margin_right = 331.0
-margin_bottom = 331.0
+margin_bottom = 319.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 3.37
@@ -94,7 +94,7 @@ __meta__ = {
 
 [node name="PlayerName" type="Label" parent="Control/DiceManager/HBoxContainer/DiceResumo"]
 margin_right = 250.0
-margin_bottom = 44.0
+margin_bottom = 36.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -106,9 +106,9 @@ align = 1
 valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/DiceManager/HBoxContainer/DiceResumo"]
-margin_top = 64.0
+margin_top = 56.0
 margin_right = 250.0
-margin_bottom = 285.0
+margin_bottom = 261.0
 custom_constants/separation = -30
 
 [node name="ViewportContainer" type="ViewportContainer" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer"]
@@ -135,7 +135,7 @@ light_energy = 1.6
 [node name="MeshInstance" type="MeshInstance" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00368154, -0.00308275, -8.01086e-05 )
 visible = false
-mesh = SubResource( 2 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Spatial" type="Spatial" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial"]
@@ -149,7 +149,7 @@ playback_speed = 6.875
 
 [node name="MeshInstance" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll/Spatial" index="1"]
 transform = Transform( 0.766044, -0.642787, 0, 0.642787, 0.766044, 0, 0, 0, 1, 0, 0, 0 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 5 )
 
 [node name="Camera" type="Camera" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial"]
 transform = Transform( 1, 0, 0, 0, -0.0909281, 0.995857, 0, -0.995857, -0.0909281, -0.00486958, 1.09416, -0.0293272 )
@@ -164,13 +164,13 @@ light_energy = 1.6
 [node name="MeshInstance" type="MeshInstance" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00368154, -0.00308275, -8.01086e-05 )
 visible = false
-mesh = SubResource( 5 )
+mesh = SubResource( 7 )
 material/0 = null
 
 [node name="Instructions" type="Label" parent="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer"]
 margin_top = 130.0
 margin_right = 250.0
-margin_bottom = 221.0
+margin_bottom = 205.0
 rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
