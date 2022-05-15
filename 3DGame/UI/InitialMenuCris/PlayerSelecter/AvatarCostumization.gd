@@ -20,7 +20,6 @@ var playerID = -1 setget set_playerID, get_playerID
 
 func check_player_name():
 	var playerNum = get_playerID()
-	print("id do player: ",playerNum)
 	var name = get_node(playerName).get_placeholder()
 	
 	if playerNum == -1:
@@ -31,7 +30,7 @@ func check_player_name():
 func set_playerName():
 	avatarPictures.visible = false
 	avatarName.visible = true
-
+	avatarName.clear()
 	avatarName.grab_focus()
 	confirmName.visible = true
 	get_node(confirmCharacterButton).disabled = true
@@ -58,8 +57,7 @@ func register_name():
 	var nameWithoutSpaces = name.replace(" ","")
 	var playerNum = get_playerID()
 	var playerName
-	print(playerNum)
-	print("name: ", name)
+
 	if playerNum != -1:
 		if name == "" or name == " " or nameWithoutSpaces == "":
 			#playerName = "Player " + str(playerNum)
@@ -68,12 +66,11 @@ func register_name():
 			playerName = name
 		SavingManager.playersNames[playerNum] = playerName
 
-	avatarName.clear()
+	#avatarName.clear()
 	if playerNum < SettingsManager.num_of_players:
 		show_characters(playerName)
 
 func set_playerID(id):
-	print("seting playerID in costumization to: ", id)
 	playerID = id
 	
 func get_playerID():

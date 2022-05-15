@@ -95,28 +95,22 @@ func _ready():
 
 
 func _on_Cell_body_entered(body):
-#	print("***************ENTROUUUU***************")
-#	print(body.get_player_num())
 	if get_occupied() and not doNotPlay:
-		#audio.play(0.2)
 		audio.play(0)
 		set_doNotPlay(false)
 
 
 	set_occupied(true)
 	light.visible = true
-	#print("OCCUPIED: ",get_occupied())
-	#print("cell ", self.get_name())
+
 
 
 
 
 func _on_Cell_body_exited(body):
-	#print("***************SAIUUUUUU***************")
 	set_occupied(false)
 	light.fade_out()
 	set_doNotPlay(false)
-	#print("OCCUPIED: ",get_occupied())
 
 	
 func set_occupied(bol):

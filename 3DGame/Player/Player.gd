@@ -50,6 +50,7 @@ var cells_size = 0
 
 onready var cam = $Camera
 onready var arrow = $Arrow
+onready var light = $Highlight
 
  
 func _ready():
@@ -98,14 +99,11 @@ func UpdateTarget():
 
 
 func get_target_position():
-	print(target_count)
 	if target_count == 25:
 		target_count = 0 
 	#print("trying to solve problem, target: ", target_count)
 	
 	target = gameManager.get_node_cell_by_index(target_count)
-	print("target name | ", target.get_name())
-	print("target pos | ", target.transform.origin )
 	return target.transform.origin 
 		
 		
@@ -117,7 +115,6 @@ func RotatePlayerToNextTarget():
 func player_reached_target(_body):
 	
 	if is_my_turn:
-		print("i HAVE THESE CELLS TO WALK: ", cells_to_walk)
 		target_count += 1
 		cells_to_walk -= 1
 #		if target_count >= cells_size || target.type == target.TYPE.END:
@@ -405,8 +402,10 @@ func show_arrow(playerTurn):
 
 	if playerTurn == (player_num - 1):
 		arrow.visible = true
+		#light.visible = true
 	else:
 		arrow.visible = false
+		#light.visible = false
 		
 		
 

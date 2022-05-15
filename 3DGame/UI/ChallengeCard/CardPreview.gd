@@ -1,7 +1,7 @@
 extends Spatial
 
 onready var audio = $AudioStreamPlayer
-onready var rewardDetails = $Control/Card2/Background/LeftSide/RewardDetails
+onready var rewardDetails = $Control/Card2/VBoxContainer/LeftSide/RewardDetails
 
 signal type_setted(type)
 signal set_origin(origin)
@@ -12,7 +12,6 @@ var origin = "" setget set_origin, get_origin
 
 
 func _ready():
-	print(get_origin())
 	if get_origin() == "":
 		audio.play(0)
 		

@@ -18,17 +18,14 @@ func _ready():
 	get_node("/root/Map1/MainCam").make_current()
 	remove_players()
 	start_game()
-	print("atualizei o current_player para 0")
 	SavingManager.current_player = 0
-#	get_node(timerNode).start(1.2)
+
 	
 
 func start_game():
 	# for now starts player one	
 	emit_signal("on_players_turn_changed", playersTurn)
-	#print("DEI UPDATE")
-	#SavingManager.current_player = playersTurn
-	#UpdateActivePlayersCam()
+
 
 func get_cells():
 	return cells
@@ -45,18 +42,14 @@ func _on_Dado_dice_used(value):
 
 func UpdatePlayersTurn():
 	playersTurn += 1
-	print("updating TURN to: " , playersTurn)
 	SavingManager.current_player = playersTurn
 	if playersTurn >= players.size():
 		playersTurn = 0
 		SavingManager.current_player = 0
-		print("atualizei o current_player para 0")
-	else:
-		print("atualizei o current_player para ", playersTurn)
+		
 	emit_signal("on_players_turn_changed", playersTurn)
 	#SavingManager.current_player = playersTurn
-	#print("DEI UPDATE")
-	#print(SavingManager.current_player)
+
 	
 	#UpdateActivePlayersCam()
 

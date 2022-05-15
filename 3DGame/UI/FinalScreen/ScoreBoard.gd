@@ -11,7 +11,6 @@ onready var details = $ColorRect/VBoxContainer/Details
 
 
 func set_up(playerID):
-	print("no global")
 	var playerQOL = SavingManager.playersQOLSkills[playerID]
 	var playerCF = SavingManager.playersCFSkills[playerID]
 	details.set_playerID(playerID)

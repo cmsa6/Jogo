@@ -2,22 +2,22 @@ extends Spatial
 
 export (Array, String) var availableFurniture = []
 
-onready var avatarIcon = $CanvasLayer/VBoxContainer2/VBoxContainer/PlayerAvatar
-onready var avatarName = $CanvasLayer/VBoxContainer2/VBoxContainer/ColorRect/PlayerName
+onready var avatarIcon = $CanvasLayer/Control/VBoxContainer2/VBoxContainer/PlayerAvatar
+onready var avatarName = $CanvasLayer/Control/VBoxContainer2/VBoxContainer/ColorRect/PlayerName
 
-onready var newMapButton = $ButtonsLayer/MapButton
+onready var newMapButton = $CanvasLayer/Control2/ScoreInfoManager/NewMapButton
 
-onready var progressBar = $ScoreInfo/ScoreInfoManager/TextureProgress
-onready var tween = $ScoreInfo/Tween
-onready var text = $ScoreInfo/ScoreInfoManager/TextureProgress/ProgressBarText
+onready var progressBar = $CanvasLayer/Control2/ScoreInfoManager/TextureProgress
+onready var tween = $CanvasLayer/Control2/ScoreInfoManager/Tween
+onready var text = $CanvasLayer/Control2/ScoreInfoManager/TextureProgress/ProgressBarText
 
 #onready var pointsBarText = $ScoreInfo/ScoreInfoManager/PointsBar/Points
-#onready var pointsBar = $ScoreInfo/ScoreInfoManager/PointsBar
-onready var pointsBar = $CanvasLayer/VBoxContainer2/PointsBar
+onready var pointsBar = $CanvasLayer/Control/VBoxContainer2/PointsBar
+#onready var pointsBar = $CanvasLayer/Control/VBoxContainer2/PointsBar
 
-onready var scoreInfoManager = $ScoreInfo/ScoreInfoManager
+onready var scoreInfoManager = $CanvasLayer/Control2/ScoreInfoManager
 
-onready var teste = $Bedrooom/Window
+
 
 
 
@@ -35,10 +35,6 @@ onready var lattestReward setget set_lattestReward, get_lattestReward
 
 func _ready():
 
-	var windowMesh = teste.get_child(0)
-	print(windowMesh.get_name())
-	print(windowMesh.get_active_material(0))
-	print(windowMesh.get_active_material(0).get_name())
 	
 	var parentName = get_parent().name
 	if not "Final" in parentName:
@@ -58,7 +54,6 @@ func _ready():
 
 			if currentPlayer == ( player.get_player_num() - 1 ):
 				var activeFurnitures = player.get_gained_furniture()
-				print(activeFurnitures)
 				checkActives(activeFurnitures)
 				show_points(player.get_totalPoints())
 
@@ -141,7 +136,6 @@ func get_finalPlayer():
 	return finalPlayer
 	
 func set_origin(orig):
-	print("setting origin to ", orig)
 	origin = orig
 	
 func get_origin():
@@ -164,8 +158,8 @@ func hide_extra_info():
 	newMapButton.visible = false
 	
 	
-func get_pointsBar_object():
-	return pointsBar
+#func get_pointsBar_object():
+#	return pointsBar
 	
 	
 

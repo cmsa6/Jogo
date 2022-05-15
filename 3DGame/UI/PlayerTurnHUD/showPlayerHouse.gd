@@ -13,10 +13,12 @@ func get_playerID():
 	return playerID
 
 func _input(event):
-	if not self.disabled:
-		if event.is_action_released("EnterHouse"):
-			if get_playerID() == SavingManager.current_player and event.as_text() == "H":
-				show_house()
+#	if not self.disabled:
+#		if event.is_action_released("EnterHouse"):
+#			if get_playerID() == SavingManager.current_player and event.as_text() == "H":
+#				show_house()
+
+	pass
 			
 #func _process(delta):
 #	if Input.is_action_just_released("EnterHouse"):
@@ -44,8 +46,7 @@ func show_house():
 
 
 	if rootNode.is_a_parent_of(game_node):
-		print("entrei no if do show house")
 		rootNode.call_deferred("remove_child", game_node)
 
 
-	print("acabei sho house")
+

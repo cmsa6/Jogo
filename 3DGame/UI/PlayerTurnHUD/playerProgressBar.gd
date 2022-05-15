@@ -13,8 +13,15 @@ func _ready():
 #	pass
 
 
-func increase(points):
-	self.value += points
+func increase(newPoints):
+	#For writing purposes on x/8 objects, this function receives the total points
+	#the player has, not how much he gained now
+	
+	var oldPoints = self.value
+	var pointsGained = newPoints - oldPoints
+	
+	self.value += pointsGained
+	
 	
 func change_colors(role):
 	var underColor

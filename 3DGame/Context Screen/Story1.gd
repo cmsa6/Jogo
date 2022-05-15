@@ -6,7 +6,6 @@ onready var players = $VBoxContainer/PlayersList
 var iconScene = preload("res://UI/QuitMenu/Avatar.tscn")
 
 func _ready():
-	print("ready dos textos")
 	var numPlayers = SettingsManager.num_of_players
 	var playersNames = SavingManager.playersNames
 	

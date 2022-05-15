@@ -19,9 +19,4 @@ func _ready():
 	
 
 
-func _on_Button_pressed():
-	print("tset")
 
-
-func _on_BackButton_pressed():
-	print("please")

@@ -5,8 +5,8 @@ onready var instructions = $Instructions
 onready var image = $VBoxContainer/TextureRect
 onready var zoomImage = $ZoomedInImage
 onready var audio = $MinigameSound
-onready var zoomOut = $ZoomOutButton
-onready var zoomIn = $VBoxContainer/ZoomInButton
+onready var zoomOut = $zoomButton
+onready var zoomIn = $VBoxContainer/zoomButtonIn
 onready var imageContainer = $VBoxContainer
 
 export(NodePath) var cardColor
@@ -89,7 +89,6 @@ func get_card_info():
 
 func save_cardType(type):
 	cardType = type
-	print("saving card type to: ", type)
 
 
 func get_cardType():

@@ -6,10 +6,9 @@ var checkingSkills setget set_checkingSkills, get_checkingSkills
 
 
 func _input(event):
-	if event.is_action_released("ui_select") and not self.disabled and self.visible:
-		#if event.as_text() == "M":
-			#print("//////////////parent name: ", get_parent().get_name())
-		emit_signal("pressed")
+#	if event.is_action_released("ui_select") and not self.disabled and self.visible:
+#		emit_signal("pressed")
+	pass
 			
 #func _process(delta):
 #	if Input.is_action_just_released("ExitHouse"):
@@ -19,6 +18,8 @@ func _input(event):
 
 		
 func back_to_map():
+	print("exiting to map")
+		
 	var rootNode = get_node("/root")
 	
 	var currentCard = rootNode.get_child(0)
@@ -42,7 +43,6 @@ func back_to_map():
 	if origin == "Map":
 		var saved_scene = SavingManager.saved_scene
 		rootNode.add_child(saved_scene)
-		print("the orgiin is ", get_screenOrigin())
 		
 
 		
@@ -59,9 +59,9 @@ func back_to_map():
 		var player
 		var onePlayerWon = false
 		
-		print("number of children in button of housewithforniture: ", players.size())
+		
 		for child in players:
-			print("child ",  child.get_player_num() -1)
+			
 			if ( child.get_player_num() -1 ) == currentPlayer:
 				player = child
 				child.finished_game()
@@ -70,16 +70,14 @@ func back_to_map():
 				else:
 					child.play_animation(CharactersManager.WIN_ANIM)
 				#break
-			print("have i won? ", child.get_iAlreadyWon())
+			
 			if child.get_iAlreadyWon() and (not SavingManager.winning_players.has(child)):
-				print("adicionei este player aos vencedores")
+			
 				SavingManager.winning_players.append(child)
 				onePlayerWon = true
 				
-		print("# winning players: ", SavingManager.winning_players.size())
-		print("total players: ", SettingsManager.num_of_players )
+
 		if SavingManager.winning_players.size() == SettingsManager.num_of_players:
-			print("todos ganahram")
 			player.all_won_game()
 		elif onePlayerWon and SettingsManager.num_of_players >= 2:
 			var quitScreen = load("res://UI/QuitMenu/CheckQuit.tscn")
@@ -104,7 +102,6 @@ func back_to_map():
 	
 	
 func set_screenOrigin(orig):
-	print("setting screeorig to ", orig)
 	screenOrigin = orig
 	
 func get_screenOrigin():
@@ -123,3 +120,5 @@ func disable_and_hide(bol):
 	else: 
 		self.visible  = true
 		self.disabled = false
+
+

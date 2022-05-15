@@ -1,14 +1,14 @@
 extends HBoxContainer
 
 #onready var rewardPlaceHolder = $RewardPlaceholder
-onready var rewardTitle = $RewardTitle
+
 onready var objectPlaceHolder = $CenterContainer/ViewportContainer/Viewport/ObjectPlaceHolder
 onready var viewportContainer = $CenterContainer/ViewportContainer
-onready var viewportHouse = $CenterContainer/ViewportHouse
-onready var house = $CenterContainer/ViewportHouse/FinalViewport/FurnishedHouse
+
 
 export(NodePath) var numPoints
 export(NodePath) var skill
+export(NodePath) var rewardTitle
 
 var type setget set_type, get_type
 var cardData setget set_cardData, get_cardData
@@ -57,9 +57,8 @@ func _ready():
 			var object = load(objectName)
 			objectPlaceHolder.add_child(object.instance())
 		else:
-			viewportContainer.visible = false
-			viewportHouse.visible     = true
-			house.show_final_house({"Bed":1, "Chair": 1, "Cabinet":1, "Bookcase":1, "Couch":1, "Table":1, "TV":1})
+			#viewportContainer.visible = false
+			self.visible = false
 
 		
 		get_node(numPoints).text = "+" + newcontent[7] 
@@ -85,14 +84,13 @@ func _ready():
 			var object = load(objectName)
 			objectPlaceHolder.add_child(object.instance())
 		else:
-			viewportContainer.visible = false
-			viewportHouse.visible     = true
-			house.show_final_house({"Bed":1, "Chair": 1, "Cabinet":1, "Bookcase":1, "Couch":1, "Table":1, "TV":1})
+			#viewportContainer.visible = false
+			self.visible = false
 
 		
 		get_node(numPoints).text = "+" + get_cardData()[7]
 		var skillDev = get_cardData()[9].replace(" ","")
-		print(skillDev)
+	
 		
 		var skillPath = "res://Cards/Skills/" + skillDev + ".png"
 		var skillPhoto = load(skillPath)
@@ -228,6 +226,8 @@ func set_cardColor(colors):
 	var challengeTitlefont = get_node(ChallengeTitle)
 	var numPointsFont = get_node(numPoints)
 	
+	var rewardTitleText = get_node(rewardTitle)
+	
 	var fontColor    = colors[0]
 	var backColor    = colors[1]
 	var outlineColor = colors[2]
@@ -245,8 +245,8 @@ func set_cardColor(colors):
 	challengeTitlefont.set("custom_colors/font_color", outlineColor)
 	challengeTitlefont.set("custom_colors/font_outline_modulate", fontColor)
 	
-	rewardTitle.set("custom_colors/font_color", fontColor)
-	rewardTitle.set("custom_colors/font_outline_modulate", outlineColor)
+	rewardTitleText.set("custom_colors/font_color", fontColor)
+	rewardTitleText.set("custom_colors/font_outline_modulate", outlineColor)
 
 	numPointsFont.set("custom_colors/font_color", fontColor)
 	numPointsFont.set("custom_colors/font_outline_modulate", outlineColor)
@@ -256,7 +256,6 @@ func set_cardColor(colors):
 	
 func set_origin(orig):
 	origin = orig
-	print("setting origin to ", orig)
 
 func get_origin():
 	return origin

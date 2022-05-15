@@ -17,6 +17,9 @@ var selected_by_player
 var selected = false
 var locked = false
 
+const VISIBLE = Color(1,1,1,1)
+const HIDDEN  = Color(1,1,1,0)
+
 func _input(event):
 	if event.is_action_pressed("select_avatars") and not button.disabled and get_parent().visible:
 		if str(character+1) in event.as_text():
@@ -24,8 +27,9 @@ func _input(event):
 		
 
 func _ready():
-	print(character)
 	button.icon = CharactersManager.get_character_icon(character)
+	playerName.modulate = HIDDEN
+	
 #	print("chatracter number: ", character)
 #	#keyboard.text = str(character)
 #	var shortcut = character + 1
@@ -34,13 +38,11 @@ func _ready():
 #	keyboard.texture = keyImage
 
 func _on_Button_pressed():
-	print("Selecionei uma personagem e sou o player_turn: ", players_turn)
 	if selected == false:
 		selected = true
 		overlay.visible = true
-		print(players_turn)
+
 		if players_turn == 1:
-			print("overlay time")
 			overlay.texture = load("res://Assets/Sprites/characterSelected.png")
 			selected_by_player = 1
 			emit_signal("new_character_selected", character)
@@ -70,21 +72,22 @@ func _on_other_Button_pressed():
 	
 func _on_ConfirmButton_pressed():
 	locked =  true
-	print("%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-	print("I am ", self.get_name() )
-	print("Am i locked? ", locked)
-	print("Am i selected? ", selected)
 	
 	if selected == true && locked == true:
 		button.disabled = true
 		get_parent().get_parent().set_playerID(selected_by_player)
 		SettingsManager.players[selected_by_player - 1].character = character
-		playerName.visible = true
+		#playerName.visible = true
+		playerName.modulate = VISIBLE
 		locked = false
 
 
 func get_playerName_visibility():
-	return playerName.visible
+	#return playerName.visible
+	if playerName.modulate == VISIBLE:
+		return true
+	else:
+		return false
 
 func get_playerName():
 	return playerName.text

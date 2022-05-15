@@ -16,7 +16,6 @@ var selected = false
 var locked = false
 
 func _ready():
-	print("character: ", character)
 	button.icon = CharactersManager.get_character_icon(character)
 
 func _on_Button_pressed():

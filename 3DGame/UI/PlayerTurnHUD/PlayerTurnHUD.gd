@@ -13,6 +13,7 @@ onready var h_box_container = $VBoxContainer/HBoxContainer
 
 func _ready():
 	var num_players = SettingsManager.num_of_players
+	var playersNames = SavingManager.playersNames
 	
 	for i in range(0, num_players):
 		var instance = scene.instance()
@@ -20,16 +21,15 @@ func _ready():
 		#instance.set_icon(CharactersManager.get_character_icon(SettingsManager.players[i].character))
 		instance.set_texture(CharactersManager.get_character_icon(SettingsManager.players[i].character))
 		instance.set_player(i)
+		instance.set_name(playersNames[i+1])
 		i += 1
 	
 func _on_GameManager_on_players_turn_changed(playersTurn):
-	print("estou a atualizar para a vez: ", playersTurn)
 	var children = $VBoxContainer/HBoxContainer.get_children()
 	emit_signal("hide_exit", false)
 	for i in children.size():
 		if i != playersTurn:
 			#children[i].show_agency()
-			print("player NAO atual: ", i)
 			children[i].hide_agency()
 #			children[i].get_node("VBoxContainer/Arrow").modulate = HIDDEN
 
@@ -49,7 +49,6 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1,1))
 			#children[i].get_node("Arrow").visible = false
 		else:
-			print("sou o player atual e vou fazer o show_agency: ", i)
 			children[i].show_agency()
 			#children[i].get_node("CenterContainer/TextureRect2").texture = load("res://Assets/Sprites/characterSelected.png")
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1.3,1.3))

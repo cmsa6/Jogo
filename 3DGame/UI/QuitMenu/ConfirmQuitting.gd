@@ -45,5 +45,4 @@ func quit():
 
 
 
-func _on_NotConfirm_pressed():
-	print("helloooo")
+

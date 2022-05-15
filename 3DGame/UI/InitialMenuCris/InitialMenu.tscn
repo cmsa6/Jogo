@@ -71,6 +71,7 @@ __meta__ = {
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 21 )
 texture_hover = ExtResource( 21 )
@@ -110,9 +111,9 @@ margin_right = 1021.0
 margin_bottom = 553.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="gameTypeSelecterContainer/VBoxContainer"]
-margin_top = 105.0
+margin_top = 137.0
 margin_right = 1021.0
-margin_bottom = 448.0
+margin_bottom = 416.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 6.54
@@ -125,22 +126,29 @@ anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 252.0
-margin_bottom = 343.0
+margin_bottom = 279.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter" index="0"]
 margin_right = 252.0
+margin_bottom = 279.0
 
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer" index="0"]
 margin_left = 51.0
+margin_top = 0.0
 margin_right = 201.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 150, 60 )
 custom_fonts/font = ExtResource( 23 )
 text = "1
- Player"
+Player"
 
 [node name="TextureButton" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer" index="1"]
 margin_left = 26.0
+margin_top = 79.0
 margin_right = 226.0
+margin_bottom = 279.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 18 )
 texture_hover = ExtResource( 18 )
@@ -148,9 +156,7 @@ texture_disabled = ExtResource( 18 )
 texture_focused = ExtResource( 18 )
 type = 1
 
-[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer" index="2"]
-margin_left = 111.0
-margin_right = 141.0
+[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" index="0"]
 texture = ExtResource( 7 )
 
 [node name="Cris_SingleTypeSelecter2" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
@@ -161,22 +167,29 @@ anchor_bottom = 0.0
 margin_left = 256.0
 margin_top = 0.0
 margin_right = 508.0
-margin_bottom = 343.0
+margin_bottom = 279.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2" index="0"]
 margin_right = 252.0
+margin_bottom = 279.0
 
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer" index="0"]
 margin_left = 51.0
+margin_top = 0.0
 margin_right = 201.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 150, 60 )
 custom_fonts/font = ExtResource( 23 )
 text = "2
  Players"
 
 [node name="TextureButton" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer" index="1"]
 margin_left = 26.0
+margin_top = 79.0
 margin_right = 226.0
+margin_bottom = 279.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
@@ -184,9 +197,7 @@ texture_disabled = ExtResource( 2 )
 texture_focused = ExtResource( 2 )
 type = 2
 
-[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer" index="2"]
-margin_left = 111.0
-margin_right = 141.0
+[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" index="0"]
 texture = ExtResource( 11 )
 
 [node name="Cris_SingleTypeSelecter3" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
@@ -197,22 +208,29 @@ anchor_bottom = 0.0
 margin_left = 512.0
 margin_top = 0.0
 margin_right = 764.0
-margin_bottom = 343.0
+margin_bottom = 279.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3" index="0"]
 margin_right = 252.0
+margin_bottom = 279.0
 
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer" index="0"]
 margin_left = 51.0
+margin_top = 0.0
 margin_right = 201.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 150, 60 )
 custom_fonts/font = ExtResource( 23 )
 text = "3 
 Players"
 
 [node name="TextureButton" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer" index="1"]
 margin_left = 26.0
+margin_top = 79.0
 margin_right = 226.0
+margin_bottom = 279.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )
@@ -220,9 +238,7 @@ texture_disabled = ExtResource( 12 )
 texture_focused = ExtResource( 12 )
 type = 3
 
-[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer" index="2"]
-margin_left = 111.0
-margin_right = 141.0
+[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" index="0"]
 texture = ExtResource( 20 )
 
 [node name="Cris_SingleTypeSelecter4" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
@@ -233,22 +249,29 @@ anchor_bottom = 0.0
 margin_left = 768.0
 margin_top = 0.0
 margin_right = 1021.0
-margin_bottom = 343.0
+margin_bottom = 279.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4" index="0"]
 margin_right = 253.0
+margin_bottom = 279.0
 
 [node name="Label" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer" index="0"]
 margin_left = 51.0
+margin_top = 0.0
 margin_right = 201.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 150, 60 )
 custom_fonts/font = ExtResource( 23 )
 text = "4 
 Players"
 
 [node name="TextureButton" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer" index="1"]
 margin_left = 26.0
+margin_top = 79.0
 margin_right = 226.0
+margin_bottom = 279.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 13 )
@@ -256,9 +279,7 @@ texture_disabled = ExtResource( 13 )
 texture_focused = ExtResource( 13 )
 type = 4
 
-[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer" index="2"]
-margin_left = 111.0
-margin_right = 141.0
+[node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" index="0"]
 texture = ExtResource( 19 )
 
 [node name="UISoundManager" parent="." instance=ExtResource( 10 )]
@@ -274,20 +295,24 @@ player4 = NodePath("../gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cri
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 [connection signal="pressed" from="ColorRect/ColorRect/HBoxContainer/TextureButton" to="ColorRect/ColorRect/HBoxContainer/TextureButton" method="go_back"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" method="_on_one_player_selected"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" method="_on_one_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" method="_on_two_player_selected"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" method="_on_two_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" method="_on_three_player_selected"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" method="_on_three_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" method="_on_four_player_selected"]
-[connection signal="button_up" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" method="_on_four_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 
 [editable path="SceneTransitionAnim"]
 [editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter"]
+[editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton/Shortcut"]
 [editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2"]
+[editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton/Shortcut"]
 [editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3"]
+[editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton/Shortcut"]
 [editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4"]
+[editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton/Shortcut"]

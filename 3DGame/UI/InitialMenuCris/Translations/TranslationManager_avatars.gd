@@ -78,6 +78,9 @@ func translate_instructions_name():
 
 	elif language == "pt":
 		instructionsText.text = "Escolhe o nome do teu personagem"
+		
+	elif language == "en":
+		instructionsText.text = "Choose your character's name"
 
 
 func translate_instructions():
@@ -95,3 +98,6 @@ func translate_instructions():
 
 	elif language == "pt":
 		instructionsText.text = "Escolhe o teu personagem"
+		
+	elif language == "en":
+		instructionsText.text = "Choose your character"

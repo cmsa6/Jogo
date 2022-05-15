@@ -74,7 +74,5 @@ func discard_dice_info():
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
 	#canvasNode.enable_canvas()
 	canvasNode.erase_text()
-	
-func teste():
-	print("testeeeee")
+
 	

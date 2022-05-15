@@ -18,11 +18,10 @@ func get_dice_value():
 	rng.randomize()
 	var diceValue = rng.randi_range(2, 6)
 	set_value(diceValue)
-	print("acabei a animacao")
 	emit_signal("update_value", diceValue)
 	
 func update_dice_value():
-	print("being pressed")
+	pass
 	#var dice_value = 2
 	
 	

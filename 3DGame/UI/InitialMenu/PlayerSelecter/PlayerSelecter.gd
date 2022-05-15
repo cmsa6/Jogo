@@ -16,14 +16,9 @@ func _ready():
 	confirm_button.visible = false
 	confirm_button.disabled = true
 	
-	print("no ready do menu")
-	
-	print(SettingsManager.language)
-	
 	set_player_selecter()
 	
 func set_player_selecter():
-	print("setting new player: ", player_turn)
 	if player_turn == 1:
 		get_node(player_preview_1).visible = true
 		get_node(player_preview_2).visible = false
@@ -51,12 +46,8 @@ func set_player_selecter():
 	emit_signal("player_turn_changed", player_turn)
 
 func _on_ConfirmButton_pressed():
-	print("\n\n INCREASING PLAYER TURN")
-	
 	player_turn += 1
-	
-	print(player_turn)
-	print(SettingsManager.num_of_players)
+
 	
 	if player_turn > SettingsManager.num_of_players:
 		emit_signal("start_load_next_scene")

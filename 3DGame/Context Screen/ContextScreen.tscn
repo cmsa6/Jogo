@@ -196,15 +196,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" parent="GridContainer/Part1/NextStory1" instance=ExtResource( 13 )]
+[node name="Shortcut" parent="GridContainer/Part1/NextStory1" instance=ExtResource( 13 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -18.0
+margin_left = -10.0
 margin_top = -5.0
-margin_right = 8.0
-margin_bottom = 21.0
+margin_right = 6.0
+margin_bottom = 11.0
 
 [node name="Part2" type="Control" parent="GridContainer"]
 margin_left = 514.0
@@ -237,9 +237,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_top = 18.0
 margin_right = 508.0
-margin_bottom = 56.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
@@ -277,15 +276,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" parent="GridContainer/Part2/NextStory2" instance=ExtResource( 13 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -5.0
-margin_right = 8.0
-margin_bottom = 21.0
+[node name="Shortcut" parent="GridContainer/Part2/NextStory2" instance=ExtResource( 13 )]
+margin_left = 40.0
+margin_top = 95.0
+margin_right = 56.0
+margin_bottom = 111.0
 
 [node name="Part3" type="Control" parent="GridContainer"]
 margin_top = 302.0
@@ -316,7 +311,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="GridContainer/Part3/Story3/VBoxContainer"]
 margin_right = 508.0
-margin_bottom = 120.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 3 )
@@ -328,9 +323,9 @@ autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part3/Story3/VBoxContainer"]
 margin_left = 104.0
-margin_top = 136.0
+margin_top = 133.0
 margin_right = 404.0
-margin_bottom = 286.0
+margin_bottom = 283.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -354,15 +349,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" parent="GridContainer/Part3/NextStory3" instance=ExtResource( 13 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -5.0
-margin_right = 8.0
-margin_bottom = 21.0
+[node name="Shortcut" parent="GridContainer/Part3/NextStory3" instance=ExtResource( 13 )]
+margin_left = 40.0
+margin_top = 95.0
+margin_right = 56.0
+margin_bottom = 111.0
 
 [node name="Part4" type="Control" parent="GridContainer"]
 margin_left = 514.0
@@ -396,7 +387,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="GridContainer/Part4/Story4/VBoxContainer"]
 margin_right = 510.0
-margin_bottom = 120.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 4 )
@@ -408,9 +399,9 @@ autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part4/Story4/VBoxContainer"]
 margin_left = 105.0
-margin_top = 136.0
+margin_top = 133.0
 margin_right = 405.0
-margin_bottom = 286.0
+margin_bottom = 283.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -433,15 +424,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" parent="FinalButton" instance=ExtResource( 13 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -29.0
-margin_right = 8.0
-margin_bottom = -3.0
+[node name="Shortcut" parent="FinalButton" instance=ExtResource( 13 )]
+margin_left = 40.0
+margin_top = 95.0
+margin_right = 56.0
+margin_bottom = 111.0
 
 [node name="SceneLoader" parent="." instance=ExtResource( 1 )]
 next_scene_path = "res://cris/crisMap3.tscn"
@@ -470,4 +457,6 @@ anims/FadeOut = SubResource( 6 )
 [connection signal="show_next" from="FinalButton" to="GridContainer" method="show_next"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
 
+[editable path="GridContainer/Part1/NextStory1/Shortcut"]
+[editable path="GridContainer/Part2/NextStory2/Shortcut"]
 [editable path="SceneTransitionAnim"]

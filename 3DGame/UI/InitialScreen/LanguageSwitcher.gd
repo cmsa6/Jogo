@@ -5,6 +5,11 @@ onready var flagImage = $Flag
 var languagePos = 0 setget set_languagePos, get_languagePos
 var language = "en" setget set_language, get_language
 
+func _input(event):
+	if event.is_action_pressed("Tab"):
+		emit_signal("button_down")
+		change_language()
+
 
 func change_language():
 	var position = get_languagePos()

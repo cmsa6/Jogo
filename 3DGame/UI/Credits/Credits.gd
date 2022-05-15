@@ -28,7 +28,7 @@ var credits = [
 		"Partners",
 		"C.E.C.D. Mira Sintra, Portugal (Project Coordination)",
 		"INESC-ID, Portugal",
-		"The Aristotle University of Thessaloniki, Grecee",
+		"The Aristotle University of Thessaloniki, Greece",
 		"CSS Forlì, Italy",
 		"COPAVA, Spain",
 		"AIAS, Italy"

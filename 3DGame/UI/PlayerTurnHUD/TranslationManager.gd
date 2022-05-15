@@ -28,16 +28,17 @@ func translate_points(points):
 	var objectsText = get_node(objects)
 	
 	if language == "el":
-		objectsText.text = points + "/8 ΑΝΤΙΚΕΙΜΕΝΑ"
+		objectsText.text = points + "/8\nΑΝΤΙΚΕΙΜΕΝΑ"
 	
 	elif language == "es":
-		objectsText.text = points + "/8 OBJETOS"
+		objectsText.text = points + "/8\nOBJETOS"
 		
 	elif language == "it":
-		objectsText.text =  points + "/8 OGGETTI"
+		objectsText.text =  points + "/8\nOGGETTI"
 	
 	elif language == "pt":
-		objectsText.text =  points + "/8 OBJETOS "
+		objectsText.text =  points + "/8\nOBJETOS "
 		
-			
+	elif language == "en":
+		objectsText.text =  points + "/8\nOBJECTS "
 

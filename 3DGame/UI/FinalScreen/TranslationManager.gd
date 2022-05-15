@@ -15,7 +15,6 @@ func _ready():
 	translate(SettingsManager.language)
 	
 func translate(language):
-	print("translate")
 	var objectsText    = get_node(objects)
 	var pointsText     = get_node(points)
 	var qolText        = get_node(qol)
@@ -61,8 +60,7 @@ func translate(language):
 		qolPointsText.text  = " PONTOS"
 		
 		seeDetailsText.text = "Ver Detalhes"
-		
-	print("translate")
+
 	
 func translate_total(objs, pnts):
 	var language      = SettingsManager.language

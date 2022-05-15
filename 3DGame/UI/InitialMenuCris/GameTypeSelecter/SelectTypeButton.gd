@@ -6,7 +6,7 @@ func _input(event):
 	if (not self.disabled) and self.visible and event.is_action_pressed("type_selecter"):
 		if str(type) in event.as_text():
 			emit_signal("button_down")
-			emit_signal("button_up")
+			emit_signal("pressed")
 
 
 

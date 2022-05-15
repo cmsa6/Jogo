@@ -10,7 +10,7 @@ onready var roll = $HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Vie
 
 onready var instructions = $HBoxContainer/DiceResumo/VBoxContainer/Instructions
 onready var button = $HBoxContainer/VBoxContainer/VBoxContainer/MapButton
-onready var shortcut = $HBoxContainer/VBoxContainer/VBoxContainer/Shortcut
+
 
 const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
@@ -39,7 +39,6 @@ func _ready():
 #	var diceValue = 4
 	
 	var animName = "Roll_" + str(diceValue)
-	print("acabei a animacao")
 	roll.set_value(diceValue)
 	diceAnim.play(animName)
 	
@@ -58,5 +57,5 @@ func update_text(value):
 	instructions.modulate = VISIBLE
 	button.modulate = VISIBLE
 	button.disabled = false
-	shortcut.visible = true
-	print(button.disabled)
+	
+

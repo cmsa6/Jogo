@@ -11,7 +11,6 @@ func _ready():
 	translate(SettingsManager.language)
 	
 func translate(language):
-	print("ready do translate")
 	var space1Text           = get_node(space1)
 	var space2Text           = get_node(space2)
 	var space3Text           = get_node(space3)

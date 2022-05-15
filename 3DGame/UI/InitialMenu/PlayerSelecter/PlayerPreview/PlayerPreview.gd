@@ -25,10 +25,6 @@ func _ready():
 
 func _on_new_character_selected(character):
 	var instance
-	print("criando preview do avatar")
-	print(character)
-	print(player_num)
-	print(player_turn)
 	if(player_num == player_turn):
 		delete_characters()
 			
@@ -43,12 +39,10 @@ func _on_new_character_selected(character):
 
 func _on_PlayerSelecterContainer_player_turn_changed(new_player_turn):
 	delete_characters()
-	print("dei update do player_turn")
 	player_turn = new_player_turn
 
 
 func delete_characters():
-	print("hello whats happening")
 	var placeholder_node = get_node(player_placeholder)
 	if( placeholder_node != null && placeholder_node.get_child_count() != 0):
 #		# Delete other characters

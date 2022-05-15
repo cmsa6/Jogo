@@ -1,7 +1,9 @@
 extends TextureButton
 
 onready var skillScreen = preload("res://UI/SkillScreen/SkillScreen.tscn")
-onready var points = $Points
+#onready var points = $Points
+
+export(NodePath) var scoreInfoManager
 
 var CFPoints setget set_CFPoints, get_CFPoints
 var QOLPoints setget set_QOLPoints, get_QOLPoints
@@ -48,18 +50,14 @@ func show_skillScreen(orig):
 	
 	
 func change_to_house_button(bol):
-	print("changing the button")
-	print(bol)
 	if bol:
-		print("entrei aqui")
-		
+
 		#self.set_pressed(false)
 		self.set_pressed_texture(houseButtonSelected)
 		#self.set_focused_texture(houseButtonSelected)
 		self.set_hover_texture(houseButtonSelected)
 		self.set_normal_texture(houseButton)
 	else:
-		print("mas nao aqui")
 		self.set_normal_texture(pointsButton)
 		self.set_pressed_texture(pointsButtonSelected)
 		#self.set_focused_texture(pointsButtonSelected)
@@ -79,17 +77,19 @@ func get_QOLPoints():
 	
 
 	
-func change_text(bol):
-	if not self.disabled:
-		if bol :
-			points.set("custom_colors/font_color", Color8(228, 99, 14, 255))
-		else:
-			points.set("custom_colors/font_color", Color8(241, 161, 109, 255))
+#func change_text(bol):
+#	if not self.disabled:
+#		if bol :
+#			points.set("custom_colors/font_color", Color8(228, 99, 14, 255))
+#		else:
+#			points.set("custom_colors/font_color", Color8(241, 161, 109, 255))
 
 	
 	
 func show_or_hide():
+	print("here no show or hide")
 	if get_isShowingSkills():
+		print("hiding skill")
 		var rootNode = get_node("/root")
 	
 		var currentCard = rootNode.get_child(0)
@@ -97,9 +97,9 @@ func show_or_hide():
 	
 	
 		set_isShowingSkills(false)
-		var scoreInfo = get_node("/root/FurnishedHouse/ScoreInfo/ScoreInfoManager")
+		var scoreInfo = get_node(scoreInfoManager)
 		scoreInfo.show_bar()
-		scoreInfo.enable_points()
+		#scoreInfo.enable_points()
 		emit_signal("hide_mapButton", false)
 		change_to_house_button(false)
 	else: 

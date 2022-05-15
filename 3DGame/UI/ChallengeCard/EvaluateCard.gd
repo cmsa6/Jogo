@@ -9,22 +9,23 @@ extends Spatial
 onready var evaluationContainer = $Evaluation
 
 
-onready var rewardPreview = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardPreview
-onready var viewportContainer = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer
-onready var objectPlaceHolder = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/ViewportContainer/Viewport/ObjectPlaceHolder
+onready var rewardPreview     = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardPreview
+onready var viewportContainer = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer
+onready var centerContainer   = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer
+onready var objectPlaceHolder = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/ObjectPlaceHolder
 
-onready var screenTitle = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer/ChallengeTitle
-onready var titlePlace = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer/Title
-onready var rewardTitle = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardTitle
-
-
-onready var avatar = $Evaluation/ColorRect/VBoxContainer/Control/CardHeader/PlayerAvatar
+onready var screenTitle = $Evaluation/ColorRect/VBoxContainer/Instructions
+onready var titlePlace = $Evaluation/ColorRect/VBoxContainer/RewardTitle2
+onready var rewardTitle = $Evaluation/ColorRect/VBoxContainer/RewardTitle
 
 
+onready var avatar = $Evaluation/ColorRect/PlayerAvatar
 
-onready var skill = $Evaluation/ColorRect/VBoxContainer/SkillsBackground/SkillInfo/Skill
-onready var numPoints = $Evaluation/ColorRect/VBoxContainer/SkillsBackground/SkillInfo/NumberPoints
-onready var skillBackground = $Evaluation/ColorRect/VBoxContainer/SkillsBackground
+
+
+onready var skill = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/SkillsBackground/SkillInfo/Skill
+onready var numPoints = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/SkillsBackground/SkillInfo/NumberPoints
+onready var skillBackground = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/SkillsBackground
 
 
 onready var houseScene = preload("res://House Furniture/houseWithFurniture.tscn")
@@ -70,8 +71,9 @@ func _ready():
 			var object = load(objectName)
 			objectPlaceHolder.add_child(object.instance())
 		else:
-			viewportContainer.visible = false
+			#viewportContainer.visible = false
 			set_playerNoLongerPlaying(true)
+			centerContainer.visible = false
 
 		var skillBenefit = get_skillEvaluated()
 
@@ -96,8 +98,10 @@ func _ready():
 			var object = load(objectName)
 			objectPlaceHolder.add_child(object.instance())
 		else:
-			viewportContainer.visible = false
+			#viewportContainer.visible = false
 			set_playerNoLongerPlaying(true)
+			centerContainer.visible = false
+			
 
 		var skillBenefit = get_skillEvaluated()
 
@@ -284,7 +288,6 @@ func set_card_color():
 
 
 func go_back():
-	print("going back")
 	var root_node = get_node("/root")
 	
 
@@ -293,10 +296,9 @@ func go_back():
 	
 	var cardScene = load("res://UI/ChallengeCard/NewCard.tscn")
 	var cardInstance = cardScene.instance()
-	print("setting the origin on the card")
+
 	cardInstance.set_origin("back")
 	cardInstance.set_card_data(get_cardData())
-	print("card type na newcard ", get_cardType())
 	cardInstance.set_cardType(get_cardType())
 
 	
