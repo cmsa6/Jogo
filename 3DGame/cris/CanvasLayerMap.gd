@@ -34,4 +34,4 @@ func enable_additional_info():
 	emit_signal("hide_exit", false)
 	
 
-	
+

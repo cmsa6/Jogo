@@ -10,8 +10,7 @@ var value setget set_value, get_value
 signal update_value(diceValue)
 
 
-#func _ready():
-	#anim.play("thrown")
+
 
 
 func get_dice_value():

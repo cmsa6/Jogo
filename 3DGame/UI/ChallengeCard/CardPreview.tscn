@@ -86,6 +86,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Card2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -146,9 +147,9 @@ __meta__ = {
 }
 
 [node name="RewardTitle" type="Label" parent="Control/Card2/VBoxContainer"]
-margin_top = 61.0
+margin_top = 59.0
 margin_right = 740.0
-margin_bottom = 111.0
+margin_bottom = 109.0
 rect_min_size = Vector2( 180, 50 )
 size_flags_vertical = 6
 size_flags_stretch_ratio = 2.22
@@ -164,18 +165,18 @@ __meta__ = {
 
 [node name="LeftSide" type="HBoxContainer" parent="Control/Card2/VBoxContainer"]
 margin_left = 139.0
-margin_top = 123.0
+margin_top = 118.0
 margin_right = 601.0
-margin_bottom = 357.0
+margin_bottom = 361.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.89
 custom_constants/separation = 100
 
 [node name="RewardDetails" type="HBoxContainer" parent="Control/Card2/VBoxContainer/LeftSide"]
-margin_top = 17.0
+margin_top = 21.0
 margin_right = 200.0
-margin_bottom = 217.0
+margin_bottom = 221.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 2.08
@@ -222,9 +223,9 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 1, 0 )
 
 [node name="SkillsBackground" type="ColorRect" parent="Control/Card2/VBoxContainer/LeftSide"]
 margin_left = 300.0
-margin_top = 77.0
+margin_top = 81.0
 margin_right = 462.0
-margin_bottom = 157.0
+margin_bottom = 161.0
 rect_min_size = Vector2( 162, 80 )
 size_flags_horizontal = 6
 size_flags_vertical = 6

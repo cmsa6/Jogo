@@ -36,7 +36,7 @@ func translate(language):
 		placeholderText.set_placeholder("παίχτης ")
 		
 	elif language == "es":
-		player1Text.text      = "Jugador"
+		player1Text.text      = "Jugador "
 		player2Text.text      = "Jugador "
 		player3Text.text      = "Jugador "
 		player4Text.text      = "Jugador "

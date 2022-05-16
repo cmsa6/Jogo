@@ -30,7 +30,7 @@ albedo_color = Color( 0.788235, 0.0235294, 0.0235294, 0 )
 metallic = 1.0
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 1, 0.2, 1 )
+extents = Vector3( 0.5, 0.2, 0.5 )
 
 [sub_resource type="Animation" id=8]
 length = 2.0
@@ -107,5 +107,7 @@ stream = ExtResource( 4 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
+[connection signal="area_entered" from="." to="." method="_on_Cell_body_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Cell_body_exited"]
 [connection signal="body_entered" from="." to="." method="_on_Cell_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Cell_body_exited"]

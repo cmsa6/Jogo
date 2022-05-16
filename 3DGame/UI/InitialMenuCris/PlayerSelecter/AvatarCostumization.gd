@@ -10,7 +10,7 @@ export(NodePath) var translationManager
 onready var avatarPictures = $AvailableAvatars
 onready var avatarName = $AvatarName
 onready var confirmName = $ConfirmAvatarName
-onready var confirmCharacter = $confirm
+#onready var confirmCharacter = $confirm
 onready var instructions = $ColorRect/Instructions
 
 const VISIBLE = Color(1, 1, 1, 1)

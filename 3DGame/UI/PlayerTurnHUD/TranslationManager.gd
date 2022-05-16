@@ -7,6 +7,7 @@ export(NodePath) var objects
 
 func _ready():
 	translate(SettingsManager.language)
+	translate_points('0')
 	
 func translate(language):
 	var turnText = get_node(turn)
@@ -15,30 +16,30 @@ func translate(language):
 		turnText.text = "ΕΙΝΑΙ Η ΣΕΙΡΑ ΣΟΥ"
 	
 	elif language == "es":
-		turnText.text = "ES TU TURNO"
+		turnText.text = "Es tu turno"
 		
 	elif language == "it":
 		turnText.text = "È IL TUO TURNO"
 	
 	elif language == "pt":
-		turnText.text = "É A TUA VEZ "
+		turnText.text = "É a tua vez"
 		
 func translate_points(points):
 	var language = SettingsManager.language
 	var objectsText = get_node(objects)
 	
 	if language == "el":
-		objectsText.text = points + "/8\nΑΝΤΙΚΕΙΜΕΝΑ"
+		objectsText.text = points + "/8 ΑΝΤΙΚΕΙΜΕΝΑ"
 	
 	elif language == "es":
-		objectsText.text = points + "/8\nOBJETOS"
+		objectsText.text = points + "/8 OBJETOS"
 		
 	elif language == "it":
-		objectsText.text =  points + "/8\nOGGETTI"
+		objectsText.text =  points + "/8 OGGETTI"
 	
 	elif language == "pt":
-		objectsText.text =  points + "/8\nOBJETOS "
+		objectsText.text =  points + "/8 OBJETOS "
 		
 	elif language == "en":
-		objectsText.text =  points + "/8\nOBJECTS "
+		objectsText.text =  points + "/8 OBJECTS "
 

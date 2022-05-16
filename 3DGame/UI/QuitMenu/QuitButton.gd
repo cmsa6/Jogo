@@ -20,3 +20,6 @@ func hide_button(bol):
 		self.visible = false
 	else:
 		self.visible = true
+
+
+

@@ -7,9 +7,11 @@ const HIDDEN = Color(1, 1, 1, 0)
 
 signal hide_exit(bol)
 
-var scene = preload("res://UI/PlayerTurnHUD/PlayerTurnContainer.tscn")
+#var scene = preload("res://UI/PlayerTurnHUD/PlayerTurnContainer.tscn")
+var scene = preload("res://UI/PlayerTurnHUD/newPlayerContainer.tscn")
 
 onready var h_box_container = $VBoxContainer/HBoxContainer
+
 
 func _ready():
 	var num_players = SettingsManager.num_of_players
@@ -26,6 +28,7 @@ func _ready():
 	
 func _on_GameManager_on_players_turn_changed(playersTurn):
 	var children = $VBoxContainer/HBoxContainer.get_children()
+	
 	emit_signal("hide_exit", false)
 	for i in children.size():
 		if i != playersTurn:
@@ -33,7 +36,9 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			children[i].hide_agency()
 #			children[i].get_node("VBoxContainer/Arrow").modulate = HIDDEN
 
-			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = false
+			#children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = false
+			children[i].show_icon(false)
+			
 			children[i].change_progress_colors("secondary")
 #			#children[i].get_node("CenterContainer/TextureRect2").texture = null
 #			children[i].get_node("VBoxContainer2/DiceButton").modulate = HIDDEN
@@ -54,7 +59,10 @@ func _on_GameManager_on_players_turn_changed(playersTurn):
 			#children[i].get_node("CenterContainer").set_scale(Vector2(1.3,1.3))
 			
 #			children[i].show_agency()
-			children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = true
+			
+			#children[i].get_node("VBoxContainer2/CenterContainer/Icon").visible = true
+			children[i].show_icon(true)
+			
 			children[i].change_progress_colors("main")
 #			children[i].get_node("VBoxContainer/Arrow").modulate = VISIBLE
 #			children[i].get_node("VBoxContainer/TurnText").modulate = VISIBLE

@@ -3,22 +3,22 @@ extends VBoxContainer
 #const POINTS_LABEL = " POINT"
 const POINTS_LABEL = " / 8 OBJECTS"
 
-onready var icon = $VBoxContainer2/CenterContainer/Icon
-onready var playerName = $VBoxContainer2/Control/VBoxContainer/PlayerName
-onready var button = $VBoxContainer2/CenterContainer/TextureButton
-onready var label = $HBoxContainer/Label
-onready var turnText = $VBoxContainer2/Control/VBoxContainer/TurnText
+onready var icon = $CenterContainer/Icon
+onready var playerName = $TurnBackground/VBoxContainer/PlayerName
+onready var button = $CenterContainer/Button
+onready var label = $Objects
+onready var turnText = $TurnBackground/VBoxContainer/Turn
 #onready var arrow = $VBoxContainer2/Control/TurnBackground/VBoxContainer/Arrow
-onready var turnBack = $VBoxContainer2/Control/TurnBackground
-onready var diceButton = $VBoxContainer2/DiceButton
-onready var houseButton = $VBoxContainer2/CenterContainer/Button
+onready var turnBack = $TurnBackground
+onready var diceButton = $DiceButton
+onready var houseButton = $CenterContainer/Button
 
-onready var star1 = $HBoxContainer/Star1
-onready var star2 = $HBoxContainer/Star2
+#onready var star1 = $HBoxContainer/Star1
+#onready var star2 = $HBoxContainer/Star2
 
 onready var anim = $HBoxContainer/AnimationPlayer
 
-onready var playerProgress = $VBoxContainer2/CenterContainer/PlayerProgress
+onready var playerProgress = $CenterContainer/PlayerProgress
 onready var translator = $TranslationManager
 
 
@@ -26,10 +26,6 @@ const VISIBLE = Color(1, 1, 1, 1)
 const HIDDEN = Color(1, 1, 1, 0)
 
 var player setget set_player, get_player
-
-
-func ready():
-	translator.translate_points(0)
 
 
 
@@ -44,6 +40,7 @@ func set_points_text(new_points):
 	#label.text = str(new_points) + POINTS_LABEL 
 	translator.translate_points(str(new_points))
 	playerProgress.increase(new_points) 
+	
 	#if new_points < 10:
 	#	label.text = str(new_points) + POINTS_LABEL + "S"
 	#else:
@@ -80,6 +77,8 @@ func hide_agency():
 	
 	hide_turn()
 	
+
+	
 	
 func show_agency():
 	EnablePLayerButton()
@@ -94,8 +93,7 @@ func show_agency():
 	turnText.modulate = VISIBLE
 	turnBack.modulate = VISIBLE
 	
-	
-	
+
 
 
 func EnablePLayerButton():
@@ -110,6 +108,8 @@ func show_stars():
 
 func change_progress_colors(role):
 	playerProgress.change_colors(role)
-
+	
+	
 func show_icon(bol):
 	icon.visible = bol
+	

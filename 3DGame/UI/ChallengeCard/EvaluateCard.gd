@@ -9,7 +9,7 @@ extends Spatial
 onready var evaluationContainer = $Evaluation
 
 
-onready var rewardPreview     = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardPreview
+#onready var rewardPreview     = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/RewardPreview
 onready var viewportContainer = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer
 onready var centerContainer   = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer
 onready var objectPlaceHolder = $Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/ObjectPlaceHolder

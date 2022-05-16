@@ -6,7 +6,7 @@ export(int) var player_num
 
 var player_turn
 
-onready var player_color = $ColorRect
+#onready var player_color = $ColorRect
 onready var player_label = $PlayerPreview/HBoxContainer/ColorRect/HBoxContainer/Label
 
 #func init():

@@ -95,6 +95,8 @@ func _ready():
 
 
 func _on_Cell_body_entered(body):
+	print("entre")
+	print(get_occupied())
 	if get_occupied() and not doNotPlay:
 		audio.play(0)
 		set_doNotPlay(false)
