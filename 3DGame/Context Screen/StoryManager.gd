@@ -1,12 +1,12 @@
 extends GridContainer
 
-onready var  nextButton1 = $Part1/NextStory1
+onready var  nextButton1 = $Part1/ButtonLayer/NextStory1
 
 onready var story2 = $Part2/Story2
-onready var  nextButton2 = $Part2/NextStory2
+onready var  nextButton2 = $Part2/ButtonLayer/NextStory2
 
 onready var story3 = $Part3/Story3
-onready var  nextButton3 = $Part3/NextStory3
+onready var  nextButton3 = $Part3/ButtonLayer/NextStory3
 
 onready var story4 = $Part4/Story4
 
@@ -18,6 +18,7 @@ signal show_map()
 	
 
 func show_next(currentID):
+	print(currentID)
 	if currentID == "1":
 		nextButton1.visible = false
 		story2.visible = true

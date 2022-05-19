@@ -20,11 +20,11 @@ SettingsManager="*res://SettingsManager/SettingsManager.gd"
 CharactersManager="*res://CharactersManager/CharactersManager.tscn"
 SavingManager="*res://SavingSystem/SavingManager.gd"
 ChallengesManager="*res://ChallengesManager/ChallengesManager.gd"
-AudioManager="*res://Audio Manager/AudioManager.tscn"
+MusicAudioManager="*res://Audio Manager/MusicAudioManager.tscn"
+CityAudioManager="*res://Audio Manager/CityAudioManager.tscn"
 
 [display]
 
-window/size/fullscreen=true
 window/size/always_on_top=true
 window/dpi/allow_hidpi=true
 window/per_pixel_transparency/allowed=true

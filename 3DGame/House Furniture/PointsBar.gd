@@ -103,6 +103,8 @@ func show_or_hide():
 		emit_signal("hide_mapButton", false)
 		change_to_house_button(false)
 	else: 
+		var scoreInfo = get_node(scoreInfoManager)
+		scoreInfo.hide_bar()
 		emit_signal("hide_mapButton", true)
 		emit_signal("show_skills")
 		change_to_house_button(true)

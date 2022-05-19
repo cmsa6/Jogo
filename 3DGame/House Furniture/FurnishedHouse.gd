@@ -2,20 +2,20 @@ extends Spatial
 
 export (Array, String) var availableFurniture = []
 
-onready var avatarIcon = $CanvasLayer/Control/VBoxContainer2/VBoxContainer/PlayerAvatar
+onready var avatarIcon = $CanvasLayer/Control/VBoxContainer2/VBoxContainer/CenterContainer/PlayerAvatar
 onready var avatarName = $CanvasLayer/Control/VBoxContainer2/VBoxContainer/ColorRect/PlayerName
 
-onready var newMapButton = $CanvasLayer/Control2/ScoreInfoManager/NewMapButton
+onready var newMapButton = $CanvasLayer/Control/ScoreInfoManager/NewMapButton
 
-onready var progressBar = $CanvasLayer/Control2/ScoreInfoManager/TextureProgress
-onready var tween = $CanvasLayer/Control2/ScoreInfoManager/Tween
-onready var text = $CanvasLayer/Control2/ScoreInfoManager/TextureProgress/ProgressBarText
+onready var progressBar = $CanvasLayer/Control/ScoreInfoManager/TextureProgress
+onready var tween = $CanvasLayer/Control/ScoreInfoManager/Tween
+onready var text = $CanvasLayer/Control/ScoreInfoManager/TextureProgress/ProgressBarText
 
 #onready var pointsBarText = $ScoreInfo/ScoreInfoManager/PointsBar/Points
 onready var pointsBar = $CanvasLayer/Control/VBoxContainer2/PointsBar
 #onready var pointsBar = $CanvasLayer/Control/VBoxContainer2/PointsBar
 
-onready var scoreInfoManager = $CanvasLayer/Control2/ScoreInfoManager
+onready var scoreInfoManager = $CanvasLayer/Control/ScoreInfoManager
 
 
 

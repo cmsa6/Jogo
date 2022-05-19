@@ -10,6 +10,6 @@ func _input(event):
 
 
 func show_next():
-	var num = get_parent().get_name()[-1]
+	var num = self.get_name()[-1]
 	emit_signal("show_next", num)
 	

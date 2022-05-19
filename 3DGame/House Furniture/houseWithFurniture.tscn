@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://House Furniture/Extras/WoodFloorOffice.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -25,12 +25,14 @@
 [ext_resource path="res://House Furniture/Extras/OfficeDoor.tscn" type="PackedScene" id=23]
 [ext_resource path="res://House Furniture/Extras/KitchenWall.tscn" type="PackedScene" id=24]
 [ext_resource path="res://House Furniture/Extras/OfficeWall.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Assets/Sprites/characterSelected.png" type="Texture" id=26]
 [ext_resource path="res://House Furniture/Extras/BedroomWall.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Map Stuff/Tree A.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Assets/House Stuff/OfficeFloor.tscn" type="PackedScene" id=29]
 [ext_resource path="res://House Furniture/Extras/KitchenFloor.tscn" type="PackedScene" id=30]
 [ext_resource path="res://House Furniture/PointsBar.gd" type="Script" id=31]
 [ext_resource path="res://Sounds/winning.wav" type="AudioStream" id=32]
+[ext_resource path="res://Fotos/turnBackgroundDark.png" type="Texture" id=33]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=34]
 [ext_resource path="res://House Furniture/ScoreInfoManager.gd" type="Script" id=35]
 [ext_resource path="res://House Furniture/CoffeeMachine.tscn" type="PackedScene" id=36]
@@ -281,6 +283,15 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true, false, true ]
 }
 
+[sub_resource type="DynamicFontData" id=21]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=22]
+size = 18
+outline_size = 1
+extra_spacing_char = 3
+font_data = SubResource( 21 )
+
 [sub_resource type="SpatialMaterial" id=11]
 resource_name = "Atlas_2"
 albedo_color = Color( 0.294118, 0.262745, 0.262745, 1 )
@@ -340,16 +351,16 @@ uv1_scale = Vector3( 5, 5, 5 )
 [node name="FurnishedHouse" type="Spatial"]
 script = ExtResource( 7 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 519.909, 573.881 ]
+"_edit_vertical_guides_": [ 1001.33 ]
 }
 availableFurniture = [ "Bed", "Chair", "Cabinet", "Bookcase", "Couch", "Table", "TV", "CoffeeMachine" ]
 
 [node name="TranslationManager" parent="." instance=ExtResource( 13 )]
 script = ExtResource( 45 )
-objects = NodePath("../CanvasLayer/Control2/ScoreInfoManager/TextureProgress/ProgressBarText")
+objects = NodePath("../CanvasLayer/Control/ScoreInfoManager/TextureProgress/ProgressBarText")
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 20, 47, 57.666 )
+transform = Transform( 1, 0, 0, 0, 0.989656, 0.143458, 0, -0.143458, 0.989656, 21, 47, 57.666 )
 environment = SubResource( 2 )
 fov = 65.0
 near = 27.69
@@ -552,7 +563,6 @@ transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -425.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -561,7 +571,7 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -110.0
-margin_bottom = 163.0
+margin_bottom = 208.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -569,18 +579,23 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer2"]
 margin_right = 110.0
-margin_bottom = 108.0
+margin_bottom = 133.0
 size_flags_horizontal = 10
 custom_constants/separation = -2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerAvatar" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
-margin_left = 20.0
-margin_right = 90.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 70, 70 )
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
+margin_right = 110.0
+margin_bottom = 95.0
+
+[node name="PlayerAvatar" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/CenterContainer"]
+margin_left = 12.0
+margin_top = 5.0
+margin_right = 97.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 85, 85 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.5
@@ -591,18 +606,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/CenterContainer"]
+margin_left = 7.0
+margin_right = 102.0
+margin_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 95, 95 )
+texture = ExtResource( 26 )
+expand = true
+stretch_mode = 6
+
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
-margin_top = 68.0
+margin_top = 93.0
 margin_right = 110.0
-margin_bottom = 108.0
+margin_bottom = 133.0
 rect_min_size = Vector2( 110, 40 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-texture = ExtResource( 14 )
+texture = ExtResource( 33 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayerName" type="Label" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/ColorRect"]
 anchor_left = 0.5
@@ -616,7 +639,7 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 16 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Player x"
 align = 1
@@ -626,52 +649,42 @@ __meta__ = {
 }
 
 [node name="PointsBar" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2"]
-margin_left = 27.0
-margin_top = 108.0
-margin_right = 82.0
-margin_bottom = 163.0
-rect_min_size = Vector2( 55, 55 )
+margin_left = 22.0
+margin_top = 138.0
+margin_right = 87.0
+margin_bottom = 203.0
+rect_min_size = Vector2( 65, 65 )
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 6
-size_flags_vertical = 0
+size_flags_vertical = 6
 texture_normal = ExtResource( 46 )
 texture_pressed = ExtResource( 47 )
 texture_hover = ExtResource( 47 )
 expand = true
+stretch_mode = 4
 script = ExtResource( 31 )
-scoreInfoManager = NodePath("../../../Control2/ScoreInfoManager")
+scoreInfoManager = NodePath("../../ScoreInfoManager")
 
-[node name="Control2" type="Control" parent="CanvasLayer"]
+[node name="ScoreInfoManager" type="HBoxContainer" parent="CanvasLayer/Control"]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 462.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScoreInfoManager" type="HBoxContainer" parent="CanvasLayer/Control2"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -514.5
-margin_top = -89.0
-margin_right = 514.5
+margin_top = -91.0
 script = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer/Control2/ScoreInfoManager"]
+[node name="Tween" type="Tween" parent="CanvasLayer/Control/ScoreInfoManager"]
 
-[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/Control2/ScoreInfoManager"]
-margin_top = 19.0
-margin_right = 1000.0
-margin_bottom = 69.0
-rect_min_size = Vector2( 1000, 50 )
-size_flags_horizontal = 6
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/Control/ScoreInfoManager"]
+margin_top = 20.0
+margin_right = 945.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 800, 50 )
+size_flags_horizontal = 11
 size_flags_vertical = 6
-size_flags_stretch_ratio = 0.0
+size_flags_stretch_ratio = 9.25
 max_value = 8.0
 texture_under = ExtResource( 14 )
 texture_progress = ExtResource( 15 )
@@ -681,7 +694,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBarText" type="Label" parent="CanvasLayer/Control2/ScoreInfoManager/TextureProgress"]
+[node name="ProgressBarText" type="Label" parent="CanvasLayer/Control/ScoreInfoManager/TextureProgress"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -696,13 +709,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewMapButton" type="TextureButton" parent="CanvasLayer/Control2/ScoreInfoManager"]
-margin_left = 1004.0
-margin_right = 1079.0
-margin_bottom = 89.0
+[node name="NewMapButton" type="TextureButton" parent="CanvasLayer/Control/ScoreInfoManager"]
+margin_left = 949.0
+margin_top = 1.0
+margin_right = 1024.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 75, 89 )
 mouse_default_cursor_shape = 2
-size_flags_horizontal = 10
+size_flags_vertical = 6
 texture_normal = ExtResource( 34 )
 texture_pressed = ExtResource( 49 )
 texture_hover = ExtResource( 49 )
@@ -715,11 +729,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="CanvasLayer/Control2/ScoreInfoManager/NewMapButton" instance=ExtResource( 8 )]
-margin_left = 27.0
-margin_top = 65.0
-margin_right = 43.0
-margin_bottom = 81.0
+[node name="Shortcut" parent="CanvasLayer/Control/ScoreInfoManager/NewMapButton" instance=ExtResource( 8 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = -19.0
+margin_right = 6.0
+margin_bottom = -3.0
 
 [node name="FurnitureManager" parent="." instance=ExtResource( 11 )]
 
@@ -1140,10 +1158,10 @@ transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.
 [node name="Tree A10" parent="Forest" instance=ExtResource( 28 )]
 transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 49.5193, -126.858 )
 
+[connection signal="hide_mapButton" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/ScoreInfoManager/NewMapButton" method="disable_and_hide"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/VBoxContainer2/PointsBar" method="show_or_hide"]
 [connection signal="show_skills" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/VBoxContainer2/PointsBar" method="show_skillScreen" binds= [ "house" ]]
-[connection signal="show_skills" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control2/ScoreInfoManager" method="hide_bar"]
-[connection signal="pressed" from="CanvasLayer/Control2/ScoreInfoManager/NewMapButton" to="CanvasLayer/Control2/ScoreInfoManager/NewMapButton" method="back_to_map"]
+[connection signal="pressed" from="CanvasLayer/Control/ScoreInfoManager/NewMapButton" to="CanvasLayer/Control/ScoreInfoManager/NewMapButton" method="back_to_map"]
 
 [editable path="Bed"]
 [editable path="Kitchen/Window"]

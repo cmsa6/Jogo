@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://UI/FinalScreen/ShowAllPlayers.gd" type="Script" id=1]
 [ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=2]
@@ -10,7 +10,12 @@
 [ext_resource path="res://UI/FinalScreen/FinalCreen.gd" type="Script" id=8]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/FinalScreen/DetailVersion.gd" type="Script" id=12]
+[ext_resource path="res://Fotos/muteButtonSelected.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/muteButton.png" type="Texture" id=14]
+[ext_resource path="res://UI/FinalScreen/MuteButton.gd" type="Script" id=15]
+[ext_resource path="res://Assets/Keyboard/Tiles/lettet_E.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -190,10 +195,37 @@ next_scene_path = "res://UI/Credits/Credits.tscn"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
+[node name="MuteButton" type="TextureButton" parent="."]
+margin_right = 207.0
+margin_bottom = 210.0
+rect_scale = Vector2( 0.4, 0.4 )
+toggle_mode = true
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+expand = true
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut" parent="MuteButton" instance=ExtResource( 11 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = 20.0
+margin_right = 15.0
+margin_bottom = 50.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 16 )
+
 [connection signal="register_detailed_version" from="ColorRect/HBoxContainer/VBoxContainer/ShowAllPlayers" to="ColorRect/DetailVersion" method="register_detailed_version"]
 [connection signal="button_down" from="ColorRect/ExitGame" to="UISoundManager" method="confirm"]
 [connection signal="finish_game" from="ColorRect/ExitGame" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="pressed" from="ColorRect/ExitGame" to="ColorRect/ExitGame" method="button_pressed"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
+[connection signal="pressed" from="MuteButton" to="MuteButton" method="mute"]
 
 [editable path="SceneTransitionAnim"]

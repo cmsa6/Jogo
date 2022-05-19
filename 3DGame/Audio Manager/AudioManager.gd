@@ -1,16 +1,26 @@
 extends Node
 
+onready var anim  = $AnimationPlayer
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var mute = false setget set_mute, get_mute
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func fade_out_music():
+	if not mute:
+		anim.play("fade_out_music")
+		
+func fade_in_music():
+	if not mute:
+		anim.play("fade_in_music")
+	
+func start_city_sound():
+	print("i started city sound")
+	CityAudioManager.start()
+	#CityAudioManager.stream_paused = false
+	#CityAudioManager.playing = true
+
+func set_mute(bol):
+	mute = bol
+	
+func get_mute():
+	return mute

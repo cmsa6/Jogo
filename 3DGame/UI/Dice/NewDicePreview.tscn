@@ -255,8 +255,8 @@ __meta__ = {
 
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
-[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll" method="update_dice_value"]
+[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll"]

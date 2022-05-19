@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://Fotos/languageButtonSelected.png" type="Texture" id=14]
 [ext_resource path="res://UI/InitialScreen/LanguageSwitcher.gd" type="Script" id=15]
 [ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Fotos/muteButtonSelected.png" type="Texture" id=17]
+[ext_resource path="res://Fotos/muteButton.png" type="Texture" id=18]
+[ext_resource path="res://UI/InitialScreen/SoundButton.gd" type="Script" id=19]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -86,11 +89,26 @@ scale = Vector2( 0.364762, 0.366212 )
 texture = ExtResource( 6 )
 
 [node name="SettingsButton" type="TextureButton" parent="."]
+visible = false
 margin_right = 100.0
 margin_bottom = 100.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 5 )
 script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundButton" type="TextureButton" parent="."]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_scale = Vector2( 0.75, 0.75 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -198,6 +216,8 @@ margin_bottom = 3.0
 
 [connection signal="button_down" from="SettingsButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
+[connection signal="button_down" from="SoundButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="SoundButton" to="SoundButton" method="mute"]
 [connection signal="button_down" from="PlayButton" to="UISoundManager" method="play"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_BackToSceneButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="LanguageButton" method="register_language"]
