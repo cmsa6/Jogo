@@ -1,12 +1,13 @@
 extends TextureButton
 
 export(String, FILE) var previousScene
+signal save_language()
 
 func _input(event):
 	#if Input.is_key_pressed(KEY_SPACE):
 	if event.is_action_pressed("Enter"):
 		emit_signal("button_down")
-		_on_BackToSceneButton_pressed()
+		initiate_game()
 		
 
 func _on_BackToSceneButton_pressed():
@@ -22,6 +23,10 @@ func _on_BackToSceneButton_pressed():
 	
 	get_tree().change_scene(previousScene)
 
+
+func initiate_game():
+	emit_signal("save_language")
+	_on_BackToSceneButton_pressed()
 
 	
 

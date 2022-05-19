@@ -33,10 +33,10 @@ func _ready():
 	#escolhe randomnly um valor que corresponde a uma carta
 	if get_origin() == "":
 		var cardType = get_type()
-
+		var language = SettingsManager.language
 		
 		var randomFile = select_random_file_name(cardType)
-		var fileName = "res://Cards/" + str(cardType) + "/" + randomFile
+		var fileName = "res://Cards/" + str(language) + "/" + str(cardType) + "/" + randomFile
 		
 		var file = File.new()
 		file.open(fileName, File.READ)
@@ -112,31 +112,32 @@ func get_reward():
 	return reward
 	
 
-func select_random_file(folder):
-	var files = []
-	var dir = Directory.new()
-	var folderName = "res://Cards/" + str(folder) + "/"
-	#dir.open("res://Cards/Cognitive Card/")
-	dir.open(folderName)
-	dir.list_dir_begin()
-	
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with("."):
-			files.append(file)
-
-	dir.list_dir_end()
-
-	rng.randomize()
-	var fileSelected = rng.randi_range(0, files.size() - 1)
-	return files[fileSelected]
-	
+#func select_random_file(folder):
+#	var files = []
+#	var dir = Directory.new()
+#	var folderName = "res://Cards/" + str(folder) + "/"
+#	#dir.open("res://Cards/Cognitive Card/")
+#	dir.open(folderName)
+#	dir.list_dir_begin()
+#
+#	while true:
+#		var file = dir.get_next()
+#		if file == "":
+#			break
+#		elif not file.begins_with("."):
+#			files.append(file)
+#
+#	dir.list_dir_end()
+#
+#	rng.randomize()
+#	var fileSelected = rng.randi_range(0, files.size() - 1)
+#	return files[fileSelected]
+#
 	
 func select_random_file_name(folder):
 	var files = [] 
 	
+	#these files will already be in the designated language
 	files = check_challenge_array(folder)
 
 		

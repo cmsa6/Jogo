@@ -16,9 +16,10 @@ func register_cards(folder):
 	elif folder == "SERVICES":
 		array = SERVICES_challenges 
 		
-	
+	var language = SettingsManager.language
 	var dir = Directory.new()
-	var folderName = "res://Cards/" + folder + "/"
+	var folderName = "res://Cards/"+ str(language) + "/"+ folder + "/"
+
 	dir.open(folderName)
 	dir.list_dir_begin()
 	
@@ -27,7 +28,10 @@ func register_cards(folder):
 		if file == "":
 			break
 		elif not file.begins_with("."):
+			
 			array.append(file)
+			
+
 	
 	
 		

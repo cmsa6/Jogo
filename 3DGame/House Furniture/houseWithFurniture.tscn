@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://House Furniture/Extras/WoodFloorOffice.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -46,7 +46,6 @@
 [ext_resource path="res://Fotos/points.png" type="Texture" id=46]
 [ext_resource path="res://Fotos/points_selected.png" type="Texture" id=47]
 [ext_resource path="res://Assets/Bryce/Bryce.png" type="Texture" id=48]
-[ext_resource path="res://Cards/Fotos/enterButton_pressed.png" type="Texture" id=49]
 [ext_resource path="res://Fotos/Enter_disabled2.png" type="Texture" id=50]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -283,24 +282,23 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="DynamicFontData" id=21]
+[sub_resource type="DynamicFontData" id=11]
 font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=12]
 size = 18
 outline_size = 1
 extra_spacing_char = 3
-font_data = SubResource( 21 )
+font_data = SubResource( 11 )
 
-[sub_resource type="SpatialMaterial" id=11]
-resource_name = "Atlas_2"
+[sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 0.294118, 0.262745, 0.262745, 1 )
 albedo_texture = ExtResource( 40 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 41 )
 
-[sub_resource type="ArrayMesh" id=12]
+[sub_resource type="ArrayMesh" id=14]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( -0.0738982, -0.00954783, -0.0783144, 0.0718426, 0.0190956, 0.167431 ),
@@ -309,39 +307,39 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 288,
-"material": SubResource( 11 ),
+"material": SubResource( 13 ),
 "name": "Atlas_2",
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 258
 }
 
-[sub_resource type="CubeMesh" id=13]
+[sub_resource type="CubeMesh" id=15]
 size = Vector3( 20, 0.2, 20 )
 
-[sub_resource type="SpatialMaterial" id=14]
+[sub_resource type="SpatialMaterial" id=16]
 albedo_texture = ExtResource( 18 )
 
-[sub_resource type="CubeMesh" id=15]
+[sub_resource type="CubeMesh" id=17]
 size = Vector3( 40, 0.2, 40 )
 
-[sub_resource type="CubeMesh" id=16]
+[sub_resource type="CubeMesh" id=18]
 size = Vector3( 100, 0.2, 100 )
 
-[sub_resource type="CubeMesh" id=17]
+[sub_resource type="CubeMesh" id=19]
 size = Vector3( 200, 0.2, 200 )
 
-[sub_resource type="CubeMesh" id=18]
+[sub_resource type="CubeMesh" id=20]
 size = Vector3( 70, 50, 0.5 )
 
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=21]
 albedo_color = Color( 0.458824, 0.235294, 0.0627451, 1 )
 normal_enabled = true
 normal_scale = 9.19
 normal_texture = ExtResource( 17 )
 uv1_scale = Vector3( 5, 5, 5 )
 
-[sub_resource type="SpatialMaterial" id=20]
+[sub_resource type="SpatialMaterial" id=22]
 albedo_color = Color( 0.290196, 0.152941, 0.0470588, 1 )
 normal_enabled = true
 normal_scale = 9.19
@@ -639,7 +637,7 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Player x"
 align = 1
@@ -718,10 +716,7 @@ rect_min_size = Vector2( 75, 89 )
 mouse_default_cursor_shape = 2
 size_flags_vertical = 6
 texture_normal = ExtResource( 34 )
-texture_pressed = ExtResource( 49 )
-texture_hover = ExtResource( 49 )
 texture_disabled = ExtResource( 50 )
-texture_focused = ExtResource( 49 )
 expand = true
 stretch_mode = 4
 script = ExtResource( 10 )
@@ -905,7 +900,7 @@ transform = Transform( -8.30516e-08, 0, -1, 0, 1, 0, 1.9, 0, -4.37114e-08, 24.56
 transform = Transform( 0.732186, 0, -0.681104, 0, 1, 0, 0.681104, 0, 0.732186, 24.0492, 9.73255, 22 )
 
 [node name="MeshInstance" parent="Bedrooom/FrontDoor2" index="0"]
-mesh = SubResource( 12 )
+mesh = SubResource( 14 )
 
 [node name="H_Floor_Medium_Ofiice" parent="Bedrooom" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.6013, 0, 28.9351 )
@@ -974,154 +969,154 @@ transform = Transform( 4, 0, 0, 0, -1.74846e-07, 2, 0, -4, -8.74228e-08, -86.352
 
 [node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.9372, 0, -33.3464 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="Spatial4" type="Spatial" parent="Outdoors"]
 
 [node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.9372, 0, -53.1553 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1799, 0, -53.1553 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1015, 0, -53.1553 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9283, 0, -83.0895 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance7" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9283, 0, -121.527 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance8" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9283, 0, -160.521 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance13" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.9203, 0, -229.892 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance14" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -289.003, 0, -290.107 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance15" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -290.107 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance19" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 181.146, 0, -113.065 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 19 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance16" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -190.426 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance18" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -190.076, 0, -111.099 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance17" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -288.29, 0, -191.19 )
-mesh = SubResource( 16 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance9" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -122.473, 0, -160.521 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance10" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.316, 0, -120.81 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance11" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.316, 0, -82.0702 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance12" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.316, 0, -43.8058 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance5" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0992, 0, -83.0895 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance6" type="MeshInstance" parent="Outdoors/Spatial4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93601, 0, -83.0895 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 16 )
 
 [node name="Spatial3" type="Spatial" parent="Outdoors"]
 
 [node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1035, 0, -33.3464 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="Spatial2" type="Spatial" parent="Outdoors"]
 
 [node name="MeshInstance" type="MeshInstance" parent="Outdoors/Spatial2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3772, 0, -33.3464 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="Attic" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2589, -0.789227, 0 )
 
 [node name="MeshInstance6" type="MeshInstance" parent="Attic"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 56.8433, 46.3655, -35.3218 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
 
 [node name="MeshInstance9" type="MeshInstance" parent="Attic"]
 transform = Transform( 0.993961, -0.109734, 0, 0.109734, 0.993961, 0, 0, 0, 1, -7.83819, 25.395, -51.836 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 20 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 22 )
 
 [node name="MeshInstance10" type="MeshInstance" parent="Attic"]
 transform = Transform( 0.99406, 0.108832, 0, -0.108832, 0.99406, 0, 0, 0, 1, 53.1081, 25.395, -51.836 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 20 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 22 )
 
 [node name="MeshInstance7" type="MeshInstance" parent="Attic"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -10.6608, 46.3655, -35.3218 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
 
 [node name="Roof" type="Spatial" parent="."]
 
 [node name="MeshInstance2" type="MeshInstance" parent="Roof"]
 transform = Transform( -0.994234, 8.62917e-08, 0.107236, 0.107236, 4.0347e-09, 0.994234, 8.53614e-08, 1, -1.3265e-08, 55.5844, 49.0737, -30.1506 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
 
 [node name="MeshInstance5" type="MeshInstance" parent="Roof"]
 transform = Transform( -0.99441, 8.34836e-08, -0.105587, -0.105587, 2.22039e-08, 0.99441, 8.53614e-08, 1, -1.3265e-08, -13.4331, 49.0737, -30.1506 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
 
 [node name="Forest" type="Spatial" parent="."]
 

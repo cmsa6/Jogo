@@ -20,12 +20,14 @@ var origin = "" setget set_origin, get_origin
 
 
 func _ready():
+	var language = SettingsManager.language
 	if get_origin() == "":
 		set_card_color(get_cardType())
 
 		var files = []
+		var photoDir = "res://Cards/" + str(language) + "/Photos/"
 		var dir = Directory.new()
-		dir.open("res://Cards/Fotos/")
+		dir.open(photoDir)
 		dir.list_dir_begin()
 		
 		while true:
@@ -47,14 +49,22 @@ func _ready():
 
 		var imageName = card_info[1] 
 		
-		imageName = imageName.replace(" ","")
+		#imageName = imageName.replace(" ","")
+		
+		print("looking for this image: ",imageName)
+		
+		
 		
 		for f in files:
 			if imageName in f:			
-				var imagePath = "res://Cards/Fotos/" + imageName +".png"
+				var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
+				print("looking for this image: ",imagePath)
 				var imagePhoto = load(imagePath)
 				image.texture = imagePhoto
 				zoomImage.texture = imagePhoto
+				break
+				
+		
 	
 	else:
 		set_card_color(get_cardType())
@@ -68,10 +78,11 @@ func _ready():
 
 		var imageName = cardData[1] 
 		
-		imageName = imageName.replace(" ","")
+		#imageName = imageName.replace(" ","")
+		print(imageName)
 		
-		
-		var imagePath = "res://Cards/Fotos/" + imageName +".png"
+		var imagePath =  "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
+		print("looking for this image: ",imagePath)
 		var imagePhoto = load(imagePath)
 		image.texture = imagePhoto
 		zoomImage.texture = imagePhoto

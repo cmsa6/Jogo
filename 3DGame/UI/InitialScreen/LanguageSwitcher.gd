@@ -52,7 +52,8 @@ func set_language(lang):
 	
 func get_language():
 	return language
-	
+
+
 	
 func register_language():
 	SettingsManager.language = get_language()
