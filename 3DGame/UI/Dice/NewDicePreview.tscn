@@ -217,6 +217,7 @@ size_flags_vertical = 10
 margin_right = 75.0
 margin_bottom = 89.0
 rect_min_size = Vector2( 75, 89 )
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 disabled = true
@@ -229,15 +230,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" parent="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" instance=ExtResource( 15 )]
+[node name="Shortcut" parent="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" instance=ExtResource( 15 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -8.0
-margin_top = -21.0
+margin_top = -16.0
 margin_right = 8.0
-margin_bottom = -5.0
+margin_bottom = 0.0
 
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false
@@ -255,8 +256,10 @@ __meta__ = {
 
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
-[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll" method="update_dice_value"]
+[connection signal="button_down" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
+[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll" method="update_dice_value"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll"]
+[editable path="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton/Shortcut"]

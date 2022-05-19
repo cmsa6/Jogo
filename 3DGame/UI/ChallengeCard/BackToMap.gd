@@ -6,7 +6,7 @@ onready var grandgrandparent = grandparent.get_parent()
 
 
 func _input(event):
-	if (not self.disabled) and self.visible and event.is_action_pressed("ui_accept"):
+	if (not self.disabled) and self.visible and event.is_action_pressed("Enter"):
 		emit_signal("pressed")
 
 	

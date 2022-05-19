@@ -21,7 +21,8 @@ signal show_skills()
 signal hide_mapButton(bol)
 
 func _input(event):
-	if event.is_action_released("check_points") and not disabled:
+	if event.is_action_pressed("Tab") and not disabled:
+			emit_signal("button_down")
 			emit_signal("pressed")
 
 

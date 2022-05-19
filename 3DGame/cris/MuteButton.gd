@@ -1,12 +1,13 @@
 extends TextureButton
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
+func _input(event):
+	if event.is_action_pressed("Tab") and self.visible:
+		#if event.as_text() == "E" and self.visible:
+		emit_signal("button_down")
+		emit_signal("pressed")
+		
+		
 func _ready():
 	if CityAudioManager.get_mute():
 		self.pressed = true
@@ -17,11 +18,13 @@ func mute():
 		CityAudioManager.set_mute(false)
 		MusicAudioManager.set_mute(false)
 		CityAudioManager.start()
+		self.pressed = false
 
 	else:
 		CityAudioManager.set_mute(true)
 		MusicAudioManager.set_mute(true)
 		CityAudioManager.stop()
+		self.pressed = true
 		
 	
 func hide_button(bol):

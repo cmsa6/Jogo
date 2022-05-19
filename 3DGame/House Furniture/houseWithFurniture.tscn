@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://House Furniture/Extras/WoodFloorOffice.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -42,6 +42,8 @@
 [ext_resource path="res://Assets/DiDaCityPack - Interior/Models/Interior/Textures/Texture_Atlas_Colors_2.png" type="Texture" id=40]
 [ext_resource path="res://House Furniture/Extras/Plaster001_1K_NormalDX.jpg" type="Texture" id=41]
 [ext_resource path="res://House Furniture/Extras/LivingRoomWall.tscn" type="PackedScene" id=42]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=43]
+[ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=44]
 [ext_resource path="res://House Furniture/TranslationManager.gd" type="Script" id=45]
 [ext_resource path="res://Fotos/points.png" type="Texture" id=46]
 [ext_resource path="res://Fotos/points_selected.png" type="Texture" id=47]
@@ -663,6 +665,16 @@ stretch_mode = 4
 script = ExtResource( 31 )
 scoreInfoManager = NodePath("../../ScoreInfoManager")
 
+[node name="Tab" parent="CanvasLayer/Control/VBoxContainer2/PointsBar" instance=ExtResource( 44 )]
+anchor_left = 0.5
+anchor_top = 1.169
+anchor_right = 0.5
+anchor_bottom = 1.169
+margin_left = -5.5
+margin_top = -6.985
+margin_right = 13.5
+margin_bottom = 7.015
+
 [node name="ScoreInfoManager" type="HBoxContainer" parent="CanvasLayer/Control"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1153,9 +1165,13 @@ transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.
 [node name="Tree A10" parent="Forest" instance=ExtResource( 28 )]
 transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 49.5193, -126.858 )
 
+[node name="UISoundManager" parent="." instance=ExtResource( 43 )]
+
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="UISoundManager" method="select"]
 [connection signal="hide_mapButton" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/ScoreInfoManager/NewMapButton" method="disable_and_hide"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/VBoxContainer2/PointsBar" method="show_or_hide"]
 [connection signal="show_skills" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/VBoxContainer2/PointsBar" method="show_skillScreen" binds= [ "house" ]]
+[connection signal="button_down" from="CanvasLayer/Control/ScoreInfoManager/NewMapButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="CanvasLayer/Control/ScoreInfoManager/NewMapButton" to="CanvasLayer/Control/ScoreInfoManager/NewMapButton" method="back_to_map"]
 
 [editable path="Bed"]

@@ -294,13 +294,15 @@ __meta__ = {
 }
 nextCard = "res://UI/ChallengeCard/NewCard.tscn"
 
-[node name="HBoxContainer" parent="Control/Card2/VBoxContainer/VBoxContainer/NextButton" instance=ExtResource( 5 )]
-margin_left = 27.0
-margin_top = 66.0
-margin_right = 43.0
-margin_bottom = 82.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
+[node name="Shortcut" parent="Control/Card2/VBoxContainer/VBoxContainer/NextButton" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -10.5
+margin_top = -21.0
+margin_right = 5.5
+margin_bottom = -5.0
 
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false
@@ -327,7 +329,7 @@ stream = ExtResource( 11 )
 [connection signal="type_setted" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_type"]
 [connection signal="save_card_data" from="Control/Card2/VBoxContainer/LeftSide/RewardDetails" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="save_data"]
 [connection signal="save_card_type" from="Control/Card2/VBoxContainer/LeftSide/RewardDetails" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="save_cardType"]
-[connection signal="button_down" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="UISoundManager" method="select"]
+[connection signal="button_down" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="showNextCard"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 

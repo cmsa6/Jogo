@@ -6,7 +6,7 @@ var languagePos = 1 setget set_languagePos, get_languagePos
 var language = "en" setget set_language, get_language
 
 func _input(event):
-	if event.is_action_pressed("Tab"):
+	if event.is_action_pressed("Escape"):
 		emit_signal("button_down")
 		change_language()
 

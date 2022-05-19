@@ -1,10 +1,10 @@
 extends TextureButton
 
 func _input(event):
-	if event.is_action_released("QuitGame"):
-		if event.as_text() == "E" and self.visible:
-			emit_signal("button_down")
-			check_quit()
+	if event.is_action_pressed("Escape") and self.visible:
+		#if event.as_text() == "E" and self.visible:
+		emit_signal("button_down")
+		check_quit()
 
 func check_quit():
 	var root_node = get_node("/root")

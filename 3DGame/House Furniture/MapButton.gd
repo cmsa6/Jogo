@@ -6,12 +6,13 @@ var checkingSkills setget set_checkingSkills, get_checkingSkills
 
 
 func _input(event):
-#	if event.is_action_released("ui_select") and not self.disabled and self.visible:
-#		emit_signal("pressed")
-	pass
+	if event.is_action_pressed("Enter") and not self.disabled and self.visible:
+		emit_signal("button_down")
+		emit_signal("pressed")
+	
 			
 #func _process(delta):
-#	if Input.is_action_just_released("ExitHouse"):
+#	if Input.is_action_pressed("ExitHouse"):
 #		print("im exiting the house")
 #		back_to_map()
 

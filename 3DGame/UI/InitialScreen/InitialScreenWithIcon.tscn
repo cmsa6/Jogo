@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Fotos/muteButtonSelected.png" type="Texture" id=17]
 [ext_resource path="res://Fotos/muteButton.png" type="Texture" id=18]
 [ext_resource path="res://UI/InitialScreen/SoundButton.gd" type="Script" id=19]
+[ext_resource path="res://UI/Keyboard/Shortcut_escape.tscn" type="PackedScene" id=20]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -68,8 +69,8 @@ margin_right = 512.0
 margin_bottom = 181.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "quality of life
-game"
+text = "qool
+city"
 align = 1
 valign = 1
 __meta__ = {
@@ -113,6 +114,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tab" parent="SoundButton" instance=ExtResource( 16 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -10.5
+margin_top = -5.66663
+margin_right = 18.5
+margin_bottom = 13.3334
+
 [node name="PlayButton" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 0.501482
@@ -122,6 +133,7 @@ margin_left = -50.0
 margin_top = -50.8892
 margin_right = 50.0
 margin_bottom = 49.1108
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 8 )
@@ -204,15 +216,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tab" parent="LanguageButton" instance=ExtResource( 16 )]
+[node name="Escape" parent="LanguageButton" instance=ExtResource( 20 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -9.0
+margin_left = -10.0
 margin_top = -5.0
-margin_right = 9.0
-margin_bottom = 3.0
+margin_right = 10.0
+margin_bottom = 15.0
 
 [connection signal="button_down" from="SettingsButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
@@ -223,8 +235,5 @@ margin_bottom = 3.0
 [connection signal="save_language" from="PlayButton" to="LanguageButton" method="register_language"]
 [connection signal="button_down" from="LanguageButton" to="UISoundManager" method="select"]
 [connection signal="pressed" from="LanguageButton" to="LanguageButton" method="change_language"]
-[connection signal="button_down" from="LanguageButton/Tab/Button" to="LanguageButton/Tab/Button" method="mimic_parent_sound"]
-[connection signal="pressed" from="LanguageButton/Tab/Button" to="LanguageButton/Tab/Button" method="mimic_parent"]
 
 [editable path="PlayButton/Shortcut"]
-[editable path="LanguageButton/Tab"]

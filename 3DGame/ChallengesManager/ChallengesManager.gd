@@ -1,19 +1,26 @@
 extends Node
 
-var COMMERCIAL_challenges = []
-var LEISURE_challenges = []
-var HELP_challenges = []
-var SERVICES_challenges = []
+var COMMERCIAL_challenges 
+var LEISURE_challenges 
+var HELP_challenges 
+var SERVICES_challenges 
 
 func register_cards(folder):
 	var array
 	if folder == "COMMERCIAL":
+		COMMERCIAL_challenges  = []
 		array = COMMERCIAL_challenges 
+		
 	elif folder == "LEISURE":
+		LEISURE_challenges = []
 		array = LEISURE_challenges 
+		
 	elif folder == "HELP":
+		HELP_challenges = []
 		array = HELP_challenges 
+		
 	elif folder == "SERVICES":
+		SERVICES_challenges = []
 		array = SERVICES_challenges 
 		
 	var language = SettingsManager.language

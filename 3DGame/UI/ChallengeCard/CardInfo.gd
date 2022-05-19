@@ -5,8 +5,8 @@ onready var instructions = $Instructions
 onready var image = $VBoxContainer/TextureRect
 onready var zoomImage = $ZoomedInImage
 onready var audio = $MinigameSound
-onready var zoomOut = $zoomButton
-onready var zoomIn = $VBoxContainer/zoomButtonIn
+onready var zoomOut = $zoomButton/ZoomOutButton
+onready var zoomIn = $VBoxContainer/zoomButtonIn/ZoomInButton
 onready var imageContainer = $VBoxContainer
 
 export(NodePath) var cardColor
@@ -133,14 +133,15 @@ func enable_zoom():
 		zoomImage.visible = true
 		instructions.visible = false
 		#image.visible = false
-		#zoomIn.visible = false
+		zoomIn.visible = false
 		imageContainer.visible = false
+		
 		zoomOut.visible = true
 	else:
 		zoomImage.visible = false
 		instructions.visible = true
 		#image.visible = true
-		#zoomIn.visible = true
+		zoomIn.visible = true
 		imageContainer.visible = true
 		zoomOut.visible = false
 
