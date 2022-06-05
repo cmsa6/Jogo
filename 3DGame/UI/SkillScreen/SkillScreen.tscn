@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://UI/SkillScreen/human-brain.png" type="Texture" id=1]
-[ext_resource path="res://Fotos/DiceBackground.png" type="Texture" id=2]
 [ext_resource path="res://UI/SkillScreen/SkillDetail.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cards/Skills/InterpersonalRelationship.png" type="Texture" id=4]
 [ext_resource path="res://UI/SkillScreen/qol.png" type="Texture" id=5]
@@ -12,7 +11,6 @@
 [ext_resource path="res://Cards/Skills/PersonalDevelopment.png" type="Texture" id=10]
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Cards/Skills/EmotionalWellbeing.png" type="Texture" id=12]
-[ext_resource path="res://Fonts/button3.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Cards/Skills/MaterialWellbeing.png" type="Texture" id=14]
 [ext_resource path="res://Cards/Skills/PhysicalWellbeing.png" type="Texture" id=15]
 [ext_resource path="res://Cards/Skills/Rights.png" type="Texture" id=16]
@@ -22,6 +20,30 @@
 [ext_resource path="res://UI/SkillScreen/SkillScreen.gd" type="Script" id=20]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=21]
 [ext_resource path="res://UI/FinalScreen/TranslationManager_skills.gd" type="Script" id=22]
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 1
+extra_spacing_char = 2
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+extra_spacing_top = 2
+extra_spacing_char = 6
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 15
+outline_size = 1
+extra_spacing_top = 3
+extra_spacing_bottom = 3
+extra_spacing_char = 2
+font_data = SubResource( 5 )
 
 [node name="SkillScreen" type="Spatial"]
 script = ExtResource( 20 )
@@ -57,17 +79,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="Control"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -0.00183105
-margin_bottom = 398.0
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="SkillManager" type="ColorRect" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -79,7 +90,7 @@ margin_right = 450.0
 margin_bottom = 275.0
 rect_min_size = Vector2( 900, 550 )
 rect_pivot_offset = Vector2( 388.889, 585.786 )
-color = Color( 0.352941, 0.333333, 0.309804, 0.839216 )
+color = Color( 0.490196, 0.478431, 0.466667, 0.670588 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +98,6 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/SkillManager"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 2.0
 size_flags_horizontal = 6
 size_flags_vertical = 2
 __meta__ = {
@@ -95,17 +105,18 @@ __meta__ = {
 }
 
 [node name="SkillCategory" type="HBoxContainer" parent="Control/SkillManager/VBoxContainer"]
+margin_top = 1.0
 margin_right = 900.0
-margin_bottom = 63.0
+margin_bottom = 32.0
 size_flags_vertical = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QOL" type="HBoxContainer" parent="Control/SkillManager/VBoxContainer/SkillCategory"]
-margin_left = 30.0
-margin_right = 417.0
-margin_bottom = 63.0
+margin_left = 83.0
+margin_right = 364.0
+margin_bottom = 31.0
 size_flags_horizontal = 6
 
 [node name="TextureRect3" type="TextureRect" parent="Control/SkillManager/VBoxContainer/SkillCategory/QOL"]
@@ -120,15 +131,16 @@ texture = ExtResource( 5 )
 expand = true
 
 [node name="Label" type="Label" parent="Control/SkillManager/VBoxContainer/SkillCategory/QOL"]
-margin_right = 387.0
-margin_bottom = 63.0
-custom_fonts/font = ExtResource( 13 )
+margin_right = 281.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Quality of Life Skills"
 
 [node name="CF" type="HBoxContainer" parent="Control/SkillManager/VBoxContainer/SkillCategory"]
-margin_left = 486.0
-margin_right = 866.0
-margin_bottom = 63.0
+margin_left = 539.0
+margin_right = 812.0
+margin_bottom = 31.0
 size_flags_horizontal = 6
 
 [node name="TextureRect2" type="TextureRect" parent="Control/SkillManager/VBoxContainer/SkillCategory/CF"]
@@ -142,15 +154,15 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Label3" type="Label" parent="Control/SkillManager/VBoxContainer/SkillCategory/CF"]
-margin_right = 380.0
-margin_bottom = 63.0
-custom_fonts/font = ExtResource( 13 )
+margin_right = 273.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
 text = "Cognitive Functions"
 
 [node name="Skills" type="HBoxContainer" parent="Control/SkillManager/VBoxContainer"]
-margin_top = 73.0
+margin_top = 37.0
 margin_right = 900.0
-margin_bottom = 546.0
+margin_bottom = 550.0
 size_flags_vertical = 6
 size_flags_stretch_ratio = 9.96
 __meta__ = {
@@ -160,7 +172,7 @@ __meta__ = {
 [node name="qolSkills" type="GridContainer" parent="Control/SkillManager/VBoxContainer/Skills"]
 margin_left = 4.0
 margin_right = 444.0
-margin_bottom = 473.0
+margin_bottom = 513.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/vseparation = 15
@@ -170,104 +182,154 @@ columns = 2
 [node name="InterpersonalRelationship" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_right = 180.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="1"]
 texture = ExtResource( 4 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
 text = "Interpersonal
 Relationships"
 
 [node name="SocialInclusion" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 260.0
 margin_right = 440.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion" index="1"]
-text = "Social 
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
+text = "Social
 Inclusion"
 
 [node name="Self-Determination" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 122.0
+margin_top = 132.0
 margin_right = 180.0
-margin_bottom = 229.0
+margin_bottom = 249.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="1"]
 texture = ExtResource( 8 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
 text = "Self
 Determination"
 
 [node name="PhysicalWellbeing" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 260.0
-margin_top = 122.0
+margin_top = 132.0
 margin_right = 440.0
-margin_bottom = 229.0
+margin_bottom = 249.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="1"]
 texture = ExtResource( 15 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing" index="1"]
-text = "Physical 
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
+text = "Physical
 Wellbeing"
 
 [node name="MaterialWellbeing" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 244.0
+margin_top = 264.0
 margin_right = 180.0
-margin_bottom = 351.0
+margin_bottom = 381.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="1"]
 texture = ExtResource( 14 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
 text = "Material
- Wellbeing"
+Wellbeing"
 
 [node name="EmotionalWellbeing" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 260.0
-margin_top = 244.0
+margin_top = 264.0
 margin_right = 440.0
-margin_bottom = 351.0
+margin_bottom = 381.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="1"]
 texture = ExtResource( 12 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing" index="1"]
-text = "Emotional 
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
+text = "Emotional
 Wellbeing"
 
 [node name="PersonalDevelopment" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 366.0
+margin_top = 396.0
 margin_right = 180.0
-margin_bottom = 473.0
+margin_bottom = 513.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="1"]
 texture = ExtResource( 10 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
 text = "Personal
- Development"
+Development"
 
 [node name="Rights" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 3 )]
 margin_left = 260.0
-margin_top = 366.0
+margin_top = 396.0
 margin_right = 440.0
-margin_bottom = 473.0
+margin_bottom = 513.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Details" index="1"]
 texture = ExtResource( 16 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
 text = "Rights
 "
 
 [node name="cfSkills" type="GridContainer" parent="Control/SkillManager/VBoxContainer/Skills"]
 margin_left = 456.0
 margin_right = 896.0
-margin_bottom = 341.0
+margin_bottom = 409.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
 custom_constants/vseparation = 10
@@ -277,66 +339,103 @@ columns = 2
 [node name="CalculusandProblemSolving" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_right = 180.0
+margin_bottom = 136.0
+
+[node name="Details" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving" index="0"]
+margin_top = 9.0
+margin_bottom = 79.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="1"]
 texture = ExtResource( 7 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving" index="1"]
-text = "Calculus and 
+margin_top = 93.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 4 )
+text = "Calculus and
 Problem Solving"
 
 [node name="MemoryandAttentiontoDetail" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 3 )]
 margin_left = 260.0
 margin_right = 440.0
+margin_bottom = 136.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="1"]
 texture = ExtResource( 19 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail" index="1"]
-text = "Memory and 
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 4 )
+text = "Memory and
 Attention to Detail"
 
 [node name="SocialandEmotionalWellbeing" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 117.0
+margin_top = 146.0
 margin_right = 180.0
-margin_bottom = 224.0
+margin_bottom = 282.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="1"]
 texture = ExtResource( 17 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing" index="1"]
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 4 )
 text = "Social and Emotional
- Wellbeing"
+Wellbeing"
 
 [node name="Language" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 3 )]
 margin_left = 260.0
-margin_top = 117.0
+margin_top = 146.0
 margin_right = 440.0
-margin_bottom = 224.0
+margin_bottom = 282.0
 
 [node name="Details" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/Language" index="0"]
-margin_top = 7.0
-margin_bottom = 77.0
+margin_top = 19.0
+margin_bottom = 89.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Details" index="1"]
 texture = ExtResource( 6 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/Language" index="1"]
-margin_top = 88.0
+margin_top = 112.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 4 )
 text = "Language"
 
 [node name="SpatialOrientation" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 3 )]
 margin_left = 0.0
-margin_top = 234.0
+margin_top = 292.0
 margin_right = 180.0
-margin_bottom = 341.0
+margin_bottom = 409.0
+
+[node name="Quantity" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="1"]
 texture = ExtResource( 18 )
 
 [node name="Name" parent="Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation" index="1"]
-text = "Spatial 
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 4 )
+text = "Spatial
 Orientation"
 
 [node name="ColorRect" type="ColorRect" parent="Control"]

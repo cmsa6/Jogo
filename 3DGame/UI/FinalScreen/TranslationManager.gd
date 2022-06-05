@@ -28,10 +28,13 @@ func translate(language):
 	var numPoints
 			
 	if language == "el":
-		objectsText.text = "1\nπαίχτης"
-		pointsText.text  = "2\nΠαίκτες"
-		qolText.text     = "3\nΠαίκτες"
-		cfText.text      = "4\nΠαίκτες"
+		qolText.text        = "ποιότητας ζωής"
+		qolPointsText.text  = " Πόντοι"
+		
+		cfText.text         = "Γνωστικές λειτουργίες"
+		qolPointsText.text  = " Πόντοι"
+		
+		seeDetailsText.text = "Δες λεπτομέρειες"
 		
 	elif language == "es":
 		qolText.text     = "Calidad de Vida"
@@ -71,7 +74,8 @@ func translate_total(objs, pnts):
 
 			
 	if language == "el":
-		pass
+		objectsText.text = objs + " Αντικείμενα"
+		pointsText.text  = pnts + " Πόντοι"
 		
 	elif language == "es":
 		objectsText.text = objs + " OBJETOS"

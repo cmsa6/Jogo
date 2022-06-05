@@ -2,7 +2,7 @@ extends Node
 
 
 #export(NodePath) var challengeName
-#export(NodePath) var reward
+export(NodePath) var reward
 export(NodePath) var instructions
 
 
@@ -12,11 +12,13 @@ func _ready():
 func translate(language):
 	#var challengeNameText = get_node(challengeName)
 	var instructionsText = get_node(instructions)
+	var rewardText       = get_node(reward)
 
 
 	if language == "el":
 		#challengeNameText.text = "Όνομα πρόκλησης"
-		instructionsText.text = "Το κατάλαβε σωστά ο παίκτης;"
+		rewardText.text       = "Μπορείς να κερδίσεις"
+		instructionsText.text = "Ολοκλήρωσε ο παίκτης\nεπιτυχώς τη δοκιμασία;"
 			
 	elif language == "es":
 		#challengeNameText.text = "Nombre del Desafío"
@@ -28,4 +30,5 @@ func translate(language):
 	
 	elif language == "pt":
 		#challengeNameText.text = "Nome do Desafio"
+		rewardText.text           = "Podes ganhar"
 		instructionsText.text = "O jogador acertou?"

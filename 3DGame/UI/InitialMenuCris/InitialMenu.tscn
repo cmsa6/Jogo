@@ -6,11 +6,11 @@
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/InitialMenuCris/Translations/TranslationManager.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Keyboard/Tiles/1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0325.png" type="Texture" id=7]
 [ext_resource path="res://UI/InitialMenuCris/going_back.gd" type="Script" id=8]
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=9]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Keyboard/Tiles/2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0323.png" type="Texture" id=11]
 [ext_resource path="res://Fotos/3players_selected.png" type="Texture" id=12]
 [ext_resource path="res://Fotos/4players_selected.png" type="Texture" id=13]
 [ext_resource path="res://Fotos/4players.png" type="Texture" id=14]
@@ -18,8 +18,8 @@
 [ext_resource path="res://Fotos/3players.png" type="Texture" id=16]
 [ext_resource path="res://Fotos/1player.png" type="Texture" id=17]
 [ext_resource path="res://Fotos/1player_selected.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Keyboard/Tiles/4.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Keyboard/Tiles/3.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0324.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0326.png" type="Texture" id=20]
 [ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Fonts/greekFont.tres" type="DynamicFont" id=23]
@@ -27,6 +27,7 @@
 [sub_resource type="DynamicFont" id=1]
 size = 30
 outline_size = 2
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 22 )
 
@@ -88,7 +89,7 @@ margin_right = 824.0
 margin_bottom = 43.0
 size_flags_horizontal = 6
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "How many players are going to play?"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -157,7 +158,8 @@ texture_focused = ExtResource( 18 )
 type = 1
 
 [node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" index="0"]
-texture = ExtResource( 7 )
+modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 11 )
 
 [node name="Cris_SingleTypeSelecter2" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -198,7 +200,8 @@ texture_focused = ExtResource( 2 )
 type = 2
 
 [node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" index="0"]
-texture = ExtResource( 11 )
+modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 19 )
 
 [node name="Cris_SingleTypeSelecter3" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -239,7 +242,8 @@ texture_focused = ExtResource( 12 )
 type = 3
 
 [node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" index="0"]
-texture = ExtResource( 20 )
+modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
 
 [node name="Cris_SingleTypeSelecter4" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -280,7 +284,8 @@ texture_focused = ExtResource( 13 )
 type = 4
 
 [node name="Shortcut" parent="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" index="0"]
-texture = ExtResource( 19 )
+modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 20 )
 
 [node name="UISoundManager" parent="." instance=ExtResource( 10 )]
 
@@ -296,17 +301,17 @@ player4 = NodePath("../gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cri
 [connection signal="button_down" from="ColorRect/ColorRect/HBoxContainer/TextureButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="ColorRect/ColorRect/HBoxContainer/TextureButton" to="ColorRect/ColorRect/HBoxContainer/TextureButton" method="go_back"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" method="_on_one_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" method="_on_two_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter2/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" method="_on_three_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter3/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="button_down" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="UISoundManager" method="select"]
-[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 [connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" method="_on_four_player_selected"]
+[connection signal="pressed" from="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter4/VBoxContainer/TextureButton" to="SceneTransitionAnim/Control" method="play_fade_out"]
 
 [editable path="SceneTransitionAnim"]
 [editable path="gameTypeSelecterContainer/VBoxContainer/HBoxContainer/Cris_SingleTypeSelecter"]

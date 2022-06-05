@@ -3,7 +3,7 @@ extends ColorRect
 onready var welcomeText = $VBoxContainer/WelcomeText
 onready var players = $VBoxContainer/PlayersList
 
-var iconScene = preload("res://UI/QuitMenu/Avatar.tscn")
+var iconScene = preload("res://Context Screen/AvatarImage.tscn")
 
 func _ready():
 	var numPlayers = SettingsManager.num_of_players

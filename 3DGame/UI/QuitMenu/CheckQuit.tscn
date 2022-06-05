@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://UI/QuitMenu/ConfirmQuitting.gd" type="Script" id=1]
+[ext_resource path="res://UI/QuitMenu/NotConfirm.gd" type="Script" id=1]
 [ext_resource path="res://UI/QuitMenu/QuitManager.gd" type="Script" id=2]
 [ext_resource path="res://UI/QuitMenu/Avatar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/QuitMenu/CheckQuit.gd" type="Script" id=4]
@@ -14,11 +14,13 @@
 [ext_resource path="res://Fonts/greekFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Fotos/EvalButton (11).png" type="Texture" id=13]
 [ext_resource path="res://Fotos/EvalButton (13).png" type="Texture" id=14]
-[ext_resource path="res://UI/Keyboard/Shortcut_B.tscn" type="PackedScene" id=15]
-[ext_resource path="res://UI/Keyboard/Shortcut_A.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0323.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0324.png" type="Texture" id=16]
 [ext_resource path="res://Sounds/celebration.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=18]
 [ext_resource path="res://UI/QuitMenu/TranslationManager.gd" type="Script" id=19]
+[ext_resource path="res://UI/Keyboard/Shortcut_eval.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/QuitMenu/Confirm.gd" type="Script" id=21]
 
 [node name="CheckQuit" type="Spatial"]
 script = ExtResource( 4 )
@@ -71,7 +73,7 @@ anchor_bottom = 0.5
 margin_left = -270.5
 margin_top = -191.0
 margin_right = 214.5
-margin_bottom = 129.0
+margin_bottom = 120.0
 rect_scale = Vector2( 1.11393, 1.15982 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,9 +103,9 @@ valign = 1
 visible = false
 
 [node name="Text" type="Label" parent="Control/QuitManager/QuitInfo"]
-margin_top = 51.0
+margin_top = 48.0
 margin_right = 485.0
-margin_bottom = 151.0
+margin_bottom = 148.0
 rect_min_size = Vector2( 400, 100 )
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.65
@@ -116,9 +118,9 @@ autowrap = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/QuitManager/QuitInfo"]
 margin_left = 122.0
-margin_top = 221.0
+margin_top = 213.0
 margin_right = 362.0
-margin_bottom = 301.0
+margin_bottom = 293.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = 80
@@ -143,20 +145,23 @@ texture_pressed = ExtResource( 14 )
 texture_hover = ExtResource( 14 )
 expand = true
 stretch_mode = 5
-script = ExtResource( 1 )
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shortcut_A" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer/Confirm" instance=ExtResource( 16 )]
+[node name="Shortcut_eval" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer/Confirm" instance=ExtResource( 20 )]
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 1.086
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -12.0
-margin_top = 4.0
-margin_right = 12.0
-margin_bottom = 28.0
+anchor_bottom = 1.086
+margin_left = -12.5
+margin_top = -4.3288
+margin_right = 12.5
+margin_bottom = 20.6712
+
+[node name="TextureRect" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer/Confirm/Shortcut_eval" index="0"]
+texture = ExtResource( 15 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/QuitManager/QuitInfo/HBoxContainer2"]
 margin_left = 160.0
@@ -181,15 +186,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shortcut_B" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm" instance=ExtResource( 15 )]
+[node name="Shortcut_eval" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm" instance=ExtResource( 20 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -12.0
-margin_top = 4.0
-margin_right = 12.0
-margin_bottom = 28.0
+margin_left = -12.5
+margin_top = 3.41342
+margin_right = 12.5
+margin_bottom = 28.4134
+
+[node name="TextureRect" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm/Shortcut_eval" index="0"]
+texture = ExtResource( 16 )
 
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false
@@ -215,3 +223,6 @@ stream = ExtResource( 17 )
 [connection signal="button_down" from="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm" to="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm" method="go_back_game"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
+
+[editable path="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer/Confirm/Shortcut_eval"]
+[editable path="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer2/NotConfirm/Shortcut_eval"]

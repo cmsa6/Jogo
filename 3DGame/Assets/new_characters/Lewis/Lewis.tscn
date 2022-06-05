@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/new_characters/AudioFeedback.tscn" type="PackedScene" id=6]
 
 [node name="Lewis" instance=ExtResource( 1 )]
-transform = Transform( -8, 0, -1.20797e-06, 0, 8, 0, 1.20797e-06, 0, -8, 0, 0, 0 )
+transform = Transform( -9, 0, -1.35896e-06, 0, 9, 0, 1.35896e-06, 0, -9, 0, 0, 0 )
 
 [node name="Ch12" parent="Skeleton" index="0"]
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 0, 0, 0 )

@@ -7,7 +7,7 @@ var data=[] setget save_data, get_data
 var cardType = "" setget save_cardType, get_cardType
 
 func _input(event):
-	if event.is_action_pressed("Enter") and self.visible:
+	if event.is_action_pressed("RightArrow") and self.visible:
 		emit_signal("button_down")
 		emit_signal("pressed")
 

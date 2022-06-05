@@ -273,11 +273,15 @@ func set_card_color():
 	background.color = colors[1]
 	skillBackground.color = colors[0]
 	
-	titlePlace.set("custom_colors/font_color", colors[2])
-	titlePlace.set("custom_colors/font_outline_modulate", colors[0])
+	
+	#titlePlace.set("custom_colors/font_color", colors[2])
+	#titlePlace.set("custom_colors/font_outline_modulate", colors[0])
+	titlePlace.set("custom_colors/font_color", colors[0])
+	titlePlace.set("custom_colors/font_outline_modulate", colors[2])
 
 	screenTitle.set("custom_colors/font_color", colors[0])
 	screenTitle.set("custom_colors/font_outline_modulate", colors[2])
+	
 	
 	rewardTitle.set("custom_colors/font_color", colors[0])
 	rewardTitle.set("custom_colors/font_outline_modulate", colors[2])
@@ -320,9 +324,10 @@ func get_cardData():
 	return cardData
 
 func set_text_color(colors):
-	titlePlace.set("custom_colors/font_color", colors[2])
-	titlePlace.set("custom_colors/font_outline_modulate", colors[0])
-	
+	#titlePlace.set("custom_colors/font_color", colors[2])
+	#titlePlace.set("custom_colors/font_outline_modulate", colors[0])
+	titlePlace.set("custom_colors/font_color", colors[0])
+	titlePlace.set("custom_colors/font_outline_modulate", colors[2])	
 
 
 

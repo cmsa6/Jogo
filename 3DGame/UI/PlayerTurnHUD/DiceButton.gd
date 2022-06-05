@@ -10,7 +10,7 @@ const HIDDEN = Color(1, 1, 1, 0)
 func _input(event):
 	#if not self.modulate == HIDDEN:
 	if not self.disabled:
-		if event.is_action_pressed("Enter"):
+		if event.is_action_pressed("RightArrow"):
 			emit_signal("button_down")
 			emit_signal("pressed")
 		
@@ -27,7 +27,8 @@ func show_dice_screen():
 
 	
 func blink():
-	animPlayer.play("blink")
+	#animPlayer.play("blink")
+	pass
 	
 	
 	
@@ -45,7 +46,8 @@ func _on_DiceButton_mouse_entered():
 func _on_DiceButton_mouse_exited():
 	#if not disabled:
 	if self.modulate == VISIBLE:
-		animPlayer.play("blink")
+		#animPlayer.play("blink")
+		pass
 		
 func stop():
 	animPlayer.stop()

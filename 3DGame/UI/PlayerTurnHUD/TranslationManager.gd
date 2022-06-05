@@ -13,7 +13,7 @@ func translate(language):
 	var turnText = get_node(turn)
 
 	if language == "el":
-		turnText.text = "ΕΙΝΑΙ Η ΣΕΙΡΑ ΣΟΥ"
+		turnText.text = "Είναι η σειρά σου"
 	
 	elif language == "es":
 		turnText.text = "Es tu turno"
@@ -29,7 +29,7 @@ func translate_points(points):
 	var objectsText = get_node(objects)
 	
 	if language == "el":
-		objectsText.text = points + "/8 ΑΝΤΙΚΕΙΜΕΝΑ"
+		objectsText.text = points + "/8 Πόντοι"
 	
 	elif language == "es":
 		objectsText.text = points + "/8 OBJETOS"

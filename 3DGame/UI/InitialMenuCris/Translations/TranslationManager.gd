@@ -22,9 +22,9 @@ func translate(language):
 	var player4Text = get_node(player4)
 			
 	if language == "el":
-		howManyText.text = "πόσοι παίκτες θα παίξουν;"
+		howManyText.text = "Πόσοι παίκτες θα παίξουν;"
 		
-		player1Text.text = "1\nπαίχτης"
+		player1Text.text = "1\nΠαίκτης"
 		player2Text.text = "2\nΠαίκτες"
 		player3Text.text = "3\nΠαίκτες"
 		player4Text.text = "4\nΠαίκτες"

@@ -15,7 +15,7 @@ func translate(language):
 
 	if language == "el":
 		#challengeNameText.text = "Όνομα πρόκλησης"
-		rewardText.text = "ανταμοιβή πρόκλησης"
+		rewardText.text = "Μπορείς να κερδίσεις"
 			
 	elif language == "es":
 		#challengeNameText.text = "Nombre del Desafío"
@@ -27,4 +27,4 @@ func translate(language):
 	
 	elif language == "pt":
 		#challengeNameText.text = "Nome do Desafio"
-		rewardText.text = "Recompensa"
+		rewardText.text = "Podes ganhar"

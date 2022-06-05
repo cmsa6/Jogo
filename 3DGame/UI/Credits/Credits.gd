@@ -18,63 +18,193 @@ var section_timer = 0.0
 var line_timer = 0.0
 var curr_line = 0
 var lines = []
+var credits = [] setget set_credits, get_credits
 
-var credits = [
-	[
-		"A game by ID-GAMMING Project",
-		"Co-funded by the Erasmus+ Programme of the European Union"
-	],
-	[
-		"Partners",
-		"C.E.C.D. Mira Sintra, Portugal (Project Coordination)",
-		"INESC-ID, Portugal",
-		"The Aristotle University of Thessaloniki, Greece",
-		"CSS Forlì, Italy",
-		"COPAVA, Spain",
-		"AIAS, Italy"
-	],
-	[
-		"Game Designer",
-		"game designer"
-	],
-	[
-		"Programming",
-		"Programmer Name",
-		"Programmer Name 2"
-	],
-	[
-		"Art",
-		"Artist Name"
-	],
-	[
-		"Music",
-		"Musician Name"
-	],
-	[
-		"Sound Effects",
-		"SFX Name"
-	],
-	[
-		"Testers",
-		"Name 1",
-		"Name 2",
-		"Name 3"
-	],
-	[
-		"Tools used",
-		"Developed with Godot Engine",
-		"https://godotengine.org/license",
-		"",
-		"Art created with My Favourite Art Program",
-		"https://myfavouriteartprogram.com"
-	],
-	[
-		"Assets Used",
-		"Character & Animations: Mixamo, Adobe Systems Incorporated",
-		"Materials: Texture Heaven, Polygon",
-		"Icons: Hysen Drogu, pngTree"
+
+func _ready():
+	if SettingsManager.language == "el":
+		var text = [
+		[
+			"Ένα παιχνίδι που υλοποιήθηκε στο πλαίσιο του έργου ID-GAMING",
+			"Συγχρηματοδοτούμενο από το Πρόγραμμα Erasmus+ της Ευρωπαϊκής Ένωσης"
+		],
+		[
+			"Συνεργάτες - Εταίροι",
+			"C.E.C.D. Mira Sintra, Πορτογαλία (Συντονισμός Έργου)",
+			"INESC-ID, Πορτογαλία",
+			"Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης, Ελλάδα",
+			"CSS Forlì, Ιταλία",
+			"COPAVA, Ισπανία",
+			"AIAS, Ιταλία"
+		],
+		[
+			"Σχεδιαστής παιχνιδιών",
+			"Cristiana Antunes",
+			"Tiago Toscano"
+		],
+		[
+			"Προγραμματισμός",
+			"Cristiana Antunes",
+			"Tiago Toscano"
+		],
+		[
+			"Art",
+			"Artist Name"
+		],
+		[
+			"Music",
+			"Musician Name"
+		],
+		[
+			"Ηχητικά εφέ",
+			"https://www.zapsplat.com/"
+		],
+		[
+			"Testers",
+			"Name 1",
+			"Name 2",
+			"Name 3"
+		],
+		[
+			"Χρησιμοποιούμενα εργαλεία",
+			"Αναπτύχθηκε με την πλατφόρμα δημιουργίας παιχνιδιών Godot",
+			"https://godotengine.org/license",
+			"",
+			"Art created with My Favourite Art Program",
+			"https://myfavouriteartprogram.com"
+		],
+		[
+			"Χρησιμοποιούμενοι πόροι παιχνιδιού",
+			"Χαρακτήρας και Κίνηση: Mixamo, Adobe Systems Incorporated",
+			"Υλικά: Texture Heaven, Polygon",
+			#"Icons: Hysen Drogu, pngTree"
+			"Icons: Flaticon, Kenney.nl, opengameart.org",
+			"Κτίρια της πόλης: Itch.io"
+		]
 	]
-]
+	
+		set_credits(text)
+		
+	elif SettingsManager.language == "en":
+		var text = [
+		[
+			"A game by ID-GAMMING Project",
+			"Co-funded by the Erasmus+ Programme of the European Union"
+		],
+		[
+			"Partners",
+			"C.E.C.D. Mira Sintra, Portugal (Project Coordination)",
+			"INESC-ID, Portugal",
+			"The Aristotle University of Thessaloniki, Greece",
+			"CSS Forlì, Italy",
+			"COPAVA, Spain",
+			"AIAS, Italy"
+		],
+		[
+			"Game Designer",
+			"Cristiana Antunes",
+			"Tiago Toscano"
+		],
+		[
+			"Programming",
+			"Cristiana Antunes",
+			"Tiago Toscano"
+		],
+		[
+			"Art",
+			"Artist Name"
+		],
+		[
+			"Music",
+			"Musician Name"
+		],
+		[
+			"Sound Effects",
+			"https://www.zapsplat.com/"
+		],
+		[
+			"Testers",
+			"Name 1",
+			"Name 2",
+			"Name 3"
+		],
+		[
+			"Tools used",
+			"Developed with Godot Engine",
+			"https://godotengine.org/license",
+			"",
+			"Art created with My Favourite Art Program",
+			"https://myfavouriteartprogram.com"
+		],
+		[
+			"Assets used",
+			"Character & Animations: Mixamo, Adobe Systems Incorporated",
+			"Materials: Texture Heaven, Polygon",
+			#"Icons: Hysen Drogu, pngTree"
+			"Icons: Flaticon, Kenney.nl, opengameart.org",
+			"City buildings: Itch.io"
+		]
+	]
+	
+		set_credits(text)
+
+
+#var credits = [
+#	[
+#		"A game by ID-GAMMING Project",
+#		"Co-funded by the Erasmus+ Programme of the European Union"
+#	],
+#	[
+#		"Partners",
+#		"C.E.C.D. Mira Sintra, Portugal (Project Coordination)",
+#		"INESC-ID, Portugal",
+#		"The Aristotle University of Thessaloniki, Greece",
+#		"CSS Forlì, Italy",
+#		"COPAVA, Spain",
+#		"AIAS, Italy"
+#	],
+#	[
+#		"Game Designer",
+#		"game designer"
+#	],
+#	[
+#		"Programming",
+#		"Programmer Name",
+#		"Programmer Name 2"
+#	],
+#	[
+#		"Art",
+#		"Artist Name"
+#	],
+#	[
+#		"Music",
+#		"Musician Name"
+#	],
+#	[
+#		"Sound Effects",
+#		"SFX Name"
+#	],
+#	[
+#		"Testers",
+#		"Name 1",
+#		"Name 2",
+#		"Name 3"
+#	],
+#	[
+#		"Tools used",
+#		"Developed with Godot Engine",
+#		"https://godotengine.org/license",
+#		"",
+#		"Art created with My Favourite Art Program",
+#		"https://myfavouriteartprogram.com"
+#	],
+#	[
+#		"Assets Used",
+#		"Character & Animations: Mixamo, Adobe Systems Incorporated",
+#		"Materials: Texture Heaven, Polygon",
+#		"Icons: Hysen Drogu, pngTree"
+#	]
+#]
 
 onready var line = $CreditsContainer/LineTemplate
 onready var creditsContainer = $CreditsContainer
@@ -95,9 +225,9 @@ func _process(delta):
 		if section_timer >= time_between_sections:
 			section_timer -= time_between_sections
 			
-			if credits.size() > 0:
+			if get_credits().size() > 0:
 				started = true
-				section = credits.pop_front()
+				section = get_credits().pop_front()
 				curr_line = 0
 				add_line()
 	else:
@@ -137,3 +267,10 @@ func add_line():
 		section_next = false
 	else:
 		section_next = true
+
+
+func set_credits(text):
+	credits = text
+	
+func get_credits():
+	return credits

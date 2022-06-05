@@ -1,38 +1,46 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Fotos/context_screen_challengeItself.png" type="Texture" id=2]
-[ext_resource path="res://Fotos/context_screen_challenge.png" type="Texture" id=3]
-[ext_resource path="res://Fotos/context_screen_challengeCell.png" type="Texture" id=4]
+[ext_resource path="res://Context Screen/Photos/pt/secondContext_image4.png" type="Texture" id=2]
+[ext_resource path="res://Context Screen/Photos/pt/secondContext_image2.png" type="Texture" id=3]
+[ext_resource path="res://Context Screen/Photos/pt/secondContext_image1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
 [ext_resource path="res://Context Screen/NextStory.gd" type="Script" id=7]
+[ext_resource path="res://Context Screen/Photos/pt/secondContext_image3.png" type="Texture" id=8]
 [ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Context Screen/StoryManager.gd" type="Script" id=10]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Context Screen/TranslationManager.gd" type="Script" id=14]
-[ext_resource path="res://Fotos/context_screen_challengeEval.png" type="Texture" id=15]
+[ext_resource path="res://Context Screen/TranslationManager_secondScreen.gd" type="Script" id=14]
+[ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
+size = 22
+outline_size = 1
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
+size = 22
+outline_size = 1
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 30
+size = 22
+outline_size = 1
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 30
+size = 22
+outline_size = 1
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 5 )
 
@@ -94,7 +102,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="ContextScreen" type="Control"]
+[node name="SecondContextScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -109,13 +117,14 @@ space1 = NodePath("../GridContainer/Part1/Story1/VBoxContainer/WelcomeText")
 space2 = NodePath("../GridContainer/Part2/Story2/VBoxContainer/Label")
 space3 = NodePath("../GridContainer/Part3/Story3/VBoxContainer/Label")
 space4 = NodePath("../GridContainer/Part4/Story4/VBoxContainer/Label")
+image1 = NodePath("../GridContainer/Part1/Story1/VBoxContainer/TextureRect")
+image2 = NodePath("../GridContainer/Part2/Story2/VBoxContainer/TextureRect")
+image3 = NodePath("../GridContainer/Part3/Story3/VBoxContainer/TextureRect")
+image4 = NodePath("../GridContainer/Part4/Story4/VBoxContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = -0.000803351
-anchor_right = 0.999197
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.02008
-margin_bottom = 1.02008
 color = Color( 0.894118, 0.388235, 0.054902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -151,15 +160,21 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part1/Story1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -149.0
+margin_right = 240.0
+margin_bottom = 149.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WelcomeText" type="Label" parent="GridContainer/Part1/Story1/VBoxContainer"]
 margin_top = 12.0
-margin_right = 510.0
+margin_right = 480.0
 margin_bottom = 112.0
 rect_min_size = Vector2( 400, 100 )
 size_flags_horizontal = 3
@@ -172,9 +187,9 @@ valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part1/Story1/VBoxContainer"]
-margin_left = 105.0
+margin_left = 90.0
 margin_top = 138.0
-margin_right = 405.0
+margin_right = 390.0
 margin_bottom = 288.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
@@ -187,6 +202,7 @@ expand = true
 layer = 2
 
 [node name="NextStory1" type="TextureButton" parent="GridContainer/Part1/ButtonLayer"]
+visible = false
 anchor_left = 0.499
 anchor_top = 0.248
 anchor_right = 0.5
@@ -235,17 +251,22 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part2/Story2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -2.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -149.0
+margin_right = 240.0
+margin_bottom = 149.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_top = 5.0
-margin_right = 508.0
-margin_bottom = 119.0
+margin_top = 19.0
+margin_right = 480.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
@@ -257,9 +278,9 @@ valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_left = 104.0
+margin_left = 90.0
 margin_top = 138.0
-margin_right = 404.0
+margin_right = 390.0
 margin_bottom = 288.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
@@ -314,15 +335,20 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part3/Story3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -2.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -149.0
+margin_right = 240.0
+margin_bottom = 149.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part3/Story3/VBoxContainer"]
-margin_right = 508.0
+margin_right = 480.0
 margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -334,15 +360,15 @@ valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part3/Story3/VBoxContainer"]
-margin_left = 104.0
+margin_left = 90.0
 margin_top = 138.0
-margin_right = 404.0
+margin_right = 390.0
 margin_bottom = 288.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
-texture = ExtResource( 2 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part3"]
@@ -395,17 +421,22 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part4/Story4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -148.5
+margin_right = 240.0
+margin_bottom = 148.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part4/Story4/VBoxContainer"]
-margin_top = 5.0
-margin_right = 510.0
-margin_bottom = 119.0
+margin_top = 18.0
+margin_right = 480.0
+margin_bottom = 105.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 4 )
@@ -416,19 +447,18 @@ valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part4/Story4/VBoxContainer"]
-margin_left = 105.0
+margin_left = 90.0
 margin_top = 137.0
-margin_right = 405.0
+margin_right = 390.0
 margin_bottom = 287.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
-texture = ExtResource( 15 )
+texture = ExtResource( 2 )
 expand = true
 
 [node name="FinalButton" type="TextureButton" parent="."]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -443,11 +473,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shortcut" parent="FinalButton" instance=ExtResource( 13 )]
-margin_left = 40.0
-margin_top = 95.0
-margin_right = 56.0
-margin_bottom = 111.0
+[node name="Shortcut_rightArrow" parent="FinalButton" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -37.0
+margin_right = 12.5
+margin_bottom = -12.0
 
 [node name="SceneLoader" parent="." instance=ExtResource( 1 )]
 next_scene_path = "res://cris/crisMap3.tscn"
@@ -471,7 +505,7 @@ anims/FadeOut = SubResource( 6 )
 [connection signal="button_down" from="GridContainer/Part3/ButtonLayer/NextStory3" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part3/ButtonLayer/NextStory3" to="GridContainer/Part3/ButtonLayer/NextStory3" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part3/ButtonLayer/NextStory3" to="GridContainer" method="show_next"]
-[connection signal="button_down" from="FinalButton" to="UISoundManager" method="play"]
+[connection signal="button_down" from="FinalButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="FinalButton" to="FinalButton" method="show_next"]
 [connection signal="show_next" from="FinalButton" to="GridContainer" method="show_next"]
 [connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]

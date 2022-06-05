@@ -10,7 +10,7 @@ func translate(language):
 	var objectsText = get_node(objects)
 
 	if language == "el":
-		objectsText.text = " αντικείμενα"
+		objectsText.text = " Αντικείμενα"
 	
 	elif language == "es":
 		objectsText.text = " OBJETOS"

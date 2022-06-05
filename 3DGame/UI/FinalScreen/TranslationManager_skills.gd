@@ -44,20 +44,23 @@ func translate(language):
 	var spatialOrientationText           =   get_node(spatialOrientation)
 			
 	if language == "el":
-		interpersonalRelationshipsText.text    = "1\nπαίχτης"
-		socialInclusionText.text               = "2\nΠαίκτες"
-		selfDeterminationText.text             = "3\nΠαίκτες"
-		physicalWellbeingText.text             = "4\nΠαίκτες"
-		materialWellbeingText.text             = "1\nπαίχτης"
-		emotionalWellbeingText.text            = "2\nΠαίκτες"
-		personalDevelopmentText.text           = "3\nΠαίκτες"
-		rightsText.text                        = "4\nΠαίκτες"
+		qolText.text                           = "Δεξιότητες ποιότητας ζωής"
+		cfText.text                            = "Γνωστικές λειτουργίες"
 		
-		calculusAndProblemSolvingText.text     = "1\nπαίχτης"
-		memoryAndAttentionToDetailText.text    = "2\nΠαίκτες"
-		socialAndEmotionalWellbeingText.text   = "3\nΠαίκτες"
-		languageText.text                      = "4\nΠαίκτες"
-		spatialOrientationText.text            = "1\nπαίχτης"
+		interpersonalRelationshipsText.text    = "Διαπροσωπικές σχέσεις"
+		socialInclusionText.text               = "Κοινωνική\nένταξη"
+		selfDeterminationText.text             = "Αυτοπροσδιορισμός"
+		physicalWellbeingText.text             = "Σωματική\nευεξία"
+		materialWellbeingText.text             = "Υλική\nευημερία"
+		emotionalWellbeingText.text            = "Συναισθηματική\nευεξία"
+		personalDevelopmentText.text           = "Προσωπική\nεξέλιξη"
+		rightsText.text                        = "Δικαιώματα"
+		
+		calculusAndProblemSolvingText.text     = "Υπολογισμός και επίλυση προβλημάτων"
+		memoryAndAttentionToDetailText.text    = "Μνήμη και Προσοχή σε λεπτομέρειες"
+		socialAndEmotionalWellbeingText.text   = "Κοινωνική και συναισθηματική ευεξία"
+		languageText.text                      = "Γλώσσα"
+		spatialOrientationText.text            = "Χωρικός\nπροσανατολισμός"
 
 		
 	elif language == "es":

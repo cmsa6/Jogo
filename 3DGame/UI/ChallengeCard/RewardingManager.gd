@@ -243,8 +243,11 @@ func set_cardColor(colors):
 	#titleFont.set("custom_colors/font_color", fontColor)
 	#titleFont.set("custom_colors/font_outline_modulate", outlineColor)
 	
-	challengeTitlefont.set("custom_colors/font_color", outlineColor)
-	challengeTitlefont.set("custom_colors/font_outline_modulate", fontColor)
+	#challengeTitlefont.set("custom_colors/font_color", outlineColor)
+	#challengeTitlefont.set("custom_colors/font_outline_modulate", fontColor)
+	
+	challengeTitlefont.set("custom_colors/font_color", fontColor)
+	challengeTitlefont.set("custom_colors/font_outline_modulate", outlineColor)
 	
 	rewardTitleText.set("custom_colors/font_color", fontColor)
 	rewardTitleText.set("custom_colors/font_outline_modulate", outlineColor)

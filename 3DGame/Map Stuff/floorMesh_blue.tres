@@ -5,7 +5,7 @@
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Atlas"
 flags_unshaded = true
-albedo_color = Color( 0.427451, 0.545098, 0.764706, 1 )
+albedo_color = Color( 0.568237, 0.703863, 0.957031, 1 )
 albedo_texture = ExtResource( 1 )
 
 [resource]

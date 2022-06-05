@@ -4,7 +4,7 @@
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Fonts/greekFont_bold.tres" type="DynamicFont" id=4]
-[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
 [ext_resource path="res://UI/ChallengeCard/CardPreview.gd" type="Script" id=7]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
@@ -155,7 +155,7 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 2.22
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "Rewards"
+text = "You can win"
 align = 1
 valign = 1
 autowrap = true
@@ -294,15 +294,15 @@ __meta__ = {
 }
 nextCard = "res://UI/ChallengeCard/NewCard.tscn"
 
-[node name="Shortcut" parent="Control/Card2/VBoxContainer/VBoxContainer/NextButton" instance=ExtResource( 5 )]
+[node name="Shortcut_rightArrow" parent="Control/Card2/VBoxContainer/VBoxContainer/NextButton" instance=ExtResource( 5 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -10.5
-margin_top = -21.0
-margin_right = 5.5
-margin_bottom = -5.0
+margin_left = -12.5
+margin_top = -25.0
+margin_right = 12.5
+margin_bottom = 0.0
 
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false

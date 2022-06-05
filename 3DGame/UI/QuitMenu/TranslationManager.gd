@@ -12,7 +12,7 @@ func translate(language):
 
 
 	if language == "el":
-		instructionsText.text = "Θέλουμε να τελειώσουμε το παιχνίδι;"
+		instructionsText.text = "Θέλεις να σταματήσεις να παίζεις;"
 			
 	elif language == "es":
 		instructionsText.text = "¿Queremos terminar el juego?"
@@ -29,8 +29,8 @@ func translate_win(name):
 	var language = SettingsManager.language
 	var instructionsText = get_node(instructions)
 
-	if language == "el":
-		instructionsText.text = "Συγχαρητήρια " + name + "! Μόλις ολοκλήρωσες το σπίτι σου!! Θέλουμε να τελειώσει το παιχνίδι τώρα;"
+	if language == "el": 
+		instructionsText.text = "Συγχαρητήρια " + name + "! Μόλις συμπλήρωσες όλα τα αντικειμενα στο σπίτι σου! Θέλεις να σταματήσεις να παίζεις;"
 			
 	elif language == "es":
 		instructionsText.text = "¡Felicidades " + name + "! Acabas de terminar tu casa!! ¿Queremos terminar el juego ahora?"

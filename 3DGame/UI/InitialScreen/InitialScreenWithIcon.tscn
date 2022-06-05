@@ -6,7 +6,6 @@
 [ext_resource path="res://Fonts/kenney_future.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fotos/settings.png" type="Texture" id=5]
 [ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=6]
-[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fotos/PlayButtonSelected.png" type="Texture" id=8]
 [ext_resource path="res://Fotos/playButton.png" type="Texture" id=9]
 [ext_resource path="res://UI/InitialScreen/SettingsButton.gd" type="Script" id=10]
@@ -20,6 +19,7 @@
 [ext_resource path="res://Fotos/muteButton.png" type="Texture" id=18]
 [ext_resource path="res://UI/InitialScreen/SoundButton.gd" type="Script" id=19]
 [ext_resource path="res://UI/Keyboard/Shortcut_escape.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=21]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -144,15 +144,15 @@ __meta__ = {
 }
 previousScene = "res://UI/InitialMenuCris/InitialMenu.tscn"
 
-[node name="Shortcut" parent="PlayButton" instance=ExtResource( 7 )]
+[node name="Shortcut_rightArrow" parent="PlayButton" instance=ExtResource( 21 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -10.0
-margin_top = 10.0
-margin_right = 6.0
-margin_bottom = 26.0
+margin_left = -12.5
+margin_top = 4.0
+margin_right = 12.5
+margin_bottom = 29.0
 
 [node name="UISoundManager" parent="." instance=ExtResource( 1 )]
 
@@ -236,4 +236,4 @@ margin_bottom = 15.0
 [connection signal="button_down" from="LanguageButton" to="UISoundManager" method="select"]
 [connection signal="pressed" from="LanguageButton" to="LanguageButton" method="change_language"]
 
-[editable path="PlayButton/Shortcut"]
+[editable path="PlayButton/Shortcut_rightArrow"]

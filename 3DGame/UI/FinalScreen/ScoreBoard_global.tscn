@@ -162,9 +162,8 @@ __meta__ = {
 
 [node name="qolSkills" type="GridContainer" parent="ColorRect/VBoxContainer/Skills"]
 visible = false
-margin_left = 32.0
-margin_right = 140.0
-margin_bottom = 132.0
+margin_right = 380.0
+margin_bottom = 440.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/hseparation = 20
@@ -172,14 +171,14 @@ columns = 2
 
 [node name="InterpersonalRelationship" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_right = 180.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="0"]
 margin_top = 4.0
@@ -205,15 +204,15 @@ text = "Interpersonal
 Relationships"
 
 [node name="SocialInclusion" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 64.0
-margin_right = 108.0
-margin_bottom = 30.0
+margin_left = 200.0
+margin_right = 380.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/SocialInclusion/Details" index="0"]
 margin_top = 4.0
@@ -239,15 +238,16 @@ Relationships"
 
 [node name="Self-Determination" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 34.0
-margin_right = 44.0
-margin_bottom = 64.0
+margin_top = 111.0
+margin_right = 180.0
+margin_bottom = 218.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="0"]
 margin_top = 4.0
@@ -273,16 +273,17 @@ text = "Interpersonal
 Relationships"
 
 [node name="PhysicalWellbeing" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 64.0
-margin_top = 34.0
-margin_right = 108.0
-margin_bottom = 64.0
+margin_left = 200.0
+margin_top = 111.0
+margin_right = 380.0
+margin_bottom = 218.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="0"]
 margin_top = 4.0
@@ -309,15 +310,16 @@ Relationships"
 
 [node name="MaterialWellbeing" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 68.0
-margin_right = 44.0
-margin_bottom = 98.0
+margin_top = 222.0
+margin_right = 180.0
+margin_bottom = 329.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="0"]
 margin_top = 4.0
@@ -343,16 +345,17 @@ text = "Interpersonal
 Relationships"
 
 [node name="EmotionalWellbeing" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 64.0
-margin_top = 68.0
-margin_right = 108.0
-margin_bottom = 98.0
+margin_left = 200.0
+margin_top = 222.0
+margin_right = 380.0
+margin_bottom = 329.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="0"]
 margin_top = 4.0
@@ -379,15 +382,16 @@ Relationships"
 
 [node name="PersonalDevelopment" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 102.0
-margin_right = 44.0
-margin_bottom = 132.0
+margin_top = 333.0
+margin_right = 180.0
+margin_bottom = 440.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="0"]
 margin_top = 4.0
@@ -413,16 +417,17 @@ text = "Interpersonal
 Relationships"
 
 [node name="Rights" parent="ColorRect/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 64.0
-margin_top = 102.0
-margin_right = 108.0
-margin_bottom = 132.0
+margin_left = 200.0
+margin_top = 333.0
+margin_right = 380.0
+margin_bottom = 440.0
 rect_clip_content = true
 
 [node name="Details" parent="ColorRect/VBoxContainer/Skills/qolSkills/Rights" index="0"]
-margin_left = 0.0
-margin_right = 44.0
-margin_bottom = 30.0
+margin_left = 68.0
+margin_top = 38.0
+margin_right = 112.0
+margin_bottom = 68.0
 
 [node name="Quantity" parent="ColorRect/VBoxContainer/Skills/qolSkills/Rights/Details" index="0"]
 margin_top = 4.0

@@ -6,7 +6,7 @@ var checkingSkills setget set_checkingSkills, get_checkingSkills
 
 
 func _input(event):
-	if event.is_action_pressed("Enter") and not self.disabled and self.visible:
+	if event.is_action_pressed("RightArrow") and not self.disabled and self.visible :
 		emit_signal("button_down")
 		emit_signal("pressed")
 	

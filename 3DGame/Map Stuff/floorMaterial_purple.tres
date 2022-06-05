@@ -5,5 +5,5 @@
 [resource]
 resource_name = "Atlas"
 flags_unshaded = true
-albedo_color = Color( 0.713726, 0.513726, 0.796078, 1 )
+albedo_color = Color( 0.870588, 0.701961, 0.945098, 1 )
 albedo_texture = ExtResource( 1 )

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0440.png" type="Texture" id=1]
+[ext_resource path="res://UI/Keyboard/ShortcutButton.gd" type="Script" id=5]
+
+[node name="Shortcut_downArrow" type="Control"]
+margin_right = 25.0
+margin_bottom = 25.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Button" to="Button" method="mimic_parent_sound"]
+[connection signal="pressed" from="Button" to="Button" method="mimic_parent"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/SkillScreen/qol.png" type="Texture" id=2]
 [ext_resource path="res://UI/SkillScreen/human-brain.png" type="Texture" id=3]
 [ext_resource path="res://UI/SkillScreen/SkillDetail.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GameFonts/Kanit/Kanit-SemiBold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Cards/Skills/InterpersonalRelationship.png" type="Texture" id=6]
 [ext_resource path="res://Cards/Skills/SocialandEmotionalWellbeing.png" type="Texture" id=7]
 [ext_resource path="res://Cards/Skills/MemoryandAttentiontoDetail.png" type="Texture" id=8]
@@ -17,34 +16,46 @@
 [ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=15]
 [ext_resource path="res://Cards/Skills/MaterialWellbeing.png" type="Texture" id=16]
 [ext_resource path="res://Cards/Skills/Rights.png" type="Texture" id=17]
-[ext_resource path="res://Fotos/BackButton.png" type="Texture" id=18]
+[ext_resource path="res://UI/Keyboard/Shortcut_leftArrow.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Assets/Bryce/Bryce.png" type="Texture" id=19]
 [ext_resource path="res://UI/FinalScreen/ScoreBoardDetailed.gd" type="Script" id=20]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=21]
 [ext_resource path="res://UI/FinalScreen/TranslationManager_skills.gd" type="Script" id=22]
-[ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=23]
+[ext_resource path="res://Fotos/GoBackSelected.png" type="Texture" id=23]
 [ext_resource path="res://UI/FinalScreen/BackButton.gd" type="Script" id=24]
+[ext_resource path="res://Fotos/GoBack.png" type="Texture" id=25]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=26]
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
-outline_size = 1
+[sub_resource type="DynamicFont" id=6]
+size = 30
+outline_size = 3
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_char = 2
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
 [sub_resource type="DynamicFont" id=2]
-size = 30
-outline_color = Color( 0.917647, 0.403922, 0.0705882, 1 )
-font_data = ExtResource( 5 )
+size = 25
+outline_size = 1
+extra_spacing_char = 2
+font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 30
-outline_color = Color( 0.917647, 0.403922, 0.0705882, 1 )
-font_data = ExtResource( 5 )
+size = 20
+outline_size = 1
+extra_spacing_top = 2
+extra_spacing_char = 6
+font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 15
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+outline_size = 1
+extra_spacing_top = 3
+extra_spacing_bottom = 3
+extra_spacing_char = 2
+font_data = SubResource( 5 )
 
 [node name="ScoreBoardDetailed" type="Control"]
 anchor_right = 1.0
@@ -79,8 +90,9 @@ spatialOrientation = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContai
 [node name="HBoxContainer2" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 28.0
+margin_top = 2.0
 margin_right = 6.10352e-05
+margin_bottom = -26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,7 +100,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
 margin_left = 385.0
 margin_right = 639.0
-margin_bottom = 51.0
+margin_bottom = 50.0
 size_flags_horizontal = 6
 size_flags_vertical = 2
 __meta__ = {
@@ -96,13 +108,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HBoxContainer2/HBoxContainer"]
+margin_top = 5.0
 margin_right = 200.0
-margin_bottom = 51.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 200, 40 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Player x"
 align = 1
 autowrap = true
@@ -136,7 +149,7 @@ anchor_bottom = 0.5
 margin_left = -450.0
 margin_top = -235.0
 margin_right = 450.0
-margin_bottom = 265.0
+margin_bottom = 298.0
 rect_pivot_offset = Vector2( 388.889, 585.786 )
 color = Color( 0.352941, 0.333333, 0.309804, 0.839216 )
 __meta__ = {
@@ -144,9 +157,14 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/Control/SkillManager"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = 2.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -262.5
+margin_right = 450.0
+margin_bottom = 262.5
 size_flags_horizontal = 6
 size_flags_vertical = 6
 __meta__ = {
@@ -154,17 +172,18 @@ __meta__ = {
 }
 
 [node name="SkillCategory" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer"]
+margin_top = 3.0
 margin_right = 900.0
-margin_bottom = 45.0
+margin_bottom = 34.0
 size_flags_vertical = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QOL" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory"]
-margin_left = 85.0
-margin_right = 363.0
-margin_bottom = 45.0
+margin_left = 94.0
+margin_right = 354.0
+margin_bottom = 31.0
 size_flags_horizontal = 6
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/QOL"]
@@ -179,15 +198,15 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="Label" type="Label" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/QOL"]
-margin_right = 278.0
-margin_bottom = 45.0
+margin_right = 260.0
+margin_bottom = 31.0
 custom_fonts/font = SubResource( 2 )
 text = "Quality of Life Skills"
 
 [node name="CF" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory"]
-margin_left = 537.0
-margin_right = 814.0
-margin_bottom = 45.0
+margin_left = 548.0
+margin_right = 803.0
+margin_bottom = 31.0
 size_flags_horizontal = 6
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/CF"]
@@ -201,15 +220,15 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="Label3" type="Label" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/CF"]
-margin_right = 277.0
-margin_bottom = 45.0
-custom_fonts/font = SubResource( 3 )
+margin_right = 255.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
 text = "Cognitive Functions"
 
 [node name="Skills" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer"]
-margin_top = 56.0
+margin_top = 42.0
 margin_right = 900.0
-margin_bottom = 499.0
+margin_bottom = 525.0
 size_flags_vertical = 6
 size_flags_stretch_ratio = 9.96
 __meta__ = {
@@ -219,7 +238,7 @@ __meta__ = {
 [node name="qolSkills" type="GridContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills"]
 margin_left = 4.0
 margin_right = 444.0
-margin_bottom = 443.0
+margin_bottom = 483.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/vseparation = 5
@@ -229,11 +248,17 @@ columns = 2
 [node name="InterpersonalRelationship" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_right = 180.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="1"]
 texture = ExtResource( 6 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Interpersonal
 Relationships"
@@ -241,22 +266,33 @@ Relationships"
 [node name="SocialInclusion" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 260.0
 margin_right = 440.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Social 
 Inclusion"
 
 [node name="Self-Determination" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 112.0
+margin_top = 122.0
 margin_right = 180.0
-margin_bottom = 219.0
+margin_bottom = 239.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="1"]
 texture = ExtResource( 9 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination" index="1"]
+margin_bottom = 117.0
 rect_min_size = Vector2( 110, 0 )
 custom_fonts/font = SubResource( 4 )
 text = "Self
@@ -264,79 +300,104 @@ Determination"
 
 [node name="PhysicalWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 260.0
-margin_top = 112.0
+margin_top = 122.0
 margin_right = 440.0
-margin_bottom = 219.0
+margin_bottom = 239.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="1"]
 texture = ExtResource( 14 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Physical 
 Wellbeing"
 
 [node name="MaterialWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 224.0
+margin_top = 244.0
 margin_right = 180.0
-margin_bottom = 331.0
+margin_bottom = 361.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="1"]
 texture = ExtResource( 16 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Material
  Wellbeing"
 
 [node name="EmotionalWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 260.0
-margin_top = 224.0
+margin_top = 244.0
 margin_right = 440.0
-margin_bottom = 331.0
+margin_bottom = 361.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="1"]
 texture = ExtResource( 12 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Emotional 
 Wellbeing"
 
 [node name="PersonalDevelopment" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 336.0
+margin_top = 366.0
 margin_right = 180.0
-margin_bottom = 443.0
+margin_bottom = 483.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="1"]
 texture = ExtResource( 10 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Personal
  Development"
 
 [node name="Rights" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 260.0
-margin_top = 336.0
+margin_top = 366.0
 margin_right = 440.0
-margin_bottom = 443.0
+margin_bottom = 483.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Details" index="1"]
 texture = ExtResource( 17 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Rights
 "
 
 [node name="cfSkills" type="GridContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills"]
 margin_left = 456.0
-margin_top = 56.0
+margin_top = 51.0
 margin_right = 896.0
-margin_bottom = 387.0
+margin_bottom = 431.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/vseparation = 5
@@ -346,11 +407,17 @@ columns = 2
 [node name="CalculusandProblemSolving" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_right = 180.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="1"]
 texture = ExtResource( 15 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Calculus and 
 Problem Solving"
@@ -358,77 +425,113 @@ Problem Solving"
 [node name="MemoryandAttentiontoDetail" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 260.0
 margin_right = 440.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="1"]
 texture = ExtResource( 8 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Memory and 
 Attention to Detail"
 
 [node name="SocialandEmotionalWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 112.0
+margin_top = 122.0
 margin_right = 180.0
-margin_bottom = 219.0
+margin_bottom = 258.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="1"]
 texture = ExtResource( 7 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing" index="1"]
+margin_bottom = 136.0
 custom_fonts/font = SubResource( 4 )
 text = "Social and Emotional
  Wellbeing"
 
 [node name="Language" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 260.0
-margin_top = 112.0
+margin_top = 122.0
 margin_right = 440.0
-margin_bottom = 219.0
+margin_bottom = 258.0
 
 [node name="Details" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language" index="0"]
-margin_top = 7.0
-margin_bottom = 77.0
+margin_top = 19.0
+margin_bottom = 89.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Details" index="1"]
 texture = ExtResource( 11 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language" index="1"]
-margin_top = 88.0
+margin_top = 112.0
+margin_bottom = 136.0
 custom_fonts/font = SubResource( 4 )
 text = "Language"
 
 [node name="SpatialOrientation" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 224.0
+margin_top = 263.0
 margin_right = 180.0
-margin_bottom = 331.0
+margin_bottom = 380.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 3 )
 
 [node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="1"]
 texture = ExtResource( 13 )
 
 [node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation" index="1"]
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 text = "Spatial 
 Orientation"
 
 [node name="BackButton" type="TextureButton" parent="HBoxContainer2/Control/SkillManager"]
-margin_right = 50.0
-margin_bottom = 50.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -76.0
+margin_right = 5.0
+margin_bottom = 13.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 6
 size_flags_vertical = 2
 size_flags_stretch_ratio = 0.0
-texture_normal = ExtResource( 18 )
+texture_normal = ExtResource( 25 )
 texture_pressed = ExtResource( 23 )
 texture_hover = ExtResource( 23 )
 texture_focused = ExtResource( 23 )
 expand = true
+stretch_mode = 4
 script = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Shortcut_leftArrow" parent="HBoxContainer2/Control/SkillManager/BackButton" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -23.0
+margin_right = 12.5
+margin_bottom = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer2/Control"]
 anchor_left = 0.5
@@ -438,11 +541,14 @@ anchor_bottom = 0.5
 margin_left = -5.0
 margin_top = -235.0
 margin_right = 5.0
-margin_bottom = 265.0
+margin_bottom = 298.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UISoundManager" parent="." instance=ExtResource( 26 )]
+
+[connection signal="button_down" from="HBoxContainer2/Control/SkillManager/BackButton" to="UISoundManager" method="confirm"]
 [connection signal="hide_details" from="HBoxContainer2/Control/SkillManager/BackButton" to="." method="hide"]
 [connection signal="pressed" from="HBoxContainer2/Control/SkillManager/BackButton" to="HBoxContainer2/Control/SkillManager/BackButton" method="close_detail"]
 

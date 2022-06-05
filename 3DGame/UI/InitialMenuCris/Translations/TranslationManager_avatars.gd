@@ -27,13 +27,13 @@ func translate(language):
 	var placeholderText      = get_node(placeholder)
 			
 	if language == "el":
-		player1Text.text      = "παίχτης "
-		player2Text.text      = "παίχτης "
-		player3Text.text      = "παίχτης "
-		player4Text.text      = "παίχτης "
+		player1Text.text      = "Παίκτης "
+		player2Text.text      = "Παίκτης "
+		player3Text.text      = "Παίκτης "
+		player4Text.text      = "Παίκτης "
 		translate_instructions()
-		avatarNameText.text   = "Γράψε εδώ το όνομα του χαρακτήρα σου"
-		placeholderText.set_placeholder("παίχτης ")
+		avatarNameText.text   = "Γράψε το όνομα του χαρακτήρα σου"
+		placeholderText.set_placeholder("Παίκτης ")
 		
 	elif language == "es":
 		player1Text.text      = "Jugador "
@@ -68,7 +68,7 @@ func translate_instructions_name():
 	var instructionsText     = get_node(instructions)
 	
 	if language == "el":
-		instructionsText.text = "επιλέξτε το όνομα του χαρακτήρα σας"
+		instructionsText.text = "Επίλεξε το όνομα του χαρακτήρα σου"
 
 	elif language == "es":
 		instructionsText.text = "Elige el nombre de tu personaje"
@@ -88,7 +88,7 @@ func translate_instructions():
 	var instructionsText     = get_node(instructions)
 	
 	if language == "el":
-		instructionsText.text = "Επιλέξτε τον χαρακτήρα σας"
+		instructionsText.text = "Διάλεξε το χαρακτήρα σου"
 
 	elif language == "es":
 		instructionsText.text = "Elige a tu personaje"

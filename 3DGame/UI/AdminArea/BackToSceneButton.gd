@@ -5,7 +5,7 @@ signal save_language()
 
 func _input(event):
 	#if Input.is_key_pressed(KEY_SPACE):
-	if event.is_action_pressed("Enter"):
+	if event.is_action_pressed("RightArrow"):
 		emit_signal("button_down")
 		initiate_game()
 		

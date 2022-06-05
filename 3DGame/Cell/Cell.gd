@@ -49,7 +49,8 @@ func _ready():
 	
 	match type:
 		TYPE.INIT:
-			auxMat.albedo_color = init_color
+			#auxMat.albedo_color = init_color
+			auxMat.albedo_color = services_color
 			sprite.visible = false
 		TYPE.COMMERCIAL:
 			auxMat.albedo_color = commercial_color
@@ -97,7 +98,9 @@ func _ready():
 func _on_Cell_body_entered(body):
 	print("entre")
 	print(get_occupied())
-	if get_occupied() and not doNotPlay:
+	print(doNotPlay)
+	if get_occupied() and not get_doNotPlay():
+		print("devia tocar")
 		audio.play(0)
 		set_doNotPlay(false)
 

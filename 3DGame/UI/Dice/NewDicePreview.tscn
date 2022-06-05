@@ -14,7 +14,7 @@
 [ext_resource path="res://Fotos/Enter_disabled2.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Fotos/diceNumbers (1).png" type="Texture" id=14]
-[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=15]
+[ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Bryce/Bryce.png" type="Texture" id=16]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -230,15 +230,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shortcut" parent="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" instance=ExtResource( 15 )]
+[node name="Shortcut_rightArrow" parent="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" instance=ExtResource( 15 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = -16.0
-margin_right = 8.0
-margin_bottom = 0.0
+margin_left = -12.5
+margin_top = -21.0
+margin_right = 12.5
+margin_bottom = 4.0
 
 [node name="LoadMapSceneButton" type="Button" parent="Control"]
 visible = false
@@ -262,4 +262,3 @@ __meta__ = {
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll"]
-[editable path="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton/Shortcut"]

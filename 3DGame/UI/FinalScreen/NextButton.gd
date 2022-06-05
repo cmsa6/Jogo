@@ -8,7 +8,7 @@ signal finish_game()
 func _input(event):
 	#if not self.modulate == HIDDEN:
 	if self.name == "ExitGame":
-		if event.is_action_pressed("Enter"):
+		if event.is_action_pressed("RightArrow") and self.visible:
 			emit_signal("button_down")
 			emit_signal("pressed")
 			

@@ -3,7 +3,7 @@ extends TextureButton
 signal show_next(currentID)
 
 func _input(event):
-	if event.is_action_pressed("Enter") and self.visible:
+	if event.is_action_pressed("RightArrow") and self.visible:
 		emit_signal("button_down")
 		emit_signal("pressed")
 		

@@ -18,18 +18,27 @@ signal show_map()
 	
 
 func show_next(currentID):
-	print(currentID)
-	if currentID == "1":
-		nextButton1.visible = false
+	if story2.visible == false:
 		story2.visible = true
-		nextButton2.visible = true
-	elif currentID == "2":
-		nextButton2.visible = false
+	elif  story3.visible == false:
 		story3.visible = true
-		nextButton3.visible = true
-	elif currentID == "3":
-		nextButton3.visible = false
+	elif story4.visible == false:
 		story4.visible = true
-		get_node(finalButton).visible = true
 	else:
 		emit_signal("show_map")
+	
+#	print(currentID)
+#	if currentID == "1":
+#		nextButton1.visible = false
+#		story2.visible = true
+#		nextButton2.visible = true
+#	elif currentID == "2":
+#		nextButton2.visible = false
+#		story3.visible = true
+#		nextButton3.visible = true
+#	elif currentID == "3":
+#		nextButton3.visible = false
+#		story4.visible = true
+#		get_node(finalButton).visible = true
+#	else:
+#		emit_signal("show_map")

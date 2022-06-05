@@ -1,20 +1,20 @@
 extends VBoxContainer
 
 #const POINTS_LABEL = " POINT"
-const POINTS_LABEL = " / 8 OBJECTS"
+const POINTS_LABEL = "/8 OBJECTS"
 
 onready var icon = $CenterContainer/Icon
 onready var playerName = $TurnBackground/VBoxContainer/PlayerName
 onready var button = $CenterContainer/Button
-onready var label = $Objects
+onready var label = $HBoxContainer/Objects
 onready var turnText = $TurnBackground/VBoxContainer/Turn
 #onready var arrow = $VBoxContainer2/Control/TurnBackground/VBoxContainer/Arrow
 onready var turnBack = $TurnBackground
-onready var diceButton = $DiceButton
+onready var diceButton = $TurnBackground/VBoxContainer/DiceButton
 onready var houseButton = $CenterContainer/Button
 
-#onready var star1 = $HBoxContainer/Star1
-#onready var star2 = $HBoxContainer/Star2
+onready var star1 = $HBoxContainer/Star1
+onready var star2 = $HBoxContainer/Star2
 
 onready var anim = $HBoxContainer/AnimationPlayer
 
@@ -102,9 +102,9 @@ func EnablePLayerButton():
 		houseButton.disabled = false
 		
 func show_stars():
-	anim.play("Win")
-#	star1.visible = true
-#	star2.visible = true
+	#anim.play("Win")
+	star1.visible = true
+	star2.visible = true
 
 func change_progress_colors(role):
 	playerProgress.change_colors(role)

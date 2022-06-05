@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://UI/FinalScreen/ShowAllPlayers.gd" type="Script" id=1]
-[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GameFonts/kenney_fontpackage/Fonts/Kenney Future.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=6]
@@ -15,12 +15,13 @@
 [ext_resource path="res://Fotos/muteButtonSelected.png" type="Texture" id=13]
 [ext_resource path="res://Fotos/muteButton.png" type="Texture" id=14]
 [ext_resource path="res://UI/FinalScreen/MuteButton.gd" type="Script" id=15]
+[ext_resource path="res://UI/FinalScreen/TranslationManager_gameOver.gd" type="Script" id=16]
 
-[sub_resource type="DynamicFont" id=1]
-size = 35
-outline_size = 1
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 3
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-use_filter = true
+extra_spacing_char = 2
 font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
@@ -94,6 +95,8 @@ __meta__ = {
 }
 
 [node name="TranslationManager" parent="." instance=ExtResource( 10 )]
+script = ExtResource( 16 )
+gameover = NodePath("../ColorRect/HBoxContainer/VBoxContainer/Label")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -111,8 +114,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
-margin_left = 387.0
-margin_right = 637.0
+margin_left = 420.0
+margin_right = 603.0
 margin_bottom = 600.0
 size_flags_horizontal = 6
 __meta__ = {
@@ -120,12 +123,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
-margin_right = 250.0
-margin_bottom = 40.0
+margin_right = 183.0
+margin_bottom = 36.0
 size_flags_horizontal = 6
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "GAME OVER"
 align = 1
 valign = 1
@@ -134,10 +137,10 @@ __meta__ = {
 }
 
 [node name="ShowAllPlayers" type="GridContainer" parent="ColorRect/HBoxContainer/VBoxContainer"]
-margin_left = 125.0
-margin_top = 322.0
-margin_right = 125.0
-margin_bottom = 322.0
+margin_left = 91.0
+margin_top = 320.0
+margin_right = 91.0
+margin_bottom = 320.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/hseparation = 100
@@ -158,9 +161,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -70.0
-margin_top = -80.0
-margin_bottom = -15.0
+margin_left = -74.0
+margin_top = -91.0
+margin_right = 1.0
+margin_bottom = -1.0
 size_flags_horizontal = 6
 size_flags_vertical = 10
 texture_normal = ExtResource( 6 )
@@ -173,15 +177,15 @@ __meta__ = {
 detailedVersions = NodePath("../DetailVersion")
 allPlayers = NodePath("../HBoxContainer/VBoxContainer/ShowAllPlayers")
 
-[node name="Shortcut" parent="ColorRect/ExitGame" instance=ExtResource( 2 )]
+[node name="Shortcut_rightArrow" parent="ColorRect/ExitGame" instance=ExtResource( 2 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -12.0
-margin_top = -6.0
-margin_right = 4.0
-margin_bottom = 10.0
+margin_left = -12.5
+margin_top = -23.0
+margin_right = 7.5
+margin_bottom = -3.0
 
 [node name="SceneTransitionAnim" parent="." instance=ExtResource( 5 )]
 

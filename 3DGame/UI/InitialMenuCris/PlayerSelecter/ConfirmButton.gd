@@ -1,7 +1,7 @@
 extends TextureButton
 
 func _input(event):
-	if event.is_action_pressed("Enter") and visible: #not self.disabled:
+	if event.is_action_pressed("RightArrow") and visible: #not self.disabled:
 		emit_signal("button_down")
 		emit_signal("pressed")
 

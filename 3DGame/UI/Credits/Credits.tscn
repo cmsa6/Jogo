@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/Credits/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/buttonFontCards.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/Credits/Exit.gd" type="Script" id=3]
 [ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=4]
+[ext_resource path="res://UI/Keyboard/Shortcut_escape.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fotos/quitButton.png" type="Texture" id=6]
+[ext_resource path="res://Fotos/quitButtonSelected.png" type="Texture" id=7]
+[ext_resource path="res://Fotos/QuitButtonDisabled.png" type="Texture" id=8]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 6
+font_data = SubResource( 1 )
 
 [node name="GodotCredits" type="Control"]
 anchor_right = 1.0
@@ -31,25 +46,80 @@ __meta__ = {
 
 [node name="LineTemplate" type="Label" parent="CreditsContainer"]
 anchor_right = 1.0
-margin_left = 5.04547
-margin_top = 501.779
-margin_right = 5.04541
-margin_bottom = 539.779
+margin_left = 9.0
+margin_top = 502.0
+margin_right = -12.0
+margin_bottom = 540.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.945098, 0.631373, 0.427451, 1 )
-custom_colors/font_outline_modulate = Color( 0.945098, 0.631373, 0.427451, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.901961, 0.435294, 0.12549, 1 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="eu_logo" type="Sprite" parent="."]
-position = Vector2( 901.556, 559.213 )
-scale = Vector2( 0.364762, 0.366212 )
-texture = ExtResource( 4 )
-
-[node name="ID-Gaming-Logo-Final_cores" type="Sprite" parent="."]
-position = Vector2( 63.6716, 535.767 )
-scale = Vector2( 0.25, 0.25 )
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 0.8909
+margin_top = -149.877
+margin_right = 500.891
+margin_bottom = 350.123
+rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -230.2
+margin_top = -68.5775
+margin_right = 423.8
+margin_bottom = 127.423
+rect_scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -52.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Escape" parent="QuitButton" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -11.0
+margin_top = 5.0
+margin_right = 9.0
+margin_bottom = 25.0
+
+[node name="UISoundManager" parent="." instance=ExtResource( 9 )]
+
+[connection signal="button_down" from="QuitButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="exit_game"]

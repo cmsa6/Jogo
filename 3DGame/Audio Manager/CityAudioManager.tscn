@@ -13,10 +13,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -60.0, -50.0, -40.0, -30.0, -20.0, -10.0 ]
+"values": [ -60.0, -50.0, -40.0, -30.0, -20.0, -10.0, 0.0, 24.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:stream_paused")
@@ -45,8 +45,7 @@ tracks/2/keys = {
 
 [node name="CityAudioManager" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
-volume_db = -17.6923
-stream_paused = true
+volume_db = 24.0
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

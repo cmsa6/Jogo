@@ -8,7 +8,7 @@ func translate(value):
 	var instructionsText = get_node(instructions)
 	
 	if language == "el":
-		instructionsText.text = "πρόκειται να περπατήσει " + value + " βήματα"
+		instructionsText.text = "Προχώρησε " + value + " βήματα"
 	
 	elif language == "es":
 		instructionsText.text = "Va a caminar " +  value +  " pasos"

@@ -5,7 +5,8 @@ onready var instructions = $Instructions
 onready var image = $VBoxContainer/TextureRect
 onready var zoomImage = $ZoomedInImage
 onready var audio = $MinigameSound
-onready var zoomOut = $zoomButton/ZoomOutButton
+onready var zoomOut = $zoomButton
+onready var zoomOutButton = $zoomButton/ZoomOutButton
 onready var zoomIn = $VBoxContainer/zoomButtonIn/ZoomInButton
 onready var imageContainer = $VBoxContainer
 
@@ -121,8 +122,11 @@ func set_card_color(colors):
 	card.color =  mainColor
 	background.color = backgroundColor
 	
-	titleFont.set("custom_colors/font_color", outlineColor)
-	titleFont.set("custom_colors/font_outline_modulate", mainColor)
+	#titleFont.set("custom_colors/font_color", outlineColor)
+	#titleFont.set("custom_colors/font_outline_modulate", mainColor)
+	
+	titleFont.set("custom_colors/font_color", mainColor)
+	titleFont.set("custom_colors/font_outline_modulate", outlineColor)
 	
 	#titleFont.set("custom_colors/font_color", mainColor)
 	instructions.set("custom_colors/font_outline_modulate", mainColor)
@@ -137,6 +141,7 @@ func enable_zoom():
 		imageContainer.visible = false
 		
 		zoomOut.visible = true
+		zoomOutButton.visible = true
 	else:
 		zoomImage.visible = false
 		instructions.visible = true
@@ -144,6 +149,7 @@ func enable_zoom():
 		zoomIn.visible = true
 		imageContainer.visible = true
 		zoomOut.visible = false
+		zoomOutButton.visible = false
 
 
 func set_origin(orig):

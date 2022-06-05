@@ -89,7 +89,7 @@ func checkActives(playerFurniture):
 	
 
 	
-	text.text = str(numActives) + " / " + str(size) + text.text
+	text.text = str(numActives) + "/" + str(size) + text.text
 	tween.interpolate_property(progressBar, "value", numActives - 1, numActives, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	
