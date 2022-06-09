@@ -4,6 +4,5 @@
 
 [resource]
 resource_name = "Atlas_2"
-flags_vertex_lighting = true
 flags_world_triplanar = true
 albedo_texture = ExtResource( 1 )

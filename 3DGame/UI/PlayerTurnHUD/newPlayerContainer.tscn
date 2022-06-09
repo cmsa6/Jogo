@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/PlayerTurnHUD/DiceButton.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Bryce/Bryce.png" type="Texture" id=3]
+[ext_resource path="res://Assets/new_characters/Elizabeth/Elizabeth.png" type="Texture" id=3]
 [ext_resource path="res://Fotos/HouseButtonSelected.png" type="Texture" id=4]
 [ext_resource path="res://Fotos/HouseButton.png" type="Texture" id=5]
 [ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=6]
@@ -211,13 +211,13 @@ objects = NodePath("../HBoxContainer/Objects")
 margin_right = 175.0
 margin_bottom = 22.0
 size_flags_vertical = 6
-custom_constants/separation = -19
+custom_constants/separation = -33
 
 [node name="Star1" type="TextureRect" parent="HBoxContainer"]
 visible = false
-margin_left = 2.0
+margin_left = 9.0
 margin_top = 3.0
-margin_right = 17.0
+margin_right = 24.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 15, 15 )
 size_flags_horizontal = 6
@@ -233,16 +233,16 @@ size_flags_horizontal = 6
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "x / 8 Objects"
+text = "x/8 Objects"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="Star2" type="TextureRect" parent="HBoxContainer"]
 visible = false
-margin_left = 158.0
+margin_left = 151.0
 margin_top = 3.0
-margin_right = 173.0
+margin_right = 166.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 15, 15 )
 size_flags_horizontal = 6

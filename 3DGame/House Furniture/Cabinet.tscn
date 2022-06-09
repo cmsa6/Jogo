@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://House Furniture/Materials/CabinetMaterial.tres" type="Material" id=2]
+[ext_resource path="res://House Furniture/Materials/BookcaseMaterial.tres" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
@@ -11,7 +11,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 1860,
-"material": ExtResource( 2 ),
+"material": ExtResource( 1 ),
 "name": "Atlas_2",
 "primitive": 4,
 "skeleton_aabb": [  ],

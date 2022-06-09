@@ -15,7 +15,7 @@ func translate(language):
 		instructionsText.text = "Θέλεις να σταματήσεις να παίζεις;"
 			
 	elif language == "es":
-		instructionsText.text = "¿Queremos terminar el juego?"
+		instructionsText.text = "¿Quieres terminar el juego?"
 
 		
 	elif language == "it":
@@ -33,7 +33,7 @@ func translate_win(name):
 		instructionsText.text = "Συγχαρητήρια " + name + "! Μόλις συμπλήρωσες όλα τα αντικειμενα στο σπίτι σου! Θέλεις να σταματήσεις να παίζεις;"
 			
 	elif language == "es":
-		instructionsText.text = "¡Felicidades " + name + "! Acabas de terminar tu casa!! ¿Queremos terminar el juego ahora?"
+		instructionsText.text = "Enhorabuena " + name + "! Acabas de completar la casa! ¿Quieres terminar el juego?"
 
 		
 	elif language == "it":

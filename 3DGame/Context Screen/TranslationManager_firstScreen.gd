@@ -43,14 +43,16 @@ func translate(language):
 	elif language == "es":
 		if numPlayers == 1:
 			space1Text.text = "Bienvenido "
-			space3Text.text = "¡Y tienes una nueva casa vacía que necesitas amueblar!"
-			space4Text.text = "¡Puedes ganar objetos desplazándote por la ciudad pulsando el botón de los dados!"
+			space2Text.text = "Te acabas de mudar a una nueva ciudad."	
+			space3Text.text = "Tienes una nueva casa. Es hora de amueblarla."
+			space4Text.text = "Completa los retos por toda la ciudad y gana objetos. Sólo necesitas presionar el botón del dado!"
 		else:
 			space1Text.text = "Bienvenidos "
-			space3Text.text = "¡Y tienen una casa nueva que tendrán que amueblar!"
-			space4Text.text = "¡Puedes ganar objetos desplazándote por la ciudad pulsando el botón de los dados!"
+			space2Text.text = "Os acabais de mudar a una nueva ciudad."	
+			space3Text.text = "Cada jugador tiene una nueva casa. Ahora es el momento de amueblarla"
+			space4Text.text = "Completad los retos por toda la ciudad y gana objetos. Sólo necesitáis presionar el botón del dado!"
 			
-		space2Text.text = "Te acabas de mudar a una nueva ciudad."	
+		
 
 
 		
@@ -97,7 +99,7 @@ func change_pictures(language):
 	var filePath 
 	
 	#TO DO
-	if language == "es" or language == "en" or language == "it":
+	if language == "en" or language == "it":
 		filePath = "res://Context Screen/Photos/pt/firstContext_image4.png"
 	else:
 		filePath = "res://Context Screen/Photos/" + language + "/" + "firstContext_image4.png"

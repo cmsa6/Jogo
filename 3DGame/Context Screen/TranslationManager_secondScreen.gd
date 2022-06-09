@@ -32,16 +32,13 @@ func translate(language):
 		space4Text.text      = "Οι υπόλοιποι παίκτες αποφασίζουν αν έχεις ολοκληρώσει επιτυχώς τη δοκιμασία πατώντας το κουμπί \"Μου αρέσει\"."
 	
 	elif language == "es":
-		if numPlayers == 1:
-			space1Text.text = "Bienvenido "
-			space3Text.text = "¡Y tienes una nueva casa vacía que necesitas amueblar!"
-			space4Text.text = "¡Puedes ganar objetos desplazándote por la ciudad pulsando el botón de los dados!"
-		else:
-			space1Text.text = "Bienvenidos "
-			space3Text.text = "¡Y tienen una casa nueva que tendrán que amueblar!"
-			space4Text.text = "¡Puedes ganar objetos desplazándote por la ciudad pulsando el botón de los dados!"
+		space1Text.text = "Cuando tu personaje se detiene en un mosaico circular, ¡aparece un reto!"
+		space2Text.text = "Por ejemplo, este reto se llama \"Como se Siente\". ¡Si aciertas puedes ganar un sofá!"	
+		space3Text.text = "Después de presionar el botón de flecha, intenta completar el desafío"
+		space4Text.text = "Los otros jugadores deciden si tuviste éxito presionando el botón \"Me gusta\"."
+
 			
-		space2Text.text = "Te acabas de mudar a una nueva ciudad."	
+		
 
 
 		
@@ -93,7 +90,7 @@ func change_pictures(language):
 	var image
 	
 	#TO DO
-	if language == "es" or language == "en" or language == "it":
+	if language == "en" or language == "it":
 		filePath = "res://Context Screen/Photos/pt/secondContext_image1.png"
 	else:
 		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image1.png"
@@ -102,7 +99,7 @@ func change_pictures(language):
 	image1File.texture = image
 
 
-	if language == "es" or language == "en" or language == "it":
+	if language == "en" or language == "it":
 		filePath = "res://Context Screen/Photos/pt/secondContext_image2.png"
 	else:
 		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image2.png"
@@ -111,7 +108,7 @@ func change_pictures(language):
 	image2File.texture = image
 	
 	
-	if language == "es" or language == "en" or language == "it":
+	if language == "en" or language == "it":
 		filePath = "res://Context Screen/Photos/pt/secondContext_image3.png"
 	else:
 		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image3.png"
@@ -119,7 +116,7 @@ func change_pictures(language):
 	image = load(filePath)
 	image3File.texture = image
 	
-	if language == "es" or language == "en" or language == "it":
+	if language == "en" or language == "it":
 		filePath = "res://Context Screen/Photos/pt/secondContext_image4.png"
 	else:
 		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image4.png"

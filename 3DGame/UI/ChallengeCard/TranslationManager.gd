@@ -19,7 +19,7 @@ func translate(language):
 			
 	elif language == "es":
 		#challengeNameText.text = "Nombre del Desafío"
-		rewardText.text = "Recompensa"
+		rewardText.text = "Puedes ganar"
 		
 	elif language == "it":
 		#challengeNameText.text = "Nome della Sfida"

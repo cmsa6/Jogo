@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Fotos/People.png" type="Texture" id=2]
 
 [node name="MultiPlayer" type="Control"]
 size_flags_horizontal = 0
@@ -13,7 +12,6 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 222.738, 184.378 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 2 )
 
 [node name="CheckBox" type="CheckBox" parent="."]
 margin_left = 35.0

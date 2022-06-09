@@ -31,11 +31,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = -0.000803351
-anchor_right = 0.999197
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.02008
-margin_bottom = 1.02008
 color = Color( 0.964706, 0.921569, 0.862745, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,18 +73,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ID-Gaming-Logo-Final_cores" type="Sprite" parent="."]
-visible = false
-position = Vector2( 63.6716, 535.767 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 3 )
-
-[node name="eu_logo" type="Sprite" parent="."]
-visible = false
-position = Vector2( 891.38, 459.828 )
-scale = Vector2( 0.364762, 0.366212 )
-texture = ExtResource( 6 )
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 visible = false

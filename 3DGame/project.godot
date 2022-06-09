@@ -25,7 +25,6 @@ CityAudioManager="*res://Audio Manager/CityAudioManager.tscn"
 
 [display]
 
-window/size/fullscreen=true
 window/size/always_on_top=true
 window/dpi/allow_hidpi=true
 window/per_pixel_transparency/allowed=true

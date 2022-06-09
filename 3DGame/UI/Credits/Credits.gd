@@ -147,6 +147,70 @@ func _ready():
 	]
 	
 		set_credits(text)
+		
+		
+	elif SettingsManager.language == "es":
+		var text = [
+		[
+			"Un juego del proyecto ID-GAMING",
+			"Co-financiado por el programa Erasmus+ de la Unión Europea"
+		],
+		[
+			"Socios",
+			"C.E.C.D. Mira Sintra, Portugal (Coordinador del Proyecto)",
+			"INESC-ID, Portugal",
+			"The Aristotle University of Thessaloniki, Grecia",
+			"CSS Forlì, Italia",
+			"COPAVA, España",
+			"AIAS, Italia"
+		],
+		[
+			"Diseñador del juego",
+			"Cristiana Antunes",
+			"Tiago Toscano"
+		],
+		[
+			"Programador",
+			"Cristiana Antunes",
+			"Tiago Toscano"
+		],
+		[
+			"Arte",
+			"Artist Name"
+		],
+		[
+			"Música",
+			"Musician Name"
+		],
+		[
+			"Efectos de Sonido",
+			"https://www.zapsplat.com/"
+		],
+		[
+			"Probadores",
+			"Name 1",
+			"Name 2",
+			"Name 3"
+		],
+		[
+			"Herramientas usadas",
+			"Desarrollado con Godot Engine",
+			"https://godotengine.org/license",
+			"",
+			"Art created with My Favourite Art Program",
+			"https://myfavouriteartprogram.com"
+		],
+		[
+			"Recursos utilizados",
+			"Personajes & Animaciones: Mixamo, Adobe Systems Incorporated",
+			"Materials: Texture Heaven, Polygon",
+			#"Icons: Hysen Drogu, pngTree"
+			"Iconos: Flaticon, Kenney.nl, opengameart.org",
+			"Edificios de la Ciudad: Itch.io"
+		]
+	]
+	
+		set_credits(text)
 
 
 #var credits = [

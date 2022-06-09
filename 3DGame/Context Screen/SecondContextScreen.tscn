@@ -182,7 +182,6 @@ size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "When your character stops at a circle tile, a challenge pops up!"
-align = 1
 valign = 1
 autowrap = true
 
@@ -273,7 +272,6 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "For example, this challenge is called “To the doctor”.
 If you succeed you win a chair!"
-align = 1
 valign = 1
 autowrap = true
 
@@ -355,7 +353,6 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "After pressing the arrow button, try to complete the challenge"
-align = 1
 valign = 1
 autowrap = true
 
@@ -442,7 +439,6 @@ size_flags_vertical = 6
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "The other players decide whether you were successful by pressing the “Like” button"
-align = 1
 valign = 1
 autowrap = true
 

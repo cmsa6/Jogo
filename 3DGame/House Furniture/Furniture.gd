@@ -14,7 +14,8 @@ func get_uid():
 	return uid
 	
 func activate_object():
-	var materialName = "res://House Furniture/Materials/" + self.get_name() + "Material.tres"
+	#var materialName = "res://House Furniture/Materials/" + self.get_name() + "Material.tres"
+	var materialName = "res://House Furniture/Materials/BookcaseMaterial.tres"
 	var newMaterial = load(materialName)
 
 	meshInstance.set_surface_material(0, newMaterial)

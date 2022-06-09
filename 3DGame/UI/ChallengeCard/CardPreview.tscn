@@ -215,8 +215,8 @@ fov = 40.0
 near = 0.63
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Control/Card2/VBoxContainer/LeftSide/RewardDetails/CenterContainer/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 0.964465, 0.26421, 0, -0.26421, 0.964465, 0, 4.80716, 19.1516 )
-light_energy = 0.8
+transform = Transform( 1, 0, 0, 0, 0.964465, 0.26421, 0, -0.26421, 0.964465, 0, 4.80716, 11.6498 )
+light_energy = 1.4
 
 [node name="ObjectPlaceHolder" type="Spatial" parent="Control/Card2/VBoxContainer/LeftSide/RewardDetails/CenterContainer/ViewportContainer/Viewport"]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 1, 0 )

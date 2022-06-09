@@ -112,7 +112,7 @@ __meta__ = {
 }
 
 [node name="RewardTitle2" type="Label" parent="Evaluation/ColorRect/VBoxContainer"]
-margin_right = 744.0
+margin_right = 740.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 180, 50 )
 size_flags_vertical = 2
@@ -161,7 +161,7 @@ margin_bottom = 57.0
 
 [node name="RewardTitle" type="Label" parent="Evaluation/ColorRect/VBoxContainer"]
 margin_top = 60.0
-margin_right = 744.0
+margin_right = 740.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 180, 50 )
 size_flags_vertical = 6
@@ -176,9 +176,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer"]
-margin_left = 141.0
+margin_left = 139.0
 margin_top = 121.0
-margin_right = 603.0
+margin_right = 601.0
 margin_bottom = 321.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
@@ -209,7 +209,8 @@ fov = 40.0
 near = 0.63
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 0.848584, 0.529061, 0, -0.529061, 0.848584, 0, 8.90357, 19.1516 )
+transform = Transform( 1, 0, 0, 0, 0.848584, 0.529061, 0, -0.529061, 0.848584, 0, 4.807, 11.65 )
+light_energy = 1.4
 
 [node name="ObjectPlaceHolder" type="Spatial" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport"]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
@@ -263,9 +264,9 @@ texture = ExtResource( 7 )
 expand = true
 
 [node name="Instructions" type="Label" parent="Evaluation/ColorRect/VBoxContainer"]
-margin_left = 112.0
+margin_left = 110.0
 margin_top = 313.0
-margin_right = 632.0
+margin_right = 630.0
 margin_bottom = 363.0
 rect_min_size = Vector2( 520, 50 )
 size_flags_horizontal = 6
@@ -282,7 +283,7 @@ __meta__ = {
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer"]
 margin_top = 360.0
-margin_right = 744.0
+margin_right = 740.0
 margin_bottom = 450.0
 size_flags_vertical = 10
 
@@ -315,8 +316,8 @@ margin_right = 12.5
 margin_bottom = 0.0
 
 [node name="Buttons" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2"]
-margin_left = 292.0
-margin_right = 452.0
+margin_left = 290.0
+margin_right = 450.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 90 )
 size_flags_horizontal = 6
@@ -393,8 +394,8 @@ texture = ExtResource( 10 )
 
 [node name="NextButton2" type="TextureButton" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 669.0
-margin_right = 744.0
+margin_left = 665.0
+margin_right = 740.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 75, 89 )
 size_flags_horizontal = 8

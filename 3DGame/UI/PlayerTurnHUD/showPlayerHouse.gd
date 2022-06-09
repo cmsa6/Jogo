@@ -33,7 +33,7 @@ func show_house():
 	var canvasNode = get_node("/root/Map1/CanvasLayer")
 	canvasNode.enable_additional_info()
 
-
+	
 	var house = houseScene.instance()
 	house.set_origin("Map")
 	rootNode.add_child(house)
