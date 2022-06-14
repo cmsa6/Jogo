@@ -64,50 +64,50 @@ func translate(language):
 
 		
 	elif language == "es":
-		qolText.text                           = "Calidad de Vida"
+		qolText.text                           = "Habilidades de Calidad de Vida"
 		cfText.text                            = "Funciones Cognitivas"
 
 		interpersonalRelationshipsText.text    = "Relaciones Interpersonales"
 		socialInclusionText.text               = "Inclusión\nSocial"
-		selfDeterminationText.text             = "Auto\nDeterminación"
+		selfDeterminationText.text             = "Autodeterminación"
 		physicalWellbeingText.text             = "Bienestar\nFísico"
 		materialWellbeingText.text             = "Bienestar\nMaterial"
 		emotionalWellbeingText.text            = "Bienestar\nEmocional"
 		personalDevelopmentText.text           = "Desarrollo\nPersonal"
 		rightsText.text                        = "Derechos"
 		
-		calculusAndProblemSolvingText.text     = "Calculo y Resolucion de Problemas"
+		calculusAndProblemSolvingText.text     = "Calculo y Resolución de Problemas"
 		memoryAndAttentionToDetailText.text    = "Memoria y Atención al Detalle"
 		socialAndEmotionalWellbeingText.text   = "Bienestar Social y Emocional"
-		languageText.text                      = "Idioma"
+		languageText.text                      = "Lenguaje"
 		spatialOrientationText.text            = "Orientación\nEspacial"
 		
 	elif language == "it":
-		qolText.text                           = "Qualità della vita"
+		qolText.text                           = "Abilità in Qualità di Vita"
 		cfText.text                            = "Funzioni cognitive"
 
 		interpersonalRelationshipsText.text    = "Relazioni Interpersonali"
-		socialInclusionText.text               = "Integrazione\nSociale"
-		selfDeterminationText.text             = "Auto\nDeterminazione"
+		socialInclusionText.text               = "Inclusione\nsociale"
+		selfDeterminationText.text             = "Autodeterminazione"
 		physicalWellbeingText.text             = "Benessere\nFisico"
 		materialWellbeingText.text             = "Benessere\nMateriale"
 		emotionalWellbeingText.text            = "Benessere\nEmotivo"
-		personalDevelopmentText.text           = "Crescita\nPersonale"
+		personalDevelopmentText.text           = "Sviluppo\npersonale"
 		rightsText.text                        = "Diritti"
 		
-		calculusAndProblemSolvingText.text     = "Calcolo e Risoluzione dei Problemi"
-		memoryAndAttentionToDetailText.text    = "Memoria e Cura dei Dettagli"
-		socialAndEmotionalWellbeingText.text   = "Benessere Sociale ed Emotivo"
+		calculusAndProblemSolvingText.text     = "Calcolo e Risoluzione di Problemi"
+		memoryAndAttentionToDetailText.text    = "Memoria e Attenzione al Dettaglio"
+		socialAndEmotionalWellbeingText.text   = "Benessere Socio-emozionale"
 		languageText.text                      = "Linguaggio"
 		spatialOrientationText.text            = "Orientamento\nSpaziale"
 	
 	elif language == "pt":
-		qolText.text                           = "Qualidade de Vida"
+		qolText.text                           = "Capacidades de Qualidade de Vida"
 		cfText.text                            = "Funções Cognitivas"
 		
 		interpersonalRelationshipsText.text    = "Relações Interpessoais"
 		socialInclusionText.text               = "Inclusão\nSocial"
-		selfDeterminationText.text             = "Auto\nDeterminação"
+		selfDeterminationText.text             = "Autodeterminação"
 		physicalWellbeingText.text             = "Bem-estar\nFisico"
 		materialWellbeingText.text             = "Bem-estar\nMaterial"
 		emotionalWellbeingText.text            = "Bem-estar\nEmocional"

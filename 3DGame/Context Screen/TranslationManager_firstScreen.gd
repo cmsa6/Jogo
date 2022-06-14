@@ -59,14 +59,17 @@ func translate(language):
 	elif language == "it":
 		if numPlayers == 1:
 			space1Text.text = "Benvenuto "
-			space3Text.text = "E hai una nuova casa che dovrai arredare!"
-			space4Text.text = "Puoi vincere oggetti muovendoti per la città premendo il pulsante dei dadi!"
+			space2Text.text = "Ti sei appena trasferito in una nuova città."
+			space3Text.text = "Hai una casa nuova. Adesso bisogna metterci i mobili."
+			space4Text.text = "Completa le sfide in giro per la città per vincere degli oggetti. Devi solo premere il pulsante del dado!"
 		else:
 			space1Text.text = "Benvenuti "
-			space3Text.text = "E hanno una nuova casa che dovranno arredare!"
-			space4Text.text = "Puoi vincere oggetti muovendoti per la città premendo il pulsante dei dadi!"
+			space2Text.text = "Vi siete appena trasferiti in una nuova città."
+			space3Text.text = "Ogni giocatore ha una casa nuova. Adesso bisogna metterci i mobili."
+			space4Text.text = "Completate le sfide in giro per la città per vincere degli oggetti. Dovete solo premere il pulsante del dado!"
 			
-		space2Text.text = "Ti sei appena trasferito in una nuova città."	
+			
+		
 
 
 	

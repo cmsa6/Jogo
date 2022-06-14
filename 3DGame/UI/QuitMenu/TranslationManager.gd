@@ -36,8 +36,8 @@ func translate_win(name):
 		instructionsText.text = "Enhorabuena " + name + "! Acabas de completar la casa! ¿Quieres terminar el juego?"
 
 		
-	elif language == "it":
-		instructionsText.text = "Congratulazioni " + name + "! Hai appena completato la tua casa!! Vogliamo chiudere il gioco adesso?"
+	elif language == "it":  
+		instructionsText.text = "Congratulazioni " + name + "! Hai appena completato tua casa! Vogliamo finire il gioco?"
 
 	
 	elif language == "pt":

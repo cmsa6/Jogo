@@ -95,8 +95,8 @@ __meta__ = {
 }
 
 [node name="qolSkills" type="GridContainer" parent="SkillManager/VBoxContainer/Skills"]
-margin_left = 128.0
-margin_right = 382.0
+margin_left = 35.0
+margin_right = 475.0
 margin_bottom = 440.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -105,54 +105,52 @@ columns = 2
 
 [node name="InterpersonalRelationship" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_right = 87.0
-margin_bottom = 107.0
+margin_right = 180.0
 
 [node name="SocialInclusion" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 167.0
-margin_right = 254.0
-margin_bottom = 107.0
+margin_left = 260.0
+margin_right = 440.0
 
 [node name="Self-Determination" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_top = 111.0
-margin_right = 87.0
+margin_right = 180.0
 margin_bottom = 218.0
 
 [node name="PhysicalWellbeing" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 167.0
+margin_left = 260.0
 margin_top = 111.0
-margin_right = 254.0
+margin_right = 440.0
 margin_bottom = 218.0
 
 [node name="MaterialWellbeing" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_top = 222.0
-margin_right = 87.0
+margin_right = 180.0
 margin_bottom = 329.0
 
 [node name="EmotionalWellbeing" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 167.0
+margin_left = 260.0
 margin_top = 222.0
-margin_right = 254.0
+margin_right = 440.0
 margin_bottom = 329.0
 
 [node name="PersonalDevelopment" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_top = 333.0
-margin_right = 87.0
+margin_right = 180.0
 margin_bottom = 440.0
 
 [node name="Rights" parent="SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
-margin_left = 167.0
+margin_left = 260.0
 margin_top = 333.0
-margin_right = 254.0
+margin_right = 440.0
 margin_bottom = 440.0
 
 [node name="cfSkills" type="GridContainer" parent="SkillManager/VBoxContainer/Skills"]
-margin_left = 680.0
+margin_left = 587.0
 margin_top = 55.0
-margin_right = 858.0
+margin_right = 951.0
 margin_bottom = 384.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -160,30 +158,28 @@ columns = 2
 
 [node name="CalculusandProblemSolving" parent="SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_right = 87.0
-margin_bottom = 107.0
+margin_right = 180.0
 
 [node name="MemoryandAttentiontoDetail" parent="SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
-margin_left = 91.0
-margin_right = 178.0
-margin_bottom = 107.0
+margin_left = 184.0
+margin_right = 364.0
 
 [node name="SocialandEmotionalWellbeing" parent="SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_top = 111.0
-margin_right = 87.0
+margin_right = 180.0
 margin_bottom = 218.0
 
 [node name="Language" parent="SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
-margin_left = 91.0
+margin_left = 184.0
 margin_top = 111.0
-margin_right = 178.0
+margin_right = 364.0
 margin_bottom = 218.0
 
 [node name="SpatialOrientation" parent="SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
 margin_left = 0.0
 margin_top = 222.0
-margin_right = 87.0
+margin_right = 180.0
 margin_bottom = 329.0
 
 [node name="ColorRect" type="ColorRect" parent="."]

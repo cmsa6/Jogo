@@ -14,7 +14,7 @@ func fade_in_music():
 		anim.play("fade_in_music")
 	
 func start_city_sound():
-	print("i started city sound")
+	#print("i started city sound")
 	CityAudioManager.start()
 	#CityAudioManager.stream_paused = false
 	#CityAudioManager.playing = true

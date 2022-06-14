@@ -19,7 +19,7 @@ func translate(language):
 		gameoverText.text = "El juego ha terminado"
 		
 	elif language == "it":
-		gameoverText.text = "1\nπαίχτης"
+		gameoverText.text = "Hai perso"
 
 	
 	elif language == "pt":

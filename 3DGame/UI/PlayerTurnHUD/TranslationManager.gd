@@ -19,7 +19,7 @@ func translate(language):
 		turnText.text = "Es tu turno"
 		
 	elif language == "it":
-		turnText.text = "È IL TUO TURNO"
+		turnText.text = "È il tuo turno"
 	
 	elif language == "pt":
 		turnText.text = "É a tua vez"

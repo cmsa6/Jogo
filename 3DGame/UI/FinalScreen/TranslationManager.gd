@@ -46,13 +46,13 @@ func translate(language):
 		seeDetailsText.text = "Ver detalles"
 		
 	elif language == "it":
-		qolText.text     = "Qualità della vita"
+		qolText.text     = "Qualità di Vita"
 		qolPointsText.text = " PUNTI"
 		
 		cfText.text      = "Funzioni cognitive"
 		cfPointsText.text = " PUNTI"
 		
-		seeDetailsText.text = "Guarda i Detagli"
+		seeDetailsText.text = "Vedi dettagli"
 
 	
 	elif language == "pt":

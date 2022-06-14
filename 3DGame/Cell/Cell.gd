@@ -96,11 +96,11 @@ func _ready():
 
 
 func _on_Cell_body_entered(body):
-	print("entre")
-	print(get_occupied())
-	print(doNotPlay)
+	#print("entre")
+	#print(get_occupied())
+	#print(doNotPlay)
 	if get_occupied() and not get_doNotPlay():
-		print("devia tocar")
+		#print("devia tocar")
 		audio.play(0)
 		set_doNotPlay(false)
 

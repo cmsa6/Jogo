@@ -38,7 +38,7 @@ func translate(language):
 		player4Text.text = "4\nJugadores"
 		
 	elif language == "it":
-		howManyText.text = "Quanti giocatori giocheranno?"
+		howManyText.text = "Quanti giocatori parteciperanno?"
 		
 		player1Text.text = "1\nGiocatore"
 		player2Text.text = "2\nGiocatori"
