@@ -579,7 +579,8 @@ __meta__ = {
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -110.0
+margin_left = -131.0
+margin_right = -9.0
 margin_bottom = 208.0
 custom_constants/separation = 0
 __meta__ = {
@@ -587,22 +588,22 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer2"]
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 133.0
-size_flags_horizontal = 10
+size_flags_horizontal = 7
 custom_constants/separation = -2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 95.0
 
 [node name="PlayerAvatar" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/CenterContainer"]
-margin_left = 12.0
+margin_left = 18.0
 margin_top = 5.0
-margin_right = 97.0
+margin_right = 103.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 85, 85 )
 size_flags_horizontal = 6
@@ -615,8 +616,8 @@ __meta__ = {
 }
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer/CenterContainer"]
-margin_left = 7.0
-margin_right = 102.0
+margin_left = 13.0
+margin_right = 108.0
 margin_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -627,10 +628,10 @@ stretch_mode = 6
 
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer2/VBoxContainer"]
 margin_top = 93.0
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 133.0
 rect_min_size = Vector2( 110, 40 )
-size_flags_horizontal = 6
+size_flags_horizontal = 7
 size_flags_vertical = 6
 texture = ExtResource( 16 )
 expand = true
@@ -657,9 +658,9 @@ __meta__ = {
 }
 
 [node name="PointsBar" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2"]
-margin_left = 22.0
+margin_left = 28.0
 margin_top = 138.0
-margin_right = 87.0
+margin_right = 93.0
 margin_bottom = 203.0
 rect_min_size = Vector2( 65, 65 )
 mouse_default_cursor_shape = 2

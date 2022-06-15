@@ -14,7 +14,7 @@ func translate(value):
 		instructionsText.text = "Va a caminar " +  value +  " pasos"
 		
 	elif language == "it":
-		instructionsText.text = "Farà " + value + " passi"
+		instructionsText.text = "Farà " + value + "\npassi"
 	
 	elif language == "pt":
 		instructionsText.text = "Vai andar " + value + " passos"

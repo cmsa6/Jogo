@@ -105,7 +105,7 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 20.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "JOhn"
+text = "Giocatare 1"
 align = 1
 valign = 1
 
@@ -255,8 +255,8 @@ __meta__ = {
 [node name="UISoundManager" parent="." instance=ExtResource( 9 )]
 
 [connection signal="button_down" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="UISoundManager" method="confirm"]
-[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll" method="update_dice_value"]
+[connection signal="pressed" from="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" to="Control/DiceManager/HBoxContainer/VBoxContainer/VBoxContainer/MapButton" method="discard_dice_info"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/DiceManager/HBoxContainer/DiceResumo/VBoxContainer/ViewportContainer/Viewport/Spatial/Spatial/object_placeHolder/Roll"]
