@@ -44,7 +44,7 @@ func translate(language):
 		
 	elif language == "it":
 			space1Text.text = "Quando il personaggio si ferma nella casella circolare, appare una sfida!"
-			space2Text.text = "Per esempio, questa sfida è chiamata \"Dal dottore\". Se superata si può vincere una sedia!"	
+			space2Text.text = "Per esempio, questa sfida è chiamata \"Osserva l'Emozione\". Se superata si può vincere una macchina per il caffè!"	
 			space3Text.text = "Dopo aver premuto il pulsante con la freccia, prova a completare la sfida"
 			space4Text.text = "Gli altri giocatori decidono se l'hai superata premendo il pulsante \"mi piace\"."
 			
@@ -55,7 +55,7 @@ func translate(language):
 	elif language == "pt":
 		if numPlayers == 1:
 			space1Text.text = "Quando o teu personagem parar num circulo, aparece um desafio!"
-			space2Text.text = "Por exemplo, este desafio chama-se Posição Certa e com ele podes ganhar uma mesa!"
+			space2Text.text = "Por exemplo, este desafio chama-se \"Posição Certa\" e com ele podes ganhar uma mesa!"
 			space3Text.text = "Depois de pressionares o botão da seta, tenta completar o desafio"
 			space4Text.text = "Depois reflete na tua resposta e avalia-a!"
 			
@@ -63,17 +63,16 @@ func translate(language):
 			space1Text.text = "Quando o teu personagem parar num circulo, aparece um desafio!"
 			space2Text.text = "Por exemplo, este desafio chama-se Posição Certa e com ele podes ganhar uma mesa!"
 			space3Text.text = "Depois de pressionares o botão da seta, tenta completar o desafio"
-			space4Text.text = "Os outros jogadores decidem se ganhas, pressionando o botão do Gosto"
+			space4Text.text = "Os outros jogadores decidem se ganhas, pressionando o botão do \"Gosto\""
 		
 		
 		
 
 	elif language == "en":
-		#if numPlayers == 1:
-		#	space3Text.text = "And you have a new empty house that you need to furnish!"
-		#else:
-		#	space3Text.text = "And each one of you has a new empty house that you need to furnish!"
-		pass	
+		space1Text.text = "When your character stops at a circle tile, a challenge pops up!"
+		space2Text.text = "For example, this challenge is called \"Repeated Element\". If you succed you can win a coffee machine!"
+		space3Text.text = "After pressing the arrow button, try to complete the challenge."
+		space4Text.text = "The other players decide whether you were successful by pressing the \"Like\" button."
 
 
 func change_pictures(language):
@@ -85,37 +84,21 @@ func change_pictures(language):
 	var filePath 
 	var image
 	
-	#TO DO
-	if language == "en" or language == "it":
-		filePath = "res://Context Screen/Photos/pt/secondContext_image1.png"
-	else:
-		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image1.png"
-		
+	filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image1.png"
 	image = load(filePath)
 	image1File.texture = image
-
-
-	if language == "en" or language == "it":
-		filePath = "res://Context Screen/Photos/pt/secondContext_image2.png"
-	else:
-		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image2.png"
-		
+	
+	
+	filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image2.png"
 	image = load(filePath)
-	image2File.texture = image
-	
-	
-	if language == "en" or language == "it":
-		filePath = "res://Context Screen/Photos/pt/secondContext_image3.png"
-	else:
-		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image3.png"
-		
+	image2File.texture = image	
+
+
+	filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image3.png"
 	image = load(filePath)
 	image3File.texture = image
-	
-	if language == "en" or language == "it":
-		filePath = "res://Context Screen/Photos/pt/secondContext_image4.png"
-	else:
-		filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image4.png"
-		
+
+
+	filePath = "res://Context Screen/Photos/" + language + "/" + "secondContext_image4.png"
 	image = load(filePath)
 	image4File.texture = image

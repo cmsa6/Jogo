@@ -31,7 +31,7 @@ font_data = SubResource( 1 )
 
 [node name="Teste" type="Spatial"]
 script = ExtResource( 6 )
-cardName = "Una Medicina"
+cardName = "Sort the Items"
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0

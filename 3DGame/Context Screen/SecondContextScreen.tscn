@@ -270,8 +270,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "For example, this challenge is called “To the doctor”.
-If you succeed you win a chair!"
+text = "For example, this challenge is called “Repeated Element”.
+If you succeed you win a coffee machine!"
 valign = 1
 autowrap = true
 

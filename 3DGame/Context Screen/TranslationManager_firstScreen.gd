@@ -90,22 +90,25 @@ func translate(language):
 		
 
 	elif language == "en":
-		#if numPlayers == 1:
-		#	space3Text.text = "And you have a new empty house that you need to furnish!"
-		#else:
-		#	space3Text.text = "And each one of you has a new empty house that you need to furnish!"
-		pass	
+		if numPlayers == 1:
+			space1Text.text = "Welcome "
+			space2Text.text = "You have just moved to a new city!"
+			space3Text.text = "You have a new house. Now it is time to furnish it."
+			space4Text.text = "Complete challenges throughout the city and win objects. You just need to press the dice button!"
+			
+		else:
+			space1Text.text = "Welcome "
+			space2Text.text = "You have just moved to a new city!"
+			space3Text.text = "Each player has a new house. Now it is time to furnish it."  
+			space4Text.text = "Complete challenges throughout the city and win objects. You just need to press the dice button!"
 
 
 func change_pictures(language):
 	var image4File = get_node(image4)	
 	var filePath 
 	
-	#TO DO
-	if language == "en" or language == "it":
-		filePath = "res://Context Screen/Photos/pt/firstContext_image4.png"
-	else:
-		filePath = "res://Context Screen/Photos/" + language + "/" + "firstContext_image4.png"
+	
+	filePath = "res://Context Screen/Photos/" + language + "/" + "firstContext_image4.png"
 		
 	var image = load(filePath)
 	image4File.texture = image

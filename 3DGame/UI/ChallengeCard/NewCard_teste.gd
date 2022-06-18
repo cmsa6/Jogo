@@ -9,7 +9,7 @@ onready var instructions = $Control/BackgroundRect/VBoxContainer/CardColor/CardI
 func _ready():
 
 	var files = []
-	var photoDir = "res://Cards/it/Photos/"
+	var photoDir = "res://Cards/en/Photos/"
 	var dir = Directory.new()
 	dir.open(photoDir)
 	dir.list_dir_begin()
@@ -23,7 +23,7 @@ func _ready():
 
 	dir.list_dir_end()
 	
-	var fileName = "res://Cards/it/LEISURE/" + cardName + ".tres"
+	var fileName = "res://Cards/en/COMMERCIAL/" + cardName + ".tres"
 		
 	var file = File.new()
 	file.open(fileName, File.READ)
@@ -51,7 +51,7 @@ func _ready():
 		#fprint(f_withoutSapces)
 		if imageName in f:	
 			print("enterer")		
-			var imagePath = "res://Cards/it/Photos/" + imageName +".png"
+			var imagePath = "res://Cards/en/Photos/" + imageName +".png"
 			print("looking for this image: ",imagePath)
 			var imagePhoto = load(imagePath)
 			image.texture = imagePhoto

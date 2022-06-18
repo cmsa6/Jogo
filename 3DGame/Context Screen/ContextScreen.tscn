@@ -288,7 +288,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "Each player has new house. 
+text = "Each player has a new house. 
 Now it is time to furnish it!"
 valign = 1
 autowrap = true
