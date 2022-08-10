@@ -66,7 +66,7 @@ func submit():
 		file.store_string("INSTRUCTIONS| " + cardDescription + "|\n")
 		file.store_string("IMAGE| |\n")
 		file.store_string("SCORE| " + cardScore + "|\n")
-		file.store_string("SKILLS| " + skill + "\n")
+		file.store_string("SKILLS| " + skill)
 
 	#file.close()
 

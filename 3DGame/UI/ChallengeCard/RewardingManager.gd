@@ -38,13 +38,14 @@ func _ready():
 		var randomFile = select_random_file_name(cardType)
 		var fileName = "res://Cards/" + str(language) + "/" + str(cardType) + "/" + randomFile
 		
+		
 		var file = File.new()
 		file.open(fileName, File.READ)
 		var content = file.get_as_text()
 		file.close()
 		
 		var newcontent = content.split("|")
-		
+
 		
 		set_card_status(newcontent[1])
 		
