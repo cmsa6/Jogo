@@ -13,9 +13,9 @@ func _ready():
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			if dir.current_is_dir():
-				print("Found directory: " + file_name)
-			elif "jogo" in file_name:
+#			if dir.current_is_dir():
+#				print("Found directory: " + file_name)
+			if "jogo" in file_name:
 				var pathToFile = directoryPath + "/" + file_name
 
 				var file = File.new()

@@ -1,14 +1,21 @@
 extends TextureButton
 
-export (NodePath) var cardTypeSelecter
- 
-onready var parentName = self.get_parent().name
+export (String, FILE) var previousScene
 
 
 func _on_BackButton_pressed():
-	if "Card" in parentName:
-		get_node(cardTypeSelecter).visible = true
-		get_parent().visible = false
-	else:
-		get_tree().change_scene("res://UI/AdminArea/CardManager.tscn")
+	get_tree().change_scene(previousScene)
 	
+		
+		
+func back_to_game():
+	get_tree().change_scene(previousScene)
+	var root_node = get_node("/root")
+	var children = get_node("/root").get_children()
+	print(children)
+	var extraChildren = len(children) - 6
+	for i in range (6, len(children)):
+		print(children[-1])
+		root_node.remove_child(root_node.get_children()[-1])
+		
+	print(root_node.get_children())

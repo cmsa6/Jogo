@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="3d Game"
+config/name="QooL CITY"
 run/main_scene="res://UI/InitialScreen/InitialScreenWithIcon.tscn"
 config/icon="res://icon.png"
 

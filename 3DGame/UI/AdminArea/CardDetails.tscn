@@ -1,22 +1,103 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/AdminArea/FileDialog.gd" type="Script" id=2]
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/buttonFontCards.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fotos/SmallerConfirmButtonDisabled.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/buttonFontCardsSmaller.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Fotos/SmallerConfirmButtonSelected.png" type="Texture" id=7]
-[ext_resource path="res://Fotos/SmallerConfirmButton.png" type="Texture" id=8]
+[ext_resource path="res://Cards/el/Photos/enterButton_pressed.png" type="Texture" id=7]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=8]
 [ext_resource path="res://UI/AdminArea/CardDetails.gd" type="Script" id=9]
 [ext_resource path="res://UI/AdminArea/BackButton.gd" type="Script" id=10]
+[ext_resource path="res://UI/AdminArea/SelectImage.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Fotos/image_gallery.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/dropdown_menu_arrow.png" type="Texture" id=14]
+[ext_resource path="res://UI/AdminArea/CheckInput.gd" type="Script" id=15]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 37
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+extra_spacing_char = 2
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.780392, 0.737255, 0.737255, 1 )
+border_width_left = 1
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=13]
+size = 30
+extra_spacing_char = 2
+font_data = SubResource( 12 )
 
 [node name="CardDetails" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -355.885, -61.6462 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 585.95 ],
@@ -46,189 +127,347 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+previousScene = "res://UI/AdminArea/CardManager.tscn"
 
-[node name="CardTitle" type="Label" parent="."]
-anchor_right = 1.0
-margin_left = -0.837646
-margin_top = 57.3247
-margin_right = -0.837646
-margin_bottom = 108.325
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "X Card"
-align = 1
+[node name="SceneLoader" parent="." instance=ExtResource( 3 )]
+next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -437.0
+margin_top = -244.5
+margin_right = 493.0
+margin_bottom = 244.5
+popup_exclusive = true
+window_title = "Choose an Image"
+resizable = true
+dialog_text = "Choose an image to your new challenge"
+dialog_hide_on_ok = true
+mode_overrides_title = false
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png" )
+current_dir = "/Users"
+current_path = "/Users/"
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SceneLoader" parent="." instance=ExtResource( 3 )]
-next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
+[node name="Label2" type="Label" parent="."]
+margin_top = 57.0
+margin_right = 1020.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Creating a new challenge"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -103.0
-margin_right = 400.0
-margin_bottom = 103.0
+margin_left = -485.0
+margin_top = -160.0
+margin_right = 485.0
+margin_bottom = 194.0
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="GridContainer"]
-margin_right = 253.0
-margin_bottom = 38.0
-custom_fonts/font = ExtResource( 4 )
+[node name="Title2" type="Label" parent="GridContainer"]
+margin_top = 8.0
+margin_right = 249.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Title"
+text = "Map zone"
 
-[node name="Title_input" type="LineEdit" parent="GridContainer"]
-margin_left = 257.0
-margin_right = 778.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-custom_styles/normal = SubResource( 1 )
-max_length = 200
-expand_to_text_length = true
+[node name="MapZones" type="OptionButton" parent="GridContainer"]
+margin_left = 253.0
+margin_right = 948.0
+margin_bottom = 52.0
+custom_icons/arrow = ExtResource( 14 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Asterisco" type="Label" parent="GridContainer"]
-margin_left = 782.0
-margin_right = 800.0
-margin_bottom = 38.0
+[node name="MapZonesAsteric" type="Label" parent="GridContainer"]
+margin_left = 952.0
+margin_top = 7.0
+margin_right = 970.0
+margin_bottom = 45.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
 text = "*"
 
-[node name="Explanation" type="Label" parent="GridContainer"]
-margin_top = 42.0
-margin_right = 253.0
-margin_bottom = 80.0
-custom_fonts/font = ExtResource( 4 )
+[node name="Title" type="Label" parent="GridContainer"]
+margin_top = 57.0
+margin_right = 249.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Explanation"
+text = "Title"
 
-[node name="Explanation_input" type="TextEdit" parent="GridContainer"]
-margin_left = 257.0
-margin_top = 42.0
-margin_right = 778.0
-margin_bottom = 80.0
+[node name="Title_input" type="LineEdit" parent="GridContainer"]
+margin_left = 253.0
+margin_top = 56.0
+margin_right = 948.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 1 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+max_length = 200
+expand_to_text_length = true
+caret_blink = true
 
-[node name="Asterisco2" type="Label" parent="GridContainer"]
-margin_left = 782.0
-margin_top = 42.0
-margin_right = 800.0
-margin_bottom = 80.0
+[node name="TitleAsterisc" type="Label" parent="GridContainer"]
+margin_left = 952.0
+margin_top = 56.0
+margin_right = 970.0
+margin_bottom = 94.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
+text = "*"
+
+[node name="Description" type="Label" parent="GridContainer"]
+margin_top = 111.0
+margin_right = 249.0
+margin_bottom = 186.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Description
+(max.150 chars)"
+
+[node name="Description_input" type="LineEdit" parent="GridContainer"]
+margin_left = 253.0
+margin_top = 99.0
+margin_right = 948.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 600, 100 )
+size_flags_horizontal = 3
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
+max_length = 130
+clear_button_enabled = true
+caret_blink = true
+
+[node name="DescriptionAsterisc" type="Label" parent="GridContainer"]
+margin_left = 952.0
+margin_top = 130.0
+margin_right = 970.0
+margin_bottom = 168.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
 text = "*"
 
 [node name="Image" type="Label" parent="GridContainer"]
-margin_top = 84.0
-margin_right = 253.0
-margin_bottom = 122.0
-custom_fonts/font = ExtResource( 4 )
+margin_top = 211.0
+margin_right = 249.0
+margin_bottom = 247.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Image"
+text = "Image (.png)"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GridContainer"]
+margin_left = 253.0
+margin_top = 203.0
+margin_right = 948.0
+margin_bottom = 255.0
+
+[node name="Button" type="Button" parent="GridContainer/HBoxContainer2"]
+margin_right = 155.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.09
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "select "
+icon = ExtResource( 13 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+fileManager = NodePath("../../../FileDialog")
+
+[node name="ImagePath" type="Label" parent="GridContainer/HBoxContainer2"]
+margin_left = 159.0
+margin_right = 695.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="Image_input" type="LineEdit" parent="GridContainer"]
-margin_left = 257.0
-margin_top = 84.0
-margin_right = 778.0
-margin_bottom = 122.0
+visible = false
+margin_left = 176.0
+margin_top = 146.0
+margin_right = 776.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 1 )
+custom_styles/normal = SubResource( 10 )
 max_length = 200
 expand_to_text_length = true
 
-[node name="Asterisco3" type="Label" parent="GridContainer"]
-margin_left = 782.0
-margin_top = 84.0
-margin_right = 800.0
-margin_bottom = 122.0
+[node name="ImageAsterisc" type="Label" parent="GridContainer"]
+margin_left = 952.0
+margin_top = 210.0
+margin_right = 970.0
+margin_bottom = 248.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
 text = "*"
 
 [node name="Score" type="Label" parent="GridContainer"]
-margin_top = 126.0
-margin_right = 253.0
-margin_bottom = 164.0
-custom_fonts/font = ExtResource( 4 )
+margin_top = 260.0
+margin_right = 249.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Score"
 
 [node name="Score_input" type="LineEdit" parent="GridContainer"]
-margin_left = 257.0
-margin_top = 126.0
-margin_right = 778.0
-margin_bottom = 164.0
+margin_left = 253.0
+margin_top = 259.0
+margin_right = 948.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 1 )
-max_length = 200
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+max_length = 3
 expand_to_text_length = true
+caret_blink = true
+script = ExtResource( 15 )
 
-[node name="Asterisco4" type="Label" parent="GridContainer"]
-margin_left = 782.0
-margin_top = 126.0
-margin_right = 800.0
-margin_bottom = 164.0
+[node name="ScoreAsterisc" type="Label" parent="GridContainer"]
+margin_left = 952.0
+margin_top = 259.0
+margin_right = 970.0
+margin_bottom = 297.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
 text = "*"
 
 [node name="Skills" type="Label" parent="GridContainer"]
-margin_top = 168.0
-margin_right = 253.0
-margin_bottom = 206.0
-custom_fonts/font = ExtResource( 4 )
+margin_top = 310.0
+margin_right = 249.0
+margin_bottom = 346.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Skills encouraged"
+text = "Skill "
 
-[node name="Skills_input" type="LineEdit" parent="GridContainer"]
-margin_left = 257.0
-margin_top = 168.0
-margin_right = 778.0
-margin_bottom = 206.0
-size_flags_horizontal = 3
-custom_styles/normal = SubResource( 1 )
-max_length = 200
-expand_to_text_length = true
+[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+margin_left = 253.0
+margin_top = 302.0
+margin_right = 948.0
+margin_bottom = 354.0
+custom_icons/arrow = ExtResource( 14 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Asterisco5" type="Label" parent="GridContainer"]
-margin_left = 782.0
-margin_top = 168.0
-margin_right = 800.0
-margin_bottom = 206.0
+[node name="HBoxContainer" type="GridContainer" parent="GridContainer"]
+visible = false
+margin_left = 845.0
+margin_top = 230.0
+margin_right = 1479.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 600, 0 )
+columns = 3
+
+[node name="Button1" type="Button" parent="GridContainer/HBoxContainer"]
+margin_right = 199.0
+margin_bottom = 20.0
+text = "Calculus and Problem Solving"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="GridContainer/HBoxContainer"]
+margin_left = 203.0
+margin_right = 415.0
+margin_bottom = 20.0
+text = "Language"
+
+[node name="Button3" type="Button" parent="GridContainer/HBoxContainer"]
+margin_left = 419.0
+margin_right = 634.0
+margin_bottom = 20.0
+text = "Memory and Attention to Detail"
+
+[node name="Button4" type="Button" parent="GridContainer/HBoxContainer"]
+margin_top = 24.0
+margin_right = 199.0
+margin_bottom = 44.0
+text = "Spatial Orientation"
+
+[node name="Button5" type="Button" parent="GridContainer/HBoxContainer"]
+margin_left = 203.0
+margin_top = 24.0
+margin_right = 415.0
+margin_bottom = 44.0
+text = "Social and Emotional Wellbeing"
+
+[node name="SkillAsterisc" type="Label" parent="GridContainer"]
+margin_left = 952.0
+margin_top = 309.0
+margin_right = 970.0
+margin_bottom = 347.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
 text = "*"
 
 [node name="Asterisco_legenda" type="Label" parent="."]
-margin_left = 842.829
-margin_top = 553.689
-margin_right = 1003.83
-margin_bottom = 580.689
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -27.0
+margin_right = 161.001
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.490196, 0.454902, 0.454902, 1 )
-text = "* MANDARTORY"
+text = "* MANDATORY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureButton2" type="TextureButton" parent="."]
-anchor_left = 0.5
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -50.8376
-margin_top = -153.61
-margin_right = 49.1624
-margin_bottom = -53.6098
+margin_left = -100.0
+margin_top = -100.0
+rect_pivot_offset = Vector2( -980.804, -584.622 )
 size_flags_horizontal = 6
 size_flags_vertical = 2
 size_flags_stretch_ratio = 2.43
@@ -241,4 +480,7 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="pressed" from="GridContainer/HBoxContainer2/Button" to="GridContainer/HBoxContainer2/Button" method="show_fileManager"]
+[connection signal="text_changed" from="GridContainer/Score_input" to="GridContainer/Score_input" method="_on_Score_input_text_changed"]
 [connection signal="pressed" from="TextureButton2" to="." method="submit"]

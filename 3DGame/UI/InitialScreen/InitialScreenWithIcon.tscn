@@ -75,9 +75,9 @@ __meta__ = {
 }
 
 [node name="SettingsButton" type="TextureButton" parent="."]
-visible = false
+margin_top = 93.0
 margin_right = 100.0
-margin_bottom = 100.0
+margin_bottom = 195.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 5 )
 script = ExtResource( 10 )

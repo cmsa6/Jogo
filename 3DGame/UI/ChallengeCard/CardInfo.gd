@@ -41,6 +41,7 @@ func _ready():
 		dir.list_dir_end()
 		
 
+
 		card_info = get_card_info()
 
 		get_node(title).text = card_info[1]
@@ -51,15 +52,12 @@ func _ready():
 		var imageName = card_info[1] 
 		
 		#imageName = imageName.replace(" ","")
-		
-		print("looking for this image: ",imageName)
-		
+
 		
 		
 		for f in files:
 			if imageName in f:			
 				var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
-				print("looking for this image: ",imagePath)
 				var imagePhoto = load(imagePath)
 				image.texture = imagePhoto
 				zoomImage.texture = imagePhoto
@@ -80,10 +78,10 @@ func _ready():
 		var imageName = cardData[1] 
 		
 		#imageName = imageName.replace(" ","")
-		print(imageName)
+		
 		
 		var imagePath =  "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
-		print("looking for this image: ",imagePath)
+		
 		var imagePhoto = load(imagePath)
 		image.texture = imagePhoto
 		zoomImage.texture = imagePhoto

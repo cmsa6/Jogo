@@ -42,17 +42,14 @@ func _ready():
 	
 	#imageName = imageName.replace(" ","")
 	
-	print("looking for this image: ",imageName)
 	
 	
 	
 	for f in files:
 		#var f_withoutSapces = f.replace(" ","")
 		#fprint(f_withoutSapces)
-		if imageName in f:	
-			print("enterer")		
+		if imageName in f:			
 			var imagePath = "res://Cards/en/Photos/" + imageName +".png"
-			print("looking for this image: ",imagePath)
 			var imagePhoto = load(imagePath)
 			image.texture = imagePhoto
 			break

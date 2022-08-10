@@ -7,7 +7,7 @@
 [ext_resource path="res://Fotos/QualityOfLife.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://UI/AdminArea/TypeCardSelecter.gd" type="Script" id=7]
-[ext_resource path="res://UI/AdminArea/CardDetails.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/AdminArea/CF_CardDetails.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/AdminArea/BackButton.gd" type="Script" id=9]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=10]
 
@@ -77,6 +77,8 @@ __meta__ = {
 }
 cognitiveCardsContainer = NodePath("../CognitiveCardDetails")
 qualityCardsContainer = NodePath("../QualityCardDetails")
+cfScene = "res://UI/AdminArea/CF_CardDetails.tscn"
+qolScene = "res://UI/AdminArea/QOL_CardDetails.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TypeCardSelecter"]
 margin_right = 200.0
@@ -122,20 +124,14 @@ align = 1
 [node name="CognitiveCardDetails" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="BackButton" parent="CognitiveCardDetails" index="1"]
+[node name="BackButton" parent="CognitiveCardDetails" index="0"]
 cardTypeSelecter = NodePath("../../TypeCardSelecter")
-
-[node name="CardTitle" parent="CognitiveCardDetails" index="2"]
-text = "Cognitive Card"
 
 [node name="QualityCardDetails" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="BackButton" parent="QualityCardDetails" index="1"]
+[node name="BackButton" parent="QualityCardDetails" index="0"]
 cardTypeSelecter = NodePath("../../TypeCardSelecter")
-
-[node name="CardTitle" parent="QualityCardDetails" index="2"]
-text = "Quality of Life Card"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 10 )]
 

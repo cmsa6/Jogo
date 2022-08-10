@@ -40,7 +40,6 @@ func set_name(name):
 	playerName.text = name
 
 func set_points_text(new_points):
-	print("im increading " + str(new_points) + " points")
 	#label.text = str(new_points) + POINTS_LABEL 
 	translator.translate_points(str(new_points))
 	playerProgress.increase(new_points) 

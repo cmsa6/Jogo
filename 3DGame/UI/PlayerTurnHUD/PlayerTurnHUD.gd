@@ -79,5 +79,4 @@ func _on_Player_player_points_updated(points, extra_arg_0):
 	child.set_points_text(points)
 	
 	if points == 8:
-		print("showing the stars")
 		child.show_stars()

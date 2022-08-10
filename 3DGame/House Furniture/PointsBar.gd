@@ -88,9 +88,7 @@ func get_QOLPoints():
 	
 	
 func show_or_hide():
-	print("here no show or hide")
 	if get_isShowingSkills():
-		print("hiding skill")
 		var rootNode = get_node("/root")
 	
 		var currentCard = rootNode.get_child(0)

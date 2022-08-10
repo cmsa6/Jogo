@@ -16,7 +16,6 @@ func _ready():
 func increase(newPoints):
 	#For writing purposes on x/8 objects, this function receives the total points
 	#the player has, not how much he gained now
-	print("old points: ", self.value)
 	var oldPoints = self.value
 	var pointsGained = newPoints - oldPoints
 	

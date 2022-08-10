@@ -45,6 +45,7 @@ func _ready():
 		
 		var newcontent = content.split("|")
 		
+		
 		set_card_status(newcontent[1])
 		
 		reward = check_player_rewards()
@@ -76,7 +77,7 @@ func _ready():
 
 		emit_signal("save_card_type", colors)
 		
-	elif origin == "back":		
+	elif get_origin() == "back":		
 		set_card_status(get_cardData()[1]) 
 		var reward = get_cardData()[11]
 		if reward != "none":
