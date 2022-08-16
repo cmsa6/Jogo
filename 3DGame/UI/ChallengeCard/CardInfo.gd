@@ -17,6 +17,7 @@ export(NodePath) var title
 var card_info = [] setget save_card_info, get_card_info
 var cardType = "" setget save_cardType
 var origin = "" setget set_origin, get_origin
+var cardId = 0 setget set_cardId, get_cardId
 
 
 
@@ -49,8 +50,9 @@ func _ready():
 		instructions.text = challengeText
 		#skills.text = "Skills: " + card_info[9]
 
-		var imageName = card_info[1] 
-		
+		#var imageName = card_info[1] 
+		var imageName = get_cardId().split(".")[0]
+		print("image name:", imageName)
 		#imageName = imageName.replace(" ","")
 
 		
@@ -75,8 +77,8 @@ func _ready():
 		instructions.text = challengeText
 		#skills.text = "Skills: " + card_info[9]
 
-		var imageName = cardData[1] 
-		
+		#var imageName = cardData[1] 
+		var imageName = get_cardId().split(".")[0]
 		#imageName = imageName.replace(" ","")
 		
 		
@@ -155,3 +157,9 @@ func set_origin(orig):
 	
 func get_origin():
 	return origin
+	
+func set_cardId(id):
+	cardId = id
+	
+func get_cardId():
+	return cardId

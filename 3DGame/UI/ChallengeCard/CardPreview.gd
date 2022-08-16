@@ -7,6 +7,7 @@ signal type_setted(type)
 signal set_origin(origin)
 signal set_cardData(data)
 signal set_cardType(type)
+signal set_cardId(id)
 
 var origin = "" setget set_origin, get_origin
 
@@ -35,6 +36,9 @@ func set_cardData(data):
 	
 func set_cardType(type):
 	emit_signal("set_cardType", type)
+	
+func set_cardId(id):
+	emit_signal("set_cardId", id)
 	
 
 

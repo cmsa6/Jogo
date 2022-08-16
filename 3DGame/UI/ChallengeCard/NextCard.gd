@@ -5,6 +5,7 @@ export(String, FILE) var nextCard
 
 var data=[] setget save_data, get_data
 var cardType = "" setget save_cardType, get_cardType
+var cardId = 0 setget set_cardId, get_cardId
 
 func _input(event):
 	if event.is_action_pressed("RightArrow") and self.visible:
@@ -24,6 +25,7 @@ func showNextCard():
 
 	cardInstance.set_card_data(card_data)
 	cardInstance.set_cardType(get_cardType())
+	cardInstance.set_cardId(get_cardId())
 	#cardInstance.teste()
 	root_node.add_child(cardInstance)
 	root_node.move_child(cardInstance,0)
@@ -41,4 +43,13 @@ func save_cardType(type):
 func get_cardType():
 	return cardType
 	
+func set_cardId(id):
+	cardId = id
+	
+func get_cardId():
+	return cardId
+	
+
+
+
 

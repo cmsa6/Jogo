@@ -6,10 +6,12 @@ var card_data = [] setget set_card_data, get_card_data
 
 var cardType setget set_cardType, get_cardType
 var origin = "" setget set_origin, get_origin
+var cardId = 0 setget set_cardId, get_cardId
 
 signal data_saved(card_data)
 signal type_saved(type)
 signal set_origin(origin)
+signal cardId_saved(id)
 
 func _ready():
 	if get_origin() == "":
@@ -49,6 +51,7 @@ func go_back():
 	cardInstance.set_cardData(get_card_data())
 
 	cardInstance.set_cardType(get_cardType())
+	cardInstance.set_cardId(get_cardId())
 
 	
 	root_node.add_child(cardInstance)
@@ -62,3 +65,9 @@ func set_origin(orig):
 func get_origin():
 	return origin
 
+func set_cardId(id):
+	cardId = id
+	emit_signal("cardId_saved", cardId)
+	
+func get_cardId():
+	return cardId

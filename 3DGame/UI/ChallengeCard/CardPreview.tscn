@@ -324,9 +324,11 @@ __meta__ = {
 stream = ExtResource( 11 )
 
 [connection signal="set_cardData" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_cardData"]
+[connection signal="set_cardId" from="." to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="set_cardId"]
 [connection signal="set_cardType" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_type"]
 [connection signal="set_origin" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_origin"]
 [connection signal="type_setted" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_type"]
+[connection signal="save_cardId" from="Control/Card2/VBoxContainer/LeftSide/RewardDetails" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="set_cardId"]
 [connection signal="save_card_data" from="Control/Card2/VBoxContainer/LeftSide/RewardDetails" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="save_data"]
 [connection signal="save_card_type" from="Control/Card2/VBoxContainer/LeftSide/RewardDetails" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="save_cardType"]
 [connection signal="button_down" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="UISoundManager" method="confirm"]

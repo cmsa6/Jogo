@@ -46,6 +46,7 @@ var skillEvaluated = []
 var cardType setget set_cardType, get_cardType 
 var origin = "" setget set_origin, get_origin
 var cardData setget set_cardData, get_cardData
+var cardId=0 setget set_cardId, get_cardId
 
 func _ready():
 	
@@ -304,6 +305,7 @@ func go_back():
 	cardInstance.set_origin("back")
 	cardInstance.set_card_data(get_cardData())
 	cardInstance.set_cardType(get_cardType())
+	cardInstance.set_cardId(get_cardId())
 
 	
 	root_node.add_child(cardInstance)
@@ -328,6 +330,13 @@ func set_text_color(colors):
 	#titlePlace.set("custom_colors/font_outline_modulate", colors[0])
 	titlePlace.set("custom_colors/font_color", colors[0])
 	titlePlace.set("custom_colors/font_outline_modulate", colors[2])	
+	
+	
+func set_cardId(id):
+	cardId = id
+	
+func get_cardId():
+	return cardId
 
 
 

@@ -23,6 +23,7 @@ export(NodePath) var SkillBackgroundColor
 signal save_card_data(data)
 signal save_card_type(type)
 signal update_card_status(card_title)
+signal save_cardId(card_Id)
 
 var reward = "" setget set_reward, get_reward
 var origin = "" setget set_origin, get_origin
@@ -77,6 +78,7 @@ func _ready():
 		
 
 		emit_signal("save_card_type", colors)
+		emit_signal("save_cardId", randomFile)
 		
 	elif get_origin() == "back":		
 		set_card_status(get_cardData()[1]) 
