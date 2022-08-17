@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Fonts/kenney_future.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fotos/settings.png" type="Texture" id=5]
 [ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=6]
+[ext_resource path="res://UI/InitialScreen/InitialScreenWithIcon.gd" type="Script" id=7]
 [ext_resource path="res://Fotos/PlayButtonSelected.png" type="Texture" id=8]
 [ext_resource path="res://Fotos/playButton.png" type="Texture" id=9]
 [ext_resource path="res://UI/InitialScreen/SettingsButton.gd" type="Script" id=10]
@@ -24,6 +25,7 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 585.95 ],
 "_edit_use_anchors_": false,

@@ -128,6 +128,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 previousScene = "res://UI/AdminArea/CardManager.tscn"
+previousEditScene = "res://UI/AdminArea/CardMenuZones.tscn"
 
 [node name="SceneLoader" parent="." instance=ExtResource( 3 )]
 next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"

@@ -4,6 +4,7 @@ var COMMERCIAL_challenges
 var LEISURE_challenges 
 var HELP_challenges 
 var SERVICES_challenges 
+var lastId setget set_lastId, get_lastId
 
 func register_cards(folder):
 	var array
@@ -40,5 +41,13 @@ func register_cards(folder):
 			
 
 	
-	
+
 		
+func set_lastId(id):
+	lastId = id
+	print("o lastid foi mudado para ", id)
+	
+func get_lastId():
+	return lastId
+	
+	

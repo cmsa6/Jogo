@@ -313,6 +313,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer2/HBoxContainer/EditButton" to="." method="reset_scroll"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/EditButton" to="." method="edit_card"]
 [connection signal="pressed" from="VBoxContainer2/HBoxContainer/EraseButton" to="." method="check_erase_challenge"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="erase_challenge"]

@@ -30,7 +30,7 @@ func display_cards(language):
 				var content = file.get_as_text()
 				file.close()
 				
-				generate_card(content)
+				generate_card(content, file_name)
 			file_name = dir.get_next()
 
 func set_zone(z):
@@ -54,15 +54,15 @@ func translate_zone(zone):
 		"Purple": return "LEISURE"
 
 
-func generate_card(content):
+func generate_card(content, file_name):
 	var newcontent = content.split("|")
 	var cardScene = preload("res://UI/AdminArea/CardTemplate.tscn")
 	var newCard = cardScene.instance()
 	cardDisplay.add_child(newCard)
-	populateCard(newCard, newcontent)
+	populateCard(newCard, newcontent, file_name)
 	
 	
-func populateCard(cardInstance, content):
+func populateCard(cardInstance, content, file_name):
 	var title          = cardInstance.get_title_node()
 	var description    = cardInstance.get_description_node()
 	var image          = cardInstance.get_image_node()
@@ -75,17 +75,22 @@ func populateCard(cardInstance, content):
 	var translatedZone = translate_zone(get_zone())
 	cardInstance.set_zone(translatedZone)
 	
-	var newCardId = get_cardId() + 1
-	set_cardId(newCardId)
-	cardInstance.set_id(newCardId)
-	
+	#var newCardId = get_cardId() + 1
+	#set_cardId(newCardId)
+	#cardInstance.set_id(newCardId)
+	var name = file_name.split(".")[0]
+	cardInstance.set_id(name)
 
 	
 	title.text = content[1]
 	description.text = content[3].replace("ENTER", "\n")
 	score.text = "+ " + content[7]
 	
-	var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + content[1] +  ".png"
+	
+	#var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + content[1] +  ".png"
+	
+	var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + name +  ".png"
+	
 	#print("path da imagem: ", imagePath)
 	#var img = load(imagePath)
 	#image.texture = img

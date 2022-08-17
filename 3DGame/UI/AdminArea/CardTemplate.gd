@@ -1,5 +1,6 @@
 extends Control
 
+
 onready var title = $VBoxContainer2/VBoxContainer/RewardTitle2
 onready var description = $VBoxContainer2/VBoxContainer/CardColor/CardInfo/Instructions
 onready var image = $VBoxContainer2/VBoxContainer/CardColor/CardInfo/VBoxContainer/ChallengeImage
@@ -11,8 +12,6 @@ onready var confirmationPopup = $ConfirmationDialog
 
 var zone = "" setget set_zone, get_zone
 var id = -1 setget set_id, get_id
-
-
 
 
 func get_title_node():
@@ -55,8 +54,11 @@ func check_erase_challenge():
 	
 func erase_challenge():
 	var dir = Directory.new()
-	var challengePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + title.text + ".tres"
+	#var challengePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + title.text + ".tres"
+	var challengePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_id()) + ".tres"
 	print(challengePath)
+	#ChallengesManager.remove_card(get_id())
+		
 	dir.remove(challengePath)
 	erase_image()
 	reset_scroll()
@@ -66,9 +68,19 @@ func erase_challenge():
 	
 func erase_image():
 	var dir = Directory.new()
-	var imgPath = "res://Cards/" + SettingsManager.language  + "/Photos/" + title.text + ".png"
+	var imgPath = "res://Cards/" + SettingsManager.language  + "/Photos/" + str(get_id()) + ".png"
 	dir.remove(imgPath)
 	
 func reset_scroll():
 	var scrollContainer = get_parent().get_parent()
 	scrollContainer.set_h_scroll(0)
+
+func edit_card():
+	var root_node = get_node("/root")
+	
+	var cardPreview = load("res://UI/AdminArea/CardDetails.tscn")
+	var cardInstance = cardPreview.instance()
+	cardInstance.set_origin("edit")
+	var filePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_id()) + ".tres"
+	cardInstance.set_fileToOpen(filePath)
+	root_node.add_child(cardInstance)

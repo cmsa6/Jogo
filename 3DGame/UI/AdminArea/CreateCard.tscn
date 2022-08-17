@@ -45,7 +45,6 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-cardTypeSelecter = NodePath("../TypeCardSelecter")
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
@@ -124,14 +123,8 @@ align = 1
 [node name="CognitiveCardDetails" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="BackButton" parent="CognitiveCardDetails" index="0"]
-cardTypeSelecter = NodePath("../../TypeCardSelecter")
-
 [node name="QualityCardDetails" parent="." instance=ExtResource( 8 )]
 visible = false
-
-[node name="BackButton" parent="QualityCardDetails" index="0"]
-cardTypeSelecter = NodePath("../../TypeCardSelecter")
 
 [node name="UISoundManager" parent="." instance=ExtResource( 10 )]
 

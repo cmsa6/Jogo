@@ -26,20 +26,20 @@ func _ready():
 	if get_origin() == "":
 		set_card_color(get_cardType())
 
-		var files = []
-		var photoDir = "res://Cards/" + str(language) + "/Photos/"
-		var dir = Directory.new()
-		dir.open(photoDir)
-		dir.list_dir_begin()
+		#var files = []
+		#var photoDir = "res://Cards/" + str(language) + "/Photos/"
+		#var dir = Directory.new()
+		#dir.open(photoDir)
+		#dir.list_dir_begin()
 		
-		while true:
-			var file = dir.get_next()
-			if file == "":
-				break
-			elif not file.begins_with("."):
-				files.append(file)
+		#while true:
+		#	var file = dir.get_next()
+		#	if file == "":
+		#		break
+		#	elif not file.begins_with("."):
+		#		files.append(file)
 
-		dir.list_dir_end()
+		#dir.list_dir_end()
 		
 
 
@@ -57,13 +57,20 @@ func _ready():
 
 		
 		
-		for f in files:
-			if imageName in f:			
-				var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
-				var imagePhoto = load(imagePath)
-				image.texture = imagePhoto
-				zoomImage.texture = imagePhoto
-				break
+		#for f in files:
+		#	if imageName in f:			
+		#		var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
+		#		var imagePhoto = load(imagePath)
+		#		image.texture = imagePhoto
+		#		zoomImage.texture = imagePhoto
+		#		break
+		
+		var dir = Directory.new()
+		var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
+		if dir.file_exists(imagePath):
+			var imagePhoto = load(imagePath)
+			image.texture = imagePhoto
+			zoomImage.texture = imagePhoto
 				
 		
 	
