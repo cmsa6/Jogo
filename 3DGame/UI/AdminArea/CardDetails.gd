@@ -44,10 +44,10 @@ func _ready():
 	availableSkills.add_item("Social and Emotional Wellbeing")
 	
 	mapZones.add_item("Select map zone")
-	mapZones.add_item("Blue Zone")
-	mapZones.add_item("Green Zone")
-	mapZones.add_item("Orange Zone")
-	mapZones.add_item("Purple Zone")
+	mapZones.add_item("Blue Zone - Help Area")
+	mapZones.add_item("Green Zone - Services Ares")
+	mapZones.add_item("Orange Zone - Commercial Area")
+	mapZones.add_item("Purple Zone - Leisure Area")
 	
 	
 	if get_origin() == "edit":

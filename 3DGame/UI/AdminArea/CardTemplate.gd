@@ -49,6 +49,10 @@ func get_id():
 	return id
 
 func check_erase_challenge():
+	var fileName = get_file_name()[1]
+	print(fileName)
+	confirmationPopup.dialog_text = confirmationPopup.dialog_text + "\"" + fileName + "\"?"
+	print(confirmationPopup.dialog_text)
 	confirmationPopup.popup()
 	
 	
@@ -84,3 +88,11 @@ func edit_card():
 	var filePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_id()) + ".tres"
 	cardInstance.set_fileToOpen(filePath)
 	root_node.add_child(cardInstance)
+	
+func get_file_name():
+	var filePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_id()) + ".tres"
+	var file = File.new()
+	file.open(filePath, File.READ)
+	var content = file.get_as_text()
+	file.close()
+	return content.split("|")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://UI/AdminArea/BackToSceneButton.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=2]
@@ -12,6 +12,28 @@
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=10]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=11]
 
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.85098, 0.121569, 0.121569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.862745, 0.0627451, 0.0627451, 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 21
+extra_spacing_char = 2
+font_data = SubResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 7 )
+Dialogs/colors/teste = Color( 1, 0.0862745, 0.0862745, 1 )
+Dialogs/constants/button_margin = 32
+Dialogs/constants/margin = 8
+Dialogs/styles/teste = SubResource( 5 )
+PopupDialog/styles/panel = SubResource( 6 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,12 +44,27 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = -0.00162137
-anchor_right = 0.998379
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.02008
-margin_bottom = 1.02008
 color = Color( 0.964706, 0.921569, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cityround2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -229.139
+margin_top = -286.833
+margin_right = 794.861
+margin_bottom = 313.167
+rect_min_size = Vector2( 600, 600 )
+rect_scale = Vector2( 0.44, 0.48 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,7 +84,7 @@ __meta__ = {
 
 [node name="LoginData" type="VBoxContainer" parent="AutenticationControl"]
 margin_right = 130.0
-margin_bottom = 70.0
+margin_bottom = 86.0
 size_flags_vertical = 2
 custom_constants/separation = 6
 __meta__ = {
@@ -56,8 +93,8 @@ __meta__ = {
 
 [node name="username" type="LineEdit" parent="AutenticationControl/LoginData"]
 margin_right = 130.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 30, 0 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 130, 40 )
 custom_fonts/font = ExtResource( 7 )
 secret = true
 clear_button_enabled = true
@@ -67,10 +104,10 @@ __meta__ = {
 }
 
 [node name="password" type="LineEdit" parent="AutenticationControl/LoginData"]
-margin_top = 38.0
+margin_top = 46.0
 margin_right = 130.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 30, 0 )
+margin_bottom = 86.0
+rect_min_size = Vector2( 130, 40 )
 custom_fonts/font = ExtResource( 7 )
 secret = true
 placeholder_text = "password"
@@ -80,6 +117,7 @@ margin_left = 15.0
 margin_top = 100.0
 margin_right = 115.0
 margin_bottom = 200.0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 6
 size_flags_vertical = 2
 texture_normal = ExtResource( 5 )
@@ -87,20 +125,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cityround" type="Sprite" parent="."]
-position = Vector2( 511.121, 457.288 )
-scale = Vector2( 0.494903, 0.472734 )
-texture = ExtResource( 4 )
+[node name="AcceptDialog" type="AcceptDialog" parent="AutenticationControl/LoginButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -321.0
+margin_top = -172.0
+margin_right = 321.0
+margin_bottom = 111.0
+theme = SubResource( 2 )
+window_title = "Error"
+dialog_text = "Username and password do not match, please try again,
 
-[node name="ID-Gaming-Logo-Final_cores" type="Sprite" parent="."]
-position = Vector2( 63.6716, 535.767 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 2 )
-
-[node name="eu_logo" type="Sprite" parent="."]
-position = Vector2( 901.556, 559.213 )
-scale = Vector2( 0.364762, 0.366212 )
-texture = ExtResource( 9 )
+This area is only meant to be used by professionals."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SceneLoader" parent="." instance=ExtResource( 6 )]
 next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
@@ -115,15 +156,18 @@ custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "PRIVATE AREA"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BackToSceneButton" type="TextureButton" parent="."]
 anchor_left = -0.000818014
 anchor_right = -0.000818014
 anchor_bottom = 5.08626e-08
-margin_left = -7.09221
-margin_top = -5.67377
-margin_right = 92.9078
-margin_bottom = 94.3262
+margin_left = 0.467315
+margin_top = 0.625829
+margin_right = 100.467
+margin_bottom = 100.626
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
@@ -133,6 +177,35 @@ __meta__ = {
 previousScene = "res://UI/InitialScreen/InitialScreenWithIcon.tscn"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 11 )]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 0.8909
+margin_top = -149.877
+margin_right = 500.891
+margin_bottom = 350.123
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -230.2
+margin_top = -68.5775
+margin_right = 423.8
+margin_bottom = 127.423
+rect_scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="button_down" from="AutenticationControl/LoginButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="AutenticationControl/LoginButton" to="AutenticationControl" method="check_login"]

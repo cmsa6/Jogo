@@ -2,13 +2,16 @@ extends VBoxContainer
 
 onready var user = $LoginData/username
 onready var password = $LoginData/password
+onready var warning = $LoginButton/AcceptDialog
 
 
 func check_login():
 	if user.text == "admin" and password.text == "admin":
 		get_tree().change_scene("res://UI/AdminArea/CardManager.tscn")
 	else:
-		return false 
+		warning.popup()
+		user.clear()
+		password.clear()
 
 
 func write():
@@ -24,3 +27,8 @@ func load():
 	file.close()
 	return content
 	
+
+
+
+
+
