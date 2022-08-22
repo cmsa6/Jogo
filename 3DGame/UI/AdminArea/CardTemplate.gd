@@ -87,6 +87,7 @@ func edit_card():
 	cardInstance.set_origin("edit")
 	var filePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_id()) + ".tres"
 	cardInstance.set_fileToOpen(filePath)
+	print("editing file ", filePath)
 	root_node.add_child(cardInstance)
 	
 func get_file_name():

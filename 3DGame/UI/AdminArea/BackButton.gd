@@ -3,9 +3,11 @@ extends TextureButton
 export (String, FILE) var previousScene
 export (String, FILE) var previousEditScene
 
+export(NodePath) var mainNode
+
 
 func _on_BackButton_pressed():
-	if get_parent().get_origin() == "edit":
+	if get_node(mainNode).get_origin() == "edit":
 		get_tree().change_scene(previousEditScene)
 	else:
 		get_tree().change_scene(previousScene)

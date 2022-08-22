@@ -1,24 +1,25 @@
 extends Control
 
-onready var title       = $GridContainer/Title_input
-onready var explanation = $GridContainer/Description_input
-onready var image       = $GridContainer/Image_input
-onready var score       = $GridContainer/Score_input
-onready var skills      = $GridContainer/Skills_input
+onready var title       = $ColorRect/VBoxContainer/GridContainer/Title_input
+onready var explanation = $ColorRect/VBoxContainer/GridContainer/Description_input
+onready var image       = $ColorRect/VBoxContainer/GridContainer/Image_input
+onready var score       = $ColorRect/VBoxContainer/GridContainer/Score_input
+onready var skills      = $ColorRect/VBoxContainer/GridContainer/Skills_input
 
 
-onready var availableSkills = $GridContainer/OptionButton
-onready var mapZones        = $GridContainer/MapZones
+onready var availableSkills = $ColorRect/VBoxContainer/GridContainer/OptionButton
+onready var mapZones        = $ColorRect/VBoxContainer/GridContainer/MapZones
+onready var imagePath       = $ColorRect/VBoxContainer/GridContainer/HBoxContainer2/ImagePath
 
-onready var imagePath       = $GridContainer/HBoxContainer2/ImagePath
 
+onready var mapZonesAsteric    = $ColorRect/VBoxContainer/GridContainer/MapZonesAsteric
+onready var titleAsteric       = $ColorRect/VBoxContainer/GridContainer/TitleAsterisc
+onready var descriptionAsteric = $ColorRect/VBoxContainer/GridContainer/DescriptionAsterisc
+onready var imageAsteric       = $ColorRect/VBoxContainer/GridContainer/ImageAsterisc
+onready var scoreAsteric       = $ColorRect/VBoxContainer/GridContainer/ScoreAsterisc
+onready var skillAsteric       = $ColorRect/VBoxContainer/GridContainer/SkillAsterisc
 
-onready var mapZonesAsteric = $GridContainer/MapZonesAsteric
-onready var titleAsteric    = $GridContainer/TitleAsterisc
-onready var descriptionAsteric    = $GridContainer/DescriptionAsterisc
-onready var imageAsteric    = $GridContainer/ImageAsterisc
-onready var scoreAsteric    = $GridContainer/ScoreAsterisc
-onready var skillAsteric    = $GridContainer/SkillAsterisc
+onready var translator = $TranslationManager
 
 var imageSelected = "NA" setget set_imageSelected, get_imageSelected 
 var origin = "" setget set_origin, get_origin
@@ -27,30 +28,9 @@ var previousZone = 0 setget set_previousZone, get_previousZone
 
 
 
-func _ready():
-	availableSkills.add_item("Select skill encouraged by the challenge")
-	availableSkills.add_item("Interpersonal Relationship")
-	availableSkills.add_item("Social Inclusion")
-	availableSkills.add_item("Rights")
-	availableSkills.add_item("Personal Development")
-	availableSkills.add_item("Self-Determination")
-	availableSkills.add_item("Physical Wellbeing")
-	availableSkills.add_item("Material Wellbeing")
-	availableSkills.add_item("Emotional Wellbeing")
-	availableSkills.add_item("Calculus and Problem Solving")
-	availableSkills.add_item("Language")
-	availableSkills.add_item("Memory and Attention to Detail")
-	availableSkills.add_item("Spatial Orientation")
-	availableSkills.add_item("Social and Emotional Wellbeing")
-	
-	mapZones.add_item("Select map zone")
-	mapZones.add_item("Blue Zone - Help Area")
-	mapZones.add_item("Green Zone - Services Ares")
-	mapZones.add_item("Orange Zone - Commercial Area")
-	mapZones.add_item("Purple Zone - Leisure Area")
-	
-	
+func _ready():	
 	if get_origin() == "edit":
+		translator.change_title()
 		print(get_fileToOpen())
 		var fileName = get_fileToOpen()
 		var zone = fileName.split("\/")[-2]
@@ -73,9 +53,15 @@ func submit():
 	if check_fields():	
 		var fileId = 0
 		if get_origin() == "edit":
+			print("============================")
 			var fileName = get_fileToOpen()
-			var fileIdwithExtension =  fileName.split("\/")[-1]
-			fileId = fileIdwithExtension.split(".")[0]
+			print("im editing this file ", fileName)
+			var nameWithoutExtension = fileName.get_basename()
+			print(fileName.get_extension())
+			print(nameWithoutExtension)
+			fileId =  nameWithoutExtension.split("\/")[-1]
+			print(fileId)
+
 			print("im editing file #", fileId)
 		else:
 			fileId = ChallengesManager.lastId + 1 
@@ -91,8 +77,13 @@ func submit():
 		var file = File.new()
 
 		var zone  = check_mapZone()
-		var skill = check_skill() 
-
+		
+		var id = availableSkills.get_selected_id()
+		var skill = check_skill(id) 
+		
+		var skillTranslated = translator.translate_skill(id)
+		print(skillTranslated)
+		print(skill)
 
 		var pathToFile = "res://Cards/" + SettingsManager.language + "/" + zone + "/" + str(fileId) + ".tres"
 		file.open(pathToFile, File.WRITE)
@@ -100,7 +91,7 @@ func submit():
 		file.store_string("INSTRUCTIONS|" + cardDescription + "|\n")
 		file.store_string("IMAGE| |\n")
 		file.store_string("SCORE|" + cardScore + "|\n")
-		file.store_string("SKILLS| " + skill)
+		file.store_string("SKILLS|" + skill)
 		
 		#if the zone changed when the user edited the card
 		if get_origin() == "edit" and get_previousZone() != zone:
@@ -112,16 +103,18 @@ func submit():
 	#file.close()
 
 		print("sending this image:", imagePath)
-		show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill)
+		show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill, skillTranslated)
 
 		
 	
 func save_image():
 	var image = get_imageSelected()
+	#var fileId = image.get_extension()
+	#print("im editing file #", fileId)
 	if image != "NA":
-		var imageExtension = image.split(".")[-1]
+		#var imageExtension = image.split(".")[-1]
 		#var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + title.text + "." + imageExtension
-		var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + str(ChallengesManager.get_lastId()) + "." + imageExtension
+		var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + str(ChallengesManager.get_lastId()) + "." + image.get_extension()
 		
 		#var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + imageName[-1]
 		var dir = Directory.new()
@@ -169,9 +162,9 @@ func check_mapId(zone):
 		
 		
 	
-func check_skill():
-	var id = availableSkills.get_selected_id()
+func check_skill(id):
 	
+
 	match id:
 		0: return "NA"
 		1: return "Interpersonal Relationship"
@@ -189,34 +182,24 @@ func check_skill():
 		13: return "Social and Emotional Wellbeing"
 		
 func check_skill_id(skill):
-	if "NA" in skill:
+	print("im editing a card with the skill: ", skill)
+	if "NA" == skill:
 		return 0
-	elif "Interpersonal Relationship" in skill:
-		 return 1
-	elif "Social Inclusion" in skill:
-		 return 2
-	elif "Rights" in skill:
-		 return 3
-	elif "Personal Development" in skill:
-		 return 4
-	elif "Self-Determination" in skill:
-		 return 5
-	elif "Physical Wellbeing" in skill:
-		 return 6
-	elif "Material Wellbeing" in skill:
-		 return 7
-	elif "Emotional Wellbeing" in skill:
-		 return 7
-	elif "Calculus and Problem Solving" in skill:
-		return 9	
-	elif "Language" in skill:
-		return 10	
-	elif "Memory" in skill:
-		return 11	
-	elif "Spatial Orientation" in skill:
-		return 12	
-	elif "Social and Emotional Wellbeing" in skill:
-		return 13	
+	elif "Interpersonal Relationship"     == skill: return 1
+	elif "Social Inclusion"               == skill: return 2
+	elif "Rights"                         == skill: return 3
+	elif "Personal Development"           == skill: return 4
+	elif "Self-Determination"             == skill: return 5
+	elif "Physical Wellbeing"             == skill: return 6
+	elif "Material Wellbeing"             == skill: return 7
+	elif "Emotional Wellbeing"            == skill: return 8
+	elif "Calculus and Problem Solving"   == skill: return 9	
+	elif "Language"                       == skill: return 10	
+	elif "Memory"                         == skill: return 11	
+	elif "Spatial Orientation"            == skill: return 12	
+	elif "Social and Emotional Wellbeing" == skill: return 13	
+		
+			
 		
 
 	
@@ -279,10 +262,12 @@ func check_selected_description():
 		
 func check_selected_image():
 	var image = get_imageSelected()
-	var extension = image.split(".")
+	#var extension = image.split(".")
+	var extension = image.get_extension()
 	print("image: ",image)
 	print(extension)
-	if image == "NA" or len(extension) == 0 or extension[-1] != "png":
+	#if image == "NA" or len(extension) == 0 or extension[-1] != "png":
+	if image == "NA" or extension == "" or extension != "png":
 		imageAsteric.set("custom_colors/font_color", Color8(255,0,0,255))
 		return 0
 		
@@ -313,7 +298,7 @@ func check_selected_skill():
 		
 		
 		
-func show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill):
+func show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill, skillTranslated):
 	var root_node = get_node("/root")
 	
 
@@ -326,8 +311,8 @@ func show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill):
 	
 
 
-	cardInstance.set_up(cardTitle, cardDescription, imagePath, zone, cardScore, skill)
-
+	cardInstance.set_up(cardTitle, cardDescription, imagePath, zone, cardScore, skill, skillTranslated)
+	cardInstance.set_origin(get_origin())
 
 	
 	root_node.add_child(cardInstance)

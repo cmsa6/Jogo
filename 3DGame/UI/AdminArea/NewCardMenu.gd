@@ -1,7 +1,7 @@
 extends Control
 
-onready var cardDisplay = $ScrollContainer/cardDisplay
-onready var label = $Label
+onready var cardDisplay = $ColorRect/VBoxContainer/ScrollContainer/cardDisplay
+onready var translator  = $TranslationManager
 
 var zone = "" setget set_zone, get_zone
 var cardId = 0 setget set_cardId, get_cardId
@@ -12,7 +12,7 @@ var cardId = 0 setget set_cardId, get_cardId
 #		dir.list_dir_begin()
 
 func _ready():
-	label.text = label.text + get_zone() + " Zone"
+	translator.translate(get_zone())
 	display_cards(SettingsManager.language)
 			
 func display_cards(language):

@@ -1,11 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=1]
-[ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Fonts/buttonFontCards.tres" type="DynamicFont" id=3]
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/AdminArea/CardMenuZones.gd" type="Script" id=5]
-[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI/AdminArea/BackButtonNewMenu.gd" type="Script" id=7]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Fotos/CommercialButtonSelected.png" type="Texture" id=9]
@@ -16,12 +14,32 @@
 [ext_resource path="res://Fotos/HelpButtonSelected.png" type="Texture" id=14]
 [ext_resource path="res://Fotos/HelpButton.png" type="Texture" id=15]
 [ext_resource path="res://Fotos/CommercialButton.png" type="Texture" id=16]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Languages/TranslationManager_cardMenuZones.gd" type="Script" id=18]
+[ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=19]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 30
-outline_size = 1
+outline_size = 2
 outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-font_data = ExtResource( 2 )
+extra_spacing_char = 2
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFontData" id=18]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 31
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 18 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 18 )
 
 [node name="CardMenuZones" type="Control"]
 anchor_right = 1.0
@@ -44,134 +62,156 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SceneLoader" parent="." instance=ExtResource( 4 )]
-next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BackButton" type="TextureButton" parent="."]
-anchor_top = -0.00139609
-anchor_bottom = -0.00139604
-margin_left = -0.0922101
-margin_top = 2.32623
-margin_right = 99.9078
-margin_bottom = 102.326
-rect_scale = Vector2( 0.75, 0.75 )
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_vertical = 2
+color = Color( 0.945098, 0.631373, 0.427451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/ColorRect2"]
+anchor_right = 1.0
+margin_bottom = 50.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect/VBoxContainer/ColorRect2/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+expand = true
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 previousScene = "res://UI/AdminArea/CardManager.tscn"
 
-[node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-margin_left = -0.837646
-margin_top = 42.0
-margin_right = -0.837646
-margin_bottom = 93.0
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/ColorRect2/HBoxContainer"]
+margin_left = 227.0
+margin_top = 7.0
+margin_right = 862.0
+margin_bottom = 43.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Choose the City's Zone you want to check"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UISoundManager" parent="." instance=ExtResource( 8 )]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -511.0
-margin_top = -208.5
-margin_right = 511.0
-margin_bottom = 276.5
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+margin_top = 164.0
+margin_right = 1024.0
+margin_bottom = 445.0
 size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 2.72
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 26.0
-margin_top = 100.0
-margin_right = 226.0
-margin_bottom = 384.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 25.0
+margin_right = 225.0
+margin_bottom = 281.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="CardMenu" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="CardMenu" type="TextureButton" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 200.0
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 14 )
 texture_hover = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_left = 23.0
 margin_top = 204.0
-margin_right = 200.0
-margin_bottom = 242.0
-custom_fonts/font = SubResource( 1 )
+margin_right = 177.0
+margin_bottom = 241.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Blue Zone"
 align = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 246.0
-margin_right = 200.0
-margin_bottom = 284.0
-custom_fonts/font = ExtResource( 3 )
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_left = 27.0
+margin_top = 245.0
+margin_right = 173.0
+margin_bottom = 281.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Help Area"
 align = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 282.0
-margin_top = 100.0
-margin_right = 482.0
-margin_bottom = 384.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 277.0
+margin_right = 483.0
+margin_bottom = 281.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="CardMenu" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
-margin_right = 200.0
+[node name="CardMenu" type="TextureButton" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_left = 3.0
+margin_right = 203.0
 margin_bottom = 200.0
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_left = 15.0
 margin_top = 204.0
-margin_right = 200.0
-margin_bottom = 242.0
-custom_fonts/font = SubResource( 1 )
+margin_right = 191.0
+margin_bottom = 241.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Green Zone"
 align = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 246.0
-margin_right = 200.0
-margin_bottom = 284.0
-custom_fonts/font = ExtResource( 3 )
+[node name="Label3" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 245.0
+margin_right = 206.0
+margin_bottom = 281.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Services Area"
 align = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 519.0
-margin_top = 100.0
-margin_right = 758.0
-margin_bottom = 384.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 510.0
+margin_right = 768.0
+margin_bottom = 281.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="CardMenu" type="TextureButton" parent="HBoxContainer/VBoxContainer3"]
-margin_left = 19.0
-margin_right = 219.0
+[node name="CardMenu" type="TextureButton" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_left = 29.0
+margin_right = 229.0
 margin_bottom = 200.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 6
@@ -179,60 +219,84 @@ texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 9 )
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer3"]
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_left = 31.0
 margin_top = 204.0
-margin_right = 239.0
-margin_bottom = 242.0
-custom_fonts/font = SubResource( 1 )
+margin_right = 227.0
+margin_bottom = 241.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Orange Zone"
 align = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 246.0
-margin_right = 239.0
-margin_bottom = 284.0
-custom_fonts/font = ExtResource( 3 )
+[node name="Label3" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 245.0
+margin_right = 258.0
+margin_bottom = 281.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Commercial Area"
 align = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 795.0
-margin_top = 100.0
-margin_right = 995.0
-margin_bottom = 384.0
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 798.0
+margin_right = 998.0
+margin_bottom = 281.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="CardMenu" type="TextureButton" parent="HBoxContainer/VBoxContainer4"]
+[node name="CardMenu" type="TextureButton" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4"]
 margin_right = 200.0
 margin_bottom = 200.0
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 10 )
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer4"]
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4"]
+margin_left = 7.0
 margin_top = 204.0
-margin_right = 200.0
-margin_bottom = 242.0
-custom_fonts/font = SubResource( 1 )
+margin_right = 193.0
+margin_bottom = 241.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Purple Zone"
 align = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer4"]
-margin_top = 246.0
-margin_right = 200.0
-margin_bottom = 284.0
-custom_fonts/font = ExtResource( 3 )
+[node name="Label3" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4"]
+margin_left = 6.0
+margin_top = 245.0
+margin_right = 194.0
+margin_bottom = 281.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 text = "Leisure Area"
 align = 1
 
-[connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/CardMenu" to="." method="show_zone_cards" binds= [ "Blue" ]]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer2/CardMenu" to="." method="show_zone_cards" binds= [ "Green" ]]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer3/CardMenu" to="." method="show_zone_cards" binds= [ "Orange" ]]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer4/CardMenu" to="." method="show_zone_cards" binds= [ "Purple" ]]
+[node name="SceneLoader" parent="." instance=ExtResource( 4 )]
+next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
+
+[node name="UISoundManager" parent="." instance=ExtResource( 8 )]
+
+[node name="TranslationManager" parent="." instance=ExtResource( 17 )]
+script = ExtResource( 18 )
+blueNodeZone = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer/Label")
+blueNodeArea = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer/Label2")
+orangeNodeZone = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3/Label2")
+orangeNodeArea = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3/Label3")
+greenNodeZone = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/Label2")
+greenNodeArea = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/Label3")
+purpleNodeZone = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4/Label2")
+purpleNodeArea = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4/Label3")
+titleNode = NodePath("../ColorRect/VBoxContainer/ColorRect2/HBoxContainer/Label")
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/ColorRect2/HBoxContainer/TextureButton" to="ColorRect/VBoxContainer/ColorRect2/HBoxContainer/TextureButton" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer/CardMenu" to="." method="show_zone_cards" binds= [ "Blue" ]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/CardMenu" to="." method="show_zone_cards" binds= [ "Green" ]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3/CardMenu" to="." method="show_zone_cards" binds= [ "Orange" ]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4/CardMenu" to="." method="show_zone_cards" binds= [ "Purple" ]]

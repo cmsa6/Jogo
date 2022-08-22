@@ -15,16 +15,21 @@ onready var zoomOutButton = $BackgroundRect/VBoxContainer/CardColor/CardInfo/zoo
 onready var zoomOut = $BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton
 onready var imageContainer = $BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer
 
+onready var translator = $TranslationManager
+
 var titleReceived setget set_titleReceived, get_titleReceived
 var descriptionReceived setget set_descriptionReceived, get_descriptionReceived
 var imageReceived setget set_imageReceived, get_imageReceived
 var zoneReceived setget set_zoneReceived, get_zoneReceived
 var scoreReceived setget set_scoreReceived, get_scoreReceived
 var skillReceived setget set_skillReceived, get_skillReceived
+var skillTranslatedReceived setget set_skillTranslatedReceived, get_skillTranslatedReceived
+
+var origin = "" setget set_origin, get_origin
 
 
 
-func set_up(newTitle, newDescription, imagePath, zone, score, skill):
+func set_up(newTitle, newDescription, imagePath, zone, score, skill, skillTranslated):
 	print("setting up")
 	set_titleReceived(newTitle)
 	set_descriptionReceived(newDescription)
@@ -32,6 +37,7 @@ func set_up(newTitle, newDescription, imagePath, zone, score, skill):
 	set_zoneReceived(zone)
 	set_scoreReceived(score)
 	set_skillReceived(skill)
+	set_skillTranslatedReceived(skillTranslated)
 	
 	
 func _ready():
@@ -40,7 +46,8 @@ func _ready():
 	set_image(get_imageReceived())
 	set_colors(get_zoneReceived())
 	set_score(get_scoreReceived())
-	set_skill(get_skillReceived())
+	set_skill(get_skillReceived(), get_skillTranslatedReceived())
+	translator.translate(get_origin())
 	
 func set_title(newTitle):
 	title.text = newTitle
@@ -51,8 +58,8 @@ func set_description(newDescription):
 func set_score(newScore):
 	score.text = "+" + newScore
 	
-func set_skill(newSkill):
-	skillName.text = newSkill
+func set_skill(newSkill, skillTranslated):
+	skillName.text = skillTranslated
 	var skill = newSkill.replace(" ","")
 	var skillPath = "res://Cards/Skills/" + skill + ".png"
 	var skillPhoto = load(skillPath)
@@ -121,6 +128,15 @@ func set_skillReceived(s):
 	
 func get_skillReceived():
 	return skillReceived
+	
+	
+func set_skillTranslatedReceived(s):
+	skillTranslatedReceived = s
+	print(s)
+	
+func get_skillTranslatedReceived():
+	return skillTranslatedReceived
+	
 	
 	
 	
@@ -192,3 +208,12 @@ func go_back_to_menu():
 	for child in children:
 		print(child.get_name())
 	get_tree().change_scene("res://UI/AdminArea/CardManager.tscn")
+	
+	
+func set_origin(orig):
+	origin = orig
+
+func get_origin():
+	return origin
+	
+

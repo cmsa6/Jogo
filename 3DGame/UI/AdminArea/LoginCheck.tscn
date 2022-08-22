@@ -1,38 +1,59 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://UI/AdminArea/BackToSceneButton.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=4]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=5]
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Fonts/button2.tres" type="DynamicFont" id=7]
 [ext_resource path="res://UI/AdminArea/AutenticationControl.gd" type="Script" id=8]
 [ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=9]
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=10]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/AdminArea/TranslationManager_login.gd" type="Script" id=13]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.85098, 0.121569, 0.121569, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.862745, 0.0627451, 0.0627451, 1 )
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=6]
 font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=7]
 size = 21
 extra_spacing_char = 2
-font_data = SubResource( 4 )
+font_data = SubResource( 6 )
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id=8]
 default_font = SubResource( 7 )
 Dialogs/colors/teste = Color( 1, 0.0862745, 0.0862745, 1 )
 Dialogs/constants/button_margin = 32
 Dialogs/constants/margin = 8
-Dialogs/styles/teste = SubResource( 5 )
-PopupDialog/styles/panel = SubResource( 6 )
+Dialogs/styles/teste = SubResource( 4 )
+PopupDialog/styles/panel = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -71,20 +92,21 @@ __meta__ = {
 
 [node name="AutenticationControl" type="VBoxContainer" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -65.0
-margin_top = 160.0
-margin_right = 65.0
-margin_bottom = 360.0
-custom_constants/separation = 8
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -161.0
+margin_right = 150.0
+margin_bottom = 75.0
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LoginData" type="VBoxContainer" parent="AutenticationControl"]
-margin_right = 130.0
-margin_bottom = 86.0
+margin_right = 300.0
+margin_bottom = 98.0
 size_flags_vertical = 2
 custom_constants/separation = 6
 __meta__ = {
@@ -92,10 +114,10 @@ __meta__ = {
 }
 
 [node name="username" type="LineEdit" parent="AutenticationControl/LoginData"]
-margin_right = 130.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 130, 40 )
-custom_fonts/font = ExtResource( 7 )
+margin_right = 300.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 180, 40 )
+custom_fonts/font = SubResource( 2 )
 secret = true
 clear_button_enabled = true
 placeholder_text = "username"
@@ -104,22 +126,22 @@ __meta__ = {
 }
 
 [node name="password" type="LineEdit" parent="AutenticationControl/LoginData"]
-margin_top = 46.0
-margin_right = 130.0
-margin_bottom = 86.0
+margin_top = 52.0
+margin_right = 300.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 130, 40 )
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = SubResource( 3 )
 secret = true
 placeholder_text = "password"
 
 [node name="LoginButton" type="TextureButton" parent="AutenticationControl"]
-margin_left = 15.0
-margin_top = 100.0
-margin_right = 115.0
-margin_bottom = 200.0
+margin_left = 100.0
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 236.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 6
-size_flags_vertical = 2
+size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -130,15 +152,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -321.0
-margin_top = -172.0
-margin_right = 321.0
-margin_bottom = 111.0
-theme = SubResource( 2 )
+margin_left = -285.0
+margin_top = -175.5
+margin_right = 285.0
+margin_bottom = 51.5
+mouse_default_cursor_shape = 2
+theme = SubResource( 8 )
 window_title = "Error"
-dialog_text = "Username and password do not match, please try again,
+dialog_text = "Username and password do not match, please try again.
 
-This area is only meant to be used by professionals."
+Please remember that this area is only meant to be used by professionals.
+"
+dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -152,10 +177,11 @@ margin_left = -0.837646
 margin_top = 41.1624
 margin_right = -0.837646
 margin_bottom = 92.1624
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "PRIVATE AREA"
+text = "Private Area"
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -169,6 +195,7 @@ margin_top = 0.625829
 margin_right = 100.467
 margin_bottom = 100.626
 rect_scale = Vector2( 0.75, 0.75 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -206,6 +233,13 @@ texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TranslationManager" parent="." instance=ExtResource( 12 )]
+script = ExtResource( 13 )
+titleNode = NodePath("../Label")
+usernameNode = NodePath("../AutenticationControl/LoginData/username")
+passwordNode = NodePath("../AutenticationControl/LoginData/password")
+dialogueNode = NodePath("../AutenticationControl/LoginButton/AcceptDialog")
 
 [connection signal="button_down" from="AutenticationControl/LoginButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="AutenticationControl/LoginButton" to="AutenticationControl" method="check_login"]
