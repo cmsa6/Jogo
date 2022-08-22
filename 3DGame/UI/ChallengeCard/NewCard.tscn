@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/ChallengeCard/CardInfo.gd" type="Script" id=2]
@@ -25,7 +25,6 @@
 [ext_resource path="res://UI/ChallengeCard/NextButton.gd" type="Script" id=23]
 [ext_resource path="res://UI/Keyboard/Shortcut_upArrow.tscn" type="PackedScene" id=24]
 [ext_resource path="res://UI/Keyboard/Shortcut_downArrow.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Cards/pt/Photos/A Bola.png" type="Texture" id=26]
 [ext_resource path="res://Cards/el/Photos/enterButton_pressed.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -205,7 +204,6 @@ rect_min_size = Vector2( 200, 125 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 7.67
-texture = ExtResource( 26 )
 expand = true
 stretch_mode = 1
 
@@ -257,7 +255,6 @@ rect_min_size = Vector2( 500, 280 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.52
-texture = ExtResource( 26 )
 expand = true
 stretch_mode = 6
 
