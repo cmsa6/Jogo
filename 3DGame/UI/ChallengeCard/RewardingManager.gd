@@ -37,7 +37,7 @@ func _ready():
 		var language = SettingsManager.language
 		
 		var randomFile = select_random_file_name(cardType)
-		var fileName = "res://Cards/" + str(language) + "/" + str(cardType) + "/" + randomFile
+		var fileName = "user://Cards/" + str(language) + "/" + str(cardType) + "/" + randomFile
 		
 		
 		var file = File.new()

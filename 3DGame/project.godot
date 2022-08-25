@@ -22,6 +22,7 @@ SavingManager="*res://SavingSystem/SavingManager.gd"
 ChallengesManager="*res://ChallengesManager/ChallengesManager.gd"
 MusicAudioManager="*res://Audio Manager/MusicAudioManager.tscn"
 CityAudioManager="*res://Audio Manager/CityAudioManager.tscn"
+FileManager="*res://FileManager/FileManager.gd"
 
 [display]
 

@@ -7,6 +7,9 @@ export(int) var languageId
 
 var selected=false setget set_selected, get_selected
 
+func _ready():
+	if languageId == 1:
+		emit_signal("pressed")
 
 
 func _input(event):
@@ -21,6 +24,7 @@ func mouse_entered():
 
 
 func mouse_exited():
+	print(get_selected())
 	if not get_selected():
 		get_node(overlay).visible = false
 	

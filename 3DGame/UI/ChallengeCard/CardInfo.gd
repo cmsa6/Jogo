@@ -26,20 +26,22 @@ func _ready():
 	if get_origin() == "":
 		set_card_color(get_cardType())
 
-		#var files = []
-		#var photoDir = "res://Cards/" + str(language) + "/Photos/"
-		#var dir = Directory.new()
-		#dir.open(photoDir)
-		#dir.list_dir_begin()
+		var files = []
+		var photoDir = "user://Cards/" + str(language) + "/photos/"
+		var dir = Directory.new()
+		dir.open(photoDir)
+		dir.list_dir_begin()
 		
-		#while true:
-		#	var file = dir.get_next()
-		#	if file == "":
-		#		break
-		#	elif not file.begins_with("."):
-		#		files.append(file)
+		while true:
+			var file = dir.get_next()
+			if file == "":
+				break
+			elif not file.begins_with("."):
+				files.append(file)
 
-		#dir.list_dir_end()
+		dir.list_dir_end()
+		
+		print(files)
 		
 
 
@@ -51,26 +53,52 @@ func _ready():
 		#skills.text = "Skills: " + card_info[9]
 
 		#var imageName = card_info[1] 
+		var teste = get_cardId()
 		var imageName = get_cardId().split(".")[0]
 		print("image name:", imageName)
 		#imageName = imageName.replace(" ","")
 
 		
+#		print(files)
+#		for f in files:
+#			if imageName in f:			
+#				var imagePath = "user://Cards/" + str(language) + "/photos/" + imageName +".png"
+#				var imagePhoto = load(imagePath)
+#				image.texture = imagePhoto
+#				zoomImage.texture = imagePhoto
+#				break
+		var imagePath = "user://Cards/" + str(language) + "/photos/" + imageName +".png"
 		
-		#for f in files:
-		#	if imageName in f:			
-		#		var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
-		#		var imagePhoto = load(imagePath)
-		#		image.texture = imagePhoto
-		#		zoomImage.texture = imagePhoto
-		#		break
-		
-		var dir = Directory.new()
-		var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
-		if dir.file_exists(imagePath):
+		if "extra" in imageName:
+			var file = File.new()
+			file.open(imagePath, File.READ)
+			var buffer = file.get_buffer(file.get_len())
+			
+			var imageTest = Image.new()
+			imageTest.load_png_from_buffer(buffer)
+			var imageText = ImageTexture.new()
+			imageText.create_from_image(imageTest)
+			file.close()
+			
+			image.set_texture(imageText)
+			zoomImage.set_texture(imageText)
+			
+			
+		else:
 			var imagePhoto = load(imagePath)
 			image.texture = imagePhoto
 			zoomImage.texture = imagePhoto
+			
+
+		
+#		var dir = Directory.new()
+#		var imagePath = "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
+#		print(imagePath)
+#		if dir.file_exists(imagePath):
+#			print("existe")
+#			var imagePhoto = load(imagePath)
+#			image.texture = imagePhoto
+#			zoomImage.texture = imagePhoto
 				
 		
 	
@@ -89,11 +117,32 @@ func _ready():
 		#imageName = imageName.replace(" ","")
 		
 		
-		var imagePath =  "res://Cards/" + str(language) + "/Photos/" + imageName +".png"
+		var imagePath =  "user://Cards/" + str(language) + "/photos/" + imageName +".png"
 		
-		var imagePhoto = load(imagePath)
-		image.texture = imagePhoto
-		zoomImage.texture = imagePhoto
+#		var imagePhoto = load(imagePath)
+#		image.texture = imagePhoto
+#		zoomImage.texture = imagePhoto
+
+		if "extra" in imageName:
+			var file = File.new()
+			file.open(imagePath, File.READ)
+			var buffer = file.get_buffer(file.get_len())
+			
+			var imageTest = Image.new()
+			imageTest.load_png_from_buffer(buffer)
+			var imageText = ImageTexture.new()
+			imageText.create_from_image(imageTest)
+			file.close()
+			
+			image.set_texture(imageText)
+			zoomImage.set_texture(imageText)
+			
+			
+		else:
+			var imagePhoto = load(imagePath)
+			image.texture = imagePhoto
+			zoomImage.texture = imagePhoto
+			
 
 	
 

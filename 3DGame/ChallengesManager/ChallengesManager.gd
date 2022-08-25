@@ -26,7 +26,7 @@ func register_cards(folder):
 		
 	var language = SettingsManager.language
 	var dir = Directory.new()
-	var folderName = "res://Cards/"+ str(language) + "/"+ folder + "/"
+	var folderName = "user://Cards/"+ str(language) + "/"+ folder + "/"
 
 	dir.open(folderName)
 	dir.list_dir_begin()
@@ -39,6 +39,9 @@ func register_cards(folder):
 			
 			array.append(file)
 			
+	print(array)
+
+			
 
 	
 
@@ -50,4 +53,6 @@ func set_lastId(id):
 func get_lastId():
 	return lastId
 	
+	
+
 	

@@ -39,7 +39,8 @@ func _ready():
 		mapZones.selected = zoneId
 		var imageWithExtension = fileName.split("\/")[-1]
 		imagePath.text = imageWithExtension.split(".")[0] + ".png"
-		var pathToImage = "res://Cards/" + SettingsManager.language + "/Photos/" + imagePath.text
+		#var pathToImage = "res://Cards/" + SettingsManager.language + "/Photos/" + imagePath.text
+		var pathToImage = "user://Cards/" + SettingsManager.language + "/photos/" + imagePath.text
 		set_imageSelected(pathToImage)
 		var content = read_content(fileName)
 		fillOutCardDetails(content)
@@ -64,17 +65,18 @@ func submit():
 
 			print("im editing file #", fileId)
 		else:
-			fileId = ChallengesManager.lastId + 1 
-			ChallengesManager.set_lastId(fileId)
+			var incLastId = ChallengesManager.lastId + 1
+			fileId = "extra_" + str(incLastId)
+			ChallengesManager.set_lastId(incLastId)
 			print("estou a criar a carta #", ChallengesManager.get_lastId())
 		
-		var imagePath = save_image()
+		var imagePath = save_image(fileId)
 		
 		var cardTitle = title.text
 		var cardDescription = explanation.text
 		var cardScore = score.text
 		
-		var file = File.new()
+	
 
 		var zone  = check_mapZone()
 		
@@ -85,7 +87,10 @@ func submit():
 		print(skillTranslated)
 		print(skill)
 
-		var pathToFile = "res://Cards/" + SettingsManager.language + "/" + zone + "/" + str(fileId) + ".tres"
+		#var pathToFile = "user://Cards/" + SettingsManager.language + "/" + zone + "/" + str(fileId) + ".tres"
+		var pathToFile = "user://Cards/" + SettingsManager.language + "/" + zone  +  "/" + str(fileId) + ".tres"
+		print("saving new file at ", pathToFile)
+		var file = File.new()
 		file.open(pathToFile, File.WRITE)
 		file.store_string("TITULO|" + cardTitle + "|\n")
 		file.store_string("INSTRUCTIONS|" + cardDescription + "|\n")
@@ -93,33 +98,57 @@ func submit():
 		file.store_string("SCORE|" + cardScore + "|\n")
 		file.store_string("SKILLS|" + skill)
 		
+		file.close()
+		
+	
+		
 		#if the zone changed when the user edited the card
 		if get_origin() == "edit" and get_previousZone() != zone:
 			var dir = Directory.new()
-			var challengePath = "res://Cards/" + SettingsManager.language + "/" + get_previousZone() + "/" + str(fileId) + ".tres"
+			var challengePath = "user://Cards/" + SettingsManager.language + "/" + get_previousZone() + "/" + str(fileId) + ".tres"
 			dir.remove(challengePath)
 			
 
-	#file.close()
+	#
 
 		print("sending this image:", imagePath)
 		show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill, skillTranslated)
 
 		
 	
-func save_image():
+func save_image(fileId):
 	var image = get_imageSelected()
 	#var fileId = image.get_extension()
 	#print("im editing file #", fileId)
 	if image != "NA":
 		#var imageExtension = image.split(".")[-1]
 		#var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + title.text + "." + imageExtension
-		var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + str(ChallengesManager.get_lastId()) + "." + image.get_extension()
+		
+		
+		#var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + str(fileId) + "." + image.get_extension()
+		var photosFolder
+		if get_origin() == "edit":
+			#FIXME ele tem de pegar no nome do ficheiro nao no ID
+			photosFolder = "user://Cards/" + SettingsManager.language + "/photos/" + str(fileId) + "." + image.get_extension() 
+		else:
+			photosFolder = "user://Cards/" + SettingsManager.language + "/photos/" + str(fileId) + "." + image.get_extension() 
+		
+		
+		
 		
 		#var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + imageName[-1]
 		var dir = Directory.new()
 		print("photosfolder: ", photosFolder)
+		
+
+		
+		
+		
 		dir.copy(image, photosFolder)
+
+		
+		
+		
 		
 
 		
@@ -195,7 +224,7 @@ func check_skill_id(skill):
 	elif "Emotional Wellbeing"            == skill: return 8
 	elif "Calculus and Problem Solving"   == skill: return 9	
 	elif "Language"                       == skill: return 10	
-	elif "Memory"                         == skill: return 11	
+	elif "Memory and Attention to Detail"                         == skill: return 11	
 	elif "Spatial Orientation"            == skill: return 12	
 	elif "Social and Emotional Wellbeing" == skill: return 13	
 		
@@ -316,10 +345,9 @@ func show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill, 
 
 	
 	root_node.add_child(cardInstance)
-	print("hello")
-	#root_node.move_child(cardInstance,0)
-	print("hello2")
 	
+	#root_node.move_child(cardInstance,0)
+		
 	
 func set_origin(orig):
 	origin = orig
@@ -344,6 +372,7 @@ func read_content(fileName):
 	
 func fillOutCardDetails(content):
 	title.text       = content[1]
+	print(content[3].length())
 	explanation.text = content[3]
 	score.text       = content[7]
 	availableSkills.selected = check_skill_id(content[9])
@@ -354,6 +383,7 @@ func set_previousZone(zone):
 func get_previousZone():
 	return previousZone
 	
+
 	
 
 	
@@ -368,6 +398,3 @@ func get_previousZone():
 		
 
 
-	
-	
-	

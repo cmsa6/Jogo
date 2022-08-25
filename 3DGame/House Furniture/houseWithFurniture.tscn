@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://House Furniture/Extras/WoodFloorOffice.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -47,6 +47,7 @@
 [ext_resource path="res://House Furniture/TranslationManager.gd" type="Script" id=45]
 [ext_resource path="res://Fotos/points.png" type="Texture" id=46]
 [ext_resource path="res://Fotos/points_selected.png" type="Texture" id=47]
+[ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=48]
 [ext_resource path="res://Fotos/Enter_disabled2.png" type="Texture" id=50]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -781,6 +782,8 @@ rect_min_size = Vector2( 75, 89 )
 mouse_default_cursor_shape = 2
 size_flags_vertical = 6
 texture_normal = ExtResource( 34 )
+texture_pressed = ExtResource( 48 )
+texture_hover = ExtResource( 48 )
 texture_disabled = ExtResource( 50 )
 expand = true
 stretch_mode = 4

@@ -16,15 +16,18 @@ func _ready():
 	display_cards(SettingsManager.language)
 			
 func display_cards(language):
+	print("im on the display")
 	var dir = Directory.new()
 	var mapZone = translate_zone(get_zone())
-	var directoryPath = "res://Cards/" + language + "/" + mapZone
+	#var directoryPath = "res://Cards/" + language + "/" + mapZone
+	var directoryPath = "user://Cards/" + SettingsManager.language + "/" + mapZone
 	if dir.open(directoryPath) == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not file_name.begins_with("."):
 				var pathToFile = directoryPath + "/" + file_name
+				print("here it works" , pathToFile)
 				var file = File.new()
 				file.open(pathToFile, File.READ)
 				var content = file.get_as_text()
@@ -66,10 +69,12 @@ func populateCard(cardInstance, content, file_name):
 	var title          = cardInstance.get_title_node()
 	var description    = cardInstance.get_description_node()
 	var image          = cardInstance.get_image_node()
+	var imageZoomedIn  = cardInstance.get_imageZoomedIn_node()
 	var score          = cardInstance.get_score_node()
 	var skill          = cardInstance.get_skill_node()
 	var cardColor      = cardInstance.get_cardColor_node()
 	var cardBackground = cardInstance.get_cardBackground_node()
+	var skillBakground = cardInstance.get_skillBackground_node()
 	
 	
 	var translatedZone = translate_zone(get_zone())
@@ -78,8 +83,9 @@ func populateCard(cardInstance, content, file_name):
 	#var newCardId = get_cardId() + 1
 	#set_cardId(newCardId)
 	#cardInstance.set_id(newCardId)
-	var name = file_name.split(".")[0]
-	cardInstance.set_id(name)
+	#var name = file_name.split(".")[0]
+	var name = file_name.get_basename().split("\/")[-1]
+	cardInstance.set_nameOfFile(name)
 
 	
 	title.text = content[1]
@@ -89,58 +95,86 @@ func populateCard(cardInstance, content, file_name):
 	
 	#var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + content[1] +  ".png"
 	
-	var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + name +  ".png"
-	
+	#var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + name +  ".png"
+	var imagePath = "user://Cards/" + SettingsManager.language + "/photos/" + name +  ".png"
+	print("imagePath: ", imagePath)
 	#print("path da imagem: ", imagePath)
-	#var img = load(imagePath)
-	#image.texture = img
+	
+	print("name: ", name)
+	if "extra" in name:
+		print(" im differemtttt: ", imagePath)
+		var file = File.new()
+		file.open(imagePath, File.READ)
+		var buffer = file.get_buffer(file.get_len())
+		
+		var imageTest = Image.new()
+		imageTest.load_png_from_buffer(buffer)
+		var imageText = ImageTexture.new()
+		imageText.create_from_image(imageTest)
+		file.close()
+		
+		image.set_texture(imageText)
+		imageZoomedIn.set_texture(imageText)
+	else:
+	
+		var img = load(imagePath)
+		image.texture = img
+		imageZoomedIn.texture = img
 	
 	
-	var img = Image.new()
-	img.load(imagePath)
-
-	var tex = ImageTexture.new()
-	tex.create_from_image(img)
-
-	image.texture = tex
+#	var img = Image.new()
+#	img.load(imagePath)
+#
+#	var tex = ImageTexture.new()
+#	tex.create_from_image(img)
+#
+#	image.texture = tex
+#	imageZoomedIn.texture = tex
 	
 	
-	var skillName = content[9].replace(" ","")
+	var skillName      = content[9].replace(" ","")
 	var skillImagePath = "res://Cards/Skills/" + skillName + ".png"
-	var skillImg = load(skillImagePath)
-	skill.texture = skillImg
+	var skillImg       = load(skillImagePath)
+	skill.texture      = skillImg
 	
-	change_card_colors(translatedZone, cardColor, cardBackground, title, score)
+	change_card_colors(translatedZone, cardColor, cardBackground, title, score, description, skillBakground)
 	
 	
-func change_card_colors(zone, cardColor, cardBackground, title, score):
+func change_card_colors(zone, cardColor, cardBackground, title, score, description, skillBackground):
 	var backgroundColor
 	var mainColor    
 	var outlineColor 
+	var skillColor
 	
 	if zone == "COMMERCIAL":
-		backgroundColor    = Color8(244, 202, 156, 200)
-		mainColor    = Color8(223, 135, 31, 255)
-		outlineColor = Color8(159, 86, 0, 255)
+		backgroundColor = Color8(244, 202, 156, 200)
+		mainColor       = Color8(223, 135, 31, 255)
+		skillColor      = Color8(223, 135, 31, 150)
+		outlineColor    = Color8(159, 86, 0, 255)
+		
 		
 	elif zone == "SERVICES":
-		backgroundColor    = Color8(180, 193, 149, 200)
-		mainColor    = Color8(81, 132, 26, 255)
-		outlineColor = Color8(56, 100, 7, 255)
+		backgroundColor = Color8(180, 193, 149, 200)
+		mainColor       = Color8(81, 132, 26, 255)
+		skillColor      = Color8(81, 132, 26, 150)
+		outlineColor    = Color8(56, 100, 7, 255)
 		
 	elif zone == "LEISURE":
-		backgroundColor    = Color8(231, 189, 232, 200)
-		mainColor    = Color8(186, 74, 169, 255)
-		outlineColor = Color8(116, 19, 101, 255)
+		backgroundColor = Color8(231, 189, 232, 200)
+		mainColor       = Color8(186, 74, 169, 255)
+		skillColor      = Color8(186, 74, 169, 150)
+		outlineColor    = Color8(116, 19, 101, 255)
 		
 	elif zone == "HELP":		
-		mainColor    = Color8(74, 139, 186, 255)
-		outlineColor = Color8(15, 86, 177, 255)
-		backgroundColor    = Color8(184, 206, 222, 200)
+		mainColor       = Color8(74, 139, 186, 255)
+		outlineColor    = Color8(15, 86, 177, 255)
+		skillColor      = Color8(74, 139, 186, 150)
+		backgroundColor = Color8(184, 206, 222, 200)
 
 	
-	cardColor.color =  mainColor
-	cardBackground.color = backgroundColor
+	cardColor.color       =  mainColor
+	cardBackground.color  = backgroundColor
+	skillBackground.color = skillColor
 	
 	#titleFont.set("custom_colors/font_color", outlineColor)
 	#titleFont.set("custom_colors/font_outline_modulate", mainColor)
@@ -150,6 +184,8 @@ func change_card_colors(zone, cardColor, cardBackground, title, score):
 	
 	score.set("custom_colors/font_color", mainColor)
 	score.set("custom_colors/font_outline_modulate", outlineColor)
+	
+	description.set("custom_colors/font_outline_modulate", outlineColor)
 	
 	
 	

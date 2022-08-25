@@ -5,7 +5,7 @@
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/buttonFontCards.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fotos/SmallerConfirmButtonDisabled.png" type="Texture" id=5]
-[ext_resource path="res://Cards/el/Photos/enterButton_pressed.png" type="Texture" id=7]
+[ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=6]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=8]
 [ext_resource path="res://UI/AdminArea/CardDetails.gd" type="Script" id=9]
 [ext_resource path="res://UI/AdminArea/BackButton.gd" type="Script" id=10]
@@ -314,7 +314,7 @@ margin_bottom = 186.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Description
-(max.150 chars)"
+(max.145 chars)"
 
 [node name="Description_input" type="LineEdit" parent="ColorRect/VBoxContainer/GridContainer"]
 margin_left = 253.0
@@ -328,7 +328,7 @@ custom_fonts/font = SubResource( 12 )
 custom_colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
-max_length = 130
+max_length = 145
 clear_button_enabled = true
 caret_blink = true
 
@@ -527,8 +527,8 @@ size_flags_horizontal = 6
 size_flags_vertical = 2
 size_flags_stretch_ratio = 2.43
 texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
 texture_disabled = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false

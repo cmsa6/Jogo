@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=1]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Fotos/diceNumbers (1).png" type="Texture" id=14]
 [ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=16]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -220,6 +221,8 @@ size_flags_horizontal = 10
 size_flags_vertical = 0
 disabled = true
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
 texture_disabled = ExtResource( 12 )
 expand = true
 stretch_mode = 4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Context Screen/Photos/pt/secondContext_image4.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Context Screen/TranslationManager_secondScreen.gd" type="Script" id=14]
 [ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -464,6 +465,8 @@ margin_top = -127.0
 margin_bottom = -3.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false

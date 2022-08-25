@@ -18,18 +18,18 @@ func translate(zone):
 		
 	elif language == "es":
 		zoneTranslated = translate_zone_es( zone)
-		title.text = "Cartas de desafío de la Zona " + zoneTranslated + " azul de la ciudad"
+		title.text = "Cartas de desafío de la Zona " + zoneTranslated + " de la ciudad"
 		
 	elif language == "it":
 		zoneTranslated = translate_zone_it(zone)
-		title.text = "Carte sfida della Zona " + zoneTranslated + " blu della città"
+		title.text = "Carte sfida della Zona " + zoneTranslated + " della città"
 				
 	elif language == "pt":
 		zoneTranslated = translate_zone_pt(zone)
-		title.text = "Cartas de desafio da Área " + zoneTranslated + " azul da cidade"
+		title.text = "Cartas de desafio da Área " + zoneTranslated + " da cidade"
 		
 	elif language == "en":
-		title.text = "City's " + zone + "Zone's challenge cards"
+		title.text = "City's " + zone + " Zone's challenge cards"
 		
 		
 		

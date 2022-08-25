@@ -53,7 +53,8 @@ func set_title(newTitle):
 	title.text = newTitle
 	
 func set_description(newDescription):
-	description.text = newDescription
+	var desc = newDescription.replace("ENTER","\n")
+	description.text = desc
 	
 func set_score(newScore):
 	score.text = "+" + newScore
@@ -75,17 +76,35 @@ func set_image(imgPath):
 #	image.set_texture(newImg)
 #
 #	var pathTeste = imgPath[1]
-#	var imgTest = load(pathTeste)
-#	imageTeste.texture=imgTest
 
-	var imageTest = Image.new()
-	imageTest.load(imgPath)
+	if "extra" in imgPath:
+		var file = File.new()
+		file.open(imgPath, File.READ)
+		var buffer = file.get_buffer(file.get_len())
+		
+		var imageTest = Image.new()
+		imageTest.load_png_from_buffer(buffer)
+		var imageText = ImageTexture.new()
+		imageText.create_from_image(imageTest)
+		file.close()
+		
+		image.set_texture(imageText)
+	
+	else:
+		var imgTest = load(imgPath)
+		image.texture=imgTest
+		zoomedImage.texture = imgTest
 
-	var tex = ImageTexture.new()
-	tex.create_from_image(imageTest)
-
-	image.texture = tex
-	zoomedImage.texture = tex
+#	print("imagepath: ", imgPath)
+#
+#	var imageTest = Image.new()
+#	imageTest.load(imgPath)
+#
+#	var tex = ImageTexture.new()
+#	tex.create_from_image(imageTest)
+#
+#	image.texture = tex
+#	zoomedImage.texture = tex
 
 
 func set_titleReceived(t):
@@ -174,6 +193,8 @@ func set_colors(mapZone):
 	
 	title.set("custom_colors/font_color", mainColor)
 	title.set("custom_colors/font_outline_modulate", outlineColor)
+	
+	description.set("custom_colors/font_outline_modulate", outlineColor)
 	
 	score.set("custom_colors/font_color", mainColor)
 	score.set("custom_colors/font_outline_modulate", outlineColor)

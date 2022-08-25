@@ -1,7 +1,6 @@
 extends TextureButton
 
 export(String, FILE) var previousScene
-signal save_language()
 
 func _input(event):
 	#if event.is_action_pressed("RightArrow"):
@@ -24,7 +23,6 @@ func _on_BackToSceneButton_pressed():
 
 
 func initiate_game():
-	emit_signal("save_language")
 	_on_BackToSceneButton_pressed()
 
 	

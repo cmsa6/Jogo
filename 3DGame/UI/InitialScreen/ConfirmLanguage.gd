@@ -26,6 +26,7 @@ func save_languageSelected():
 	start_game()
 	
 func start_game():
+	FileManager.backup_cards()
 	get_tree().change_scene(initialScene)
 	
 
