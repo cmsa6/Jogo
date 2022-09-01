@@ -25,7 +25,7 @@ func images():
 
 	dir.list_dir_end()
 	
-	print(files)
+	
 	
 	
 func make_cards_dir_user():
@@ -51,7 +51,7 @@ func copy_images_to_user():
 	
 	var folderName = "res://Cards/" + language + "/Photos/"
 	var destFolderName = "user://Cards/" + language + "/photos/"
-	print("destination dir: ", destFolderName)
+	
 	
 	destDir.open(destFolderName)
 	#destDir.make_dir(destFolderName)
@@ -64,15 +64,12 @@ func copy_images_to_user():
 		var file = dir.get_next()
 		var fileName = folderName
 		var destFileName = destFolderName
-		print(file)
+
 		if file == "":
 			break
 		elif not file.begins_with("."):
 			fileName = fileName + file
-			print("no file manager")
-			print(fileName)		
 			destFileName = destFileName + file
-			print(destFileName)
 			destDir.copy(fileName, destFileName)
 
 func copy_cards_to_user(zone):	
@@ -86,7 +83,7 @@ func copy_cards_to_user(zone):
 	#var language = SettingsManager.language
 	var folderName = "res://Cards/"+ language + "/"+ zone + "/"
 	var destFolderName = "user://Cards/" + language + "/" + zone + "/"
-	print("destination dir: ", destFolderName)
+
 	
 	destDir.open(destFolderName)
 	#destDir.make_dir(destFolderName)

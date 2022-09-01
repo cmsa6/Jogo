@@ -1,6 +1,8 @@
 extends TextureButton
 
-onready var skillScreen = preload("res://UI/SkillScreen/SkillScreen.tscn")
+
+
+onready var shortcutImage = $Shortcut_upArrow
 #onready var points = $Points
 
 export(NodePath) var scoreInfoManager
@@ -10,18 +12,19 @@ var QOLPoints setget set_QOLPoints, get_QOLPoints
 
 var isShowingSkills = false setget set_isShowingSkills, get_isShowingSkills
 
-var houseButton = preload("res://Fotos/HouseButton.png")
-var houseButtonSelected = preload("res://Fotos/HouseButtonSelected.png")
 
-var pointsButton = preload("res://Fotos/points.png")
-var pointsButtonSelected = preload("res://Fotos/points_selected.png")
+var status = "points" setget set_status, get_status
 
 
 signal show_skills()
 signal hide_mapButton(bol)
 
 func _input(event):
-	if event.is_action_pressed("Tab") and not disabled:
+	if not disabled:
+		if event.is_action_pressed("UpArrow") and get_status() == "points":
+			emit_signal("button_down")
+			emit_signal("pressed")
+		elif event.is_action_pressed("DownArrow") and get_status() == "house":
 			emit_signal("button_down")
 			emit_signal("pressed")
 
@@ -32,6 +35,7 @@ func show_skillScreen(orig):
 	var root_node = get_node("/root") 
 	
 	set_isShowingSkills(true)
+	var skillScreen = load("res://UI/SkillScreen/SkillScreen.tscn")
 	var skillScreen_node = skillScreen.instance()
 	
 #	if orig == "Final":
@@ -51,6 +55,15 @@ func show_skillScreen(orig):
 	
 	
 func change_to_house_button(bol):
+	
+	var houseButton = load("res://Fotos/HouseButton.png")
+	var houseButtonSelected = load("res://Fotos/HouseButtonSelected.png")
+
+	var upArrow = load("res://Assets/Keyboard/Tiles/tile_0438.png")
+	var downArrow = load("res://Assets/Keyboard/Tiles/tile_0440.png")
+
+	var pointsButton = load("res://Fotos/ScoreButton.png")
+	var pointsButtonSelected = load("res://Fotos/ScoreButton_selected.png")
 	if bol:
 
 		#self.set_pressed(false)
@@ -58,11 +71,15 @@ func change_to_house_button(bol):
 		#self.set_focused_texture(houseButtonSelected)
 		self.set_hover_texture(houseButtonSelected)
 		self.set_normal_texture(houseButton)
+		#shortcutImage.get_shortcut().set_texture(downArrow)
+		#set_status("house")
 	else:
 		self.set_normal_texture(pointsButton)
 		self.set_pressed_texture(pointsButtonSelected)
 		#self.set_focused_texture(pointsButtonSelected)
 		self.set_hover_texture(pointsButtonSelected)
+		#shortcutImage.get_shortcut().set_texture(upArrow)
+		#set_status("points")
 	
 func set_CFPoints(p):
 	CFPoints = p
@@ -84,6 +101,9 @@ func get_QOLPoints():
 #			points.set("custom_colors/font_color", Color8(228, 99, 14, 255))
 #		else:
 #			points.set("custom_colors/font_color", Color8(241, 161, 109, 255))
+
+func teste():
+	print("hello")
 
 	
 	
@@ -113,6 +133,15 @@ func set_isShowingSkills(bol):
 	
 func get_isShowingSkills():
 	return isShowingSkills
+	
+func set_status(s):
+	status = s
+	
+func get_status():
+	return status
+
+
+
 
 
 

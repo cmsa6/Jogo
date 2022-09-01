@@ -16,7 +16,6 @@ func _ready():
 	display_cards(SettingsManager.language)
 			
 func display_cards(language):
-	print("im on the display")
 	var dir = Directory.new()
 	var mapZone = translate_zone(get_zone())
 	#var directoryPath = "res://Cards/" + language + "/" + mapZone
@@ -27,7 +26,6 @@ func display_cards(language):
 		while file_name != "":
 			if not file_name.begins_with("."):
 				var pathToFile = directoryPath + "/" + file_name
-				print("here it works" , pathToFile)
 				var file = File.new()
 				file.open(pathToFile, File.READ)
 				var content = file.get_as_text()
@@ -97,12 +95,11 @@ func populateCard(cardInstance, content, file_name):
 	
 	#var imagePath = "res://Cards/" + SettingsManager.language + "/Photos/" + name +  ".png"
 	var imagePath = "user://Cards/" + SettingsManager.language + "/photos/" + name +  ".png"
-	print("imagePath: ", imagePath)
+
 	#print("path da imagem: ", imagePath)
 	
-	print("name: ", name)
+	
 	if "extra" in name:
-		print(" im differemtttt: ", imagePath)
 		var file = File.new()
 		file.open(imagePath, File.READ)
 		var buffer = file.get_buffer(file.get_len())

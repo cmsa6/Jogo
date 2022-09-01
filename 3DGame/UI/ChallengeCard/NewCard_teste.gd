@@ -46,8 +46,6 @@ func _ready():
 	
 	
 	for f in files:
-		#var f_withoutSapces = f.replace(" ","")
-		#fprint(f_withoutSapces)
 		if imageName in f:			
 			var imagePath = "res://Cards/en/Photos/" + imageName +".png"
 			var imagePhoto = load(imagePath)

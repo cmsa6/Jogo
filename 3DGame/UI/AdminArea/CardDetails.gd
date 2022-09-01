@@ -54,12 +54,12 @@ func submit():
 	if check_fields():	
 		var fileId = 0
 		if get_origin() == "edit":
-			print("============================")
+#			print("============================")
 			var fileName = get_fileToOpen()
 			print("im editing this file ", fileName)
 			var nameWithoutExtension = fileName.get_basename()
-			print(fileName.get_extension())
-			print(nameWithoutExtension)
+#			print(fileName.get_extension())
+#			print(nameWithoutExtension)
 			fileId =  nameWithoutExtension.split("\/")[-1]
 			print(fileId)
 
@@ -84,12 +84,12 @@ func submit():
 		var skill = check_skill(id) 
 		
 		var skillTranslated = translator.translate_skill(id)
-		print(skillTranslated)
-		print(skill)
+#		print(skillTranslated)
+#		print(skill)
 
 		#var pathToFile = "user://Cards/" + SettingsManager.language + "/" + zone + "/" + str(fileId) + ".tres"
 		var pathToFile = "user://Cards/" + SettingsManager.language + "/" + zone  +  "/" + str(fileId) + ".tres"
-		print("saving new file at ", pathToFile)
+#		print("saving new file at ", pathToFile)
 		var file = File.new()
 		file.open(pathToFile, File.WRITE)
 		file.store_string("TITULO|" + cardTitle + "|\n")
@@ -211,7 +211,6 @@ func check_skill(id):
 		13: return "Social and Emotional Wellbeing"
 		
 func check_skill_id(skill):
-	print("im editing a card with the skill: ", skill)
 	if "NA" == skill:
 		return 0
 	elif "Interpersonal Relationship"     == skill: return 1
@@ -293,8 +292,6 @@ func check_selected_image():
 	var image = get_imageSelected()
 	#var extension = image.split(".")
 	var extension = image.get_extension()
-	print("image: ",image)
-	print(extension)
 	#if image == "NA" or len(extension) == 0 or extension[-1] != "png":
 	if image == "NA" or extension == "" or extension != "png":
 		imageAsteric.set("custom_colors/font_color", Color8(255,0,0,255))
@@ -372,7 +369,6 @@ func read_content(fileName):
 	
 func fillOutCardDetails(content):
 	title.text       = content[1]
-	print(content[3].length())
 	explanation.text = content[3]
 	score.text       = content[7]
 	availableSkills.selected = check_skill_id(content[9])

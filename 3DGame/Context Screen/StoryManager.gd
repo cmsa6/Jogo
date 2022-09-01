@@ -25,6 +25,8 @@ func show_next(currentID):
 	elif story4.visible == false:
 		story4.visible = true
 	else:
+		if "Second" in get_parent().get_name():
+			MusicAudioManager.fade_out_music()
 		emit_signal("show_map")
 	
 #	print(currentID)

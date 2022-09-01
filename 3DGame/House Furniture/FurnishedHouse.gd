@@ -17,6 +17,7 @@ onready var pointsBar = $CanvasLayer/Control/VBoxContainer2/PointsBar
 
 onready var scoreInfoManager = $CanvasLayer/Control/ScoreInfoManager
 
+onready var audio = $AudioFeedback4
 
 
 
@@ -30,6 +31,7 @@ var origin setget set_origin, get_origin
 onready var players = SettingsManager.players
 
 onready var lattestReward setget set_lattestReward, get_lattestReward
+var play = false setget set_play, get_play
 
 
 
@@ -38,6 +40,8 @@ func _ready():
 	
 	var parentName = get_parent().name
 	if not "Final" in parentName:
+		if get_play():
+			audio.play(0)
 		#mapButton.set_screenOrigin(get_origin())
 		newMapButton.set_screenOrigin(get_origin())
 		
@@ -160,6 +164,15 @@ func hide_extra_info():
 	
 #func get_pointsBar_object():
 #	return pointsBar
+
+func play_audio():
+	set_play(true)
 	
+	
+func set_play(bol):
+	play = bol
+	
+func get_play():
+	return play
 	
 

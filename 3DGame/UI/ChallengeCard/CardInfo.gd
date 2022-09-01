@@ -41,7 +41,7 @@ func _ready():
 
 		dir.list_dir_end()
 		
-		print(files)
+		
 		
 
 
@@ -55,7 +55,7 @@ func _ready():
 		#var imageName = card_info[1] 
 		var teste = get_cardId()
 		var imageName = get_cardId().split(".")[0]
-		print("image name:", imageName)
+		
 		#imageName = imageName.replace(" ","")
 
 		

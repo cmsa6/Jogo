@@ -69,9 +69,7 @@ func get_nameOfFile():
 
 func check_erase_challenge():
 	var fileName = get_file_name()[1]
-	print(fileName)
 	confirmationPopup.dialog_text = confirmationPopup.dialog_text + "\"" + fileName + "\"?"
-	print(confirmationPopup.dialog_text)
 	confirmationPopup.popup()
 	
 	
@@ -79,7 +77,6 @@ func erase_challenge():
 	var dir = Directory.new()
 	#var challengePath = "res://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + title.text + ".tres"
 	var challengePath = "user://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_nameOfFile()) + ".tres"
-	print(challengePath)
 	#ChallengesManager.remove_card(get_id())
 		
 	dir.remove(challengePath)
@@ -104,10 +101,8 @@ func edit_card():
 	var cardPreview = load("res://UI/AdminArea/CardDetails.tscn")
 	var cardInstance = cardPreview.instance()
 	cardInstance.set_origin("edit")
-	print(get_nameOfFile())
 	var filePath = "user://Cards/" + SettingsManager.language + "/" + get_zone() + "/" + str(get_nameOfFile()) + ".tres"
 	cardInstance.set_fileToOpen(filePath)
-	print("editing file ", filePath)
 	root_node.add_child(cardInstance)
 	
 func get_file_name():

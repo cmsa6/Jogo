@@ -19,7 +19,7 @@ func _input(event):
 
 		
 func back_to_map():
-	print("exiting to map")
+	#("exiting to map")
 		
 	var rootNode = get_node("/root")
 	

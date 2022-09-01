@@ -96,10 +96,10 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-margin_top = 153.0
+margin_top = 161.0
 margin_right = 1024.0
-margin_bottom = 427.0
-size_flags_vertical = 2
+margin_bottom = 435.0
+size_flags_vertical = 6
 size_flags_stretch_ratio = 2.97
 columns = 5
 
@@ -161,7 +161,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 overlay = NodePath("../Overlay_en")
-button = NodePath("../../../../../ConfirmButton")
+button = NodePath("../../../../ConfirmButton")
 translator = NodePath("../../../../../TranslationManager")
 languageId = 1
 
@@ -232,7 +232,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 overlay = NodePath("../Overlay_es")
-button = NodePath("../../../../../ConfirmButton")
+button = NodePath("../../../../ConfirmButton")
 translator = NodePath("../../../../../TranslationManager")
 languageId = 2
 
@@ -299,7 +299,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 overlay = NodePath("../Overlay_el")
-button = NodePath("../../../../../ConfirmButton")
+button = NodePath("../../../../ConfirmButton")
 translator = NodePath("../../../../../TranslationManager")
 languageId = 3
 
@@ -370,7 +370,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 overlay = NodePath("../Overlay_it")
-button = NodePath("../../../../../ConfirmButton")
+button = NodePath("../../../../ConfirmButton")
 translator = NodePath("../../../../../TranslationManager")
 languageId = 4
 
@@ -441,7 +441,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 overlay = NodePath("../Overlay_pt")
-button = NodePath("../../../../../ConfirmButton")
+button = NodePath("../../../../ConfirmButton")
 translator = NodePath("../../../../../TranslationManager")
 languageId = 5
 
@@ -453,15 +453,15 @@ margin_right = 115.0
 margin_bottom = 274.0
 texture = ExtResource( 18 )
 
-[node name="ConfirmButton" type="TextureButton" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -127.0
-margin_bottom = -3.0
+[node name="ConfirmButton" type="TextureButton" parent="VBoxContainer"]
+margin_left = 924.0
+margin_top = 478.0
+margin_right = 1024.0
+margin_bottom = 598.0
+rect_min_size = Vector2( 100, 120 )
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
 texture_normal = ExtResource( 7 )
 script = ExtResource( 10 )
 __meta__ = {
@@ -469,15 +469,15 @@ __meta__ = {
 }
 initialScene = "res://UI/InitialScreen/InitialScreenWithIcon.tscn"
 
-[node name="Shortcut_rightArrow" parent="ConfirmButton" instance=ExtResource( 20 )]
+[node name="Shortcut_rightArrow" parent="VBoxContainer/ConfirmButton" instance=ExtResource( 20 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -12.5
-margin_top = -35.0
+margin_top = -25.0
 margin_right = 12.5
-margin_bottom = -10.0
+margin_bottom = 0.0
 
 [node name="TranslationManager" parent="." instance=ExtResource( 8 )]
 script = ExtResource( 9 )
@@ -488,44 +488,44 @@ instructionsNode = NodePath("../VBoxContainer/ColorRect/Label")
 [connection signal="button_down" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="UISoundManager" method="select"]
 [connection signal="mouse_entered" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="select"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="select"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
 [connection signal="button_down" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="UISoundManager" method="select"]
 [connection signal="mouse_entered" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="select"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="select"]
 [connection signal="button_down" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="UISoundManager" method="select"]
 [connection signal="mouse_entered" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="select"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
 [connection signal="button_down" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="UISoundManager" method="select"]
 [connection signal="mouse_entered" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="select"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
 [connection signal="button_down" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="UISoundManager" method="select"]
 [connection signal="mouse_entered" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer3/TextureRect2/el" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer4/TextureRect2/it" method="unselect"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" method="select"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer/TextureRect2/en" method="unselect"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/VBoxContainer5/TextureRect2/pt" to="VBoxContainer/GridContainer/VBoxContainer2/TextureRect2/es" method="unselect"]
-[connection signal="button_down" from="ConfirmButton" to="UISoundManager" method="confirm"]
-[connection signal="pressed" from="ConfirmButton" to="ConfirmButton" method="save_languageSelected"]
+[connection signal="button_down" from="VBoxContainer/ConfirmButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="VBoxContainer/ConfirmButton" to="VBoxContainer/ConfirmButton" method="save_languageSelected"]
 
 [editable path="VBoxContainer/GridContainer/VBoxContainer/Shortcut"]

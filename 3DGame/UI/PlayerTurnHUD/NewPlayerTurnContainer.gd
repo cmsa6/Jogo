@@ -13,8 +13,8 @@ onready var turnBack = $TurnBackground
 onready var diceButton = $TurnBackground/VBoxContainer/DiceButton
 onready var houseButton = $CenterContainer/Button
 
-onready var star1 = $HBoxContainer/Star1
-onready var star2 = $HBoxContainer/Star2
+onready var star1 = $CenterContainer/Star1
+#onready var star2 = $HBoxContainer/Star2
 
 onready var anim = $HBoxContainer/AnimationPlayer
 
@@ -101,9 +101,9 @@ func EnablePLayerButton():
 		houseButton.disabled = false
 		
 func show_stars():
-	#anim.play("Win")
+	anim.play("Show star")
 	star1.visible = true
-	star2.visible = true
+	#star2.visible = true
 
 func change_progress_colors(role):
 	playerProgress.change_colors(role)
@@ -112,3 +112,10 @@ func change_progress_colors(role):
 func show_icon(bol):
 	icon.visible = bol
 	
+
+
+func hide_star():
+	star1.visible = false
+	
+func show_star():
+	star1.visible = true

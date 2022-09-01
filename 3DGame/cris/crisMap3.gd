@@ -10,4 +10,5 @@ extends Spatial
 func _ready():
 	#AudioManager.stream_paused = true
 	
-	MusicAudioManager.fade_out_music()
+	#MusicAudioManager.fade_out_music()
+	pass

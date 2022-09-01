@@ -151,7 +151,7 @@ func get_skillReceived():
 	
 func set_skillTranslatedReceived(s):
 	skillTranslatedReceived = s
-	print(s)
+	#print(s)
 	
 func get_skillTranslatedReceived():
 	return skillTranslatedReceived
@@ -226,8 +226,8 @@ func enable_zoom():
 func go_back_to_menu():
 	var root_node = get_node("/root")
 	var children = root_node.get_children()
-	for child in children:
-		print(child.get_name())
+	#for child in children:
+	#	print(child.get_name())
 	get_tree().change_scene("res://UI/AdminArea/CardManager.tscn")
 	
 	

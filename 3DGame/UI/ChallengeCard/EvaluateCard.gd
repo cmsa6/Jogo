@@ -203,6 +203,7 @@ func show_house(reward):
 	
 	var house = houseScene.instance()
 	house.set_lattestReward(reward)
+	house.play_audio()
 	rootNode.add_child(house)
 	rootNode.move_child(house,0)
 	

@@ -39,7 +39,6 @@ func register_cards(folder):
 			
 			array.append(file)
 			
-	print(array)
 
 			
 
@@ -48,7 +47,7 @@ func register_cards(folder):
 		
 func set_lastId(id):
 	lastId = id
-	print("o lastid foi mudado para ", id)
+	
 	
 func get_lastId():
 	return lastId

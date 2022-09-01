@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://House Furniture/Extras/WoodFloorOffice.tscn" type="PackedScene" id=1]
 [ext_resource path="res://House Furniture/Table.tscn" type="PackedScene" id=2]
@@ -43,11 +43,12 @@
 [ext_resource path="res://House Furniture/Extras/Plaster001_1K_NormalDX.jpg" type="Texture" id=41]
 [ext_resource path="res://House Furniture/Extras/LivingRoomWall.tscn" type="PackedScene" id=42]
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=43]
-[ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=44]
+[ext_resource path="res://UI/Keyboard/Shortcut_upArrow.tscn" type="PackedScene" id=44]
 [ext_resource path="res://House Furniture/TranslationManager.gd" type="Script" id=45]
-[ext_resource path="res://Fotos/points.png" type="Texture" id=46]
-[ext_resource path="res://Fotos/points_selected.png" type="Texture" id=47]
+[ext_resource path="res://Fotos/ScoreButton.png" type="Texture" id=46]
+[ext_resource path="res://Fotos/scoreButton_selected.png" type="Texture" id=47]
 [ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=48]
+[ext_resource path="res://UI/Keyboard/Shortcut_upArrow.gd" type="Script" id=49]
 [ext_resource path="res://Fotos/Enter_disabled2.png" type="Texture" id=50]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -55,6 +56,7 @@
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
+background_sky_custom_fov = 155.4
 background_energy = 1.2
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 1.5
@@ -617,6 +619,8 @@ transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -719,15 +723,16 @@ stretch_mode = 4
 script = ExtResource( 31 )
 scoreInfoManager = NodePath("../../ScoreInfoManager")
 
-[node name="Tab" parent="CanvasLayer/Control/VBoxContainer2/PointsBar" instance=ExtResource( 44 )]
+[node name="Shortcut_upArrow" parent="CanvasLayer/Control/VBoxContainer2/PointsBar" instance=ExtResource( 44 )]
 anchor_left = 0.5
-anchor_top = 1.169
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.169
-margin_left = -5.5
-margin_top = -6.985
-margin_right = 13.5
-margin_bottom = 7.015
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = 1.0
+margin_right = 12.5
+margin_bottom = 26.0
+script = ExtResource( 49 )
 
 [node name="ScoreInfoManager" type="HBoxContainer" parent="CanvasLayer/Control"]
 anchor_top = 1.0
@@ -1083,7 +1088,7 @@ mesh = SubResource( 21 )
 material/0 = SubResource( 19 )
 
 [node name="MeshInstance15" type="MeshInstance" parent="Outdoors/Spatial4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -290.107 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -169.691 )
 mesh = SubResource( 21 )
 material/0 = SubResource( 19 )
 
@@ -1093,7 +1098,7 @@ mesh = SubResource( 22 )
 material/0 = SubResource( 19 )
 
 [node name="MeshInstance16" type="MeshInstance" parent="Outdoors/Spatial4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -197.977, 0, -190.426 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -298.339, 0, -169.913 )
 mesh = SubResource( 21 )
 material/0 = SubResource( 19 )
 
@@ -1102,8 +1107,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -190.076, 0, -111.099 )
 mesh = SubResource( 21 )
 material/0 = SubResource( 19 )
 
+[node name="MeshInstance20" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -190.076, 0, -73.2047 )
+mesh = SubResource( 21 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance21" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -289.508, 0, -73.2047 )
+mesh = SubResource( 21 )
+material/0 = SubResource( 19 )
+
+[node name="MeshInstance22" type="MeshInstance" parent="Outdoors/Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -390.119, 0, -73.2047 )
+mesh = SubResource( 21 )
+material/0 = SubResource( 19 )
+
 [node name="MeshInstance17" type="MeshInstance" parent="Outdoors/Spatial4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -288.29, 0, -191.19 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -401.217, 0, -170.779 )
 mesh = SubResource( 21 )
 material/0 = SubResource( 19 )
 
@@ -1187,41 +1207,61 @@ mesh = SubResource( 23 )
 material/0 = SubResource( 24 )
 
 [node name="Forest" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0 )
 
 [node name="Tree A" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -95.0509, 49.5193, -52.9474 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -95.051, 5, -52.947 )
 
 [node name="Tree A2" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -78.4851, 49.5193, -82.0789 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -78.4851, 5, -82.0789 )
+
+[node name="Tree A12" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -121.361, 5, -82.0789 )
+
+[node name="Tree A16" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -152.732, 5, -82.0789 )
+
+[node name="Tree A13" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -95.485, 5, -111.033 )
+
+[node name="Tree A14" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 202.953, 5, -111.033 )
+
+[node name="Tree A15" parent="Forest" instance=ExtResource( 28 )]
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 250.433, 5, -140.676 )
 
 [node name="Tree A3" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -41.8308, 49.5193, -103.057 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -41.8308, 5, -103.057 )
 
 [node name="Tree A4" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -5.54637, 49.5193, -122.537 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -5.54637, 5, -122.537 )
 
 [node name="Tree A5" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 50.9588, 49.5193, -122.537 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 50.9588, 5, -122.537 )
 
 [node name="Tree A6" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 109.12, 49.5193, -122.537 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 109.12, 5, -122.537 )
 
 [node name="Tree A7" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 163.642, 49.5193, -122.537 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 163.642, 5, -122.537 )
 
 [node name="Tree A11" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 120.569, 49.5193, -46.1099 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 120.569, 5, -46.1099 )
 
 [node name="Tree A8" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 135.49, 49.5193, -145.622 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 135.49, 5, -145.622 )
 
 [node name="Tree A9" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.1438, 49.5193, -156.594 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, 75.1438, 5, -156.594 )
 
 [node name="Tree A10" parent="Forest" instance=ExtResource( 28 )]
-transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 49.5193, -126.858 )
+transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33.4077, 5, -126.858 )
 
 [node name="UISoundManager" parent="." instance=ExtResource( 43 )]
+
+[node name="AudioFeedback4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+volume_db = 5.0
 
 [connection signal="button_down" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="UISoundManager" method="select"]
 [connection signal="hide_mapButton" from="CanvasLayer/Control/VBoxContainer2/PointsBar" to="CanvasLayer/Control/ScoreInfoManager/NewMapButton" method="disable_and_hide"]
@@ -1231,6 +1271,7 @@ transform = Transform( 7, 0, 0, 0, -1.00421, 6.92759, 0, -6.92759, -1.00421, -33
 [connection signal="pressed" from="CanvasLayer/Control/ScoreInfoManager/NewMapButton" to="CanvasLayer/Control/ScoreInfoManager/NewMapButton" method="back_to_map"]
 
 [editable path="Bed"]
+[editable path="CanvasLayer/Control/VBoxContainer2/PointsBar/Shortcut_upArrow"]
 [editable path="Kitchen/Window"]
 [editable path="Bedrooom/BedroomWall"]
 [editable path="Bedrooom/FrontDoor2"]

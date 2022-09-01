@@ -32,7 +32,7 @@ func stand_out_object(origin):
 	if origin != "Map":
 		light.visible = true
 		
-		audio.play(0)
+		#audio.play(0)
 		anim.play("blink")
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/PlayerTurnHUD/DiceButton.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Fotos/star.png" type="Texture" id=18]
 [ext_resource path="res://Fotos/turnContainerBackground_lighter.png" type="Texture" id=19]
+[ext_resource path="res://Fotos/star_teste.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -27,11 +28,27 @@ outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 2
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "Show star"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CenterContainer/Star1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "Win"
 length = 3.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Star1:modulate")
+tracks/0/path = NodePath("../CenterContainer/Star1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -43,7 +60,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Star1:rect_position")
+tracks/1/path = NodePath("../CenterContainer/Star1:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -78,12 +95,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ) ]
 }
-
-[sub_resource type="DynamicFont" id=3]
-size = 15
-outline_size = 1
-extra_spacing_char = 2
-font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFontData" id=4]
 font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
@@ -193,7 +204,7 @@ tracks/1/keys = {
 [node name="NewPlayerContainer" type="VBoxContainer"]
 margin_top = 2.0
 margin_right = 175.0
-margin_bottom = 292.0
+margin_bottom = 316.0
 rect_min_size = Vector2( 175, 290 )
 size_flags_horizontal = 6
 custom_constants/separation = -4
@@ -208,22 +219,11 @@ turn = NodePath("../TurnBackground/VBoxContainer/Turn")
 objects = NodePath("../HBoxContainer/Objects")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 7.0
 margin_right = 175.0
-margin_bottom = 22.0
+margin_bottom = 29.0
 size_flags_vertical = 6
 custom_constants/separation = -33
-
-[node name="Star1" type="TextureRect" parent="HBoxContainer"]
-visible = false
-margin_left = 9.0
-margin_top = 3.0
-margin_right = 24.0
-margin_bottom = 18.0
-rect_min_size = Vector2( 15, 15 )
-size_flags_horizontal = 6
-size_flags_vertical = 6
-texture = ExtResource( 18 )
-expand = true
 
 [node name="Objects" type="Label" parent="HBoxContainer"]
 margin_right = 175.0
@@ -240,10 +240,10 @@ autowrap = true
 
 [node name="Star2" type="TextureRect" parent="HBoxContainer"]
 visible = false
-margin_left = 151.0
-margin_top = 3.0
-margin_right = 166.0
-margin_bottom = 18.0
+margin_left = 256.0
+margin_top = 26.954
+margin_right = 271.0
+margin_bottom = 41.954
 rect_min_size = Vector2( 15, 15 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -251,25 +251,13 @@ texture = ExtResource( 18 )
 expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer"]
+"anims/Show star" = SubResource( 12 )
 anims/Win = SubResource( 2 )
 
-[node name="Objects" type="Label" parent="."]
-visible = false
-margin_top = 46.0
-margin_right = 211.0
-margin_bottom = 64.0
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "x / 8 Objects"
-align = 1
-valign = 1
-autowrap = true
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_top = 18.0
+margin_top = 32.0
 margin_right = 175.0
-margin_bottom = 114.0
+margin_bottom = 128.0
 rect_min_size = Vector2( 70, 70 )
 
 [node name="Icon" type="TextureRect" parent="CenterContainer"]
@@ -319,11 +307,26 @@ texture_hover = ExtResource( 5 )
 expand = true
 script = ExtResource( 14 )
 
+[node name="Star1" type="TextureRect" parent="CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 62.0
+margin_top = 23.0
+margin_right = 112.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 50, 50 )
+rect_clip_content = true
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.58
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 1
+
 [node name="TurnBackground" type="TextureRect" parent="."]
 margin_left = 17.0
-margin_top = 110.0
+margin_top = 124.0
 margin_right = 157.0
-margin_bottom = 300.0
+margin_bottom = 314.0
 rect_min_size = Vector2( 140, 190 )
 size_flags_horizontal = 6
 texture = ExtResource( 19 )
@@ -402,6 +405,9 @@ margin_bottom = 21.0
 
 [node name="UISoundManager" parent="." instance=ExtResource( 17 )]
 
+[connection signal="button_down" from="CenterContainer/Button" to="UISoundManager" method="confirm"]
+[connection signal="mouse_entered" from="CenterContainer/Button" to="." method="hide_star"]
+[connection signal="mouse_exited" from="CenterContainer/Button" to="." method="show_star"]
 [connection signal="pressed" from="CenterContainer/Button" to="CenterContainer/Button" method="show_house"]
 [connection signal="button_down" from="TurnBackground/VBoxContainer/DiceButton" to="UISoundManager" method="select"]
 [connection signal="mouse_entered" from="TurnBackground/VBoxContainer/DiceButton" to="TurnBackground/VBoxContainer/DiceButton" method="_on_DiceButton_mouse_entered"]
