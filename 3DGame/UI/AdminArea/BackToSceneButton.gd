@@ -3,10 +3,10 @@ extends TextureButton
 export(String, FILE) var previousScene
 
 func _input(event):
-	#if event.is_action_pressed("RightArrow"):
-		#emit_signal("button_down")
-		#initiate_game()
-	pass		
+	if event.is_action_pressed("RightArrow"):
+		emit_signal("button_down")
+		initiate_game()
+		
 		
 
 func _on_BackToSceneButton_pressed():

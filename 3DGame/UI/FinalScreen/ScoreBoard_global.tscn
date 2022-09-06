@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://GameFonts/Righteous/Righteous-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/SkillScreen/qol.png" type="Texture" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Cards/Skills/thinking.png" type="Texture" id=23]
 [ext_resource path="res://Cards/Skills/balance.png" type="Texture" id=24]
 [ext_resource path="res://UI/FinalScreen/Details.gd" type="Script" id=25]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Languages/TranslationManager.gd" type="Script" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
@@ -726,6 +728,11 @@ margin_right = 7.5
 margin_bottom = 7.501
 rect_min_size = Vector2( 15, 15 )
 texture = ExtResource( 22 )
+
+[node name="TranslationManager" parent="." instance=ExtResource( 26 )]
+script = ExtResource( 27 )
+qolPointsNode = NodePath("../ColorRect/VBoxContainer/Skills/QOL/TotalQOL")
+cfPointsNode = NodePath("../ColorRect/VBoxContainer/Skills/CF/TotalCF")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Details" to="ColorRect/VBoxContainer/Details" method="show_in_detail"]
 

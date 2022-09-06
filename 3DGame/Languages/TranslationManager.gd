@@ -1,16 +1,36 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(NodePath) var qolPointsNode
+export(NodePath) var cfPointsNode
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func translate(qolPoints, cfPoints):
+	var qolPointsText  = get_node(qolPointsNode)
+	var cfPointsText   = get_node(cfPointsNode)
+	
+	var language = SettingsManager.language
+	
+	if language == "el":
+		qolPointsText.text = str(qolPoints) + " Πόντοι"
+		cfPointsText.text  = str(cfPoints) + " Πόντοι"
+		
 
+		
+	elif language == "es":
+		qolPointsText.text = str(qolPoints) + " PUNTOS"
+		cfPointsText.text  = str(cfPoints) + " PUNTOS"
+		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	elif language == "it":
+		qolPointsText.text = str(qolPoints) + " PUNTI"
+		cfPointsText.text  = str(cfPoints) + " PUNTI"
+		
+	
+	elif language == "pt":
+		qolPointsText.text  = str(qolPoints) + " PONTOS"
+		cfPointsText.text  = str(cfPoints) + " PONTOS"
+		
+	elif language == "en":
+		qolPointsText.text  = str(qolPoints) + " POINTS"
+		cfPointsText.text  = str(cfPoints) + " POINTS"
+		

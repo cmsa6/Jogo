@@ -9,8 +9,11 @@ onready var cf = $ColorRect/VBoxContainer/Skills/CF/TotalCF
 
 onready var details = $ColorRect/VBoxContainer/Details
 
+onready var translator = $TranslationManager
+
 
 func set_up(playerID):
+	print("fiz set_up")
 	var playerQOL = SavingManager.playersQOLSkills[playerID]
 	var playerCF = SavingManager.playersCFSkills[playerID]
 	details.set_playerID(playerID)
@@ -36,11 +39,13 @@ func set_up(playerID):
 	
 	for v in qolValues:
 		qolTotal += v
-	qol.text = str(qolTotal) + cf.text 
+	#qol.text = str(qolTotal) + cf.text 
 		
 	for v in cfValues:
 		cfTotal += v	
-	cf.text = str(cfTotal) + cf.text 
+	#cf.text = str(cfTotal) + cf.text 
+	
+	translator.translate(qolTotal, cfTotal)
 
 	
 	

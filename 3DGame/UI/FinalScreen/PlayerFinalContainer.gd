@@ -37,6 +37,7 @@ func show_houses(playerFurniture, playerID):
 	var numObjs = check_objects(playerFurniture)
 	#numObjects.text = str(numObjs) + " OBJECTS"
 	#numPoints.text = str(SavingManager.playersSkillScores[playerID]) + " POINTS"
+	
 	translator.translate_total(str(numObjs), str(SavingManager.playersSkillScores[playerID]))
 	
 	

@@ -65,6 +65,7 @@ func hide_turn():
 
 
 func hide_agency():
+	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
 	#diceButton.disappear()
 	#button.disabled = true
 	houseButton.disabled = true
@@ -81,6 +82,7 @@ func hide_agency():
 	
 func show_agency():
 	EnablePLayerButton()
+	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	#diceButton.visible = true
 	diceButton.disabled = false
 	diceButton.modulate = VISIBLE
@@ -100,6 +102,8 @@ func EnablePLayerButton():
 		#button.disabled = false
 		houseButton.disabled = false
 		
+		
+		
 func show_stars():
 	anim.play("Show star")
 	star1.visible = true
@@ -111,11 +115,13 @@ func change_progress_colors(role):
 	
 func show_icon(bol):
 	icon.visible = bol
+
 	
 
 
 func hide_star():
-	star1.visible = false
+	if button.mouse_default_cursor_shape != 0:
+		star1.visible = false
 	
 func show_star():
 	star1.visible = true

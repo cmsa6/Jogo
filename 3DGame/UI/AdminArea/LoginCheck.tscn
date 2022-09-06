@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://UI/AdminArea/BackToSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://UI/AdminArea/BackToInitialSceneButton.gd" type="Script" id=1]
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=2]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=4]
 [ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=5]
@@ -201,7 +201,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-previousScene = "res://UI/InitialScreen/InitialScreenWithIcon.tscn"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 11 )]
 

@@ -347,6 +347,7 @@ custom_fonts/font = SubResource( 7 )
 
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse"]
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bed"]
+[editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/CanvasLayer/Control/VBoxContainer2/PointsBar/Shortcut_upArrow"]
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Kitchen/Window"]
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bedrooom/BedroomWall"]
 [editable path="Control/ViewportContainer/FinalViewport/FurnishedHouse/Bedrooom/FrontDoor2"]

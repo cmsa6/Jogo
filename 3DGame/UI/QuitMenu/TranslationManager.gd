@@ -1,50 +1,57 @@
 extends Node
 
 
-export(NodePath) var instructions
+export(NodePath) var instructionsQuitNode
+export(NodePath) var instructionsCongratsNode
 
 
 func _ready():
 	translate(SettingsManager.language)
 	
 func translate(language):
-	var instructionsText = get_node(instructions)
+	var instructionsQuit = get_node(instructionsQuitNode)
 
 
 	if language == "el":
-		instructionsText.text = "Θέλεις να σταματήσεις να παίζεις;"
+		instructionsQuit.text = "Θέλεις να σταματήσεις να παίζεις;"
 			
 	elif language == "es":
-		instructionsText.text = "¿Quieres terminar el juego?"
+		instructionsQuit.text = "¿Quieres terminar el juego?"
 
 		
 	elif language == "it":
-		instructionsText.text = "Vogliamo finire il gioco?"
+		instructionsQuit.text = "Vogliamo finire il gioco?"
 
 	
 	elif language == "pt":
-		instructionsText.text = "Queremos terminar o jogo?"
+		instructionsQuit.text = "Queremos terminar o jogo?"
 		
 	elif language == "en":
-		instructionsText.text = "Do we want to finish the game?"
+		instructionsQuit.text = "Do we want to finish the game?"
 		
 func translate_win(name):
 	var language = SettingsManager.language
-	var instructionsText = get_node(instructions)
+	var instructionsQuit     = get_node(instructionsQuitNode)
+	var instructionsCongrats = get_node(instructionsCongratsNode)
 
 	if language == "el": 
-		instructionsText.text = "Συγχαρητήρια " + name + "! Μόλις συμπλήρωσες όλα τα αντικειμενα στο σπίτι σου! Θέλεις να σταματήσεις να παίζεις;"
+		instructionsCongrats.text = "Συγχαρητήρια " + name + "!\nΜόλις συμπλήρωσες όλα τα αντικειμενα στο σπίτι σου!"
+		instructionsQuit.text     =  "Θέλεις να σταματήσεις να παίζεις;"
 			
 	elif language == "es":
-		instructionsText.text = "Enhorabuena " + name + "! Acabas de completar la casa! ¿Quieres terminar el juego?"
+		instructionsCongrats.text = "Enhorabuena " + name + "!\nAcabas de completar la casa!"
+		instructionsQuit.text     = "¿Quieres terminar el juego?"
 
 		
 	elif language == "it":  
-		instructionsText.text = "Congratulazioni " + name + "! Hai appena completato tua casa! Vogliamo finire il gioco?"
+		instructionsCongrats.text = "Congratulazioni " + name + "!\nHai appena completato tua casa!"
+		instructionsQuit.text     = "Vogliamo finire il gioco?"
 
 	
 	elif language == "pt":
-		instructionsText.text = "Parabéns " + name + "! Acabaste de completar tua casa! Queremos terminar o jogo agora?"
-
+		instructionsCongrats.text = "Parabéns " + name + "!\nAcabaste de completar tua casa!"
+		instructionsQuit.text     = "Queremos terminar o jogo agora?"
+		
 	elif language == "en":
-		instructionsText.text = "Congratulations "+ name + "! You just completed your house! Do we want to end the game now?"
+		instructionsCongrats.text = "Congratulations "+ name + "!\nYou just completed your house!"
+		instructionsQuit.text     = "Do we want to end the game now?"

@@ -1,10 +1,14 @@
 extends Spatial
 
 
-onready var players = $Control/QuitManager/QuitInfo/PlayersContainer
+onready var players    = $Control/QuitManager/QuitInfo/PlayersContainer
+onready var winningPlayer = $Control/CongratsScreen/QuitInfo/PlayersContainer
 onready var avatarName = $Control/QuitManager/QuitInfo/HBoxContainer/PlayerName
-onready var text = $Control/QuitManager/QuitInfo/Text
-onready var audio = $AudioStreamPlayer
+onready var text       = $Control/QuitManager/QuitInfo/Text
+onready var audio      = $AudioStreamPlayer
+
+onready var quitScreen     = $Control/QuitManager
+onready var congratsScreen = $Control/CongratsScreen
 
 onready var translator = $TranslationManager
 
@@ -31,10 +35,16 @@ func _ready():
 	if get_origin() == "Won":
 		audio.play(0)
 		translator.translate_win(name)
+		quitScreen.visible = false
+		congratsScreen.visible = true
+		var instance = iconScene.instance()
+		winningPlayer.add_child(instance)
+		instance.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
 		#var string = "Congratulations " + name + "! You just completed your house!! Do we want to end the game now?"
 		#text.text = string
 	
 	#avatar.set_texture(CharactersManager.get_character_icon(SettingsManager.players[current_player].character))
+	
 	var numPlayers = SettingsManager.num_of_players
 	for i in range(0, numPlayers):
 		var instance = iconScene.instance()
@@ -58,6 +68,10 @@ func set_origin(orig):
 func get_origin():
 	return origin
 	
+	
+func hide_congrats():
+	quitScreen.visible = true
+	congratsScreen.visible = false
 	
 	
 

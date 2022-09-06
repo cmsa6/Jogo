@@ -29,38 +29,38 @@ func translate(language):
 			
 	if language == "el":
 		qolText.text        = "ποιότητας ζωής"
-		qolPointsText.text  = " Πόντοι"
+		#qolPointsText.text  = " Πόντοι"
 		
 		cfText.text         = "Γνωστικές λειτουργίες"
-		qolPointsText.text  = " Πόντοι"
+		#qolPointsText.text  = " Πόντοι"
 		
 		seeDetailsText.text = "Δες λεπτομέρειες"
 		
 	elif language == "es":
 		qolText.text     = "Calidad de Vida"
-		qolPointsText.text = " PUNTOS"
+		#qolPointsText.text = " PUNTOS"
 		cfText.text      = "Funciones Cognitivas"
-		cfPointsText.text = " PUNTOS"
+		#cfPointsText.text = " PUNTOS"
 		
 		
 		seeDetailsText.text = "Ver detalles"
 		
 	elif language == "it":
 		qolText.text     = "Qualità di Vita"
-		qolPointsText.text = " PUNTI"
+		#qolPointsText.text = " PUNTI"
 		
 		cfText.text      = "Funzioni cognitive"
-		cfPointsText.text = " PUNTI"
+		#cfPointsText.text = " PUNTI"
 		
 		seeDetailsText.text = "Vedi dettagli"
 
 	
 	elif language == "pt":
 		qolText.text        = "Qualidade de Vida"
-		qolPointsText.text  = " PONTOS"
+		#qolPointsText.text  = " PONTOS"
 		
 		cfText.text         = "Funções Cognitivas"
-		qolPointsText.text  = " PONTOS"
+		#qolPointsText.text  = " PONTOS"
 		
 		seeDetailsText.text = "Ver Detalhes"
 

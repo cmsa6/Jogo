@@ -12,12 +12,12 @@ func translate(origin):
 	var language = SettingsManager.language
 	
 	if language == "el":
-		if origin == "edit": title.text = "Αυτή η κάρτα πρόκλησης επεξεργάστηκε με επιτυχία"
-		else: title.text = "Αυτή η κάρτα πρόκλησης δημιουργήθηκε με επιτυχία"
+		if origin == "edit": title.text = "Η επεξεργασία της κάρτας δοκιμασίας πραγματοποιήθηκε επιτυχώς"
+		else: title.text = "Η κάρτα δοκιμασίας δημιουργήθηκε επιτυχώς"
 		
 	if language == "es":
-		if origin == "edit": title.text = "Esta carta de desafío fue editada con éxito"
-		else: title.text = "Esta carta de desafío se creó con éxito"
+		if origin == "edit": title.text = "Esta cara de reto se ha editado exitosamennte"
+		else: title.text = "Esta carta de reto se ha creado exitosamente"
 		
 	if language == "it":
 		if origin == "edit": title.text = "Questa carta sfida è stata modificata con successo"

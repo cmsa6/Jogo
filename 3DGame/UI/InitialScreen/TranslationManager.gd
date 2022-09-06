@@ -13,11 +13,11 @@ func translate(language):
 	var instructions = get_node(instructionsNode)
 
 	if language == "el":
-		instructions.text = "επιλέξτε μια γλώσσα"
+		instructions.text = "Παρακαλώ επιλέξτε μια γλώσσα"
 		
 		
 	elif language == "es":
-		instructions.text = "Por favor, seleccione un idioma"
+		instructions.text = "Por favor, selecciona un idioma"
 		
 	
 	elif language == "it":

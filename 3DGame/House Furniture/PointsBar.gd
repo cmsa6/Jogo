@@ -71,15 +71,15 @@ func change_to_house_button(bol):
 		#self.set_focused_texture(houseButtonSelected)
 		self.set_hover_texture(houseButtonSelected)
 		self.set_normal_texture(houseButton)
-		#shortcutImage.get_shortcut().set_texture(downArrow)
-		#set_status("house")
+		shortcutImage.get_shortcut().set_texture(downArrow)
+		set_status("house")
 	else:
 		self.set_normal_texture(pointsButton)
 		self.set_pressed_texture(pointsButtonSelected)
 		#self.set_focused_texture(pointsButtonSelected)
 		self.set_hover_texture(pointsButtonSelected)
-		#shortcutImage.get_shortcut().set_texture(upArrow)
-		#set_status("points")
+		shortcutImage.get_shortcut().set_texture(upArrow)
+		set_status("points")
 	
 func set_CFPoints(p):
 	CFPoints = p

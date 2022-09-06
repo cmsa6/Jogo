@@ -18,11 +18,11 @@ func translate(language):
 	var dialogue     = get_node(dialogueNode)
 
 	if language == "el":
-		title.text = "Ιδιωτικός Χώρος"
+		title.text = "Ιδιωτικός χώρος"
 		username.placeholder_text = "όνομα χρήστη"
 		password.placeholder_text = "Κωδικός πρόσβασης"
-		dialogue.set_text("Το όνομα χρήστη και ο κωδικός πρόσβασης δεν ταιριάζουν, δοκιμάστε ξανά.\n\n\nΝα θυμάστε ότι αυτή η περιοχή προορίζεται για χρήση μόνο από επαγγελματίες.")
-		dialogue.window_title = "λάθος"
+		dialogue.set_text("Το όνομα χρήστη και ο κωδικός δεν ταιριάζουν, παρακαλώ προσπαθήστε ξανά.\n\n\nΠαρακαλώ θυμηθείτε οτι αυτή η περιοχή χρησιμοποιείται μόνο από επαγγελματίες.")
+		dialogue.window_title = "Σφάλμα"
 		
 		
 	elif language == "es":

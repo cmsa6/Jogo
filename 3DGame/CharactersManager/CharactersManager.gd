@@ -1,6 +1,6 @@
 extends Node
 
-const LEWIS_SCENE  = preload("res://Assets/new_characters/Lewis/Lewis.tscn")
+const LEWIS_SCENE  = preload("res://Assets/new_characters/newLewis/newlewis.tscn")
 const BRIAN_SCENE   = preload("res://Assets/new_characters/Brian/Brian.tscn")
 const JOSH_SCENE = preload("res://Assets/new_characters/Josh/Josh.tscn")
 const JODY_SCENE = preload("res://Assets/new_characters/Jody/Jody.tscn")
@@ -33,6 +33,7 @@ enum CHARACTERS {
 
 
 func get_character_scene(character):
+
 	match character:
 		CHARACTERS.LEWIS:
 			return LEWIS_SCENE

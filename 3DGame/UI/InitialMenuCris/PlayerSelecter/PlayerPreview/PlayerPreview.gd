@@ -38,7 +38,7 @@ func _on_new_character_selected(character):
 		# Make character Idle
 		var anim = instance.get_node("AnimationPlayer")
 		anim.play(CharactersManager.IDLE_ANIM)
-
+		
 func _on_PlayerSelecterContainer_player_turn_changed(new_player_turn):
 	delete_characters()
 	player_turn = new_player_turn

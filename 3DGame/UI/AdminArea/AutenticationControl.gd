@@ -32,7 +32,7 @@ func load():
 func check_cards_uid():
 	var files = []
 	var comemrcialDir = Directory.new()
-	var commercialPath = "res://Cards/" + SettingsManager.language + "/COMMERCIAL/"
+	var commercialPath = "user://Cards/" + SettingsManager.language + "/COMMERCIAL/"
 	comemrcialDir.open(commercialPath)
 	comemrcialDir.list_dir_begin()
 		
@@ -48,7 +48,7 @@ func check_cards_uid():
 	
 	
 	var servicesDir = Directory.new()
-	var servicesPath = "res://Cards/" + SettingsManager.language + "/SERVICES/"
+	var servicesPath = "user://Cards/" + SettingsManager.language + "/SERVICES/"
 	servicesDir.open(servicesPath)
 	servicesDir.list_dir_begin()
 		
@@ -64,7 +64,7 @@ func check_cards_uid():
 
 	
 	var helpDir = Directory.new()
-	var helpPath = "res://Cards/" + SettingsManager.language + "/HELP/"
+	var helpPath = "user://Cards/" + SettingsManager.language + "/HELP/"
 	helpDir.open(helpPath)
 	helpDir.list_dir_begin()
 		
@@ -80,7 +80,7 @@ func check_cards_uid():
 
 	
 	var leisureDir = Directory.new()
-	var leisurePath = "res://Cards/" + SettingsManager.language + "/LEISURE/"
+	var leisurePath = "user://Cards/" + SettingsManager.language + "/LEISURE/"
 	leisureDir.open(leisurePath)
 	leisureDir.list_dir_begin()
 		

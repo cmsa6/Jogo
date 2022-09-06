@@ -13,11 +13,12 @@ func translate(zone):
 	var zoneTranslated
 	
 	if language == "el":
-		zoneTranslated = translate_zone_el( zone)
-		title.text = "κάρτες πρόκλησης της " + zoneTranslated + " ζώνης της πόλης"
+		zoneTranslated = translate_zone_el(zone)
+		title.text = "Κάρτες δοκιμασιών που χρησιμοποιήθηκαν στην περιοχή της πόλης " + zoneTranslated
+		title.get("custom_fonts/font").set_size(25)
 		
 	elif language == "es":
-		zoneTranslated = translate_zone_es( zone)
+		zoneTranslated = translate_zone_es(zone)
 		title.text = "Cartas de desafío de la Zona " + zoneTranslated + " de la ciudad"
 		
 	elif language == "it":

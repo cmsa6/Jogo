@@ -34,19 +34,19 @@ func translate(language):
 	var title      = get_node(titleNode)
 	
 	if language == "el":
-		title.text = "Επιλέξτε μια τράπουλα με κάρτες πρόκλησης"
+		title.text = "Διαλέξτε την περιοχή της πόλης που θέλετε να επισκεφτείτε"
 		
-		blueZone.text = "Μπλε ζώνη"
+		blueZone.text = "Μπλε\nπεριοχή"
 		blueArea.text = "Περιοχή\nβοήθειας"
 		
-		orangeZone.text = "Πορτοκαλί ζώνη"
-		orangeArea.text = "Εμπορικός\nχώρος"
+		orangeZone.text = "Πορτοκαλί\nπεριοχή"
+		orangeArea.text = "Εμπορική\nπεριοχή"
 		
-		greenZone.text = "Πράσινη ζώνη"
+		greenZone.text = "Πράσινη\nπεριοχή"
 		greenArea.text = "Περιοχή\nυπηρεσιών"
 			
-		purpleZone.text = "Μωβ ζώνη"
-		purpleArea.text = "Χώρος\nαναψυχής"
+		purpleZone.text = "Μωβ\nπεριοχή"
+		purpleArea.text = "Περιοχή\nαναψυχής"
 		
 
 	
@@ -55,16 +55,16 @@ func translate(language):
 		title.text = "Elige una baraja de cartas de desafío"
 		
 		blueZone.text = "Zona Azul"
-		blueArea.text = "Área de Ayuda"
+		blueArea.text = "Área de Ayudas"
 		
 		orangeZone.text = "Zona Naranja"
-		orangeArea.text = "Area comercial"
+		orangeArea.text = "Área comercial"
 		
 		greenZone.text = "Zona Verde"
-		greenArea.text = "Area de Servicios"
+		greenArea.text = "Área de Servicios"
 			
 		purpleZone.text = "Zona Morada"
-		purpleArea.text = "Area de Ocio"
+		purpleArea.text = "Área de Ocio"
 		
 		
 		

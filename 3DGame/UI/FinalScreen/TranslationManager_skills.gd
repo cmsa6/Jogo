@@ -18,8 +18,6 @@ export(NodePath) var socialAndEmotionalWellbeing
 export(NodePath) var languageDevelopment
 export(NodePath) var spatialOrientation
 
-export(NodePath) var totalPoints
-
 
 
 
@@ -45,7 +43,7 @@ func translate(language):
 	var languageText                     =   get_node(languageDevelopment)
 	var spatialOrientationText           =   get_node(spatialOrientation)
 	
-	var totalPointsText                  =   get_node(totalPoints)
+
 			
 	if language == "el":
 		qolText.text                           = "Δεξιότητες ποιότητας ζωής"
@@ -65,8 +63,7 @@ func translate(language):
 		socialAndEmotionalWellbeingText.text   = "Κοινωνική και συναισθηματική ευεξία"
 		languageText.text                      = "Γλώσσα"
 		spatialOrientationText.text            = "Χωρικός\nπροσανατολισμός"
-		
-		totalPointsText.text                   = "Συνολικοί βαθμοί: "
+
 
 		
 	elif language == "es":
@@ -88,7 +85,7 @@ func translate(language):
 		languageText.text                      = "Lenguaje"
 		spatialOrientationText.text            = "Orientación\nEspacial"
 		
-		totalPoints.text                       = "Puntos totales: "
+	
 		
 	elif language == "it":
 		qolText.text                           = "Abilità in Qualità di Vita"
@@ -109,7 +106,7 @@ func translate(language):
 		languageText.text                      = "Linguaggio"
 		spatialOrientationText.text            = "Orientamento\nSpaziale"
 		
-		totalPoints.text                       = "punti totali: "
+		
 	
 	elif language == "pt":
 		qolText.text                           = "Capacidades de Qualidade de Vida"
@@ -130,7 +127,6 @@ func translate(language):
 		languageText.text                      = "Linguagem"
 		spatialOrientationText.text            = "Orientação\nEspacial"
 		
-		totalPoints.text                       = "Pontos totais: "
-		
+	
 		
 		

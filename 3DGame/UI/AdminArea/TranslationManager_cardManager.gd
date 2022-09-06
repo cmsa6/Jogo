@@ -18,16 +18,16 @@ func translate(language):
 
 
 	if language == "el":
-		title.text   = "πρόγραμμα επεξεργασίας καρτών πρόκλησης"
-		addCard.text = "προσθήκη κάρτας\nπρόκλησης"
-		menu.text    = "δείτε όλες τις κάρτες πρόκλησης"
+		title.text   = "Επεξεργαστής καρτών δοκιμασιών"
+		addCard.text = "Προσθέστε μιακάρτα\nδοκιμασίας"
+		menu.text    = "Δείτε όλες τις κάρτες δοκιμασιών"
 		
 		
 		
 	elif language == "es":
-		title.text   = "Editor de carta de desafío"
-		addCard.text = "Añadir\ncarta de desafío"
-		menu.text    = "Ver todas las cartas de desafío"
+		title.text   = "Editor de cartas de reto"
+		addCard.text = "Añadir\nuna carta de reto"
+		menu.text    = "Ver las cartas de retos"
 		
 		
 		

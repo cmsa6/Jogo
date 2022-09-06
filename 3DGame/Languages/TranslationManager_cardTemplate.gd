@@ -13,12 +13,12 @@ func translate(language):
 	var dialogue   = get_node(dialogueNode)
 	
 	if language == "el":
-		dialogue.window_title = "Παρακαλώ Επιβεβαιώστε"
-		dialogue.set_text("Είστε βέβαιοι ότι θέλετε να διαγράψετε την κάρτα πρόκλησης : ")
+		dialogue.window_title = "Παρακαλώ επιβεβαιώστε"
+		dialogue.set_text("Είστε σίγουρος/-η οτι επιθυμείτε να διαγράψετε την κάρτα δοκιμασίας: ")
 		
 	elif language == "es":
-		dialogue.window_title = "Por favor confirmar"
-		dialogue.set_text("¿Está seguro de que desea borrar la carta de desafío: ")
+		dialogue.window_title = "Por favor confirma"
+		dialogue.set_text("¿Estás seguro de que quieres borrar la carte de reto: ")
 		
 	elif language == "it":
 		dialogue.window_title = "Si prega di confermare"

@@ -6,6 +6,7 @@ export(NodePath) var mapZoneNode
 export(NodePath) var mapZoneOptionsNode
 export(NodePath) var cardTitleNode
 export(NodePath) var descriptionNode
+export(NodePath) var descriptionLimitNode
 export(NodePath) var imageNode
 export(NodePath) var imageOptionsNode
 export(NodePath) var scoreNode
@@ -28,6 +29,7 @@ func translate(language):
 	var mapZoneOptions      = get_node(mapZoneOptionsNode)
 	var cardTitle           = get_node(cardTitleNode)
 	var description         = get_node(descriptionNode)
+	var descriptionLimit    = get_node(descriptionLimitNode)
 	var image               = get_node(imageNode)
 	var imageOptions        = get_node(imageOptionsNode)
 	var score               = get_node(scoreNode)
@@ -39,24 +41,25 @@ func translate(language):
 
 
 	if language == "el":
-		title.text                = "δημιουργώντας μια νέα κάρτα πρόκλησης"
-		mapZone.text              = "Ζώνη"
+		title.text                = "Δημιουργία μιας νέας κάρτας δοκιμασίας"
+		mapZone.text              = "Περιοχή"
 		cardTitle.text            = "Τίτλος"
-		description.text          = "περιγραφή\n(μέγ. 145 χαρς)"
+		description.text          = "Περιγραφή"
+		descriptionLimit.text     = "(μέγιστο 200\nχαρακτήρες)"
 		image.text                = "Εικόνα (.png)"
-		imageOptions.text         = "Επιλέγω"
+		imageOptions.text         = "Επιλέξτε"
 		score.text                = "Σκορ"
-		skill.text                = "Επιδεξιότητα"
+		skill.text                = "Δεξιότητα"
 		
-		dialogue.set_text("Επιλέξτε μια εικόνα για αυτήν την πρόκληση")
-		dialogue.window_title = "Επιλέξτε μια εικόνα"
+		dialogue.set_text("Διαλέξτε μια εικόνα για αυτή τη δοκιμασία")
+		dialogue.window_title = "Διαλέξτε μια εικόνα"
 		
 		
 		mapZoneOptions.add_item("Επιλέξτε μια ζώνη πόλης")
-		mapZoneOptions.add_item("Μπλε ζώνη - Περιοχή βοήθειας")
-		mapZoneOptions.add_item("Πράσινη ζώνη - Περιοχή υπηρεσιών")
-		mapZoneOptions.add_item("Πορτοκαλί ζώνη - Εμπορικός χώρος")
-		mapZoneOptions.add_item("Μωβ ζώνη - Χώρος αναψυχής")
+		mapZoneOptions.add_item("Μπλε περιοχή - Περιοχή βοήθειας")
+		mapZoneOptions.add_item("Πράσινη περιοχή - Περιοχή υπηρεσιών")
+		mapZoneOptions.add_item("Πορτοκαλί περιοχή - Εμπορική περιοχή")
+		mapZoneOptions.add_item("Μωβ περιοχή - Περιοχή αναψυχής")
 	
 		
 		skillOptions.add_item("Επιλέξτε δεξιότητες που εκπαιδεύονται με πρόκληση")
@@ -74,29 +77,30 @@ func translate(language):
 		skillOptions.add_item("Χωρικός προσανατολισμός")
 		skillOptions.add_item("Κοινωνική και συναισθηματική ευεξία")
 		
-		mandatory.text = "* επιτακτικός"
+		mandatory.text = "* Υποχρεωτικό"
 		
 		
 		
 		
 	elif language == "es":
-		title.text                = "Creación de una nueva carta de desafío"
+		title.text                = "Creando una nueva carta de reto"
 		mapZone.text              = "Zona"
 		cardTitle.text            = "Título"
-		description.text          = "Descripción\n(máx. 145 cars)"
+		description.text          = "Descripción"
+		descriptionLimit.text     = "(máx. 200 cars)"
 		image.text                = "Imagen (.png)"
-		imageOptions.text         = "Seleccione"
-		score.text                = "Puntaje"
+		imageOptions.text         = "Seleccionar"
+		score.text                = "Puntuación"
 		skill.text                = "Habilidad"
 		
-		dialogue.set_text("Elige una imagen para este desafío")
+		dialogue.set_text("Elige una imagen para este reto")
 		dialogue.window_title = "Elige una imagen"
 		
 		mapZoneOptions.add_item("Seleccione una zona de la ciudad")
-		mapZoneOptions.add_item("Zona azul - Área de ayuda")
-		mapZoneOptions.add_item("Zona verde - Zona de servicios")
-		mapZoneOptions.add_item("Zona naranja - Zona comercial")
-		mapZoneOptions.add_item("Zona morada - Zona de ocio")
+		mapZoneOptions.add_item("Zona azul - Área de ayudas")
+		mapZoneOptions.add_item("Zona verde - Área de servicios")
+		mapZoneOptions.add_item("Zona naranja - Área comercial")
+		mapZoneOptions.add_item("Zona morada - Área de ocio")
 	
 		
 		skillOptions.add_item("Seleccione una habilidad fomentada por el desafío")
@@ -125,7 +129,8 @@ func translate(language):
 		title.text                = "Creazione di una nuova carta sfida"
 		mapZone.text              = "Zona"
 		cardTitle.text            = "Titolo"
-		description.text          = "Descrizione\n(max. 145 caratteri)"
+		description.text          = "Descrizione"
+		descriptionLimit.text     = "(max. 200 caratteri)"
 		image.text                = "Immagine (.png)"
 		imageOptions.text         = "Selezionare"
 		score.text                = "Punto"
@@ -164,14 +169,15 @@ func translate(language):
 		
 	
 	elif language == "pt":
-		title.text         = "Criação de nova carta de desafio"
-		mapZone.text       = "Zona"
-		cardTitle.text     = "Título"
-		description.text   = "Descrição\n(max. 145 caracts)"
-		image.text         = "Imagem (.png)"
-		imageOptions.text  = "Selecione"
-		score.text         = "Pontuação"
-		skill.text         = "Habilidade"
+		title.text             = "Criação de nova carta de desafio"
+		mapZone.text           = "Zona"
+		cardTitle.text         = "Título"
+		description.text       = "Descrição"
+		descriptionLimit.text  = "(max. 200 caracts)"
+		image.text             = "Imagem (.png)"
+		imageOptions.text      = "Selecione"
+		score.text             = "Pontuação"
+		skill.text             = "Habilidade"
 		
 		dialogue.window_title = "Seleciona uma imagem"
 		dialogue.set_text("Escolhe uma imagem para este desafio")
@@ -206,7 +212,7 @@ func translate(language):
 	elif language == "en":
 		mapZoneOptions.add_item("Select a city zone")
 		mapZoneOptions.add_item("Blue Zone - Help Area")
-		mapZoneOptions.add_item("Green Zone - Services Ares")
+		mapZoneOptions.add_item("Green Zone - Services Area")
 		mapZoneOptions.add_item("Orange Zone - Commercial Area")
 		mapZoneOptions.add_item("Purple Zone - Leisure Area")
 	
@@ -338,10 +344,10 @@ func change_title():
 	var language = SettingsManager.language
 	
 	if language == "el":
-		title.text = "Επεξεργασία της κάρτας πρόκλησης:"
+		title.text = "Επεξεργασία της κάρτας δοκιμασίας:"
 		
 	if language == "es":
-		title.text = "Edición de la carta de desafío:"
+		title.text = "Editando la carta de reto:"
 		
 	if language == "it":
 		title.text = "Modifica della carta sfida:"
