@@ -89,6 +89,7 @@ func set_image(imgPath):
 		file.close()
 		
 		image.set_texture(imageText)
+		zoomedImage.set_texture(imageText)
 	
 	else:
 		var imgTest = load(imgPath)

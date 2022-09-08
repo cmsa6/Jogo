@@ -15,6 +15,8 @@ enum GAME_TYPE {
 
 var game_type = null
 
+var ttsEnabled = false setget set_ttsEnabled, get_ttsEnabled
+
 
 # Players
 var players = []
@@ -61,3 +63,10 @@ func create_players():
 			player.color = Color(0, 0, 1)
 		
 		players.insert(i, player)
+		
+		
+func set_ttsEnabled(bol):
+	ttsEnabled = bol
+	
+func get_ttsEnabled():
+	return ttsEnabled

@@ -20,6 +20,9 @@ var origin = "" setget set_origin, get_origin
 var cardId = 0 setget set_cardId, get_cardId
 
 
+signal talk(text)
+
+
 
 func _ready():
 	var language = SettingsManager.language
@@ -50,6 +53,13 @@ func _ready():
 		get_node(title).text = card_info[1]
 		var challengeText = card_info[3].replace("ENTER", "\n")
 		instructions.text = challengeText
+		
+		SettingsManager.set_ttsEnabled(true)
+		if SettingsManager.get_ttsEnabled():
+			var textToSpeak = challengeText.replace("\n", "")
+			emit_signal("talk", textToSpeak)
+		
+		
 		#skills.text = "Skills: " + card_info[9]
 
 		#var imageName = card_info[1] 

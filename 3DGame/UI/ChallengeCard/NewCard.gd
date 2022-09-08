@@ -21,6 +21,7 @@ func _ready():
 		
 	var currentPlayer = SavingManager.current_player
 	playerImage.set_texture(CharactersManager.get_character_icon(SettingsManager.players[currentPlayer].character))
+
 	
 func set_card_data(dataReceived):
 	card_data = dataReceived
