@@ -25,7 +25,7 @@ func translate(language):
 		
 		
 	elif language == "es":
-		title.text   = "Editor de cartas de reto"
+		title.text   = "Editor de cartas de retos"
 		addCard.text = "Añadir\nuna carta de reto"
 		menu.text    = "Ver las cartas de retos"
 		

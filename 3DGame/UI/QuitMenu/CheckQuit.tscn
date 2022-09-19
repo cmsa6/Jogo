@@ -14,8 +14,8 @@
 [ext_resource path="res://Fonts/greekFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Fotos/EvalButton (11).png" type="Texture" id=13]
 [ext_resource path="res://Fotos/EvalButton (13).png" type="Texture" id=14]
-[ext_resource path="res://Assets/Keyboard/Tiles/tile_0323.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Keyboard/Tiles/tile_0324.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0438.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0440.png" type="Texture" id=16]
 [ext_resource path="res://Sounds/celebration.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=18]
 [ext_resource path="res://UI/QuitMenu/TranslationManager.gd" type="Script" id=19]
@@ -28,6 +28,9 @@
 
 [node name="CheckQuit" type="Spatial"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 479.566 ]
+}
 
 [node name="TranslationManager" parent="." instance=ExtResource( 18 )]
 script = ExtResource( 19 )
@@ -159,9 +162,9 @@ anchor_top = 1.086
 anchor_right = 0.5
 anchor_bottom = 1.086
 margin_left = -12.5
-margin_top = -4.3288
+margin_top = -1.74219
 margin_right = 12.5
-margin_bottom = 20.6712
+margin_bottom = 23.2578
 
 [node name="TextureRect" parent="Control/QuitManager/QuitInfo/HBoxContainer2/VBoxContainer/Confirm/Shortcut_eval" index="0"]
 texture = ExtResource( 15 )

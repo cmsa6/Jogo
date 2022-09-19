@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Context Screen/Photos/pt/secondContext_image4.png" type="Texture" id=2]
@@ -16,6 +16,11 @@
 [ext_resource path="res://Context Screen/TranslationManager_secondScreen.gd" type="Script" id=14]
 [ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=16]
+[ext_resource path="res://TTS Manager/TTS.tscn" type="PackedScene" id=17]
+[ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Fotos/TTSButton.png" type="Texture" id=19]
+[ext_resource path="res://Fotos/TTSButtonSelected.png" type="Texture" id=20]
+[ext_resource path="res://TTS Manager/RepeatTTS.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -114,14 +119,14 @@ __meta__ = {
 
 [node name="TranslationManager" parent="." instance=ExtResource( 11 )]
 script = ExtResource( 14 )
-space1 = NodePath("../GridContainer/Part1/Story1/VBoxContainer/WelcomeText")
-space2 = NodePath("../GridContainer/Part2/Story2/VBoxContainer/Label")
-space3 = NodePath("../GridContainer/Part3/Story3/VBoxContainer/Label")
-space4 = NodePath("../GridContainer/Part4/Story4/VBoxContainer/Label")
-image1 = NodePath("../GridContainer/Part1/Story1/VBoxContainer/TextureRect")
-image2 = NodePath("../GridContainer/Part2/Story2/VBoxContainer/TextureRect")
-image3 = NodePath("../GridContainer/Part3/Story3/VBoxContainer/TextureRect")
-image4 = NodePath("../GridContainer/Part4/Story4/VBoxContainer/TextureRect")
+space1 = NodePath("../GridContainer/Part1/Story1/HBoxContainer/VBoxContainer/WelcomeText")
+space2 = NodePath("../GridContainer/Part2/Story2/HBoxContainer/VBoxContainer/Label")
+space3 = NodePath("../GridContainer/Part3/Story3/HBoxContainer/VBoxContainer/Label")
+space4 = NodePath("../GridContainer/Part4/Story4/HBoxContainer/VBoxContainer/Label")
+image1 = NodePath("../GridContainer/Part1/Story1/HBoxContainer/VBoxContainer/TextureRect")
+image2 = NodePath("../GridContainer/Part2/Story2/HBoxContainer/VBoxContainer/TextureRect")
+image3 = NodePath("../GridContainer/Part3/Story3/HBoxContainer/VBoxContainer/TextureRect")
+image4 = NodePath("../GridContainer/Part4/Story4/HBoxContainer/VBoxContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -160,24 +165,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part1/Story1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -240.0
-margin_top = -149.0
-margin_right = 240.0
-margin_bottom = 149.0
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Part1/Story1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WelcomeText" type="Label" parent="GridContainer/Part1/Story1/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part1/Story1/HBoxContainer"]
+margin_right = 380.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 380, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WelcomeText" type="Label" parent="GridContainer/Part1/Story1/HBoxContainer/VBoxContainer"]
 margin_top = 12.0
-margin_right = 480.0
+margin_right = 380.0
 margin_bottom = 112.0
-rect_min_size = Vector2( 400, 100 )
+rect_min_size = Vector2( 380, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
@@ -186,10 +194,10 @@ text = "When your character stops at a circle tile, a challenge pops up!"
 valign = 1
 autowrap = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Part1/Story1/VBoxContainer"]
-margin_left = 90.0
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Part1/Story1/HBoxContainer/VBoxContainer"]
+margin_left = 40.0
 margin_top = 138.0
-margin_right = 390.0
+margin_right = 340.0
 margin_bottom = 288.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
@@ -197,6 +205,33 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
 texture = ExtResource( 4 )
 expand = true
+
+[node name="TTSButton2" type="TextureButton" parent="GridContainer/Part1/Story1/HBoxContainer"]
+margin_left = 384.0
+margin_right = 484.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+textToSpeak = NodePath("../VBoxContainer/WelcomeText")
+
+[node name="Tab" parent="GridContainer/Part1/Story1/HBoxContainer/TTSButton2" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.5
+margin_top = 39.1667
+margin_right = 15.5
+margin_bottom = 62.1667
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part1"]
 layer = 2
@@ -250,23 +285,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part2/Story2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -240.0
-margin_top = -149.0
-margin_right = 240.0
-margin_bottom = 149.0
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Part2/Story2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_top = 19.0
-margin_right = 480.0
-margin_bottom = 106.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part2/Story2/HBoxContainer"]
+margin_right = 380.0
+margin_bottom = 301.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GridContainer/Part2/Story2/HBoxContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 380.0
+margin_bottom = 121.0
+rect_min_size = Vector2( 380, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
@@ -276,17 +314,44 @@ If you succeed you win a coffee machine!"
 valign = 1
 autowrap = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Part2/Story2/VBoxContainer"]
-margin_left = 90.0
-margin_top = 138.0
-margin_right = 390.0
-margin_bottom = 288.0
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Part2/Story2/HBoxContainer/VBoxContainer"]
+margin_left = 40.0
+margin_top = 140.0
+margin_right = 340.0
+margin_bottom = 290.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
 texture = ExtResource( 3 )
 expand = true
+
+[node name="TTSButton2" type="TextureButton" parent="GridContainer/Part2/Story2/HBoxContainer"]
+margin_left = 384.0
+margin_right = 484.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+textToSpeak = NodePath("../VBoxContainer/Label")
+
+[node name="Tab" parent="GridContainer/Part2/Story2/HBoxContainer/TTSButton2" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.5
+margin_top = 39.1667
+margin_right = 15.5
+margin_bottom = 62.1667
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part2"]
 layer = 2
@@ -333,22 +398,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part3/Story3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -240.0
-margin_top = -149.0
-margin_right = 240.0
-margin_bottom = 149.0
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Part3/Story3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="GridContainer/Part3/Story3/VBoxContainer"]
-margin_right = 480.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part3/Story3/HBoxContainer"]
+margin_right = 380.0
+margin_bottom = 298.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GridContainer/Part3/Story3/HBoxContainer/VBoxContainer"]
+margin_right = 380.0
 margin_bottom = 125.0
+rect_min_size = Vector2( 380, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -357,10 +425,10 @@ text = "After pressing the arrow button, try to complete the challenge"
 valign = 1
 autowrap = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Part3/Story3/VBoxContainer"]
-margin_left = 90.0
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Part3/Story3/HBoxContainer/VBoxContainer"]
+margin_left = 40.0
 margin_top = 138.0
-margin_right = 390.0
+margin_right = 340.0
 margin_bottom = 288.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
@@ -368,6 +436,33 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
 texture = ExtResource( 8 )
 expand = true
+
+[node name="TTSButton2" type="TextureButton" parent="GridContainer/Part3/Story3/HBoxContainer"]
+margin_left = 384.0
+margin_right = 484.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+textToSpeak = NodePath("../VBoxContainer/Label")
+
+[node name="Tab" parent="GridContainer/Part3/Story3/HBoxContainer/TTSButton2" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.5
+margin_top = 39.1667
+margin_right = 15.5
+margin_bottom = 62.1667
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part3"]
 layer = 2
@@ -418,23 +513,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part4/Story4"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -240.0
-margin_top = -148.5
-margin_right = 240.0
-margin_bottom = 148.5
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Part4/Story4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="GridContainer/Part4/Story4/VBoxContainer"]
-margin_top = 18.0
-margin_right = 480.0
-margin_bottom = 105.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part4/Story4/HBoxContainer"]
+margin_right = 380.0
+margin_bottom = 298.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GridContainer/Part4/Story4/HBoxContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 380.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 380, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 4 )
@@ -443,17 +541,44 @@ text = "The other players decide whether you were successful by pressing the “
 valign = 1
 autowrap = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer/Part4/Story4/VBoxContainer"]
-margin_left = 90.0
-margin_top = 137.0
-margin_right = 390.0
-margin_bottom = 287.0
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Part4/Story4/HBoxContainer/VBoxContainer"]
+margin_left = 40.0
+margin_top = 138.0
+margin_right = 340.0
+margin_bottom = 288.0
 rect_min_size = Vector2( 300, 150 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
 texture = ExtResource( 2 )
 expand = true
+
+[node name="TTSButton2" type="TextureButton" parent="GridContainer/Part4/Story4/HBoxContainer"]
+margin_left = 384.0
+margin_right = 484.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+textToSpeak = NodePath("../VBoxContainer/Label")
+
+[node name="Tab" parent="GridContainer/Part4/Story4/HBoxContainer/TTSButton2" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.5
+margin_top = 39.1667
+margin_right = 15.5
+margin_bottom = 62.1667
 
 [node name="FinalButton" type="TextureButton" parent="."]
 anchor_left = 1.0
@@ -494,16 +619,25 @@ mouse_filter = 2
 anims/FadeIn = SubResource( 5 )
 anims/FadeOut = SubResource( 6 )
 
+[node name="TTS" parent="." instance=ExtResource( 17 )]
+pause_mode = 2
+
 [connection signal="show_map" from="GridContainer" to="SceneTransitionAnim/Control" method="play_fade_out"]
+[connection signal="stop" from="GridContainer" to="TTS" method="stop"]
+[connection signal="talk" from="GridContainer" to="TTS" method="speak"]
+[connection signal="pressed" from="GridContainer/Part1/Story1/HBoxContainer/TTSButton2" to="GridContainer/Part1/Story1/HBoxContainer/TTSButton2" method="repeat"]
 [connection signal="button_down" from="GridContainer/Part1/ButtonLayer/NextStory1" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part1/ButtonLayer/NextStory1" to="GridContainer/Part1/ButtonLayer/NextStory1" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part1/ButtonLayer/NextStory1" to="GridContainer" method="show_next"]
+[connection signal="pressed" from="GridContainer/Part2/Story2/HBoxContainer/TTSButton2" to="GridContainer/Part2/Story2/HBoxContainer/TTSButton2" method="repeat"]
 [connection signal="button_down" from="GridContainer/Part2/ButtonLayer/NextStory2" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part2/ButtonLayer/NextStory2" to="GridContainer/Part2/ButtonLayer/NextStory2" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part2/ButtonLayer/NextStory2" to="GridContainer" method="show_next"]
+[connection signal="pressed" from="GridContainer/Part3/Story3/HBoxContainer/TTSButton2" to="GridContainer/Part3/Story3/HBoxContainer/TTSButton2" method="repeat"]
 [connection signal="button_down" from="GridContainer/Part3/ButtonLayer/NextStory3" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="GridContainer/Part3/ButtonLayer/NextStory3" to="GridContainer/Part3/ButtonLayer/NextStory3" method="show_next"]
 [connection signal="show_next" from="GridContainer/Part3/ButtonLayer/NextStory3" to="GridContainer" method="show_next"]
+[connection signal="pressed" from="GridContainer/Part4/Story4/HBoxContainer/TTSButton2" to="GridContainer/Part4/Story4/HBoxContainer/TTSButton2" method="repeat"]
 [connection signal="button_down" from="FinalButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="FinalButton" to="FinalButton" method="show_next"]
 [connection signal="show_next" from="FinalButton" to="GridContainer" method="show_next"]

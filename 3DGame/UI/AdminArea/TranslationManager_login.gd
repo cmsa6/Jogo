@@ -27,9 +27,9 @@ func translate(language):
 		
 	elif language == "es":
 		title.text = "Área Privada"
-		username.placeholder_text = "nombre de usuario"
+		username.placeholder_text = "usuario"
 		password.placeholder_text = "contraseña"
-		dialogue.set_text("El nombre de usuario y la contraseña no coinciden, intente nuevamente.\n\n\nRecuerde que esta área solo está destinada a ser utilizada por profesionales.")
+		dialogue.set_text("El usuario y la contraseña no son correctas, por favor inténtalo de nuevo.\n\n\nPor favor recuerda que esta área es sólo para que la utilicen los profesionales.")
 		dialogue.window_title = "Error"
 		
 		

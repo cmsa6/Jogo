@@ -1,6 +1,6 @@
 extends Node
 
-const LEWIS_SCENE  = preload("res://Assets/new_characters/newLewis/newlewis.tscn")
+const LEWIS_SCENE  = preload("res://Assets/new_characters/Alex/Alex.tscn")
 const BRIAN_SCENE   = preload("res://Assets/new_characters/Brian/Brian.tscn")
 const JOSH_SCENE = preload("res://Assets/new_characters/Josh/Josh.tscn")
 const JODY_SCENE = preload("res://Assets/new_characters/Jody/Jody.tscn")

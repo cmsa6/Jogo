@@ -7,8 +7,9 @@ onready var zoomImage = $ZoomedInImage
 onready var audio = $MinigameSound
 onready var zoomOut = $zoomButton
 onready var zoomOutButton = $zoomButton/ZoomOutButton
-onready var zoomIn = $VBoxContainer/zoomButtonIn/ZoomInButton
+onready var zoomIn = $VBoxContainer/HBoxContainer/zoomButtonIn/ZoomInButton
 onready var imageContainer = $VBoxContainer
+
 
 export(NodePath) var cardColor
 export(NodePath) var backColor
@@ -21,6 +22,7 @@ var cardId = 0 setget set_cardId, get_cardId
 
 
 signal talk(text)
+signal stop()
 
 
 
@@ -54,7 +56,7 @@ func _ready():
 		var challengeText = card_info[3].replace("ENTER", "\n")
 		instructions.text = challengeText
 		
-		SettingsManager.set_ttsEnabled(true)
+		
 		if SettingsManager.get_ttsEnabled():
 			var textToSpeak = challengeText.replace("\n", "")
 			emit_signal("talk", textToSpeak)
@@ -205,6 +207,7 @@ func enable_zoom():
 		#image.visible = false
 		zoomIn.visible = false
 		imageContainer.visible = false
+	
 		
 		zoomOut.visible = true
 		zoomOutButton.visible = true
@@ -229,3 +232,11 @@ func set_cardId(id):
 	
 func get_cardId():
 	return cardId
+	
+	
+func read_challenge():
+	var cardData = get_card_info()
+	var challengeText = cardData[3].replace("ENTER", "")
+	
+	emit_signal("stop")
+	emit_signal("talk", challengeText)

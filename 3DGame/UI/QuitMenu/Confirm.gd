@@ -1,7 +1,7 @@
 extends TextureButton
 
 func _input(event):
-	if event.is_action_pressed("Approve"):
+	if event.is_action_pressed("UpArrow"):
 			emit_signal("button_down")
 			emit_signal("pressed")
 		

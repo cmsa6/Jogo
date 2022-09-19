@@ -12,8 +12,8 @@
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/FinalScreen/DetailVersion.gd" type="Script" id=12]
-[ext_resource path="res://Fotos/muteButtonSelected.png" type="Texture" id=13]
-[ext_resource path="res://Fotos/muteButton.png" type="Texture" id=14]
+[ext_resource path="res://Fotos/MuteBotton.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/MuteBottonSelected.png" type="Texture" id=14]
 [ext_resource path="res://UI/FinalScreen/MuteButton.gd" type="Script" id=15]
 [ext_resource path="res://UI/FinalScreen/TranslationManager_gameOver.gd" type="Script" id=16]
 
@@ -212,9 +212,9 @@ mouse_default_cursor_shape = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 toggle_mode = true
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 13 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
 expand = true
 script = ExtResource( 15 )
 __meta__ = {

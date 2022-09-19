@@ -9,6 +9,9 @@ export(NodePath) var space4
 export(NodePath) var image4
 
 
+
+
+
 func _ready():
 	translate(SettingsManager.language)
 	change_pictures(SettingsManager.language)

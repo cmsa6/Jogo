@@ -52,7 +52,7 @@ func translate(language):
 	
 	
 	elif language == "es":
-		title.text = "Elige una baraja de cartas de desafío"
+		title.text = "Elige la Zona de Ciudad que quieres comprobar"
 		
 		blueZone.text = "Zona Azul"
 		blueArea.text = "Área de Ayudas"

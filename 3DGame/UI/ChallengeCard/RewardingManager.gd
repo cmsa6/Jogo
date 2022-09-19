@@ -24,6 +24,7 @@ signal save_card_data(data)
 signal save_card_type(type)
 signal update_card_status(card_title)
 signal save_cardId(card_Id)
+signal talk(text)
 
 var reward = "" setget set_reward, get_reward
 var origin = "" setget set_origin, get_origin
@@ -186,6 +187,11 @@ func set_card_status(cardTitle):
 	
 	var title = get_node(ChallengeTitle)
 	title.text =  cardTitle
+	
+	
+	print(SettingsManager.get_ttsEnabled())
+	if SettingsManager.get_ttsEnabled():
+		emit_signal("talk", cardTitle)
 
 
 func set_type(t):

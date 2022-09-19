@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fotos/cityround.png" type="Texture" id=2]
@@ -12,9 +12,12 @@
 [ext_resource path="res://UI/InitialScreen/SettingsButton.gd" type="Script" id=10]
 [ext_resource path="res://UI/AdminArea/BackToSceneButton.gd" type="Script" id=11]
 [ext_resource path="res://UI/Keyboard/Shortcut_escape.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fotos/MuteBotton.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/MuteBottonSelected.png" type="Texture" id=14]
+[ext_resource path="res://Fotos/TTSButton.png" type="Texture" id=15]
 [ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Fotos/muteButtonSelected.png" type="Texture" id=17]
-[ext_resource path="res://Fotos/muteButton.png" type="Texture" id=18]
+[ext_resource path="res://Fotos/TTSButtonSelected.png" type="Texture" id=17]
+[ext_resource path="res://TTS Manager/TTSMuteButton.gd" type="Script" id=18]
 [ext_resource path="res://UI/InitialScreen/SoundButton.gd" type="Script" id=19]
 [ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=21]
 
@@ -102,15 +105,40 @@ margin_bottom = 100.0
 rect_scale = Vector2( 0.75, 0.75 )
 mouse_default_cursor_shape = 2
 toggle_mode = true
-texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 17 )
-texture_hover = ExtResource( 17 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Tab" parent="SoundButton" instance=ExtResource( 16 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.5
+margin_top = 39.1667
+margin_right = 15.5
+margin_bottom = 62.1667
+
+[node name="TTSButton" type="TextureButton" parent="."]
+margin_top = 83.0
+margin_right = 100.0
+margin_bottom = 183.0
+rect_scale = Vector2( 0.75, 0.75 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tab" parent="TTSButton" instance=ExtResource( 16 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -185,6 +213,8 @@ __meta__ = {
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_SettingsButton_pressed"]
 [connection signal="button_down" from="SoundButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="SoundButton" to="SoundButton" method="mute"]
+[connection signal="button_down" from="TTSButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="TTSButton" to="TTSButton" method="enable_tts"]
 [connection signal="button_down" from="PlayButton" to="UISoundManager" method="play"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="initiate_game"]
 

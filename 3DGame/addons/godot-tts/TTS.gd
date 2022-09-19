@@ -126,7 +126,7 @@ func _get_normal_rate_percentage():
 var normal_rate_percentage setget , _get_rate_percentage
 
 
-func speak(text, interrupt := true):
+func speak(text, interrupt := false):
 	var utterance
 	if tts != null:
 		utterance = tts.speak(text, interrupt)

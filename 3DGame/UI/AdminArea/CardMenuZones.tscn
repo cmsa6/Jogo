@@ -296,7 +296,11 @@ purpleNodeArea = NodePath("../ColorRect/VBoxContainer/HBoxContainer/VBoxContaine
 titleNode = NodePath("../ColorRect/VBoxContainer/ColorRect2/HBoxContainer/Label")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/ColorRect2/HBoxContainer/TextureButton" to="ColorRect/VBoxContainer/ColorRect2/HBoxContainer/TextureButton" method="_on_BackButton_pressed"]
+[connection signal="button_down" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer/CardMenu" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer/CardMenu" to="." method="show_zone_cards" binds= [ "Blue" ]]
+[connection signal="button_down" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/CardMenu" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/CardMenu" to="." method="show_zone_cards" binds= [ "Green" ]]
+[connection signal="button_down" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3/CardMenu" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer3/CardMenu" to="." method="show_zone_cards" binds= [ "Orange" ]]
+[connection signal="button_down" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4/CardMenu" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer4/CardMenu" to="." method="show_zone_cards" binds= [ "Purple" ]]

@@ -53,7 +53,7 @@ func _ready():
 		],
 		[
 			"Music",
-			"Musician Name"
+			"https://www.zapsplat.com/"
 		],
 		[
 			"Ηχητικά εφέ",
@@ -116,7 +116,7 @@ func _ready():
 		],
 		[
 			"Music",
-			"Musician Name"
+			"https://www.zapsplat.com/"
 		],
 		[
 			"Sound Effects",
@@ -180,7 +180,7 @@ func _ready():
 		],
 		[
 			"Música",
-			"Musician Name"
+			"https://www.zapsplat.com/"
 		],
 		[
 			"Efectos de Sonido",
@@ -244,7 +244,7 @@ func _ready():
 		],
 		[
 			"Musica",
-			"Musician Name"
+			"https://www.zapsplat.com/"
 		],
 		[
 			"Effetti Sonori",

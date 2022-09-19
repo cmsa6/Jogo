@@ -87,7 +87,7 @@ func translate(language):
 		mapZone.text              = "Zona"
 		cardTitle.text            = "Título"
 		description.text          = "Descripción"
-		descriptionLimit.text     = "(máx. 200 cars)"
+		descriptionLimit.text     = "(máximo 200 caracteres)"
 		image.text                = "Imagen (.png)"
 		imageOptions.text         = "Seleccionar"
 		score.text                = "Puntuación"
@@ -96,14 +96,14 @@ func translate(language):
 		dialogue.set_text("Elige una imagen para este reto")
 		dialogue.window_title = "Elige una imagen"
 		
-		mapZoneOptions.add_item("Seleccione una zona de la ciudad")
+		mapZoneOptions.add_item("Selecciona una zona de la ciudad")
 		mapZoneOptions.add_item("Zona azul - Área de ayudas")
 		mapZoneOptions.add_item("Zona verde - Área de servicios")
 		mapZoneOptions.add_item("Zona naranja - Área comercial")
 		mapZoneOptions.add_item("Zona morada - Área de ocio")
 	
 		
-		skillOptions.add_item("Seleccione una habilidad fomentada por el desafío")
+		skillOptions.add_item("Selecciona una habilidad fomentada por el reto")
 		skillOptions.add_item("Relaciones Interpersonales")
 		skillOptions.add_item("Inclusión Social")
 		skillOptions.add_item("Derechos")
@@ -118,7 +118,7 @@ func translate(language):
 		skillOptions.add_item("Orientación Espacial")
 		skillOptions.add_item("Bienestar Social y Emocional")
 		
-		mandatory.text = "* obligatorio"
+		mandatory.text = "* Obligatorio"
 
 		
 		
