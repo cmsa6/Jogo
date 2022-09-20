@@ -24,13 +24,11 @@ func mouse_entered():
 
 
 func mouse_exited():
-	print(get_selected())
 	if not get_selected():
 		get_node(overlay).visible = false
 	
 func select():
 	var lang = self.get_name()
-	print("Im selecting")
 	get_node(overlay).visible = true
 	set_selected(true)
 	get_node(button).set_languageSelected(lang)

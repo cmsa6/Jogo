@@ -47,7 +47,7 @@ func show_next(currentID):
 	elif story4.visible == false:
 		if SettingsManager.get_ttsEnabled():
 			emit_signal("stop")
-			print("fiz o stop")
+			
 			emit_signal("talk", story4Text.text)
 		
 		story4.visible = true

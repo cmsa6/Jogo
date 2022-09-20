@@ -11,6 +11,7 @@ onready var zoomIn = $VBoxContainer/HBoxContainer/zoomButtonIn/ZoomInButton
 onready var imageContainer = $VBoxContainer
 
 
+
 export(NodePath) var cardColor
 export(NodePath) var backColor
 export(NodePath) var title
@@ -23,6 +24,9 @@ var cardId = 0 setget set_cardId, get_cardId
 
 signal talk(text)
 signal stop()
+signal change_skip_colors(colors)
+signal save_reward_skip(reward)
+
 
 
 
@@ -161,6 +165,7 @@ func _ready():
 		
 func save_card_info(data):
 	card_info = data
+	emit_signal("save_reward_skip", data[-1])
 
 	
 func get_card_info():
@@ -169,6 +174,7 @@ func get_card_info():
 
 func save_cardType(type):
 	cardType = type
+
 
 
 func get_cardType():
@@ -181,6 +187,8 @@ func set_card_color(colors):
 	var card = get_node(cardColor)
 	var background = get_node(backColor)
 	var titleFont = get_node(title)
+	
+	emit_signal("change_skip_colors", colors)
 	
 
 	var mainColor       = colors[0]
@@ -240,3 +248,5 @@ func read_challenge():
 	
 	emit_signal("stop")
 	emit_signal("talk", challengeText)
+	
+

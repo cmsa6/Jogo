@@ -12,6 +12,7 @@ signal data_saved(card_data)
 signal type_saved(type)
 signal set_origin(origin)
 signal cardId_saved(id)
+signal set_cardTypeName(typeName)
 
 func _ready():
 	if get_origin() == "":
@@ -72,3 +73,6 @@ func set_cardId(id):
 	
 func get_cardId():
 	return cardId
+	
+func set_cardTypeName(typeName):
+	emit_signal("set_cardTypeName", typeName)

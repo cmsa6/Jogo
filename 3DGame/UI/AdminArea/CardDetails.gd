@@ -31,7 +31,6 @@ var previousZone = 0 setget set_previousZone, get_previousZone
 func _ready():	
 	if get_origin() == "edit":
 		translator.change_title()
-		print(get_fileToOpen())
 		var fileName = get_fileToOpen()
 		var zone = fileName.split("\/")[-2]
 		var zoneId = check_mapId(zone)
@@ -56,19 +55,16 @@ func submit():
 		if get_origin() == "edit":
 #			print("============================")
 			var fileName = get_fileToOpen()
-			print("im editing this file ", fileName)
 			var nameWithoutExtension = fileName.get_basename()
 #			print(fileName.get_extension())
 #			print(nameWithoutExtension)
 			fileId =  nameWithoutExtension.split("\/")[-1]
-			print(fileId)
 
-			print("im editing file #", fileId)
 		else:
 			var incLastId = ChallengesManager.lastId + 1
 			fileId = "extra_" + str(incLastId)
 			ChallengesManager.set_lastId(incLastId)
-			print("estou a criar a carta #", ChallengesManager.get_lastId())
+			
 		
 		var imagePath = save_image(fileId)
 		
@@ -111,7 +107,7 @@ func submit():
 
 	#
 
-		print("sending this image:", imagePath)
+		
 		show_result(cardTitle, cardDescription, imagePath, zone, cardScore, skill, skillTranslated)
 
 		
@@ -138,7 +134,7 @@ func save_image(fileId):
 		
 		#var photosFolder = "res://Cards/" + SettingsManager.language + "/Photos/" + imageName[-1]
 		var dir = Directory.new()
-		print("photosfolder: ", photosFolder)
+		
 		
 
 		
@@ -156,7 +152,6 @@ func save_image(fileId):
 
 
 func _on_FileDialog_file_selected(path):
-	print(path)
 	set_imageSelected(path)
 	var imageName = path.split("\/")
 	imagePath.text = imageName[-1]
@@ -313,7 +308,6 @@ func check_selected_score():
 		
 
 func check_selected_skill():
-	print("availableskills: ", availableSkills.get_selected_id())
 	if availableSkills.get_selected_id() == 0 or availableSkills.get_selected_id() == -1:
 		skillAsteric.set("custom_colors/font_color", Color8(255,0,0,255))
 		return 0

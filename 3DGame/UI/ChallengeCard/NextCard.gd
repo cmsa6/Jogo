@@ -3,8 +3,10 @@ extends TextureButton
 export(String, FILE) var nextCard
 
 
+
 var data=[] setget save_data, get_data
 var cardType = "" setget save_cardType, get_cardType
+var cardTypeName = "" setget set_cardTypeName, get_cardTypeName
 var cardId = 0 setget set_cardId, get_cardId
 
 func _input(event):
@@ -23,8 +25,10 @@ func showNextCard():
 	var cardInstance = cardScene.instance()
 	var card_data = get_data()
 
+
 	cardInstance.set_card_data(card_data)
 	cardInstance.set_cardType(get_cardType())
+	cardInstance.set_cardTypeName(get_cardTypeName())
 	cardInstance.set_cardId(get_cardId())
 	#cardInstance.teste()
 	root_node.add_child(cardInstance)
@@ -49,7 +53,11 @@ func set_cardId(id):
 func get_cardId():
 	return cardId
 	
+func set_cardTypeName(type):
+	cardTypeName = type
 
+func get_cardTypeName():
+	return cardTypeName
 
 
 

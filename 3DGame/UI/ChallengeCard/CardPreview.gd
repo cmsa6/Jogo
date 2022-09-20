@@ -8,8 +8,10 @@ signal set_origin(origin)
 signal set_cardData(data)
 signal set_cardType(type)
 signal set_cardId(id)
+signal set_rewardSkip(reward)
 
-var origin = "" setget set_origin, get_origin
+var origin     = "" setget set_origin, get_origin
+
 
 
 func _ready():
@@ -39,6 +41,9 @@ func set_cardType(type):
 	
 func set_cardId(id):
 	emit_signal("set_cardId", id)
+	
+func save_rewardSkip(reward):
+	emit_signal("set_rewardSkip", reward)
 	
 
 

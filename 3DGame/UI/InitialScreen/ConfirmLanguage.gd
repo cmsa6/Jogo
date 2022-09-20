@@ -16,7 +16,7 @@ func _input(event):
 
 func set_languageSelected(lang):
 	languageSelected = lang
-	print(languageSelected)
+
 	
 func get_languageSelected():
 	return languageSelected

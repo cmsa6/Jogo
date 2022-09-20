@@ -30,7 +30,6 @@ var origin = "" setget set_origin, get_origin
 
 
 func set_up(newTitle, newDescription, imagePath, zone, score, skill, skillTranslated):
-	print("setting up")
 	set_titleReceived(newTitle)
 	set_descriptionReceived(newDescription)
 	set_imageReceived(imagePath)

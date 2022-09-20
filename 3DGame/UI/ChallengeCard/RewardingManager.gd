@@ -22,19 +22,22 @@ export(NodePath) var SkillBackgroundColor
 
 signal save_card_data(data)
 signal save_card_type(type)
+signal save_cardTypeName(typeName)
 signal update_card_status(card_title)
 signal save_cardId(card_Id)
 signal talk(text)
 
-var reward = "" setget set_reward, get_reward
-var origin = "" setget set_origin, get_origin
+var reward     = "" setget set_reward, get_reward
+var origin     = "" setget set_origin, get_origin
+var rewardSkip = "" setget set_rewardSkip, get_rewardSkip
 
 var rng = RandomNumberGenerator.new()
 
 func _ready():
 	#escolhe randomnly um valor que corresponde a uma carta
-	if get_origin() == "":
+	if get_origin() == "" or get_origin() == "skip":
 		var cardType = get_type()
+		emit_signal("save_cardTypeName", cardType)
 		var language = SettingsManager.language
 		
 		var randomFile = select_random_file_name(cardType)
@@ -51,7 +54,11 @@ func _ready():
 		
 		set_card_status(newcontent[1])
 		
-		reward = check_player_rewards()
+		var reward
+		if get_origin() == "skip":
+			reward = get_rewardSkip()
+		else:
+			reward = check_player_rewards()
 		
 		newcontent.append("REWARD")
 		newcontent.append(reward) 
@@ -144,8 +151,6 @@ func select_random_file_name(folder):
 	
 	#these files will already be in the designated language
 	files = check_challenge_array(folder)
-
-		
 		
 	if files.size() == 0:
 		ChallengesManager.register_cards(folder)
@@ -189,7 +194,6 @@ func set_card_status(cardTitle):
 	title.text =  cardTitle
 	
 	
-	print(SettingsManager.get_ttsEnabled())
 	if SettingsManager.get_ttsEnabled():
 		emit_signal("talk", cardTitle)
 
@@ -280,3 +284,8 @@ func set_cardData(data):
 func get_cardData():
 	return cardData
 	
+func set_rewardSkip(r):
+	rewardSkip = r
+	
+func get_rewardSkip():
+	return rewardSkip

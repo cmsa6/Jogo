@@ -13,7 +13,6 @@ onready var translator = $TranslationManager
 
 
 func set_up(playerID):
-	print("fiz set_up")
 	var playerQOL = SavingManager.playersQOLSkills[playerID]
 	var playerCF = SavingManager.playersCFSkills[playerID]
 	details.set_playerID(playerID)

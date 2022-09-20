@@ -95,7 +95,7 @@ func check_cards_uid():
 	leisureDir.list_dir_end()
 
 	files.sort()
-	print(files)
+	
 	ChallengesManager.set_lastId(files[-1])
 	
 	
