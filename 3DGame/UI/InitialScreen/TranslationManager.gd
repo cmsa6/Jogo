@@ -21,11 +21,11 @@ func translate(language):
 		
 	
 	elif language == "it":
-		instructions.text = "Si prega di selezionare una lingua"
+		instructions.text = "Per favore, seleziona una lingua"
 		
 	
 	elif language == "pt":
-		instructions.text = "Por favor selecione um idioma"
+		instructions.text = "Por favor, selecione um idioma"
 		
 		
 		

@@ -59,6 +59,7 @@ func submit():
 #			print(fileName.get_extension())
 #			print(nameWithoutExtension)
 			fileId =  nameWithoutExtension.split("\/")[-1]
+			print(fileId)
 
 		else:
 			var incLastId = ChallengesManager.lastId + 1

@@ -12,8 +12,8 @@
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/FinalScreen/DetailVersion.gd" type="Script" id=12]
-[ext_resource path="res://Fotos/MuteBotton.png" type="Texture" id=13]
-[ext_resource path="res://Fotos/MuteBottonSelected.png" type="Texture" id=14]
+[ext_resource path="res://Fotos/MusicButton.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/MusicButtonSelected.png" type="Texture" id=14]
 [ext_resource path="res://UI/FinalScreen/MuteButton.gd" type="Script" id=15]
 [ext_resource path="res://UI/FinalScreen/TranslationManager_gameOver.gd" type="Script" id=16]
 

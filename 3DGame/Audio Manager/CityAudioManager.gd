@@ -15,3 +15,5 @@ func set_mute(bol):
 	
 func get_mute():
 	return mute
+	
+

@@ -24,3 +24,9 @@ func set_mute(bol):
 	
 func get_mute():
 	return mute
+
+func set_volume(vol):
+	self.volume_db = vol
+
+func lower_volume():
+	anim.play("Lower_volume")

@@ -27,7 +27,7 @@ func register_cards(folder):
 	var language = SettingsManager.language
 	var dir = Directory.new()
 	var folderName = "user://Cards/"+ str(language) + "/"+ folder + "/"
-
+	print("does folder exists?: ", dir.file_exists("user://Cards/"+ str(language) + "/"+ folder))
 	dir.open(folderName)
 	dir.list_dir_begin()
 	

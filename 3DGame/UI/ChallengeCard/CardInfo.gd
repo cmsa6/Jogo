@@ -85,25 +85,25 @@ func _ready():
 #				break
 		var imagePath = "user://Cards/" + str(language) + "/photos/" + imageName +".png"
 		
-		if "extra" in imageName:
-			var file = File.new()
-			file.open(imagePath, File.READ)
-			var buffer = file.get_buffer(file.get_len())
+		#if "extra" in imageName:
+		var file = File.new()
+		file.open(imagePath, File.READ)
+		var buffer = file.get_buffer(file.get_len())
+		
+		var imageTest = Image.new()
+		imageTest.load_png_from_buffer(buffer)
+		var imageText = ImageTexture.new()
+		imageText.create_from_image(imageTest)
+		file.close()
+		
+		image.set_texture(imageText)
+		zoomImage.set_texture(imageText)
+		
 			
-			var imageTest = Image.new()
-			imageTest.load_png_from_buffer(buffer)
-			var imageText = ImageTexture.new()
-			imageText.create_from_image(imageTest)
-			file.close()
-			
-			image.set_texture(imageText)
-			zoomImage.set_texture(imageText)
-			
-			
-		else:
-			var imagePhoto = load(imagePath)
-			image.texture = imagePhoto
-			zoomImage.texture = imagePhoto
+#		else:
+#			var imagePhoto = load(imagePath)
+#			image.texture = imagePhoto
+#			zoomImage.texture = imagePhoto
 			
 
 		

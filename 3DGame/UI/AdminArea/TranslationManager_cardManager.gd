@@ -34,7 +34,7 @@ func translate(language):
 	
 	elif language == "it":
 		title.text   = "Editor di carte sfida"
-		addCard.text = "Aggiungi la\ncarta sfida"
+		addCard.text = "Aggiungi una\ncarta sfida"
 		menu.text    = "Vedi tutte le\ncarte sfida"
 		
 		

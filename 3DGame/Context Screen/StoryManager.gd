@@ -24,14 +24,17 @@ signal stop()
 
 
 func _ready():
-	if SettingsManager.get_ttsEnabled():
+	if not MusicAudioManager.get_mute():
+			MusicAudioManager.lower_volume()
+			
+	if SettingsManager.get_ttsEnabled():			
 		emit_signal("stop")		
 		emit_signal("talk", story1Text.text)
 
 
 	
 
-func show_next(currentID):
+func show_next(currentID):	
 	if story2.visible == false:
 		if SettingsManager.get_ttsEnabled():
 			emit_signal("stop")

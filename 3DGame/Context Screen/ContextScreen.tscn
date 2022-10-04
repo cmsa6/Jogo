@@ -16,9 +16,9 @@
 [ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=15]
 [ext_resource path="res://TTS Manager/TTS.tscn" type="PackedScene" id=16]
-[ext_resource path="res://UI/Keyboard/Shortcut_tab.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Fotos/TTSButton.png" type="Texture" id=18]
 [ext_resource path="res://Fotos/TTSButtonSelected.png" type="Texture" id=19]
+[ext_resource path="res://UI/Keyboard/Shortcut_space.tscn" type="PackedScene" id=20]
 [ext_resource path="res://TTS Manager/RepeatTTS.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
@@ -159,15 +159,15 @@ __meta__ = {
 }
 textToSpeak = NodePath("../VBoxContainer/WelcomeText")
 
-[node name="Tab" parent="GridContainer/Part1/Story1/HBoxContainer/TTSButton" instance=ExtResource( 17 )]
+[node name="Space" parent="GridContainer/Part1/Story1/HBoxContainer/TTSButton" instance=ExtResource( 20 )]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -15.5
-margin_top = 39.1667
-margin_right = 15.5
-margin_bottom = 62.1667
+anchor_bottom = 1.0
+margin_left = -23.0
+margin_top = -9.0
+margin_right = 23.0
+margin_bottom = 5.0
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part1"]
 layer = 2
@@ -278,15 +278,15 @@ __meta__ = {
 }
 textToSpeak = NodePath("../VBoxContainer/Label")
 
-[node name="Tab" parent="GridContainer/Part2/Story2/HBoxContainer/TTSButton2" instance=ExtResource( 17 )]
+[node name="Space" parent="GridContainer/Part2/Story2/HBoxContainer/TTSButton2" instance=ExtResource( 20 )]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -15.5
-margin_top = 39.1667
-margin_right = 15.5
-margin_bottom = 62.1667
+anchor_bottom = 1.0
+margin_left = -23.0
+margin_top = -9.0
+margin_right = 23.0
+margin_bottom = 5.0
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part2"]
 layer = 2
@@ -392,15 +392,15 @@ __meta__ = {
 }
 textToSpeak = NodePath("../VBoxContainer/Label")
 
-[node name="Tab" parent="GridContainer/Part3/Story3/HBoxContainer/TTSButton" instance=ExtResource( 17 )]
+[node name="Space" parent="GridContainer/Part3/Story3/HBoxContainer/TTSButton" instance=ExtResource( 20 )]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -15.5
-margin_top = 39.1667
-margin_right = 15.5
-margin_bottom = 62.1667
+anchor_bottom = 1.0
+margin_left = -23.0
+margin_top = -9.0
+margin_right = 23.0
+margin_bottom = 5.0
 
 [node name="ButtonLayer" type="CanvasLayer" parent="GridContainer/Part3"]
 layer = 2
@@ -509,15 +509,15 @@ __meta__ = {
 }
 textToSpeak = NodePath("../VBoxContainer/Label")
 
-[node name="Tab" parent="GridContainer/Part4/Story4/HBoxContainer/TTSButton" instance=ExtResource( 17 )]
+[node name="Space" parent="GridContainer/Part4/Story4/HBoxContainer/TTSButton" instance=ExtResource( 20 )]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -15.5
-margin_top = 39.1667
-margin_right = 15.5
-margin_bottom = 62.1667
+anchor_bottom = 1.0
+margin_left = -23.0
+margin_top = -9.0
+margin_right = 23.0
+margin_bottom = 5.0
 
 [node name="FinalButton" type="TextureButton" parent="."]
 anchor_left = 1.0
@@ -556,6 +556,7 @@ pause_mode = 2
 [connection signal="stop" from="GridContainer" to="TTS" method="stop"]
 [connection signal="talk" from="GridContainer" to="TTS" method="speak"]
 [connection signal="talk" from="GridContainer/Part1/Story1" to="TTS" method="speak"]
+[connection signal="button_down" from="GridContainer/Part1/Story1/HBoxContainer/TTSButton" to="UISoundManager" method="select"]
 [connection signal="pressed" from="GridContainer/Part1/Story1/HBoxContainer/TTSButton" to="GridContainer/Part1/Story1/HBoxContainer/TTSButton" method="repeat"]
 [connection signal="stop_talking" from="GridContainer/Part1/Story1/HBoxContainer/TTSButton" to="TTS" method="stop"]
 [connection signal="talk" from="GridContainer/Part1/Story1/HBoxContainer/TTSButton" to="TTS" method="speak"]

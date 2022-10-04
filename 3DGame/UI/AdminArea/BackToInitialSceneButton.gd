@@ -11,13 +11,11 @@ func _on_BackToSceneButton_pressed():
 	
 	#get_node(previousScene).queue_free()
 	
-	ChallengesManager.register_cards("SERVICES")
-	ChallengesManager.register_cards("HELP")
-	ChallengesManager.register_cards("COMMERCIAL")
-	ChallengesManager.register_cards("LEISURE")	
+#	ChallengesManager.register_cards("SERVICES")
+#	ChallengesManager.register_cards("HELP")
+#	ChallengesManager.register_cards("COMMERCIAL")
+#	ChallengesManager.register_cards("LEISURE")	
 	
 	get_tree().change_scene(previousScene)
+	print("changing")
 
-
-func initiate_game():
-	_on_BackToSceneButton_pressed()

@@ -6,16 +6,21 @@ func _input(event):
 		emit_signal("pressed")
 		
 		
+func _ready():
+	if not CityAudioManager.get_mute():
+		self.pressed = true
+		
+		
 func mute():	
 	if CityAudioManager.get_mute():
 		CityAudioManager.set_mute(false)
 		MusicAudioManager.set_mute(false)
 		MusicAudioManager.stream_paused = false
-		self.pressed = false
+		self.pressed = true
 
 	else:
 		CityAudioManager.set_mute(true)
 		MusicAudioManager.set_mute(true)
 		MusicAudioManager.stream_paused = true
-		self.pressed = true
+		self.pressed = false
 	

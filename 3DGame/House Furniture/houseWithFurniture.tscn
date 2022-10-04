@@ -748,10 +748,10 @@ __meta__ = {
 
 [node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/Control/ScoreInfoManager"]
 margin_top = 20.0
-margin_right = 945.0
+margin_right = 920.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 800, 50 )
-size_flags_horizontal = 11
+size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 9.25
 max_value = 8.0
@@ -785,6 +785,7 @@ margin_right = 1024.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 75, 89 )
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 10
 size_flags_vertical = 6
 texture_normal = ExtResource( 34 )
 texture_pressed = ExtResource( 48 )

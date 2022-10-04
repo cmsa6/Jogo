@@ -99,24 +99,24 @@ func populateCard(cardInstance, content, file_name):
 	#print("path da imagem: ", imagePath)
 	
 	
-	if "extra" in name:
-		var file = File.new()
-		file.open(imagePath, File.READ)
-		var buffer = file.get_buffer(file.get_len())
-		
-		var imageTest = Image.new()
-		imageTest.load_png_from_buffer(buffer)
-		var imageText = ImageTexture.new()
-		imageText.create_from_image(imageTest)
-		file.close()
-		
-		image.set_texture(imageText)
-		imageZoomedIn.set_texture(imageText)
-	else:
+	#if "extra" in name:
+	var file = File.new()
+	file.open(imagePath, File.READ)
+	var buffer = file.get_buffer(file.get_len())
 	
-		var img = load(imagePath)
-		image.texture = img
-		imageZoomedIn.texture = img
+	var imageTest = Image.new()
+	imageTest.load_png_from_buffer(buffer)
+	var imageText = ImageTexture.new()
+	imageText.create_from_image(imageTest)
+	file.close()
+	
+	image.set_texture(imageText)
+	imageZoomedIn.set_texture(imageText)
+	#else:
+	
+	#	var img = load(imagePath)
+	#	image.texture = img
+	#	imageZoomedIn.texture = img
 	
 	
 #	var img = Image.new()

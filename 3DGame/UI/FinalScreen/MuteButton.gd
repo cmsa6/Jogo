@@ -8,7 +8,7 @@ func _input(event):
 			
 func _ready():
 	if MusicAudioManager.get_mute():
-		self.pressed = true
+		self.pressed = false
 		
 		
 func mute():
@@ -16,7 +16,7 @@ func mute():
 		CityAudioManager.set_mute(false)
 		MusicAudioManager.set_mute(false)
 		MusicAudioManager.fade_in_music()
-		self.pressed = false
+		self.pressed = true
 
 	else:
 		CityAudioManager.set_mute(true)

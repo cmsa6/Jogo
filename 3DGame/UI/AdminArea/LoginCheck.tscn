@@ -201,6 +201,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+previousScene = "res://UI/InitialScreen/InitialScreenWithIcon.tscn"
 
 [node name="UISoundManager" parent="." instance=ExtResource( 11 )]
 

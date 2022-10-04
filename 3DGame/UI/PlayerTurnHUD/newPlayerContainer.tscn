@@ -113,7 +113,7 @@ outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
 extra_spacing_char = 3
 font_data = SubResource( 4 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -140,7 +140,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -168,7 +168,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.486275 ), Color( 1, 1, 1, 0.958333 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -383,9 +383,9 @@ script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TurnBackground/VBoxContainer/DiceButton"]
 playback_speed = -0.6
-anims/Still = SubResource( 9 )
-anims/blink = SubResource( 10 )
-anims/disappear = SubResource( 11 )
+anims/Still = SubResource( 7 )
+anims/blink = SubResource( 8 )
+anims/disappear = SubResource( 9 )
 
 [node name="Shortcut_rightArrow" parent="TurnBackground/VBoxContainer/DiceButton" instance=ExtResource( 6 )]
 anchor_left = 0.5

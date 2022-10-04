@@ -10,7 +10,7 @@ func _input(event):
 		
 func _ready():
 	if CityAudioManager.get_mute():
-		self.pressed = true
+		self.pressed = false
 		
 		
 func mute():
@@ -18,19 +18,19 @@ func mute():
 		CityAudioManager.set_mute(false)
 		MusicAudioManager.set_mute(false)
 		CityAudioManager.start()
-		self.pressed = false
+		self.pressed = true
 
 	else:
 		CityAudioManager.set_mute(true)
 		MusicAudioManager.set_mute(true)
 		CityAudioManager.stop()
-		self.pressed = true
+		self.pressed = false
 		
 	
 func hide_button(bol):
-	if bol:
-		self.visible = false
-	else:
-		self.visible = true
-
+	#if bol:
+	#	self.visible = false
+	#else:
+	#	self.visible = true
+	pass
 	
