@@ -5,8 +5,22 @@ var outlineColor setget set_outlineColor, get_outlineColor
 
 var reward   = "" setget set_reward, get_reward
 var cardType = "" setget set_cardType, get_cardType
+var cardTypeName = "" setget set_cardTypeName, get_cardTypeName
 
 
+func _ready():
+	if SettingsManager.language == "es":
+		self.text = "Salta el reto"
+	elif SettingsManager.language == "el":
+		self.text = "Salta el reto"
+	elif SettingsManager.language == "pt":
+		self.text = "Salta o desafio"
+	elif SettingsManager.language == "it":
+		self.text = "Salta questa sfida"
+	elif SettingsManager.language == "en":
+		self.text = "Skip this challenge"
+		
+		
 func set_colors(colors):
 	var mColor = Color8(230,111,32,255)
 	var oColor = Color8(241,161,109,255)
@@ -51,8 +65,16 @@ func set_cardType(t):
 func get_cardType():
 	return cardType
 	
+func set_cardTypeName(name):
+	print("saving the type to the skip button - ", name)
+	cardTypeName = name
+	
+func get_cardTypeName():
+	return cardTypeName
+	
 	
 func skip_challenge():
+	print("no skip o tipo e: ", get_cardTypeName())
 	var root_node = get_node("/root")
 	
 
@@ -65,7 +87,8 @@ func skip_challenge():
 	cardInstance.set_origin("skip")
 	cardInstance.save_rewardSkip(get_reward())
 	cardInstance.set_cardType(get_cardType())
-
+	
+	cardInstance.set_cardTypeName(get_cardTypeName())
 	
 	root_node.add_child(cardInstance)
 	root_node.move_child(cardInstance,0)

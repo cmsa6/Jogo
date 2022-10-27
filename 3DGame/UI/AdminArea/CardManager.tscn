@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fotos/BackButton.png" type="Texture" id=1]
 [ext_resource path="res://Fotos/MenuButton.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/AdminArea/TranslationManager_cardManager.gd" type="Script" id=11]
 [ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=12]
+[ext_resource path="res://UI/AdminArea/OpenFolder.gd" type="Script" id=13]
+[ext_resource path="res://Fotos/openFolderButton.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -97,14 +99,13 @@ margin_top = 187.0
 margin_right = 1024.0
 margin_bottom = 466.0
 size_flags_vertical = 6
-custom_constants/separation = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/TypeCardSelecter"]
-margin_left = 81.0
-margin_right = 381.0
+margin_left = 19.0
+margin_right = 319.0
 margin_bottom = 279.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 6
@@ -131,8 +132,8 @@ align = 1
 autowrap = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/VBoxContainer/TypeCardSelecter"]
-margin_left = 643.0
-margin_right = 943.0
+margin_left = 361.0
+margin_right = 661.0
 margin_bottom = 279.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 6
@@ -157,6 +158,32 @@ text = "Add challenge
  card"
 align = 1
 
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect/VBoxContainer/TypeCardSelecter"]
+margin_left = 704.0
+margin_right = 1004.0
+margin_bottom = 279.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 6
+
+[node name="OpenFolder" type="TextureButton" parent="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer4"]
+margin_left = 50.0
+margin_right = 250.0
+margin_bottom = 200.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource( 14 )
+script = ExtResource( 13 )
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer4"]
+margin_top = 204.0
+margin_right = 300.0
+margin_bottom = 279.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Open challenge
+cards folder"
+align = 1
+
 [node name="SceneLoader" parent="." instance=ExtResource( 4 )]
 next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
 
@@ -167,9 +194,12 @@ script = ExtResource( 11 )
 titleNode = NodePath("../ColorRect/VBoxContainer/ColorRect2/HBoxContainer/Label")
 addCardNode = NodePath("../ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer3/Label2")
 menuNode = NodePath("../ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer/Label")
+openFolderNode = NodePath("../ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer4/Label2")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/ColorRect2/HBoxContainer/TextureButton" to="ColorRect/VBoxContainer/ColorRect2/HBoxContainer/TextureButton" method="back_to_game"]
 [connection signal="button_down" from="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer/CardMenu" to="UISoundManager" method="select"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer/CardMenu" to="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer/CardMenu" method="create_card"]
 [connection signal="button_down" from="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer3/AddCard" to="UISoundManager" method="select"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer3/AddCard" to="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer3/AddCard" method="create_card"]
+[connection signal="button_down" from="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer4/OpenFolder" to="UISoundManager" method="select"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer4/OpenFolder" to="ColorRect/VBoxContainer/TypeCardSelecter/VBoxContainer4/OpenFolder" method="open"]

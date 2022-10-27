@@ -57,6 +57,7 @@ func show_next(currentID):
 	else:
 		if "Second" in get_parent().get_name():
 			MusicAudioManager.fade_out_music()
+		emit_signal("stop")
 		emit_signal("show_map")
 	
 #	print(currentID)

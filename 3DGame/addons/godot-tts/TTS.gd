@@ -150,6 +150,7 @@ func speak(text, interrupt := false):
 
 
 func stop():
+	print("stopping")
 	if tts != null:
 		tts.stop()
 	elif OS.has_feature('JavaScript'):

@@ -29,6 +29,8 @@ func showNextCard():
 	cardInstance.set_card_data(card_data)
 	cardInstance.set_cardType(get_cardType())
 	cardInstance.set_cardTypeName(get_cardTypeName())
+	print("trying")
+	print(get_cardTypeName())
 	cardInstance.set_cardId(get_cardId())
 	#cardInstance.teste()
 	root_node.add_child(cardInstance)
@@ -54,6 +56,7 @@ func get_cardId():
 	return cardId
 	
 func set_cardTypeName(type):
+	print("the type of the nextcard is now: ", type)
 	cardTypeName = type
 
 func get_cardTypeName():

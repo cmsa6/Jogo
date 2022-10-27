@@ -333,6 +333,8 @@ pause_mode = 2
 [connection signal="set_cardData" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_cardData"]
 [connection signal="set_cardId" from="." to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="set_cardId"]
 [connection signal="set_cardType" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_type"]
+[connection signal="set_cardTypeName" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_type"]
+[connection signal="set_cardTypeName" from="." to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="set_cardTypeName"]
 [connection signal="set_origin" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_origin"]
 [connection signal="set_rewardSkip" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_rewardSkip"]
 [connection signal="type_setted" from="." to="Control/Card2/VBoxContainer/LeftSide/RewardDetails" method="set_type"]
@@ -343,6 +345,7 @@ pause_mode = 2
 [connection signal="talk" from="Control/Card2/VBoxContainer/LeftSide/RewardDetails" to="TTS" method="speak"]
 [connection signal="button_down" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="UISoundManager" method="confirm"]
 [connection signal="pressed" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="Control/Card2/VBoxContainer/VBoxContainer/NextButton" method="showNextCard"]
+[connection signal="pressed" from="Control/Card2/VBoxContainer/VBoxContainer/NextButton" to="TTS" method="stop"]
 [connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
 
 [editable path="Control/Card2/VBoxContainer/Control"]

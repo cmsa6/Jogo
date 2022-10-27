@@ -5,6 +5,7 @@ onready var playerImage = $Control/BackgroundRect/PlayerAvatar
 var card_data = [] setget set_card_data, get_card_data
 
 var cardType setget set_cardType, get_cardType
+var cardTypeName setget set_cardTypeName, get_cardTypeName
 var origin = "" setget set_origin, get_origin
 var cardId = 0 setget set_cardId, get_cardId
 
@@ -12,7 +13,8 @@ signal data_saved(card_data)
 signal type_saved(type)
 signal set_origin(origin)
 signal cardId_saved(id)
-signal set_cardTypeName(typeName)
+signal save_cardTypeName(name)
+
 
 func _ready():
 	if get_origin() == "":
@@ -51,7 +53,7 @@ func go_back():
 
 	cardInstance.set_origin("back")
 	cardInstance.set_cardData(get_card_data())
-
+	cardInstance.set_cardTypeName(get_cardTypeName())
 	cardInstance.set_cardType(get_cardType())
 	cardInstance.set_cardId(get_cardId())
 
@@ -74,5 +76,11 @@ func set_cardId(id):
 func get_cardId():
 	return cardId
 	
-func set_cardTypeName(typeName):
-	emit_signal("set_cardTypeName", typeName)
+func set_cardTypeName(name):
+	emit_signal("save_cardTypeName", name)
+	cardTypeName = name
+	
+func get_cardTypeName():
+	return cardTypeName
+	
+

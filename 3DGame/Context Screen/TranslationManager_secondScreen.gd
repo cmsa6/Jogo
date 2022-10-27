@@ -70,7 +70,7 @@ func translate(language):
 
 	elif language == "en":
 		space1Text.text = "When your character stops at a circle tile, a challenge pops up!"
-		space2Text.text = "For example, this challenge is called \"Repeated Element\". If you succed you can win a coffee machine!"
+		space2Text.text = "For example, this challenge is called \"Repeated Element\". If you succeed you can win a coffee machine!"
 		space3Text.text = "After pressing the arrow button, try to complete the challenge."
 		space4Text.text = "The other players decide whether you were successful by pressing the \"Like\" button."
 

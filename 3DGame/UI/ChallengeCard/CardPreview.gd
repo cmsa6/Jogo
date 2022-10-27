@@ -9,6 +9,7 @@ signal set_cardData(data)
 signal set_cardType(type)
 signal set_cardId(id)
 signal set_rewardSkip(reward)
+signal set_cardTypeName(name)
 
 var origin     = "" setget set_origin, get_origin
 
@@ -44,6 +45,10 @@ func set_cardId(id):
 	
 func save_rewardSkip(reward):
 	emit_signal("set_rewardSkip", reward)
+	
+func set_cardTypeName(name):
+	print("saving type: ", name)
+	emit_signal("set_cardTypeName", name)
 	
 
 

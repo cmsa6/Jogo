@@ -8,9 +8,12 @@ func _input(event):
 		emit_signal("pressed")
 		
 		
+		
+		
+		
 func _ready():
-	if CityAudioManager.get_mute():
-		self.pressed = false
+	if not CityAudioManager.get_mute():
+		self.pressed = true
 		
 		
 func mute():

@@ -30,12 +30,14 @@ signal talk(text)
 var reward     = "" setget set_reward, get_reward
 var origin     = "" setget set_origin, get_origin
 var rewardSkip = "" setget set_rewardSkip, get_rewardSkip
+var cardTypeName = "" setget set_cardTypeName, get_cardTypeName
 
 var rng = RandomNumberGenerator.new()
 
 func _ready():
 	#escolhe randomnly um valor que corresponde a uma carta
 	if get_origin() == "" or get_origin() == "skip":
+		
 		var cardType = get_type()
 		emit_signal("save_cardTypeName", cardType)
 		var language = SettingsManager.language
@@ -151,6 +153,7 @@ func select_random_file_name(folder):
 	
 	#these files will already be in the designated language
 	files = check_challenge_array(folder)
+	print(files)
 		
 	if files.size() == 0:
 		ChallengesManager.register_cards(folder)
@@ -160,6 +163,7 @@ func select_random_file_name(folder):
 	var fileSelected = rng.randi_range(0, files.size() - 1)
 	var file = files[fileSelected]
 	files.remove(fileSelected)
+	print(files)
 	return file
 	
 	
@@ -289,3 +293,10 @@ func set_rewardSkip(r):
 	
 func get_rewardSkip():
 	return rewardSkip
+
+
+func set_cardTypeName(name):
+	cardTypeName = name
+	
+func get_cardTypeName():
+	return cardTypeName

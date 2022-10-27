@@ -24,6 +24,10 @@ func get_languageSelected():
 func save_languageSelected():
 	SettingsManager.language = get_languageSelected()
 	start_game()
+
+#	var path = ProjectSettings.globalize_path("user://Cards")
+#	OS.shell_open(path)
+
 	
 func start_game():
 	FileManager.backup_cards()

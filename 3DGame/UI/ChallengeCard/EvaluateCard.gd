@@ -308,6 +308,7 @@ func go_back():
 	cardInstance.set_origin("back")
 	cardInstance.set_card_data(get_cardData())
 	cardInstance.set_cardType(get_cardType())
+	print("card type no eval: ", get_cardTypeName())
 	cardInstance.set_cardTypeName(get_cardTypeName())
 	cardInstance.set_cardId(get_cardId())
 	
