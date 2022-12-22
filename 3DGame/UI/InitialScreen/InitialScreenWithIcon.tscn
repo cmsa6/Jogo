@@ -5,7 +5,7 @@
 [ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/kenney_future.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fotos/settings.png" type="Texture" id=5]
-[ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=6]
+[ext_resource path="res://Logos/en.png" type="Texture" id=6]
 [ext_resource path="res://UI/InitialScreen/InitialScreenWithIcon.gd" type="Script" id=7]
 [ext_resource path="res://Fotos/PlayButtonSelected.png" type="Texture" id=8]
 [ext_resource path="res://Fotos/playButton.png" type="Texture" id=9]
@@ -181,7 +181,7 @@ margin_bottom = 29.0
 
 [node name="UISoundManager" parent="." instance=ExtResource( 1 )]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="LogoPicture" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

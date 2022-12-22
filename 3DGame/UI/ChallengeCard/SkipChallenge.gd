@@ -10,9 +10,9 @@ var cardTypeName = "" setget set_cardTypeName, get_cardTypeName
 
 func _ready():
 	if SettingsManager.language == "es":
-		self.text = "Salta el reto"
+		self.text = "Saltar este reto"
 	elif SettingsManager.language == "el":
-		self.text = "Salta el reto"
+		self.text = "Παραλείψτε αυτή τη δοκιμασία"
 	elif SettingsManager.language == "pt":
 		self.text = "Salta o desafio"
 	elif SettingsManager.language == "it":

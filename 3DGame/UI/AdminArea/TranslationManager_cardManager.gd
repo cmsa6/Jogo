@@ -23,6 +23,7 @@ func translate(language):
 		title.text   = "Επεξεργαστής καρτών δοκιμασιών"
 		addCard.text = "Προσθέστε μιακάρτα\nδοκιμασίας"
 		menu.text    = "Δείτε όλες τις κάρτες δοκιμασιών"
+		openFolder.text = "Ανοίξτε το φάκελο των\nκαρτών με τις δοκιμασίες"
 		
 		
 		
@@ -30,6 +31,7 @@ func translate(language):
 		title.text   = "Editor de cartas de retos"
 		addCard.text = "Añadir\nuna carta de reto"
 		menu.text    = "Ver las cartas de retos"
+		openFolder.text = "Abre la carpeta de\ncartas de reto"
 		
 		
 		
@@ -39,6 +41,7 @@ func translate(language):
 		addCard.text    = "Aggiungi una\ncarta sfida"
 		menu.text       = "Vedi tutte le\ncarte sfida"
 		openFolder.text = "Apri la cartella delle\ncarte sfida"
+		
 		
 		
 	

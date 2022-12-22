@@ -1,17 +1,8 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var logo = $LogoPicture
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	print("ready")
-#	check_cards_uid()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _ready():
+	var pathLogo = "res://Logos/" + str(SettingsManager.language) + ".png"
+	logo.texture = load(pathLogo)

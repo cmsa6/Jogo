@@ -178,7 +178,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part1/Story1/HBoxContainer"]
-margin_right = 380.0
+margin_right = 400.0
 margin_bottom = 298.0
 rect_min_size = Vector2( 380, 0 )
 __meta__ = {
@@ -187,9 +187,9 @@ __meta__ = {
 
 [node name="WelcomeText" type="Label" parent="GridContainer/Part1/Story1/HBoxContainer/VBoxContainer"]
 margin_top = 12.0
-margin_right = 380.0
+margin_right = 400.0
 margin_bottom = 112.0
-rect_min_size = Vector2( 380, 100 )
+rect_min_size = Vector2( 400, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
@@ -199,11 +199,11 @@ valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part1/Story1/HBoxContainer/VBoxContainer"]
-margin_left = 40.0
-margin_top = 138.0
+margin_left = 60.0
+margin_top = 143.0
 margin_right = 340.0
-margin_bottom = 288.0
-rect_min_size = Vector2( 300, 150 )
+margin_bottom = 283.0
+rect_min_size = Vector2( 280, 140 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
@@ -211,8 +211,8 @@ texture = ExtResource( 4 )
 expand = true
 
 [node name="TTSButton1" type="TextureButton" parent="GridContainer/Part1/Story1/HBoxContainer"]
-margin_left = 384.0
-margin_right = 484.0
+margin_left = 404.0
+margin_right = 504.0
 margin_bottom = 100.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 10
@@ -300,32 +300,31 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Part2/Story2/HBoxContainer"]
-margin_right = 380.0
+margin_right = 390.0
 margin_bottom = 298.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part2/Story2/HBoxContainer/VBoxContainer"]
-margin_top = 4.0
-margin_right = 380.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 380, 0 )
+margin_right = 400.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
-text = "For example, this challenge is called “Repeated Element”.
-If you succeed you win a coffee machine!"
+text = "Για παράδειγμα, αυτή η δοκιμασία λέγεται \"0Πηγαίνοντας στοστη γιατρό\".
+Αν ολοκληρώσεις επιτυχώς τη δοκιμασία κερδίζεις μια τραπέζι."
 valign = 1
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part2/Story2/HBoxContainer/VBoxContainer"]
-margin_left = 40.0
-margin_top = 138.0
-margin_right = 340.0
-margin_bottom = 288.0
-rect_min_size = Vector2( 300, 150 )
+margin_left = 55.0
+margin_top = 154.0
+margin_right = 335.0
+margin_bottom = 294.0
+rect_min_size = Vector2( 280, 140 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
@@ -333,8 +332,8 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="TTSButton2" type="TextureButton" parent="GridContainer/Part2/Story2/HBoxContainer"]
-margin_left = 384.0
-margin_right = 484.0
+margin_left = 394.0
+margin_right = 494.0
 margin_bottom = 100.0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 10
@@ -422,9 +421,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="GridContainer/Part3/Story3/HBoxContainer/VBoxContainer"]
-margin_right = 380.0
-margin_bottom = 125.0
-rect_min_size = Vector2( 380, 0 )
+margin_right = 400.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -436,9 +435,9 @@ autowrap = true
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part3/Story3/HBoxContainer/VBoxContainer"]
 margin_left = 40.0
 margin_top = 138.0
-margin_right = 340.0
-margin_bottom = 288.0
-rect_min_size = Vector2( 300, 150 )
+margin_right = 320.0
+margin_bottom = 278.0
+rect_min_size = Vector2( 280, 140 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
@@ -540,9 +539,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="GridContainer/Part4/Story4/HBoxContainer/VBoxContainer"]
 margin_top = 19.0
-margin_right = 380.0
+margin_right = 400.0
 margin_bottom = 106.0
-rect_min_size = Vector2( 380, 0 )
+rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 4 )
@@ -554,9 +553,9 @@ autowrap = true
 [node name="TextureRect" type="TextureRect" parent="GridContainer/Part4/Story4/HBoxContainer/VBoxContainer"]
 margin_left = 40.0
 margin_top = 138.0
-margin_right = 340.0
-margin_bottom = 288.0
-rect_min_size = Vector2( 300, 150 )
+margin_right = 320.0
+margin_bottom = 278.0
+rect_min_size = Vector2( 280, 140 )
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 1.35
