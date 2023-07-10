@@ -1,0 +1,39 @@
+extends Spatial
+
+
+var rng = RandomNumberGenerator.new()
+
+onready var anim = $Spatial/AnimationPlayer
+
+var value setget set_value, get_value
+
+signal update_value(diceValue)
+
+
+
+
+
+func get_dice_value():
+	rng.randomize()
+	var diceValue = rng.randi_range(2, 6)
+	set_value(diceValue)
+	emit_signal("update_value", diceValue)
+	
+func update_dice_value():
+	pass
+	var dice_value = get_value()
+	
+	
+	var gameManagerNode = get_node("/root/Map1/GameManager")
+	gameManagerNode._on_Dado_dice_used(dice_value)
+
+
+func set_value(v):
+	value = v
+
+func get_value():
+	return value
+	
+func play(animName):
+	anim.play(animName)
+
