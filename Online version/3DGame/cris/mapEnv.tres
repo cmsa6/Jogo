@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[ext_resource path="res://Map Stuff/new_panoramasky.tres" type="PanoramaSky" id=1]
+
+[resource]
+background_mode = 2
+background_sky = ExtResource( 1 )
+background_sky_custom_fov = 70.5
+background_sky_orientation = Basis( 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, 0, 0, 1 )
+background_energy = 1.2
+ambient_light_color = Color( 0.905882, 0.905882, 0.67451, 1 )
+ambient_light_energy = 1.29
+fog_enabled = true
+fog_color = Color( 0.792157, 0.898039, 1, 1 )
+fog_sun_color = Color( 1, 0.980392, 0.937255, 1 )
+fog_sun_amount = 0.22
+fog_depth_end = 1000.0
+fog_depth_curve = 1.07177
+dof_blur_far_distance = 206.1
+dof_blur_far_transition = 88.58

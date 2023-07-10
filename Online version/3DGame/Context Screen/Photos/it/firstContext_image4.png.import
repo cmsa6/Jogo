@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/firstContext_image4.png-635f3b2ed93c36db0514b291c6cc4b73.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Context Screen/Photos/it/firstContext_image4.png"
+dest_files=[ "res://.import/firstContext_image4.png-635f3b2ed93c36db0514b291c6cc4b73.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

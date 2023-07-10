@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Keyboard/ShortcutButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0507.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0508.png" type="Texture" id=3]
+[ext_resource path="res://UI/Buttons/Shortcut.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0509.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "press"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.572549, 0.552941, 0.552941, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect4:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.572549, 0.552941, 0.552941, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Space" type="Control"]
+margin_right = 46.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 30, 15 )
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+margin_right = 25.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 25, 15 )
+size_flags_horizontal = 2
+size_flags_vertical = 6
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+margin_left = 25.0
+margin_right = 35.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 10, 15 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+margin_left = 35.0
+margin_right = 45.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 10, 15 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer"]
+anims/press = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="HBoxContainer"]
+wait_time = 20.0
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -10.0
+margin_right = 23.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 24, 15 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+flat = true
+expand_icon = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="HBoxContainer/Timer" to="HBoxContainer" method="_on_Timer_timeout"]
+[connection signal="button_down" from="Button" to="Button" method="mimic_parent_sound"]
+[connection signal="pressed" from="Button" to="Button" method="mimic_parent"]

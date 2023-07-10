@@ -1,0 +1,399 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/ChallengeCard/ZoomInButton.gd" type="Script" id=4]
+[ext_resource path="res://UI/AdminArea/NewCardPreview.gd" type="Script" id=5]
+[ext_resource path="res://UI/ChallengeCard/ZoomOutButton.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/kenney_interfacesounds/Audio/open_004.ogg" type="AudioStream" id=7]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Fotos/placeholder4.png" type="Texture" id=11]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=12]
+[ext_resource path="res://Fotos/SmallerConfirmButtonDisabled.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/enterButton_pressed.png" type="Texture" id=14]
+[ext_resource path="res://Fotos/zoom_out.png" type="Texture" id=15]
+[ext_resource path="res://Fotos/zoom_out_selected.png" type="Texture" id=16]
+[ext_resource path="res://Fotos/zoom_selected.png" type="Texture" id=17]
+[ext_resource path="res://Fotos/zoom.png" type="Texture" id=18]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=19]
+[ext_resource path="res://UI/AdminArea/TranslationManager_cardPreview.gd" type="Script" id=20]
+[ext_resource path="res://Fonts/greekFont_bold.tres" type="DynamicFont" id=22]
+[ext_resource path="res://UI/Keyboard/Shortcut_upArrow.tscn" type="PackedScene" id=24]
+[ext_resource path="res://UI/Keyboard/Shortcut_downArrow.tscn" type="PackedScene" id=25]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 3
+font_data = ExtResource( 2 )
+
+[node name="NewCardPreview" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = -0.00162137
+anchor_right = 0.998379
+anchor_bottom = 1.0
+margin_top = 1.02008
+margin_bottom = 1.02008
+color = Color( 0.964706, 0.921569, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_vertical = 2
+color = Color( 0.945098, 0.631373, 0.427451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect2/HBoxContainer"]
+margin_left = 164.0
+margin_top = 7.0
+margin_right = 859.0
+margin_bottom = 43.0
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "This challenge card was created successfully"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadSavedScene" parent="." instance=ExtResource( 1 )]
+
+[node name="UISoundManager" parent="." instance=ExtResource( 8 )]
+
+[node name="BackgroundRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -370.0
+margin_top = -182.0
+margin_right = 370.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 700, 400 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color( 0.854902, 0.905882, 0.666667, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RewardTitle2" type="Label" parent="BackgroundRect/VBoxContainer"]
+margin_right = 740.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 180, 50 )
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "DESAFIO"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardColor" type="ColorRect" parent="BackgroundRect/VBoxContainer"]
+margin_left = 32.0
+margin_top = 50.0
+margin_right = 707.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 675, 290 )
+rect_pivot_offset = Vector2( 388.889, 585.786 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color( 0.318603, 0.519531, 0.101471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardInfo" type="HBoxContainer" parent="BackgroundRect/VBoxContainer/CardColor"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -327.5
+margin_top = -145.0
+margin_right = 327.5
+margin_bottom = 145.0
+rect_min_size = Vector2( 0, 250 )
+custom_constants/separation = -4
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinigameSound" type="AudioStreamPlayer" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+stream = ExtResource( 7 )
+volume_db = 5.0
+
+[node name="Instructions" type="Label" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+margin_top = 2.0
+margin_right = 399.0
+margin_bottom = 287.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 300, 250 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 8.44
+custom_fonts/font = SubResource( 3 )
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+valign = 1
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+margin_left = 395.0
+margin_right = 655.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 260, 290 )
+custom_constants/separation = -50
+
+[node name="ChallengeImage" type="TextureRect" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer"]
+margin_left = 30.0
+margin_top = 67.0
+margin_right = 230.0
+margin_bottom = 177.0
+rect_min_size = Vector2( 200, 110 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 7.67
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
+[node name="zoomButtonIn" type="VBoxContainer" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer"]
+margin_left = 185.0
+margin_top = 195.0
+margin_right = 260.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 75, 95 )
+size_flags_horizontal = 10
+size_flags_vertical = 10
+custom_constants/separation = -15
+
+[node name="ZoomInButton" type="TextureButton" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn"]
+margin_top = 6.0
+margin_right = 75.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 75, 82 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut_upArrow" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn/ZoomInButton" instance=ExtResource( 24 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -17.0
+margin_right = 12.5
+margin_bottom = 8.0
+
+[node name="ZoomedInImage" type="TextureRect" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+visible = false
+margin_left = 77.0
+margin_top = 5.0
+margin_right = 577.0
+margin_bottom = 285.0
+rect_min_size = Vector2( 600, 280 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.52
+expand = true
+
+[node name="zoomButton" type="VBoxContainer" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+visible = false
+margin_left = 655.0
+margin_top = 200.0
+margin_right = 655.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 0, 90 )
+size_flags_horizontal = 10
+size_flags_vertical = 10
+custom_constants/separation = -10
+
+[node name="ZoomOutButton" type="TextureButton" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton"]
+visible = false
+margin_right = 75.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 75, 90 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.74
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut_downArrow" parent="BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton/ZoomOutButton" instance=ExtResource( 25 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -25.0
+margin_right = 12.5
+margin_bottom = 0.0
+
+[node name="SkillInfo" type="HBoxContainer" parent="BackgroundRect/VBoxContainer"]
+margin_left = 115.0
+margin_top = 340.0
+margin_right = 625.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 100, 60 )
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberPoints" type="Label" parent="BackgroundRect/VBoxContainer/SkillInfo"]
+margin_top = 12.0
+margin_right = 41.0
+margin_bottom = 48.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "+ 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skill" type="TextureRect" parent="BackgroundRect/VBoxContainer/SkillInfo"]
+margin_left = 55.0
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 9 )
+expand = true
+
+[node name="SkillName" type="Label" parent="BackgroundRect/VBoxContainer/SkillInfo"]
+margin_left = 119.0
+margin_top = 12.0
+margin_right = 510.0
+margin_bottom = 48.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Calculus and problem solving"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadMapSceneButton" type="Button" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+custom_fonts/font = ExtResource( 3 )
+text = "LOAD MAP SCENE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -100.0
+rect_pivot_offset = Vector2( -980.804, -584.622 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+size_flags_stretch_ratio = 2.43
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TranslationManager" parent="." instance=ExtResource( 19 )]
+script = ExtResource( 20 )
+titleNode = NodePath("../ColorRect2/HBoxContainer/Label")
+
+[connection signal="button_down" from="BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn/ZoomInButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn/ZoomInButton" to="." method="enable_zoom"]
+[connection signal="button_down" from="BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton/ZoomOutButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton/ZoomOutButton" to="." method="enable_zoom"]
+[connection signal="pressed" from="LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
+[connection signal="pressed" from="TextureButton2" to="." method="go_back_to_menu"]

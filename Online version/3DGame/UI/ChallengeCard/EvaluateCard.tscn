@@ -1,0 +1,433 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fotos/EvalButton (12).png" type="Texture" id=2]
+[ext_resource path="res://Fotos/EvalButton (14).png" type="Texture" id=3]
+[ext_resource path="res://Fotos/EvalButton (11).png" type="Texture" id=4]
+[ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=7]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0438.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Keyboard/Tiles/tile_0440.png" type="Texture" id=10]
+[ext_resource path="res://UI/ChallengeCard/TranslationManager_evaluate.gd" type="Script" id=11]
+[ext_resource path="res://Fotos/EvalButton (13).png" type="Texture" id=12]
+[ext_resource path="res://Assets/new_characters/Brian/Brian.png" type="Texture" id=13]
+[ext_resource path="res://Fonts/greekFont_bold.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://UI/ChallengeCard/goBackButton_Eval.gd" type="Script" id=16]
+[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=17]
+[ext_resource path="res://UI/Keyboard/Shortcut_leftArrow.tscn" type="PackedScene" id=18]
+[ext_resource path="res://UI/ChallengeCard/EvaluateCard.gd" type="Script" id=19]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=20]
+[ext_resource path="res://Fotos/GoBackSelected.png" type="Texture" id=21]
+[ext_resource path="res://Fotos/GoBackDisabled.png" type="Texture" id=22]
+[ext_resource path="res://Fotos/GoBack.png" type="Texture" id=23]
+[ext_resource path="res://UI/ChallengeCard/ApproveButton.gd" type="Script" id=24]
+[ext_resource path="res://UI/Keyboard/Shortcut_eval.tscn" type="PackedScene" id=25]
+[ext_resource path="res://UI/ChallengeCard/DisapproveButton.gd" type="Script" id=26]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 3
+font_data = ExtResource( 15 )
+
+[node name="EvaluateCard" type="Spatial"]
+script = ExtResource( 19 )
+
+[node name="TranslationManager" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 11 )
+reward = NodePath("../Evaluation/ColorRect/VBoxContainer/RewardTitle")
+instructions = NodePath("../Evaluation/ColorRect/VBoxContainer/Instructions")
+
+[node name="Evaluation" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Evaluation"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -370.0
+margin_top = -182.0
+margin_right = 370.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 700, 400 )
+color = Color( 0.964706, 0.921569, 0.862745, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Evaluation/ColorRect"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -262.0
+margin_top = -165.0
+margin_right = 262.0
+margin_bottom = 165.0
+color = Color( 1, 1, 1, 0.54902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAvatar" type="TextureRect" parent="Evaluation/ColorRect"]
+margin_left = 656.0
+margin_top = 2.0
+margin_right = 706.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Evaluation/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 6
+custom_constants/separation = -8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RewardTitle2" type="Label" parent="Evaluation/ColorRect/VBoxContainer"]
+margin_right = 740.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 180, 50 )
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "DESAFIO"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="Evaluation/ColorRect/VBoxContainer" instance=ExtResource( 5 )]
+visible = false
+margin_right = 741.0
+
+[node name="CardHeader" parent="Evaluation/ColorRect/VBoxContainer/Control" index="0"]
+margin_left = 32.0
+margin_top = -0.9
+margin_right = 708.0
+margin_bottom = 64.1
+
+[node name="BackButton" parent="Evaluation/ColorRect/VBoxContainer/Control/CardHeader" index="0"]
+visible = false
+
+[node name="VBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/Control/CardHeader" index="1"]
+margin_left = 0.0
+margin_top = 14.0
+margin_right = 500.0
+margin_bottom = 50.0
+
+[node name="Title" parent="Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer" index="0"]
+text = "DESAFIO"
+
+[node name="ChallengeTitle" parent="Evaluation/ColorRect/VBoxContainer/Control/CardHeader/VBoxContainer" index="1"]
+custom_fonts/font = SubResource( 2 )
+text = "Did the player got it right?"
+
+[node name="PlayerAvatar" parent="Evaluation/ColorRect/VBoxContainer/Control/CardHeader" index="2"]
+margin_left = 626.0
+margin_top = 7.0
+margin_right = 676.0
+margin_bottom = 57.0
+
+[node name="RewardTitle" type="Label" parent="Evaluation/ColorRect/VBoxContainer"]
+margin_top = 60.0
+margin_right = 740.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 180, 50 )
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.93
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "You can win"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer"]
+margin_left = 139.0
+margin_top = 121.0
+margin_right = 601.0
+margin_bottom = 321.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+custom_constants/separation = 100
+
+[node name="CenterContainer" type="CenterContainer" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+
+[node name="Viewport" type="Viewport" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer"]
+size = Vector2( 200, 200 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.889584, 0.456772, 0, -0.456772, 0.889584, 0, 7, 15 )
+current = true
+fov = 40.0
+near = 0.63
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.848584, 0.529061, 0, -0.529061, 0.848584, 0, 4.807, 11.65 )
+light_energy = 1.4
+
+[node name="ObjectPlaceHolder" type="Spatial" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+
+[node name="SkillsBackground" type="ColorRect" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer"]
+margin_left = 300.0
+margin_top = 60.0
+margin_right = 462.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 162, 80 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color( 0.415686, 0.172549, 0.172549, 1 )
+
+[node name="SkillInfo" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/SkillsBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 100, 80 )
+size_flags_horizontal = 2
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberPoints" type="Label" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/SkillsBackground/SkillInfo"]
+margin_left = 19.0
+margin_top = 22.0
+margin_right = 60.0
+margin_bottom = 58.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "+ 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skill" type="TextureRect" parent="Evaluation/ColorRect/VBoxContainer/VBoxContainer/SkillsBackground/SkillInfo"]
+margin_left = 97.0
+margin_top = 15.0
+margin_right = 147.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Instructions" type="Label" parent="Evaluation/ColorRect/VBoxContainer"]
+margin_left = 110.0
+margin_top = 313.0
+margin_right = 630.0
+margin_bottom = 363.0
+rect_min_size = Vector2( 520, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Did the player succeed?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer"]
+margin_top = 360.0
+margin_right = 740.0
+margin_bottom = 450.0
+size_flags_vertical = 10
+
+[node name="NextButton" type="TextureButton" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_right = 75.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 75, 89 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 22 )
+texture_focused = ExtResource( 21 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut_leftArrow" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/NextButton" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -25.0
+margin_right = 12.5
+margin_bottom = 0.0
+
+[node name="Buttons" type="HBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_left = 290.0
+margin_right = 450.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 90 )
+size_flags_horizontal = 6
+size_flags_vertical = 10
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons"]
+margin_right = 55.0
+margin_bottom = 90.0
+size_flags_horizontal = 6
+custom_constants/separation = 0
+
+[node name="ApproveButton" type="TextureButton" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer"]
+margin_right = 55.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 55, 55 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
+
+[node name="Shortcut_eval" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer/ApproveButton" instance=ExtResource( 25 )]
+anchor_left = 0.5
+anchor_top = 1.073
+anchor_right = 0.5
+anchor_bottom = 1.073
+margin_left = -12.5
+margin_top = 0.984997
+margin_right = 12.5
+margin_bottom = 25.985
+
+[node name="TextureRect" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer/ApproveButton/Shortcut_eval" index="0"]
+texture = ExtResource( 9 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons"]
+margin_left = 105.0
+margin_right = 160.0
+margin_bottom = 90.0
+size_flags_horizontal = 6
+custom_constants/separation = 0
+
+[node name="DisapproveButton" type="TextureButton" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer2"]
+margin_right = 55.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 55, 55 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 26 )
+
+[node name="Shortcut_eval" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer2/DisapproveButton" instance=ExtResource( 25 )]
+anchor_left = 0.5
+anchor_top = 1.091
+anchor_right = 0.5
+anchor_bottom = 1.091
+margin_left = -12.5
+margin_top = -0.00500488
+margin_right = 12.5
+margin_bottom = 24.995
+
+[node name="TextureRect" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer2/DisapproveButton/Shortcut_eval" index="0"]
+texture = ExtResource( 10 )
+
+[node name="NextButton2" type="TextureButton" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 665.0
+margin_right = 740.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 75, 89 )
+size_flags_horizontal = 8
+texture_normal = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" parent="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/NextButton2" instance=ExtResource( 17 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -10.5
+margin_top = -24.0
+margin_right = 5.5
+margin_bottom = -8.0
+
+[node name="LoadSavedScene" parent="." instance=ExtResource( 1 )]
+
+[node name="UISoundManager" parent="." instance=ExtResource( 8 )]
+
+[connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/Control/CardHeader/BackButton" to="." method="go_back"]
+[connection signal="button_down" from="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/NextButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/NextButton" to="." method="go_back"]
+[connection signal="button_down" from="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer/ApproveButton" to="UISoundManager" method="select"]
+[connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer/ApproveButton" to="." method="approve" binds= [ true ]]
+[connection signal="button_down" from="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer2/DisapproveButton" to="UISoundManager" method="select"]
+[connection signal="pressed" from="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer2/DisapproveButton" to="." method="approve" binds= [ false ]]
+
+[editable path="Evaluation/ColorRect/VBoxContainer/Control"]
+[editable path="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer/ApproveButton/Shortcut_eval"]
+[editable path="Evaluation/ColorRect/VBoxContainer/HBoxContainer2/Buttons/VBoxContainer2/DisapproveButton/Shortcut_eval"]

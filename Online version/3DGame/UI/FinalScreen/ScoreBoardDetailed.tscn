@@ -1,0 +1,566 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/SkillScreen/qol.png" type="Texture" id=2]
+[ext_resource path="res://UI/SkillScreen/human-brain.png" type="Texture" id=3]
+[ext_resource path="res://UI/SkillScreen/SkillDetail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Cards/Skills/InterpersonalRelationship.png" type="Texture" id=6]
+[ext_resource path="res://Cards/Skills/SocialandEmotionalWellbeing.png" type="Texture" id=7]
+[ext_resource path="res://Cards/Skills/MemoryandAttentiontoDetail.png" type="Texture" id=8]
+[ext_resource path="res://Cards/Skills/Self-Determination.png" type="Texture" id=9]
+[ext_resource path="res://Cards/Skills/PersonalDevelopment.png" type="Texture" id=10]
+[ext_resource path="res://Cards/Skills/Language.png" type="Texture" id=11]
+[ext_resource path="res://Cards/Skills/EmotionalWellbeing.png" type="Texture" id=12]
+[ext_resource path="res://Cards/Skills/SpatialOrientation.png" type="Texture" id=13]
+[ext_resource path="res://Cards/Skills/PhysicalWellbeing.png" type="Texture" id=14]
+[ext_resource path="res://Cards/Skills/CalculusandProblemSolving.png" type="Texture" id=15]
+[ext_resource path="res://Cards/Skills/MaterialWellbeing.png" type="Texture" id=16]
+[ext_resource path="res://Cards/Skills/Rights.png" type="Texture" id=17]
+[ext_resource path="res://UI/Keyboard/Shortcut_leftArrow.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Assets/Bryce/Bryce.png" type="Texture" id=19]
+[ext_resource path="res://UI/FinalScreen/ScoreBoardDetailed.gd" type="Script" id=20]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=21]
+[ext_resource path="res://UI/FinalScreen/TranslationManager_skills.gd" type="Script" id=22]
+[ext_resource path="res://Fotos/GoBackSelected.png" type="Texture" id=23]
+[ext_resource path="res://UI/FinalScreen/BackButton.gd" type="Script" id=24]
+[ext_resource path="res://Fotos/GoBack.png" type="Texture" id=25]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=26]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 3
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_size = 1
+extra_spacing_char = 2
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 1
+extra_spacing_top = 2
+extra_spacing_char = 6
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+outline_size = 1
+extra_spacing_top = 3
+extra_spacing_bottom = 3
+extra_spacing_char = 2
+font_data = SubResource( 2 )
+
+[node name="ScoreBoardDetailed" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.449982
+margin_right = 0.449951
+rect_pivot_offset = Vector2( 157, 7.60108 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 85.0 ],
+"_edit_use_anchors_": false
+}
+
+[node name="TranslationManager" parent="." instance=ExtResource( 21 )]
+script = ExtResource( 22 )
+qol = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/QOL/Label")
+cf = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/CF/Label3")
+interpersonalRelationships = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Name")
+socialInclusion = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion/Name")
+selfDetermination = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Name")
+physicalWellbeing = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Name")
+materialWellbeing = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Name")
+emotionalWellbeing = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Name")
+personalDevelopment = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Name")
+rights = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Name")
+calculusAndProblemSolving = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Name")
+memoryAndAttentionToDetail = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Name")
+socialAndEmotionalWellbeing = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Name")
+languageDevelopment = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Name")
+spatialOrientation = NodePath("../HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Name")
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_right = 6.10352e-05
+margin_bottom = -26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+margin_left = 385.0
+margin_right = 639.0
+margin_bottom = 50.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer2/HBoxContainer"]
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Player x"
+align = 1
+autowrap = true
+
+[node name="Avatar" type="TextureRect" parent="HBoxContainer2/HBoxContainer"]
+margin_left = 204.0
+margin_right = 254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 19 )
+expand = true
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+margin_left = 512.0
+margin_top = 288.0
+margin_right = 512.0
+margin_bottom = 288.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkillManager" type="ColorRect" parent="HBoxContainer2/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -235.0
+margin_right = 450.0
+margin_bottom = 298.0
+rect_pivot_offset = Vector2( 388.889, 585.786 )
+color = Color( 0.352941, 0.333333, 0.309804, 0.839216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/Control/SkillManager"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -262.5
+margin_right = 450.0
+margin_bottom = 262.5
+size_flags_horizontal = 6
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkillCategory" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer"]
+margin_top = 3.0
+margin_right = 900.0
+margin_bottom = 34.0
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QOL" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory"]
+margin_left = 94.0
+margin_right = 354.0
+margin_bottom = 31.0
+size_flags_horizontal = 6
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/QOL"]
+visible = false
+margin_top = 20.0
+margin_right = 40.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/QOL"]
+margin_right = 260.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 3 )
+text = "Quality of Life Skills"
+
+[node name="CF" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory"]
+margin_left = 548.0
+margin_right = 803.0
+margin_bottom = 31.0
+size_flags_horizontal = 6
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/CF"]
+visible = false
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label3" type="Label" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/SkillCategory/CF"]
+margin_right = 255.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 3 )
+text = "Cognitive Functions"
+
+[node name="Skills" type="HBoxContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer"]
+margin_top = 42.0
+margin_right = 900.0
+margin_bottom = 525.0
+size_flags_vertical = 6
+size_flags_stretch_ratio = 9.96
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="qolSkills" type="GridContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills"]
+margin_left = 4.0
+margin_right = 444.0
+margin_bottom = 483.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/vseparation = 5
+custom_constants/hseparation = 80
+columns = 2
+
+[node name="InterpersonalRelationship" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_right = 180.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship/Details" index="1"]
+texture = ExtResource( 6 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Interpersonal
+Relationships"
+
+[node name="SocialInclusion" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 260.0
+margin_right = 440.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Social 
+Inclusion"
+
+[node name="Self-Determination" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 122.0
+margin_right = 180.0
+margin_bottom = 239.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination/Details" index="1"]
+texture = ExtResource( 9 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination" index="1"]
+margin_bottom = 117.0
+rect_min_size = Vector2( 110, 0 )
+custom_fonts/font = SubResource( 5 )
+text = "Self
+Determination"
+
+[node name="PhysicalWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 260.0
+margin_top = 122.0
+margin_right = 440.0
+margin_bottom = 239.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing/Details" index="1"]
+texture = ExtResource( 14 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Physical 
+Wellbeing"
+
+[node name="MaterialWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 244.0
+margin_right = 180.0
+margin_bottom = 361.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing/Details" index="1"]
+texture = ExtResource( 16 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Material
+ Wellbeing"
+
+[node name="EmotionalWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 260.0
+margin_top = 244.0
+margin_right = 440.0
+margin_bottom = 361.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing/Details" index="1"]
+texture = ExtResource( 12 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Emotional 
+Wellbeing"
+
+[node name="PersonalDevelopment" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 366.0
+margin_right = 180.0
+margin_bottom = 483.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment/Details" index="1"]
+texture = ExtResource( 10 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Personal
+ Development"
+
+[node name="Rights" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills" instance=ExtResource( 4 )]
+margin_left = 260.0
+margin_top = 366.0
+margin_right = 440.0
+margin_bottom = 483.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights/Details" index="1"]
+texture = ExtResource( 17 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Rights
+"
+
+[node name="cfSkills" type="GridContainer" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills"]
+margin_left = 456.0
+margin_right = 896.0
+margin_bottom = 380.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 80
+columns = 2
+
+[node name="CalculusandProblemSolving" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_right = 180.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving/Details" index="1"]
+texture = ExtResource( 15 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Calculus and 
+Problem Solving"
+
+[node name="MemoryandAttentiontoDetail" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
+margin_left = 260.0
+margin_right = 440.0
+margin_bottom = 117.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail/Details" index="1"]
+texture = ExtResource( 8 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Memory and 
+Attention to Detail"
+
+[node name="SocialandEmotionalWellbeing" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 122.0
+margin_right = 180.0
+margin_bottom = 258.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing/Details" index="1"]
+texture = ExtResource( 7 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing" index="1"]
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 5 )
+text = "Social and Emotional
+ Wellbeing"
+
+[node name="Language" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
+margin_left = 260.0
+margin_top = 122.0
+margin_right = 440.0
+margin_bottom = 258.0
+
+[node name="Details" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language" index="0"]
+margin_top = 19.0
+margin_bottom = 89.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language/Details" index="1"]
+texture = ExtResource( 11 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language" index="1"]
+margin_top = 112.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 5 )
+text = "Language"
+
+[node name="SpatialOrientation" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 263.0
+margin_right = 180.0
+margin_bottom = 380.0
+
+[node name="Quantity" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="0"]
+margin_top = 22.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="TextureRect" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation/Details" index="1"]
+texture = ExtResource( 13 )
+
+[node name="Name" parent="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation" index="1"]
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 5 )
+text = "Spatial 
+Orientation"
+
+[node name="BackButton" type="TextureButton" parent="HBoxContainer2/Control/SkillManager"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -70.0
+margin_top = -76.0
+margin_right = 5.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 23 )
+texture_focused = ExtResource( 23 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shortcut_leftArrow" parent="HBoxContainer2/Control/SkillManager/BackButton" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -23.0
+margin_right = 12.5
+margin_bottom = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer2/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -5.0
+margin_top = -235.0
+margin_right = 5.0
+margin_bottom = 298.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UISoundManager" parent="." instance=ExtResource( 26 )]
+
+[connection signal="button_down" from="HBoxContainer2/Control/SkillManager/BackButton" to="UISoundManager" method="confirm"]
+[connection signal="hide_details" from="HBoxContainer2/Control/SkillManager/BackButton" to="." method="hide"]
+[connection signal="pressed" from="HBoxContainer2/Control/SkillManager/BackButton" to="HBoxContainer2/Control/SkillManager/BackButton" method="close_detail"]
+
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/InterpersonalRelationship"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/SocialInclusion"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Self-Determination"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PhysicalWellbeing"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/MaterialWellbeing"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/EmotionalWellbeing"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/PersonalDevelopment"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/qolSkills/Rights"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/CalculusandProblemSolving"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/MemoryandAttentiontoDetail"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SocialandEmotionalWellbeing"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/Language"]
+[editable path="HBoxContainer2/Control/SkillManager/VBoxContainer/Skills/cfSkills/SpatialOrientation"]

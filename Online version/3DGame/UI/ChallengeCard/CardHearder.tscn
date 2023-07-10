@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/greekFont_bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/new_characters/Brian/Brian.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fotos/BackButton.png" type="Texture" id=5]
+[ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+extra_spacing_char = 2
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+margin_right = 700.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 630, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardHeader" type="HBoxContainer" parent="."]
+anchor_top = 0.00666667
+anchor_bottom = 0.00666667
+margin_left = 1.0
+margin_top = -0.6
+margin_right = 701.0
+margin_bottom = 49.4
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="CardHeader"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardHeader"]
+margin_left = 54.0
+margin_top = 7.0
+margin_right = 554.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = -9
+
+[node name="Title" type="Label" parent="CardHeader/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 36.0
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "DESAFIO:"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChallengeTitle" type="Label" parent="CardHeader/VBoxContainer"]
+visible = false
+margin_top = 27.0
+margin_right = 570.0
+margin_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 570, 0 )
+rect_pivot_offset = Vector2( -837.323, -51.6149 )
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.945098, 0.631373, 0.427451, 1 )
+text = "DESAFIO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAvatar" type="TextureRect" parent="CardHeader"]
+margin_left = 650.0
+margin_right = 700.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 10
+size_flags_vertical = 6
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

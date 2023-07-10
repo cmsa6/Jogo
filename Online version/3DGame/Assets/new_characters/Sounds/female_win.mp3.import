@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/female_win.mp3-b9bf3bca5875134bb3abf745de37391e.mp3str"
+
+[deps]
+
+source_file="res://Assets/new_characters/Sounds/female_win.mp3"
+dest_files=[ "res://.import/female_win.mp3-b9bf3bca5875134bb3abf745de37391e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

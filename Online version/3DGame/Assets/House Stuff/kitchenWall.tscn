@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/DiDaCityPack - Interior/Models/Interior/Hospital/Office/H_Wall_Small_Office.fbx" type="PackedScene" id=1]
+
+[node name="KitchenWall" instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 1.4, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="H_Wall_Small_Office" parent="RootNode" index="0"]
+transform = Transform( 100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0 )

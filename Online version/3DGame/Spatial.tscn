@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Characters/Megan/Megan.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Characters/Chad/Chad.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Characters/Regina/Regina.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Characters/Remy/Remy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Characters/Douglas/Douglas.tscn" type="PackedScene" id=5]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Chad" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Douglas" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Megan" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Regina" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Remy" parent="." instance=ExtResource( 4 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.999535, 0.00558642, 0.0299895, 0, 0.983089, -0.183129, -0.0305054, -0.183044, -0.982631, 0.0666599, 3.18531, -2.17178 )

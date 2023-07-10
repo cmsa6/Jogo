@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/defeat_male.mp3-5d62735da5e1c306beb7050cbe12a512.mp3str"
+
+[deps]
+
+source_file="res://Assets/new_characters/Sounds/defeat_male.mp3"
+dest_files=[ "res://.import/defeat_male.mp3-5d62735da5e1c306beb7050cbe12a512.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/defeat_female.mp3-5dd5330b25cafe353c285809ce52e8bb.mp3str"
+
+[deps]
+
+source_file="res://Assets/new_characters/Sounds/defeat_female.mp3"
+dest_files=[ "res://.import/defeat_female.mp3-5dd5330b25cafe353c285809ce52e8bb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

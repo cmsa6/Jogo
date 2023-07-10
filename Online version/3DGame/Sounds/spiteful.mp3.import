@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spiteful.mp3-43029962742cea705b3b13559098ff69.mp3str"
+
+[deps]
+
+source_file="res://Sounds/spiteful.mp3"
+dest_files=[ "res://.import/spiteful.mp3-43029962742cea705b3b13559098ff69.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,167 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Dice/Dice.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Cell/Cell.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Skybox/Epic_BlueSunset_EquiRect_flat.png" type="Texture" id=6]
+[ext_resource path="res://cris/Assets/9.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GameManager/GameManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/PlayerTurnHUD/PlayerTurnHUD.gd" type="Script" id=9]
+[ext_resource path="res://cris/Assets/FloorTiles.tres" type="MeshLibrary" id=10]
+[ext_resource path="res://SceneLoader/SceneTransitionAnim.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Cell/Spawner.tscn" type="PackedScene" id=17]
+[ext_resource path="res://GridMaps/grass_grid.tres" type="MeshLibrary" id=18]
+[ext_resource path="res://UI/PlayerTurnHUD/PlayerTurnHUD.tscn" type="PackedScene" id=19]
+[ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=20]
+[ext_resource path="res://SavingSystem/MinigamesLoader/MinigamesLoader.tscn" type="PackedScene" id=21]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 6 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+fog_color = Color( 0.0235294, 0.25098, 0.478431, 1 )
+
+[node name="Map1" type="Spatial"]
+
+[node name="SceneLoader" parent="." instance=ExtResource( 20 )]
+next_scene_path = "res://UI/Credits/Credits.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dado" parent="CanvasLayer" instance=ExtResource( 4 )]
+position = Vector2( 30, 30 )
+
+[node name="PlayerTurnHUD" parent="CanvasLayer" instance=ExtResource( 19 )]
+margin_left = -120.0
+margin_top = 25.0
+margin_right = -25.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_vertical = 5
+script = ExtResource( 9 )
+
+[node name="SceneTransitionAnim" parent="." instance=ExtResource( 16 )]
+
+[node name="Control" parent="SceneTransitionAnim" index="0"]
+mouse_filter = 2
+
+[node name="ColorRect" parent="SceneTransitionAnim/Control" index="0"]
+mouse_filter = 2
+
+[node name="TopViewCam" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 48, -25 )
+visible = false
+size = 178.12
+near = 0.01
+far = 8192.0
+
+[node name="MainCam" type="Camera" parent="."]
+transform = Transform( 0.0348937, -0.563966, 0.82506, 0, 0.825563, 0.56431, -0.999391, -0.0196908, 0.0288069, 40.5, 21.726, -35.813 )
+
+[node name="Env" type="Spatial" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource( 2 )
+
+[node name="Street" type="GridMap" parent="Env"]
+mesh_library = ExtResource( 10 )
+cell_size = Vector3( 2, 1.05, 2 )
+data = {
+"cells": PoolIntArray( 1, 0, 6, 2, 0, 6, 3, 0, 6, 1, 65502, 6, 2, 65502, 6, 3, 65502, 6, 4, 65502, 6, 1, 65503, 6, 2, 65503, 0, 4, 65503, 6, 1, 65504, 6, 2, 65504, 0, 4, 65504, 6, 1, 65505, 6, 2, 65505, 0, 4, 65505, 6, 1, 65506, 6, 2, 65506, 0, 4, 65506, 6, 1, 65507, 6, 2, 65507, 0, 4, 65507, 6, 1, 65508, 6, 2, 65508, 0, 4, 65508, 6, 1, 65509, 6, 2, 65509, 0, 4, 65509, 6, 1, 65510, 6, 2, 65510, 0, 4, 65510, 6, 1, 65511, 6, 2, 65511, 0, 4, 65511, 6, 1, 65512, 6, 2, 65512, 0, 4, 65512, 6, 1, 65513, 6, 2, 65513, 0, 4, 65513, 6, 1, 65514, 6, 2, 65514, 0, 4, 65514, 6, 1, 65515, 6, 2, 65515, 0, 4, 65515, 6, 1, 65516, 6, 2, 65516, 0, 4, 65516, 6, 1, 65517, 6, 2, 65517, 0, 4, 65517, 6, 1, 65518, 6, 2, 65518, 0, 4, 65518, 6, 1, 65519, 6, 2, 65519, 0, 4, 65519, 6, 1, 65520, 6, 2, 65520, 0, 4, 65520, 6, 1, 65521, 6, 2, 65521, 0, 4, 65521, 6, 1, 65522, 6, 2, 65522, 0, 4, 65522, 6, 1, 65523, 6, 2, 65523, 0, 4, 65523, 6, 1, 65524, 6, 2, 65524, 0, 4, 65524, 6, 0, 65525, 6, 1, 65525, 6, 2, 65525, 0, 4, 65525, 6, 1, 65526, 6, 2, 65526, 0, 4, 65526, 6, 1, 65527, 6, 2, 65527, 0, 4, 65527, 6, 1, 65528, 6, 2, 65528, 0, 4, 65528, 6, 1, 65529, 6, 2, 65529, 0, 4, 65529, 6, 1, 65530, 6, 2, 65530, 0, 4, 65530, 6, 1, 65531, 6, 2, 65531, 0, 4, 65531, 6, 1, 65532, 6, 2, 65532, 0, 4, 65532, 6, 1, 65533, 6, 2, 65533, 0, 4, 65533, 6, 1, 65534, 6, 2, 65534, 0, 4, 65534, 6, 1, 65535, 6, 2, 65535, 6, 3, 65535, 6 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="GridMap" type="GridMap" parent="Env"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08, 0 )
+mesh_library = ExtResource( 18 )
+cell_size = Vector3( 2, 0.5, 2 )
+data = {
+"cells": PoolIntArray( 3, 0, 2, 4, 0, 2, 5, 0, 2, 6, 0, 2, 7, 0, 2, 8, 0, 2, 9, 0, 2, 10, 0, 2, 11, 0, 2, 3, 65502, 2, 4, 65502, 2, 5, 65502, 2, 6, 65502, 2, 7, 65502, 2, 8, 65502, 2, 9, 65502, 2, 10, 65502, 2, 11, 65502, 2, 3, 65503, 2, 4, 65503, 2, 5, 65503, 2, 6, 65503, 2, 7, 65503, 2, 8, 65503, 2, 9, 65503, 2, 10, 65503, 2, 11, 65503, 2, 3, 65504, 2, 4, 65504, 2, 5, 65504, 2, 6, 65504, 2, 7, 65504, 2, 8, 65504, 2, 9, 65504, 2, 10, 65504, 2, 11, 65504, 2, 3, 65505, 2, 4, 65505, 2, 5, 65505, 2, 6, 65505, 2, 7, 65505, 2, 8, 65505, 2, 9, 65505, 2, 10, 65505, 2, 11, 65505, 2, 3, 65506, 2, 4, 65506, 2, 5, 65506, 2, 6, 65506, 2, 7, 65506, 2, 8, 65506, 2, 9, 65506, 2, 10, 65506, 2, 11, 65506, 2, 3, 65507, 2, 4, 65507, 2, 5, 65507, 2, 6, 65507, 2, 7, 65507, 2, 8, 65507, 2, 9, 65507, 2, 10, 65507, 2, 11, 65507, 2, 3, 65508, 2, 4, 65508, 2, 5, 65508, 2, 6, 65508, 2, 7, 65508, 2, 8, 65508, 2, 9, 65508, 2, 10, 65508, 2, 11, 65508, 2, 3, 65509, 2, 4, 65509, 2, 5, 65509, 2, 6, 65509, 2, 7, 65509, 2, 8, 65509, 2, 9, 65509, 2, 10, 65509, 2, 11, 65509, 2, 3, 65510, 2, 4, 65510, 2, 5, 65510, 2, 6, 65510, 2, 7, 65510, 2, 8, 65510, 2, 9, 65510, 2, 10, 65510, 2, 11, 65510, 2, 3, 65511, 2, 4, 65511, 2, 5, 65511, 2, 6, 65511, 2, 7, 65511, 2, 8, 65511, 2, 9, 65511, 2, 10, 65511, 2, 11, 65511, 2, 3, 65512, 2, 4, 65512, 2, 5, 65512, 2, 6, 65512, 2, 7, 65512, 2, 8, 65512, 2, 9, 65512, 2, 10, 65512, 2, 11, 65512, 2, 3, 65513, 2, 4, 65513, 2, 5, 65513, 2, 6, 65513, 2, 7, 65513, 2, 8, 65513, 2, 9, 65513, 2, 10, 65513, 2, 11, 65513, 2, 3, 65514, 2, 4, 65514, 2, 5, 65514, 2, 6, 65514, 2, 7, 65514, 2, 8, 65514, 2, 9, 65514, 2, 10, 65514, 2, 11, 65514, 2, 3, 65515, 2, 4, 65515, 2, 5, 65515, 2, 6, 65515, 2, 7, 65515, 2, 8, 65515, 2, 9, 65515, 2, 10, 65515, 2, 11, 65515, 2, 3, 65516, 2, 4, 65516, 2, 5, 65516, 2, 6, 65516, 2, 7, 65516, 2, 8, 65516, 2, 9, 65516, 2, 10, 65516, 2, 11, 65516, 2, 3, 65517, 2, 4, 65517, 2, 5, 65517, 2, 6, 65517, 2, 7, 65517, 2, 8, 65517, 2, 9, 65517, 2, 10, 65517, 2, 11, 65517, 2, 3, 65518, 2, 4, 65518, 2, 5, 65518, 2, 6, 65518, 2, 7, 65518, 2, 8, 65518, 2, 9, 65518, 2, 10, 65518, 2, 11, 65518, 2, 3, 65519, 2, 4, 65519, 2, 5, 65519, 2, 6, 65519, 2, 7, 65519, 2, 8, 65519, 2, 9, 65519, 2, 10, 65519, 2, 11, 65519, 2, 3, 65520, 2, 4, 65520, 2, 5, 65520, 2, 6, 65520, 2, 7, 65520, 2, 8, 65520, 2, 9, 65520, 2, 10, 65520, 2, 11, 65520, 2, 3, 65521, 2, 4, 65521, 2, 5, 65521, 2, 6, 65521, 2, 7, 65521, 2, 8, 65521, 2, 9, 65521, 2, 10, 65521, 2, 11, 65521, 2, 3, 65522, 2, 4, 65522, 2, 5, 65522, 2, 6, 65522, 2, 7, 65522, 2, 8, 65522, 2, 9, 65522, 2, 10, 65522, 2, 11, 65522, 2, 3, 65523, 2, 4, 65523, 2, 5, 65523, 2, 6, 65523, 2, 7, 65523, 2, 8, 65523, 2, 9, 65523, 2, 10, 65523, 2, 11, 65523, 2, 3, 65524, 2, 4, 65524, 2, 5, 65524, 2, 6, 65524, 2, 7, 65524, 2, 8, 65524, 2, 9, 65524, 2, 10, 65524, 2, 11, 65524, 2, 3, 65525, 2, 4, 65525, 2, 5, 65525, 2, 6, 65525, 2, 7, 65525, 2, 8, 65525, 2, 9, 65525, 2, 10, 65525, 2, 11, 65525, 2, 3, 65526, 2, 4, 65526, 2, 5, 65526, 2, 6, 65526, 2, 7, 65526, 2, 8, 65526, 2, 9, 65526, 2, 10, 65526, 2, 11, 65526, 2, 3, 65527, 2, 4, 65527, 2, 5, 65527, 2, 6, 65527, 2, 7, 65527, 2, 8, 65527, 2, 9, 65527, 2, 10, 65527, 2, 11, 65527, 2, 3, 65528, 2, 4, 65528, 2, 5, 65528, 2, 6, 65528, 2, 7, 65528, 2, 8, 65528, 2, 9, 65528, 2, 10, 65528, 2, 11, 65528, 2, 3, 65529, 2, 4, 65529, 2, 5, 65529, 2, 6, 65529, 2, 7, 65529, 2, 8, 65529, 2, 9, 65529, 2, 10, 65529, 2, 11, 65529, 2, 3, 65530, 2, 4, 65530, 2, 5, 65530, 2, 6, 65530, 2, 7, 65530, 2, 8, 65530, 2, 9, 65530, 2, 10, 65530, 2, 11, 65530, 2, 3, 65531, 2, 4, 65531, 2, 5, 65531, 2, 6, 65531, 2, 7, 65531, 2, 8, 65531, 2, 9, 65531, 2, 10, 65531, 2, 11, 65531, 2, 3, 65532, 2, 4, 65532, 2, 5, 65532, 2, 6, 65532, 2, 7, 65532, 2, 8, 65532, 2, 9, 65532, 2, 10, 65532, 2, 11, 65532, 2, 3, 65533, 2, 4, 65533, 2, 5, 65533, 2, 6, 65533, 2, 7, 65533, 2, 8, 65533, 2, 9, 65533, 2, 10, 65533, 2, 11, 65533, 2, 3, 65534, 2, 4, 65534, 2, 5, 65534, 2, 6, 65534, 2, 7, 65534, 2, 8, 65534, 2, 9, 65534, 2, 10, 65534, 2, 11, 65534, 2, 3, 65535, 2, 4, 65535, 2, 5, 65535, 2, 6, 65535, 2, 7, 65535, 2, 8, 65535, 2, 9, 65535, 2, 10, 65535, 2, 11, 65535, 2 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="Spawners" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.314, 0, -5.772 )
+
+[node name="Spawner" parent="Spawners" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0.902338, 6.5 )
+
+[node name="Player" parent="Spawners/Spawner" instance=ExtResource( 2 )]
+collision_layer = 2
+script = ExtResource( 3 )
+player_num = 1
+GameManager = NodePath("../../../Spawners2/GameManager")
+
+[node name="Spawner2" parent="Spawners" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.902338, 6.5 )
+
+[node name="Player2" parent="Spawners/Spawner2" instance=ExtResource( 2 )]
+collision_layer = 2
+script = ExtResource( 3 )
+player_num = 2
+GameManager = NodePath("../../../Spawners2/GameManager")
+
+[node name="InitCell" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.938, 0.892372, -5.16237 )
+type = 0
+
+[node name="Cells" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.938, 0.892372, -5.16237 )
+
+[node name="Cell1" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.938, 0.748041, -11.6772 )
+type = 3
+
+[node name="Cell2" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.938, 0.748041, -26.9255 )
+
+[node name="Cell3" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8534, 0.748041, -26.9255 )
+
+[node name="Cell4" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8534, 0.748041, -44.996 )
+
+[node name="Cell5" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88274, 0.748041, -44.9482 )
+
+[node name="Cell6" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88274, 0.748041, -56.9466 )
+
+[node name="Cell7" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88274, 0.748041, -66.3415 )
+
+[node name="Cell8" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8009, 0.748041, -66.3415 )
+
+[node name="End_Cell" parent="Cells" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.975, 0.90156, -54.3406 )
+type = 2
+
+[node name="GameManager" parent="." instance=ExtResource( 8 )]
+cells = [ NodePath("../InitCell"), NodePath("../Cells/Cell1"), NodePath("../Cells/Cell2"), NodePath("../Cells/Cell3"), NodePath("../Cells/Cell4"), NodePath("../Cells/Cell5"), NodePath("../Cells/Cell6"), NodePath("../Cells/Cell7"), NodePath("../Cells/Cell8"), NodePath("../Cells/End_Cell") ]
+players = [ NodePath("../Spawners/Spawner/Player"), NodePath("../Spawners/Spawner2/Player2") ]
+
+[node name="MinigamesLoader" parent="." instance=ExtResource( 21 )]
+minigames = [ "res://Minigames/Example1.tscn" ]
+
+[node name="9" parent="." instance=ExtResource( 7 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.69345, 0.20117, -15.2392 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0505058, 0.998724, 0, -0.998724, 0.0505058, 0, 34.0986, -36.4709 )
+spot_range = 368.9
+spot_attenuation = 0.00781251
+spot_angle = 97.8
+
+[connection signal="dice_used" from="CanvasLayer/Dado" to="GameManager" method="_on_Dado_dice_used"]
+[connection signal="fade_out_finished" from="SceneTransitionAnim/Control" to="SceneLoader" method="load_scene"]
+[connection signal="on_players_turn_changed" from="GameManager" to="CanvasLayer/PlayerTurnHUD" method="_on_GameManager_on_players_turn_changed"]
+
+[editable path="CanvasLayer/PlayerTurnHUD"]
+[editable path="SceneTransitionAnim"]

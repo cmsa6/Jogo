@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/male_win2.mp3-99df14e361a770941c8470269b6fa682.mp3str"
+
+[deps]
+
+source_file="res://Assets/new_characters/Sounds/male_win2.mp3"
+dest_files=[ "res://.import/male_win2.mp3-99df14e361a770941c8470269b6fa682.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

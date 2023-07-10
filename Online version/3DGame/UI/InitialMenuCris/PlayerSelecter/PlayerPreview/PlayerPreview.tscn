@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/PlayerPreview/PlayerPreview.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/new_button_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fotos/ConfirmButton.png" type="Texture" id=3]
+[ext_resource path="res://Fotos/ConfirmButtonDisabled.png" type="Texture" id=4]
+[ext_resource path="res://Fotos/ConfirmButtonSelected (1).png" type="Texture" id=5]
+[ext_resource path="res://Fotos/BackButton.png" type="Texture" id=6]
+[ext_resource path="res://Fotos/BackButtonSelected.png" type="Texture" id=7]
+
+[node name="PlayerPreview" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.964706, 0.921569, 0.862745, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 50.0
+color = Color( 0.815686, 0.882353, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2.0
+margin_bottom = 2.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer"]
+margin_left = 65.0
+margin_right = 250.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "PLAYER X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer3" type="ViewportContainer" parent="."]
+visible = false
+anchor_top = -0.000112305
+anchor_right = 1.0
+margin_top = 53.0674
+margin_bottom = 653.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmAvatar" type="TextureButton" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -150.0
+margin_right = 50.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+size_flags_stretch_ratio = 2.43
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.561234
+margin_bottom = -0.561218
+size_flags_horizontal = 6
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="CenterContainer"]
+margin_left = 387.0
+margin_top = 50.0
+margin_right = 637.0
+margin_bottom = 550.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Viewport" type="Viewport" parent="CenterContainer/ViewportContainer"]
+size = Vector2( 250, 500 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Placeholder" type="Spatial" parent="CenterContainer/ViewportContainer/Viewport"]
+
+[node name="Camera" type="Camera" parent="CenterContainer/ViewportContainer/Viewport"]
+transform = Transform( -1, 1.77636e-15, -8.74228e-08, -1.52574e-08, 0.984653, 0.174525, 8.60811e-08, 0.174525, -0.984653, 0, 8.49473, -11.1257 )

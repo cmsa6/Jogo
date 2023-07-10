@@ -1,0 +1,409 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/PlayerTurnHUD/DiceButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/new_characters/Elizabeth/Elizabeth.png" type="Texture" id=3]
+[ext_resource path="res://Fotos/HouseButtonSelected.png" type="Texture" id=4]
+[ext_resource path="res://Fotos/HouseButton.png" type="Texture" id=5]
+[ext_resource path="res://UI/Keyboard/Shortcut_rightArrow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fotos/DiceButtonDisabled.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/characterSelected.png" type="Texture" id=8]
+[ext_resource path="res://Fotos/DiceButton.png" type="Texture" id=9]
+[ext_resource path="res://Fotos/DiceButtonSelected.png" type="Texture" id=10]
+[ext_resource path="res://UI/PlayerTurnHUD/NewPlayerTurnContainer.gd" type="Script" id=11]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/PlayerTurnHUD/TranslationManager.gd" type="Script" id=13]
+[ext_resource path="res://UI/PlayerTurnHUD/showPlayerHouse.gd" type="Script" id=14]
+[ext_resource path="res://UI/PlayerTurnHUD/playerProgressBar.gd" type="Script" id=15]
+[ext_resource path="res://Fotos/placeholder7.png" type="Texture" id=16]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Fotos/star.png" type="Texture" id=18]
+[ext_resource path="res://Fotos/turnContainerBackground_lighter.png" type="Texture" id=19]
+[ext_resource path="res://Fotos/star_teste.png" type="Texture" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_size = 2
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Show star"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CenterContainer/Star1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 3.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CenterContainer/Star1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CenterContainer/Star1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ), Vector2( 0, 14 ), Vector2( 0, 34 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Star2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Star2:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ), Vector2( 256, 14 ), Vector2( 256, 34 ) ]
+}
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+outline_size = 2
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_bottom = 2
+extra_spacing_char = 3
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+outline_size = 2
+outline_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+extra_spacing_char = 3
+font_data = SubResource( 4 )
+
+[sub_resource type="Animation" id=7]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Control/VBoxContainer/Arrow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.8, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.666667 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Control/VBoxContainer/Arrow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.8, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.486275 ), Color( 1, 1, 1, 0.958333 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Control/VBoxContainer/Arrow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="NewPlayerContainer" type="VBoxContainer"]
+margin_top = 2.0
+margin_right = 175.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 175, 290 )
+size_flags_horizontal = 6
+custom_constants/separation = -4
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TranslationManager" parent="." instance=ExtResource( 12 )]
+script = ExtResource( 13 )
+turn = NodePath("../TurnBackground/VBoxContainer/Turn")
+objects = NodePath("../HBoxContainer/Objects")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 7.0
+margin_right = 175.0
+margin_bottom = 29.0
+size_flags_vertical = 6
+custom_constants/separation = -33
+
+[node name="Objects" type="Label" parent="HBoxContainer"]
+margin_right = 175.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 175, 0 )
+size_flags_horizontal = 6
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "x/8 Objects"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Star2" type="TextureRect" parent="HBoxContainer"]
+visible = false
+margin_left = 256.0
+margin_top = 26.954
+margin_right = 271.0
+margin_bottom = 41.954
+rect_min_size = Vector2( 15, 15 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 18 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer"]
+"anims/Show star" = SubResource( 2 )
+anims/Win = SubResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 32.0
+margin_right = 175.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="Icon" type="TextureRect" parent="CenterContainer"]
+margin_left = 40.0
+margin_right = 135.0
+margin_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 95, 95 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_left = 52.0
+margin_top = 13.0
+margin_right = 122.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="PlayerProgress" type="TextureProgress" parent="CenterContainer"]
+margin_left = 39.0
+margin_right = 135.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
+max_value = 8.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 16 )
+fill_mode = 4
+tint_under = Color( 0.690196, 0.678431, 0.670588, 1 )
+tint_progress = Color( 0.321569, 0.309804, 0.301961, 1 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TextureButton" parent="CenterContainer"]
+margin_left = 52.0
+margin_top = 13.0
+margin_right = 122.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 70, 70 )
+mouse_default_cursor_shape = 2
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+expand = true
+script = ExtResource( 14 )
+
+[node name="Star1" type="TextureRect" parent="CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 62.0
+margin_top = 23.0
+margin_right = 112.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 50, 50 )
+rect_clip_content = true
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.58
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 1
+
+[node name="TurnBackground" type="TextureRect" parent="."]
+margin_left = 17.0
+margin_top = 124.0
+margin_right = 157.0
+margin_bottom = 314.0
+rect_min_size = Vector2( 140, 190 )
+size_flags_horizontal = 6
+texture = ExtResource( 19 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TurnBackground"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -57.5
+margin_top = 11.0
+margin_right = 57.5
+margin_bottom = 163.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerName" type="Label" parent="TurnBackground/VBoxContainer"]
+margin_right = 115.0
+margin_bottom = 24.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Player x"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Turn" type="Label" parent="TurnBackground/VBoxContainer"]
+margin_top = 22.0
+margin_right = 115.0
+margin_bottom = 69.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "It's your turn"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceButton" type="TextureButton" parent="TurnBackground/VBoxContainer"]
+margin_top = 67.0
+margin_right = 115.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 85, 85 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 7 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TurnBackground/VBoxContainer/DiceButton"]
+playback_speed = -0.6
+anims/Still = SubResource( 7 )
+anims/blink = SubResource( 8 )
+anims/disappear = SubResource( 9 )
+
+[node name="Shortcut_rightArrow" parent="TurnBackground/VBoxContainer/DiceButton" instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -12.5
+margin_top = -4.0
+margin_right = 12.5
+margin_bottom = 21.0
+
+[node name="UISoundManager" parent="." instance=ExtResource( 17 )]
+
+[connection signal="button_down" from="CenterContainer/Button" to="UISoundManager" method="confirm"]
+[connection signal="mouse_entered" from="CenterContainer/Button" to="." method="hide_star"]
+[connection signal="mouse_exited" from="CenterContainer/Button" to="." method="show_star"]
+[connection signal="pressed" from="CenterContainer/Button" to="CenterContainer/Button" method="show_house"]
+[connection signal="button_down" from="TurnBackground/VBoxContainer/DiceButton" to="UISoundManager" method="select"]
+[connection signal="mouse_entered" from="TurnBackground/VBoxContainer/DiceButton" to="TurnBackground/VBoxContainer/DiceButton" method="_on_DiceButton_mouse_entered"]
+[connection signal="mouse_exited" from="TurnBackground/VBoxContainer/DiceButton" to="TurnBackground/VBoxContainer/DiceButton" method="_on_DiceButton_mouse_exited"]
+[connection signal="pressed" from="TurnBackground/VBoxContainer/DiceButton" to="TurnBackground/VBoxContainer/DiceButton" method="show_dice_screen"]

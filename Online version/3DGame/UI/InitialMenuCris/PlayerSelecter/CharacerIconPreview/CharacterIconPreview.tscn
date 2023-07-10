@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/InitialMenu/PlayerSelecter/CharacerIconPreview/CharacterIconPreview.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/head-100x100.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Black-circunference-200x200.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/charactersOverlay.png" type="Texture" id=4]
+[ext_resource path="res://UI/Keyboard/Shortcut.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/CharacerIconPreview/ChoosingAvatar.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://UI/InitialMenuCris/PlayerSelecter/CharacerIconPreview/ShortcutButton.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+extra_spacing_char = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="CharacterIconPreview" type="CenterContainer"]
+anchor_left = 0.471
+anchor_top = 0.45
+anchor_right = 0.471
+anchor_bottom = 0.45
+margin_left = -20.304
+margin_top = -24.0
+margin_right = 179.696
+margin_bottom = 255.0
+rect_scale = Vector2( 0.2, 0.2 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 11.0
+margin_right = 200.0
+margin_bottom = 267.0
+custom_constants/separation = 0
+
+[node name="PlayerName" type="Label" parent="VBoxContainer"]
+margin_left = 96.0
+margin_right = 103.0
+margin_bottom = 26.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = " "
+align = 1
+valign = 1
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer"]
+margin_top = 26.0
+margin_right = 200.0
+margin_bottom = 226.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/TextureRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay" type="TextureRect" parent="VBoxContainer/TextureRect2/CenterContainer"]
+visible = false
+margin_left = -44.0
+margin_top = -47.0
+margin_right = 156.0
+margin_bottom = 153.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="VBoxContainer/TextureRect2/CenterContainer"]
+margin_right = 112.0
+margin_bottom = 106.0
+mouse_default_cursor_shape = 2
+custom_styles/focus = SubResource( 2 )
+action_mode = 0
+icon = ExtResource( 2 )
+flat = true
+script = ExtResource( 6 )
+
+[node name="Shortcut" parent="VBoxContainer" instance=ExtResource( 5 )]
+margin_left = 85.0
+margin_top = 226.0
+margin_right = 115.0
+margin_bottom = 256.0
+
+[node name="Button" parent="VBoxContainer/Shortcut" index="2"]
+script = ExtResource( 8 )
+button = NodePath("../../TextureRect2/CenterContainer/Button")
+
+[connection signal="pressed" from="VBoxContainer/TextureRect2/CenterContainer/Button" to="." method="_on_Button_pressed"]
+
+[editable path="VBoxContainer/Shortcut"]

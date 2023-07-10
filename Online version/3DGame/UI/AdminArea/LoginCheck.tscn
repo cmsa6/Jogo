@@ -1,0 +1,247 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://UI/AdminArea/BackToInitialSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://Fotos/ID-Gaming-Logo-Final_cores.png" type="Texture" id=2]
+[ext_resource path="res://Fotos/cityround.png" type="Texture" id=4]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=5]
+[ext_resource path="res://SceneLoader/SceneLoader.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/AdminArea/AutenticationControl.gd" type="Script" id=8]
+[ext_resource path="res://Fotos/eu_logo.png" type="Texture" id=9]
+[ext_resource path="res://Fotos/BackButton.png" type="Texture" id=10]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Languages/TranslationManager.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/AdminArea/TranslationManager_login.gd" type="Script" id=13]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.85098, 0.121569, 0.121569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.862745, 0.0627451, 0.0627451, 1 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 21
+extra_spacing_char = 2
+font_data = SubResource( 6 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
+Dialogs/colors/teste = Color( 1, 0.0862745, 0.0862745, 1 )
+Dialogs/constants/button_margin = 32
+Dialogs/constants/margin = 8
+Dialogs/styles/teste = SubResource( 4 )
+PopupDialog/styles/panel = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_horizontal_guides_": [ 585.95 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ -6.25492 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.964706, 0.921569, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cityround2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -229.139
+margin_top = -286.833
+margin_right = 794.861
+margin_bottom = 313.167
+rect_min_size = Vector2( 600, 600 )
+rect_scale = Vector2( 0.44, 0.48 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AutenticationControl" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -161.0
+margin_right = 150.0
+margin_bottom = 75.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoginData" type="VBoxContainer" parent="AutenticationControl"]
+margin_right = 300.0
+margin_bottom = 98.0
+size_flags_vertical = 2
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="username" type="LineEdit" parent="AutenticationControl/LoginData"]
+margin_right = 300.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 180, 40 )
+custom_fonts/font = SubResource( 2 )
+secret = true
+clear_button_enabled = true
+placeholder_text = "username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="LineEdit" parent="AutenticationControl/LoginData"]
+margin_top = 52.0
+margin_right = 300.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 130, 40 )
+custom_fonts/font = SubResource( 3 )
+secret = true
+placeholder_text = "password"
+
+[node name="LoginButton" type="TextureButton" parent="AutenticationControl"]
+margin_left = 100.0
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 236.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="AcceptDialog" parent="AutenticationControl/LoginButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -285.0
+margin_top = -175.5
+margin_right = 285.0
+margin_bottom = 51.5
+mouse_default_cursor_shape = 2
+theme = SubResource( 8 )
+window_title = "Error"
+dialog_text = "Username and password do not match, please try again.
+
+Please remember that this area is only meant to be used by professionals.
+"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneLoader" parent="." instance=ExtResource( 6 )]
+next_scene_path = "res://UI/InitialMenuCris/InitialMenu.tscn"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = -0.837646
+margin_top = 41.1624
+margin_right = -0.837646
+margin_bottom = 92.1624
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "Private Area"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToSceneButton" type="TextureButton" parent="."]
+anchor_left = -0.000818014
+anchor_right = -0.000818014
+anchor_bottom = 5.08626e-08
+margin_left = 0.467315
+margin_top = 0.625829
+margin_right = 100.467
+margin_bottom = 100.626
+rect_scale = Vector2( 0.75, 0.75 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+previousScene = "res://UI/InitialScreen/InitialScreenWithIcon.tscn"
+
+[node name="UISoundManager" parent="." instance=ExtResource( 11 )]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 0.8909
+margin_top = -149.877
+margin_right = 500.891
+margin_bottom = 350.123
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -230.2
+margin_top = -68.5775
+margin_right = 423.8
+margin_bottom = 127.423
+rect_scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TranslationManager" parent="." instance=ExtResource( 12 )]
+script = ExtResource( 13 )
+titleNode = NodePath("../Label")
+usernameNode = NodePath("../AutenticationControl/LoginData/username")
+passwordNode = NodePath("../AutenticationControl/LoginData/password")
+dialogueNode = NodePath("../AutenticationControl/LoginButton/AcceptDialog")
+
+[connection signal="button_down" from="AutenticationControl/LoginButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="AutenticationControl/LoginButton" to="AutenticationControl" method="check_login"]
+[connection signal="button_down" from="BackToSceneButton" to="UISoundManager" method="confirm"]
+[connection signal="pressed" from="BackToSceneButton" to="BackToSceneButton" method="_on_BackToSceneButton_pressed"]

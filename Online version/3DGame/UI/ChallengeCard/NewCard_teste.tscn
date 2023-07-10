@@ -1,0 +1,360 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://SavingSystem/LoadSavedScene/LoadSavedScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/Button.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fotos/GoBackSelected.png" type="Texture" id=5]
+[ext_resource path="res://UI/ChallengeCard/NewCard_teste.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/kenney_interfacesounds/Audio/open_004.ogg" type="AudioStream" id=7]
+[ext_resource path="res://UI/UISoundManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Fotos/EnterButton.png" type="Texture" id=9]
+[ext_resource path="res://UI/ChallengeCard/NextCard.gd" type="Script" id=10]
+[ext_resource path="res://UI/ChallengeCard/CardHearder.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fotos/GoBackDisabled.png" type="Texture" id=13]
+[ext_resource path="res://Fotos/zoom_out.png" type="Texture" id=15]
+[ext_resource path="res://Fotos/zoom_out_selected.png" type="Texture" id=16]
+[ext_resource path="res://Fotos/zoom_selected.png" type="Texture" id=17]
+[ext_resource path="res://Fotos/zoom.png" type="Texture" id=18]
+[ext_resource path="res://Assets/new_characters/Brian/Brian.png" type="Texture" id=19]
+[ext_resource path="res://UI/Keyboard/Shortcut_enter.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Fotos/GoBack.png" type="Texture" id=21]
+[ext_resource path="res://Fonts/greekFont_bold.tres" type="DynamicFont" id=22]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Roboto_greek/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 1
+outline_color = Color( 0.901961, 0.435294, 0.12549, 1 )
+extra_spacing_char = 2
+font_data = SubResource( 1 )
+
+[node name="Teste" type="Spatial"]
+script = ExtResource( 6 )
+cardName = "32"
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundRect" type="ColorRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -370.0
+margin_top = -182.0
+margin_right = 370.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 700, 400 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color( 0.854902, 0.905882, 0.666667, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAvatar" type="TextureRect" parent="Control/BackgroundRect"]
+margin_left = 656.0
+margin_top = 2.0
+margin_right = 706.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 6
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RewardTitle2" type="Label" parent="Control/BackgroundRect/VBoxContainer"]
+margin_right = 740.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 180, 50 )
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.5
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0.894118, 0.388235, 0.054902, 1 )
+text = "DESAFIO"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="Control/BackgroundRect/VBoxContainer" instance=ExtResource( 12 )]
+visible = false
+margin_right = 740.0
+rect_min_size = Vector2( 700, 60 )
+
+[node name="CardHeader" parent="Control/BackgroundRect/VBoxContainer/Control" index="0"]
+margin_left = 32.0
+margin_top = -0.9
+margin_right = 708.0
+margin_bottom = 64.1
+size_flags_vertical = 1
+
+[node name="BackButton" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader" index="0"]
+visible = false
+
+[node name="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader" index="1"]
+margin_left = 61.0
+margin_top = 14.0
+margin_right = 561.0
+margin_bottom = 50.0
+
+[node name="Title" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader/VBoxContainer" index="0"]
+valign = 1
+
+[node name="ChallengeTitle" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader/VBoxContainer" index="1"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="PlayerAvatar" parent="Control/BackgroundRect/VBoxContainer/Control/CardHeader" index="2"]
+margin_left = 626.0
+margin_top = 7.0
+margin_right = 676.0
+margin_bottom = 57.0
+size_flags_horizontal = 8
+
+[node name="CardColor" type="ColorRect" parent="Control/BackgroundRect/VBoxContainer"]
+margin_left = 32.0
+margin_top = 53.0
+margin_right = 707.0
+margin_bottom = 343.0
+rect_min_size = Vector2( 675, 290 )
+rect_pivot_offset = Vector2( 388.889, 585.786 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color( 0.318603, 0.519531, 0.101471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardInfo" type="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/CardColor"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -327.5
+margin_top = -145.0
+margin_right = 327.5
+margin_bottom = 145.0
+rect_min_size = Vector2( 0, 250 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinigameSound" type="AudioStreamPlayer" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+stream = ExtResource( 7 )
+volume_db = 5.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+margin_right = 260.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 260, 290 )
+custom_constants/separation = -50
+
+[node name="TextureRect" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer"]
+margin_left = 40.0
+margin_top = 76.0
+margin_right = 220.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 180, 100 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 7.67
+expand = true
+stretch_mode = 1
+
+[node name="zoomButtonIn" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer"]
+margin_left = 185.0
+margin_top = 202.0
+margin_right = 260.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 75, 88 )
+size_flags_horizontal = 10
+size_flags_vertical = 10
+custom_constants/separation = -15
+
+[node name="ZoomInButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn"]
+margin_right = 75.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 75, 82 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn" instance=ExtResource( 20 )]
+margin_left = 37.0
+margin_top = 77.0
+margin_right = 37.0
+margin_bottom = 77.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Instructions" type="Label" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+margin_left = 264.0
+margin_top = 20.0
+margin_right = 655.0
+margin_bottom = 270.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 300, 250 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 8.44
+custom_fonts/font = SubResource( 2 )
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+valign = 1
+autowrap = true
+
+[node name="ZoomedInImage" type="TextureRect" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+visible = false
+margin_left = 568.0
+margin_top = 5.0
+margin_right = 1068.0
+margin_bottom = 285.0
+rect_min_size = Vector2( 500, 280 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.52
+expand = true
+stretch_mode = 6
+
+[node name="zoomButton" type="VBoxContainer" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo"]
+visible = false
+margin_left = 1072.0
+margin_top = 202.0
+margin_right = 1147.0
+margin_bottom = 290.0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+custom_constants/separation = -10
+
+[node name="ZoomOutButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton"]
+margin_right = 75.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 75, 82 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.74
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton" instance=ExtResource( 20 )]
+margin_left = 29.0
+margin_top = 72.0
+margin_right = 45.0
+margin_bottom = 88.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer"]
+margin_top = 361.0
+margin_right = 740.0
+margin_bottom = 450.0
+size_flags_vertical = 10
+
+[node name="NextButton" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/HBoxContainer"]
+margin_right = 75.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 75, 89 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" parent="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton" instance=ExtResource( 20 )]
+margin_left = 27.0
+margin_top = 65.0
+margin_right = 43.0
+margin_bottom = 81.0
+
+[node name="NextButton2" type="TextureButton" parent="Control/BackgroundRect/VBoxContainer/HBoxContainer"]
+margin_left = 665.0
+margin_right = 740.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 75, 89 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+nextCard = "res://UI/ChallengeCard/EvaluateCard.tscn"
+
+[node name="HBoxContainer2" parent="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton2" instance=ExtResource( 20 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -10.5
+margin_top = -24.0
+margin_right = 5.5
+margin_bottom = -8.0
+
+[node name="LoadMapSceneButton" type="Button" parent="Control"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+custom_fonts/font = ExtResource( 3 )
+text = "LOAD MAP SCENE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadSavedScene" parent="." instance=ExtResource( 1 )]
+
+[node name="UISoundManager" parent="." instance=ExtResource( 8 )]
+
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/Control/CardHeader/BackButton" to="." method="go_back"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/VBoxContainer/zoomButtonIn/ZoomInButton" to="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo" method="enable_zoom"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo/zoomButton/ZoomOutButton" to="Control/BackgroundRect/VBoxContainer/CardColor/CardInfo" method="enable_zoom"]
+[connection signal="button_down" from="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton" to="UISoundManager" method="select"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton" to="." method="go_back"]
+[connection signal="button_down" from="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton2" to="UISoundManager" method="select"]
+[connection signal="pressed" from="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton2" to="Control/BackgroundRect/VBoxContainer/HBoxContainer/NextButton2" method="showNextCard"]
+[connection signal="pressed" from="Control/LoadMapSceneButton" to="LoadSavedScene" method="load_saved_scene"]
+
+[editable path="Control/BackgroundRect/VBoxContainer/Control"]

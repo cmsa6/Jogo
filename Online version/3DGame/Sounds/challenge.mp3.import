@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/challenge.mp3-096fc4ed9de7ba464571e661f14ab98a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/challenge.mp3"
+dest_files=[ "res://.import/challenge.mp3-096fc4ed9de7ba464571e661f14ab98a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

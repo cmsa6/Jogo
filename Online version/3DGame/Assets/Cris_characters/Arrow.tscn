@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Arrow/Arrow5.FBX" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "spin"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -90 ), Vector3( 0, 20, -90 ), Vector3( 0, 40, -90 ), Vector3( 0, 60, -90 ), Vector3( 0, 80, -90 ), Vector3( 0, 100, -90 ), Vector3( 0, 120, -90 ), Vector3( 0, 140, -90 ), Vector3( 0, 160, -90 ), Vector3( 0, 180, -90 ) ]
+}
+
+[node name="Arrow" instance=ExtResource( 1 )]
+transform = Transform( -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="Arrow5" parent="RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
+layers = 524288
+
+[node name="AnimationPlayer" parent="RootNode" index="1"]
+autoplay = "spin"
+anims/spin = SubResource( 1 )
+
+[node name="Highlight" type="SpotLight" parent="." index="1"]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 6.30712, 2.75693e-07, 0 )
+light_energy = 0.0
+light_cull_mask = 4294443008
+shadow_enabled = true
+spot_range = 23.2307
+spot_angle = 40.7813
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="2"]
+transform = Transform( 0.0471149, -9.72484e-11, 0.497775, 2.05946e-09, 0.5, -9.72484e-11, -0.497775, 2.05946e-09, 0.0471149, 7.52492, 3.28925e-07, -0.448213 )
+light_energy = 16.0
+light_cull_mask = 4294443008
+directional_shadow_max_distance = 629.4
